@@ -2,28 +2,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+
+
+
 public class DialogueScripts : MonoBehaviour 
 {
-	struct CharacterAndConversation
-	{
-		eCharacter character;
-		string dialogue;
-	}
 	enum eCharacter
 	{
 		Background = 0,
-		Snowy = 1,
-		Tintin = 2,
+		Tintin = 1,
+		Snowy = 2,
 		Thomson = 3,
 		Thompson = 4,
 		Waiter = 5,
 	}
+	public static DialogueScripts Instance;
+	public Text DialogueText;
 	private List<eCharacter> myCharacter;
     private int index;
     private string[] dialogueString;
-    public Text DialogueText;
+	public GameObject buttonAndTextHolder;
+
+	bool preventAfterClick;
+	bool showBox;
 	void Start () 
     {
+		showBox = false;
+		Instance = this;
+		preventAfterClick = false;
+		myCharacter = new List<eCharacter>();
         int tempIdx = 0;
 		dialogueString = new string[100];
         //page 1
@@ -173,23 +180,103 @@ public class DialogueScripts : MonoBehaviour
 		tempIdx++;
         //other
 		index = 0;
-        DialogueText.text = dialogueString[0];
+        DialogueText.text = dialogueString[index];
 	}
-
+	
     void Update()
     {
-        if( Input.GetKeyDown( "space" ) )
-        {
-            index++;
-            DialogueText.text = dialogueString[index];
+		Debug.Log("use space to spawn text and text box for now");
+		if(Input.GetKeyUp("space"))
+		{
+			showBox = !showBox;
+		}
+		buttonAndTextHolder.SetActive(showBox);
+	}
+
+
+	public void SetShowBox(bool _set)
+	{
+		showBox = _set;
+	}
+	public void ShowDialogueBasedOnIndex(int coordinate)
+	{
+		DialogueText.text = dialogueString[coordinate];
+	}
+	public void GetDialogueAndCharacter(ref string text, ref int character, int _index)
+	{
+		character = GetCharacterBasedOnIndex(_index);
+		text = dialogueString[_index];
+	}
+	public void NextDialogue()
+	{
+		if(preventAfterClick == false)
+		{
+			preventAfterClick = true;
+			index++;
+			DialogueText.text = dialogueString[index];
 			string temporaryText = dialogueString[index];
-
-			int count = 0;
-			string breakOut = "\n";
-			string name;
-
-        }
-
-    }
-	
+		}
+		else
+		{
+			preventAfterClick = false;
+		}
+	}
+	private int GetCurrentCharacter()
+	{
+		int returnValue = 0;
+		if (myCharacter [index] == eCharacter.Background) 
+		{
+			returnValue = 0;	
+		} 
+		else if (myCharacter [index] == eCharacter.Snowy) 
+		{
+			returnValue = 1;
+		}
+		else if (myCharacter [index] == eCharacter.Tintin) 
+		{
+			returnValue = 2;
+		}
+		else if (myCharacter [index] == eCharacter.Thomson) 
+		{
+			returnValue = 3;
+		}
+		else if (myCharacter [index] == eCharacter.Thompson) 
+		{
+			returnValue = 4;
+		}
+		else if (myCharacter [index] == eCharacter.Waiter) 
+		{
+			returnValue = 5;
+		}
+		return returnValue;
+	}
+	private int GetCharacterBasedOnIndex(int _idx)
+	{
+		int returnValue = 0;
+		if (myCharacter [_idx] == eCharacter.Background) 
+		{
+			returnValue = 0;	
+		} 
+		else if (myCharacter [_idx] == eCharacter.Snowy) 
+		{
+			returnValue = 1;
+		}
+		else if (myCharacter [_idx] == eCharacter.Tintin) 
+		{
+			returnValue = 2;
+		}
+		else if (myCharacter [_idx] == eCharacter.Thomson) 
+		{
+			returnValue = 3;
+		}
+		else if (myCharacter [_idx] == eCharacter.Thompson) 
+		{
+			returnValue = 4;
+		}
+		else if (myCharacter [_idx] == eCharacter.Waiter) 
+		{
+			returnValue = 5;
+		}
+		return returnValue;
+	}
 }
