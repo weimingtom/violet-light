@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PortraitManager : MonoBehaviour {
 
 	public GameObject [] portraits;
-	public Transform [] transfoms;
-	private int i = 1;
+	private int j = 1;
+
+	//enter and exit stuff.
+	private int listSize = 0;
+	private List<int> portraitList = new List<int>();
+	private List<Vector3> destinationList = new List<Vector3>();
+	public const float duration = 3.0f; //higher this is the slower the easing 
+	public const float deltaAlpha = 0.04f; //0.0 - 1.0
+
+
 
 	// Use this for initialization
 	void Start () 
@@ -15,47 +24,84 @@ public class PortraitManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		UpdateEnter();
+
+
 		if(Input.anyKeyDown)
 		{
-			Enter(0,i);
-			Debug.Log("i"+i);
-			i++;
-			if(i > 5)
+			Enter(0,j);
+			j++;
+			if(j > 5)
 			{
-				i = 1;
+				j = 1;
 			}
+		}
+	}
+	
+
+	void UpdateEnter()
+	{
+
+		for(int i = 0; i < listSize; ++i)
+		{
+			//portraits [portraitList[i]].transform.position = destinationList[i];
+			//fade in
+			float alpha = portraits[portraitList[i]].gameObject.GetComponent<SpriteRenderer>().color.a;
+			if(alpha < 1.0f)
+				portraits[portraitList[portraitList[i]]].gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,alpha + deltaAlpha);
+
+			//ease out
+			Vector3 newposition = new Vector3(portraits[portraitList[i]].transform.position.x, portraits[portraitList[i]].transform.position.y, 0.0f);
+			newposition.x += (destinationList[portraitList[i]].x - portraits[portraitList[i]].transform.position.x) / duration;
+			newposition.y += (destinationList[portraitList[i]].y - portraits[portraitList[i]].transform.position.y) / duration;
+			portraits[portraitList[i]].transform.position = newposition;
+			//Remove When Done
+
+			if(portraits[portraitList[portraitList[i]]].transform.position == destinationList[i] && alpha >= 1.0)
+			{
+				destinationList.RemoveAt(i);
+				portraitList.RemoveAt(i);
+				listSize--;
+			}
+
 		}
 	}
 
 	public void Enter(int picIndex, int position)
 	{
 		//portraits [picIndex].SetActive (!portraits[picIndex].activeSelf);
-		Vector3 PlaceToGo;
-		float x = Screen.width;
-		float y = /*Screen.height / 2*/ 0.0f;
+		Vector3 placeToGo;
+		Vector3 startPlace;
+		float sX = 0.0f, x = 0.0f;
+		float sY = 0.0f, y = 0.0f;
+		float z = 0.0f;
 		//added stuff for coordinates, mod as needed
-		if (Camera.main.aspect >= (16/10)) 
+		if (Camera.main.aspect >= (16/9)) 
 		{
-			//therefore ratio = 16/10
-			print ("ratio");
-			Debug.Break();
+			//therefore ratio = 16/9
 			switch(position)
 			{
 			default:
 			case 1:
-				x = -8;//mid
+				x = -6.0f;//mid
+				sX = -10.0f;
 				break;
 			case 2:
-				x = -4;
+				x = -3.0f;
+				sX = -6.0f;
 				break;
 			case 3:
-				x = 0;
+				x = 0.0f;
+				sX = 0.0f;
+				sY -= 5.0f;
 				break;
 			case 4:
-				x = 4;
+				x = 3.0f;
+				sX = 10.0f;
 				break;
 			case 5:
-				x = 8;
+				x = 6.0f;
+				sX = 10.0f;
 				break;
 			}
 
@@ -80,19 +126,18 @@ public class PortraitManager : MonoBehaviour {
 				break;
 			}
 		}
-		//
 
-		PlaceToGo.x = x;
-		PlaceToGo.y = y;
-		PlaceToGo.z = 0;
-		//Debug.Break ();
-		Debug.Log("x "+x);
-		//portraits[picIndex].transform.Translate(PlaceToGo , Space.World);
-		portraits [picIndex].transform.position = PlaceToGo;
-		//portraits[picIndex].rigidbody2D.transform.rigidbody2D.transform.rigidbody2D.transform.rigidbody2D.transform.rigidbody2D.transform.position.Set = PlaceToGo;
-		//portraits[picIndex].transform.position.Set(PlaceToGo.x, PlaceToGo.y, 0);
-		//portraits[picIndex].gameObject.transform.position.Set(PlaceToGo.x, PlaceToGo.y, 0);
-		//portraits[picIndex].rigidbody2D.transform.position.Set(PlaceToGo.x, PlaceToGo.y, 0);
+		placeToGo.x = x;
+		placeToGo.y = y;
+		placeToGo.z = 0;
+		placeToGo = new Vector3(x, y, z);
+		startPlace = new Vector3(sX, sY, z);
+
+		portraits[picIndex].gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+		portraitList.Add(picIndex);
+		destinationList.Add(placeToGo);
+		portraits[picIndex].transform.position = startPlace;
+		listSize++;
 
 	}
 
