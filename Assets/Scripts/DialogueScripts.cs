@@ -23,13 +23,13 @@ public class DialogueScripts : MonoBehaviour
     private string[] dialogueString;
 	public GameObject buttonAndTextHolder;
 
-	bool preventAfterClick;
+	//bool preventAfterClick;
 	bool showBox;
 	void Start () 
     {
 		showBox = false;
 		Instance = this;
-		preventAfterClick = false;
+		//preventAfterClick = false;
 		myCharacter = new List<eCharacter>();
         int tempIdx = 0;
 		dialogueString = new string[100];
@@ -191,6 +191,10 @@ public class DialogueScripts : MonoBehaviour
 			showBox = !showBox;
 		}
 		buttonAndTextHolder.SetActive(showBox);
+		if (showBox == true && Input.GetMouseButtonUp(0)) 
+		{
+			NextDialogue();
+		}
 	}
 
 
@@ -209,17 +213,11 @@ public class DialogueScripts : MonoBehaviour
 	}
 	public void NextDialogue()
 	{
-		if(preventAfterClick == false)
-		{
-			preventAfterClick = true;
+
 			index++;
 			DialogueText.text = dialogueString[index];
 			string temporaryText = dialogueString[index];
-		}
-		else
-		{
-			preventAfterClick = false;
-		}
+		
 	}
 	private int GetCurrentCharacter()
 	{
