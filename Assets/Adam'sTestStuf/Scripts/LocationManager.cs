@@ -9,12 +9,12 @@ public class LocationManager : MonoBehaviour {
     private int fadeIn = -1; //-1 means nothing needs to fade in. 
     public const float deltaAlpha = 0.04f; //0.0 - 1.0. How quickly the picture fades in. 
 
-    private int j = 0; //temp for changing scene
+    private int j = 1; //temp for changing scene
 
 	// Use this for initialization
 	void Start () 
     {
-	
+       locations[currentLoc].SetActive( true );
 	}
 	
 	// Update is called once per frame
