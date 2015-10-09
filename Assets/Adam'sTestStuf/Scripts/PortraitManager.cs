@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PortraitManager : MonoBehaviour {
 
 	public GameObject [] portraits;
-	private int j = 1;
+	private int j = 1; //this is temp for the making the character scroll through all 5 positions/
 
 	//enter and exit stuff.
 	private int listSize = 0;
@@ -63,7 +63,6 @@ public class PortraitManager : MonoBehaviour {
 				portraitList.RemoveAt(i);
 				listSize--;
 			}
-
 		}
 	}
 
@@ -127,9 +126,6 @@ public class PortraitManager : MonoBehaviour {
 			}
 		}
 
-		//placeToGo.x = x;
-		//placeToGo.y = y;
-		//placeToGo.z = 0;
 		placeToGo = new Vector3(x, y, z);
 		startPlace = new Vector3(sX, sY, z);
 
