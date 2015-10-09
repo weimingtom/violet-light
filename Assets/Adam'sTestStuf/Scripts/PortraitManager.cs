@@ -127,9 +127,9 @@ public class PortraitManager : MonoBehaviour {
 			}
 		}
 
-		placeToGo.x = x;
-		placeToGo.y = y;
-		placeToGo.z = 0;
+		//placeToGo.x = x;
+		//placeToGo.y = y;
+		//placeToGo.z = 0;
 		placeToGo = new Vector3(x, y, z);
 		startPlace = new Vector3(sX, sY, z);
 
