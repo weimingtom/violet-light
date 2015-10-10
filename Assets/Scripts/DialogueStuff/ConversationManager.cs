@@ -1,13 +1,55 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
+using System.Text;
+using System;
+
 public class ConversationManager : MonoBehaviour 
 {
     public string fileLocation;
-    
+
+    private bool LoadFile(string fileName)
+    {
+        try
+        {
+            string line;
+            // create a new stream reader, tell it which file to read and what encoding the file was saved as
+            StreamReader reader = new StreamReader(fileName, Encoding.Default);
+            using(reader)
+            {
+                do
+                {
+                    line = reader.ReadLine();
+                    if( line != null ) // line is not empty
+                    {
+                        //Store Character
+                        print(line);
+                    }
+                }
+                while( line != null );
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log(String.Format("{0}\n", e.Message));
+            Console.WriteLine("{0}\n", e.Message);
+            return false;
+        }
+        return true;
+    }
 	// Use this for initialization
 	void Start () 
     {
+        if( LoadFile( fileLocation ) == true )
+        {
+            print( "Success" );
+            Debug.Break();
+        }
+        else
+        {
+            print( "fail" );
+            Debug.Break();
+        }
 	}
 	
 	// Update is called once per frame
