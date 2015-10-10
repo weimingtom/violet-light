@@ -6,9 +6,10 @@ using System;
 
 public class ConversationManager : MonoBehaviour 
 {
+    static public ConversationManager Instance;
     public string fileLocation;
 
-    private bool LoadFile(string fileName)
+    private bool LoadGameScripts(string fileName)
     {
         try
         {
@@ -23,7 +24,7 @@ public class ConversationManager : MonoBehaviour
                     if( line != null ) // line is not empty
                     {
                         //Store Character
-                        print(line);
+                        
                     }
                 }
                 while( line != null );
@@ -37,25 +38,10 @@ public class ConversationManager : MonoBehaviour
         }
         return true;
     }
-	// Use this for initialization
-	void Start () 
+    void Awake()
     {
-        if( LoadFile( fileLocation ) == true )
-        {
-            print( "Success" );
-            Debug.Break();
-        }
-        else
-        {
-            print( "fail" );
-            Debug.Break();
-        }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        Instance = this;
+    }
 }
 
 
