@@ -4,23 +4,27 @@ using System;
 using System.Collections.Generic;
 public class StringParser : MonoBehaviour 
 {
-    static StringParser Instance;
+    static public StringParser Instance;
     Dictionary<string, string> conversation;
 
     void Awake()
     {
         Instance = this;
     }
-    public void RegisterDialogue(string mainString)
+    public void RegisterDialogue(string header, string content)
     {
-        string conversationHeader = "a";
-        string conversationContent = "b";
-        conversation.Add(conversationHeader.ToString(), conversationContent.ToString());
+        string conversationHeader = header;
+        string conversationContent = content;
+        //conversation.Add(conversationHeader.ToString(), conversationContent.ToString());
+        print("Header :" + conversationHeader);
+        print("Content :" + conversationContent);
+        Debug.Break();
     }
-    void ParseDialogue(string mainString,ref string header, ref string content)
+    public void ParseDialogue(string mainString)
     {
         int locationCheck = 0;
-
+        string header = "";
+        string content = "";
         for( int index = 0; index < mainString.Length; index++ )
         {
             if( mainString[index] == '"' )
@@ -37,9 +41,16 @@ public class StringParser : MonoBehaviour
                 {
                     content += mainString[index];
                 }
-            
             }
-
+        }
+        if( locationCheck != 4 )
+        {
+            print( "wrong format" );
+            Debug.Break();
+        }
+        else
+        { 
+            RegisterDialogue(header, content);
         }
     }
 }
