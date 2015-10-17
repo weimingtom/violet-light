@@ -6,7 +6,6 @@ public class StringParser : MonoBehaviour
 {
     static public StringParser Instance;
     Dictionary<string, string> conversation;
-
     void Awake()
     {
         Instance = this;
@@ -15,7 +14,7 @@ public class StringParser : MonoBehaviour
     {
         string conversationHeader = header;
         string conversationContent = content;
-        //conversation.Add(conversationHeader.ToString(), conversationContent.ToString());
+        conversation.Add(conversationHeader.ToString(), conversationContent.ToString());
         print("Header :" + conversationHeader);
         print("Content :" + conversationContent);
         Debug.Break();
@@ -27,7 +26,7 @@ public class StringParser : MonoBehaviour
         string content = "";
         for( int index = 0; index < mainString.Length; index++ )
         {
-            if( mainString[index] == '"' )
+            if( mainString[index] == '"' && seekCommand == false)
             {
                 locationCheck++;
             }

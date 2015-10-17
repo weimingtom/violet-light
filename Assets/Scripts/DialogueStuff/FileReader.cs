@@ -5,9 +5,10 @@ using System.Text;
 using System;
 public class FileReader : MonoBehaviour 
 {
+    public static FileReader Instance;
     public string fileLocation;
     private int readIndex;
-    public bool LoadFile()
+    public void LoadFile()
     {
         try
         {
@@ -34,21 +35,14 @@ public class FileReader : MonoBehaviour
             //Debug.Log( String.Format( "{0}\n", e.Message ) );
             print( String.Format( "{0}\n", e.Message ) );
             Console.WriteLine( "{0}\n", e.Message );
-            return false;
         }
-        return true;
     }
     void Awake()
     {
         readIndex = 0;
+        Instance = this;
     }
     void Start()
     {
-        if( LoadFile() )
-        { }
-        else
-        {
-            print("fail");
-        }
     }
 }
