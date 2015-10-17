@@ -2,31 +2,70 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class BackgroundManager : MonoBehaviour 
+public class BackgroundManager : MonoBehaviour
 {
-    private Sprite CurrentBackground;
-    private Dictionary<string, string> Backgrounds = new Dictionary<string, string>();
-    private GameObject ThisBackground;
-    private SpriteRenderer BgRenderer; 
+    private Dictionary<string, string> backgroundLookup = new Dictionary<string, string>();
+    private GameObject currBackground;
+    private SpriteRenderer currBackgroundRend;
 
-	void Start () 
+    //0.0 - 1.0. How quickly the picture fades in. 
+    public float deltaAlpha = 0.03f;
+    //thew new background that is fading in
+    private GameObject newBackground;
+    private SpriteRenderer newBackgroundRend;
+
+    void LoadBackgrounds( string filepath )
     {
         // TODO(jesse): Create this from file
         // Create Dictionary
-        Backgrounds.Add( "test", "Textures/Backgrounds/backstreet_test" );
-        Backgrounds.Add( "test2", "Textures/Backgrounds/backstreet_test2" );
+        backgroundLookup.Add( "test1", "Textures/Backgrounds/backstreet_test" );
+        backgroundLookup.Add( "test2", "Textures/Backgrounds/backstreet_test2" );
+    }
+
+    void Start()
+    {
+        LoadBackgrounds( "void" );
 
         // Create GameObject
-        ThisBackground = new GameObject("Background");
-        BgRenderer = ThisBackground.AddComponent<SpriteRenderer>();
+        currBackground = new GameObject( "Background" );
+        currBackgroundRend = currBackground.AddComponent<SpriteRenderer>();
+
+        newBackground = new GameObject( "NewBackground" );
+        newBackground.transform.position = new Vector3( 0f, 0f, -0.01f );
+        newBackgroundRend = newBackground.AddComponent<SpriteRenderer>();
+        newBackgroundRend.sprite = null;
 
         // Set initial background
-        ChangeBackground( "test" );
-	}
+        currBackgroundRend.sprite = Resources.Load<Sprite>( backgroundLookup["test1"] );
+    }
 
-    public void ChangeBackground(string BackgroundName)
+    void Update()
+    {
+        if( newBackgroundRend.sprite != null )
+            DoFade();
+    }
+
+    public void ChangeBackground( string backgroundName )
     {
         // Load from \Resources\ folder
-        BgRenderer.sprite = Resources.Load<Sprite>( Backgrounds[BackgroundName] );
+        newBackgroundRend.sprite = Resources.Load<Sprite>( backgroundLookup[backgroundName] );
+        newBackgroundRend.color = new Color( 1f, 1f, 1f, 0f );
+
+    }
+
+    void DoFade()
+    {
+        float alpha = newBackgroundRend.color.a;
+
+        if( alpha < 1.0 ) //Still doing Fade
+        {
+            newBackgroundRend.color = new Color( 1f, 1f, 1f, alpha + deltaAlpha );
+        }
+        else //Fade done: Set old to new and new to null.
+        {
+            currBackgroundRend.sprite = newBackgroundRend.sprite;
+            newBackgroundRend.sprite = null;
+        }
+
     }
 }
