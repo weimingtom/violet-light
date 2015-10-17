@@ -1,0 +1,6 @@
+Case: 1
+ID: 1
+Name: "Crime Scene"
+Background: case1_alleyway
+Time: 1005
+Interactables: area1
