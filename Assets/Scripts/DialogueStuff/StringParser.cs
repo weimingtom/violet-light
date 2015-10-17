@@ -24,6 +24,11 @@ public class StringParser : MonoBehaviour
         int locationCheck = 0;
         string header = "";
         string content = "";
+
+        // NOTE(jesse): REMOVE THIS HENDRY
+        bool seekCommand = false;
+        // ===============================
+
         for( int index = 0; index < mainString.Length; index++ )
         {
             if( mainString[index] == '"' && seekCommand == false)
