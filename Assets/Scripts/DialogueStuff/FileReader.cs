@@ -44,7 +44,7 @@ public class FileReader : MonoBehaviour
         }
         else if( type == eTextType.Background )
         {
-            StringParser.Instance.BackgroundReader( line, ref BackgroundManager.Instance.backgroundLookup );
+            StringParser.Instance.BackgroundReader( line, ref SceneManager.Instance.backgroundLookup );
         }
     }
     public void LoadFile()

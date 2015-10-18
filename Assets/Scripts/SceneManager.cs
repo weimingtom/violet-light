@@ -14,21 +14,82 @@ public class SceneManager : MonoBehaviour
         // file dynamically
         public GameObject Prefab;
     }
+    static public SceneManager Instance;
 
     private string CurrentCaseFile = null;
     private uint Case = 0;
     List<Scene> Scenes = new List<Scene>();
 
-	void Start () 
+    public Dictionary<string, string> backgroundLookup = new Dictionary<string, string>();
+    private GameObject currBackground;
+    private SpriteRenderer currBackgroundRend;
+
+    //0.0 - 1.0. How quickly the picture fades in. 
+    public float deltaAlpha = 0.7f;
+    //thew new background that is fading in
+    private GameObject newBackground;
+    private SpriteRenderer newBackgroundRend;
+
+    void Awake()
     {
+        Instance = this;
+    }
+
+    void Start()
+    {
+        backgroundLookup.Add( "test1", "Textures/Backgrounds/backstreet_test" );
+        backgroundLookup.Add( "test2", "Textures/Backgrounds/backstreet_test2" );
+
+        // Create GameObject
+        currBackground = new GameObject( "Background" );
+        currBackgroundRend = currBackground.AddComponent<SpriteRenderer>();
+
+        newBackground = new GameObject( "NewBackground" );
+        newBackground.transform.position = new Vector3( 0f, 0f, -0.01f );
+        newBackgroundRend = newBackground.AddComponent<SpriteRenderer>();
+        newBackgroundRend.sprite = null;
+
+        // Set initial background
+        currBackgroundRend.sprite = Resources.Load<Sprite>( backgroundLookup["test1"] );
+
         LoadCase( 1 );
-	}
+    }
+
+    void Update()
+    {
+        if( newBackgroundRend.sprite != null )
+            DoFade();
+    }
+
+    void ChangeBackground( string backgroundName, float Speed = 0.5f )
+    {
+        // Load from \Resources\ folder
+        newBackgroundRend.sprite = Resources.Load<Sprite>( backgroundLookup[backgroundName] );
+        newBackgroundRend.color = new Color( 1f, 1f, 1f, 0f );
+        deltaAlpha = Speed;
+    }
+
+    void DoFade()
+    {
+        float alpha = newBackgroundRend.color.a;
+
+        if( alpha < 1.0 ) //Still doing Fade
+        {
+            newBackgroundRend.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime) );
+        }
+        else //Fade done: Set old to new and new to null.
+        {
+            currBackgroundRend.sprite = newBackgroundRend.sprite;
+            newBackgroundRend.sprite = null;
+        }
+
+    }
 	
-    void LoadScene(uint SceneID)
+    public void ChangeScene(int SceneID)
     {
         if( CurrentCaseFile != null )
         {
-            //BackgroundManager
+            ChangeBackground( Scenes[SceneID].Background , 0.7f);
         }
         else Debug.Log( "[scene manager] No case loaded!" );
     }
@@ -38,6 +99,7 @@ public class SceneManager : MonoBehaviour
         Debug.Log( "[scene manager] loading case..." );
         // TODO(jesse): StringParser read file into memory
         //CurrentCaseFile = FileReader.Instance.LoadFile()
+        CurrentCaseFile = "0";
         if( CurrentCaseFile != null ) 
         {
             Debug.Log( "[scene manager] Case loaded!" ); 
@@ -47,15 +109,15 @@ public class SceneManager : MonoBehaviour
 
             // TODO(jesse): Load this in from a file
             Scene NewScene = new Scene();
-            NewScene.Background = "test";
-            NewScene.ID = 1;
+            NewScene.Background = "test1";
+            NewScene.ID = 0;
             NewScene.Name = "Alley Way";
             NewScene.Time = 1005;
             NewScene.Prefab = null;
             Scenes.Add( NewScene );
 
             NewScene.Background = "test2";
-            NewScene.ID = 2;
+            NewScene.ID = 1;
             NewScene.Name = "Bridge";
             NewScene.Time = 0605;
             NewScene.Prefab = null;
