@@ -15,9 +15,12 @@ public class JesseTest : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-	    if(Input.GetKeyDown(KeyCode.Space))
+	    if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             BgM.ChangeBackground("test2");
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+            BgM.ChangeBackground( "test1", 0.7f );
+
 	}
 }

@@ -51,12 +51,12 @@ public class BackgroundManager : MonoBehaviour
             DoFade();
     }
 
-    public void ChangeBackground( string backgroundName )
+    public void ChangeBackground( string backgroundName, float Speed = 0.5f)
     {
         // Load from \Resources\ folder
         newBackgroundRend.sprite = Resources.Load<Sprite>( backgroundLookup[backgroundName] );
         newBackgroundRend.color = new Color( 1f, 1f, 1f, 0f );
-
+        deltaAlpha = Speed;
     }
 
     void DoFade()
@@ -65,7 +65,7 @@ public class BackgroundManager : MonoBehaviour
 
         if( alpha < 1.0 ) //Still doing Fade
         {
-            newBackgroundRend.color = new Color( 1f, 1f, 1f, alpha + deltaAlpha );
+            newBackgroundRend.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime) );
         }
         else //Fade done: Set old to new and new to null.
         {
