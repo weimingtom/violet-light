@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class BackgroundManager : MonoBehaviour
 {
-    private Dictionary<string, string> backgroundLookup = new Dictionary<string, string>();
+    static public BackgroundManager Instance;
+    public Dictionary<string, string> backgroundLookup = new Dictionary<string, string>();
     private GameObject currBackground;
     private SpriteRenderer currBackgroundRend;
 
@@ -13,6 +14,11 @@ public class BackgroundManager : MonoBehaviour
     //thew new background that is fading in
     private GameObject newBackground;
     private SpriteRenderer newBackgroundRend;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void LoadBackgrounds( string filepath )
     {

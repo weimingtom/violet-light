@@ -9,6 +9,7 @@ public class StringParser : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        conversation = new Dictionary<string,string>();
     }
     public void RegisterDialogue(string header, string content)
     {
@@ -24,14 +25,9 @@ public class StringParser : MonoBehaviour
         int locationCheck = 0;
         string header = "";
         string content = "";
-
-        // NOTE(jesse): REMOVE THIS HENDRY
-        bool seekCommand = false;
-        // ===============================
-
         for( int index = 0; index < mainString.Length; index++ )
         {
-            if( mainString[index] == '"' && seekCommand == false)
+            if( mainString[index] == '"')
             {
                 locationCheck++;
             }
@@ -47,6 +43,7 @@ public class StringParser : MonoBehaviour
                 }
             }
         }
+
         if( locationCheck != 4 )
         {
             print( "wrong format" );
@@ -55,6 +52,48 @@ public class StringParser : MonoBehaviour
         else
         { 
             RegisterDialogue(header, content);
+        }
+    }
+    public void CommandParser(string mainstring)
+    {
+        for( int i = 0; i < mainstring.Length; i++ )
+        {
+
+        }
+    }
+    public void BackgroundReader( string mainString, ref Dictionary<string, string> _background)
+    {
+        int locationCheck = 0;
+        string header = "";
+        string content = "";
+
+        for( int index = 0; index < mainString.Length; index++ )
+        {
+            if( mainString[index] == ' ' )//check for space
+            {
+                locationCheck++;
+            }
+            else
+            {
+                if( locationCheck == 0 )
+                {
+                    header += mainString[index];
+                }
+                else if( locationCheck == 1 )
+                {
+                    content += mainString[index];
+                }
+            }
+        }
+
+        if( locationCheck != 1 )
+        {
+            print( "wrong format" );
+            Debug.Break();
+        }
+        else
+        {
+            _background.Add( header, content );
         }
     }
 }
