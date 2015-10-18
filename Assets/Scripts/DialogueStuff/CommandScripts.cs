@@ -1,33 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class CommandScripts : MonoBehaviour 
+public class CommandScripts : MonoBehaviour
 {
-    enum eCommand
-    { 
-        showCharacter,
-        From,
-        Wait,
-        ShowText,
-        location,
-        EndConversation
+    private int conversationID;
+    private List<string> locations;
+    private int currentlocationIndex;
+    void Start()
+    {
+        conversationID = 0;
+        currentlocationIndex = 0;
     }
-    struct Wait
+    public void SetConversationID(int id)
+    {
+        conversationID = id;
+    }
+    public void SetLocation(string _location)
+    { 
+        locations.Add(_location);
+    }
+    public string GetLocation()
+    {
+        //warning :: this only able to go forward
+        return locations[currentlocationIndex++];
+    }
+
+    //enum eCommand
+    //{ 
+    //    showCharacter,
+    //    From,
+    //    Wait,
+    //    ShowText,
+    //    location,
+    //    EndConversation
+    //}
+    public struct WaitCommand
     {
         float waitForTime;
         bool waitForClick;
     }
-    void showCharacter()
-    { 
-    }
-	// Use this for initialization
-	void Start () 
+    public struct ShowCharacterCommand
     {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        string character;
+        string direction;
+    }
+    public struct ShowTextCommand
+    {
+        bool onOffSwitch;
+    }
 }

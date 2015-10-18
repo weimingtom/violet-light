@@ -63,7 +63,8 @@ public class FileReader : MonoBehaviour
                     line = reader.ReadLine();
                     if( line != null ) // line is not empty
                     {
-                        RegisterFile(type, line);
+                        print("detected");
+                        //RegisterFile(type, line);
                     }
                 }
                 while( line != null );
@@ -84,6 +85,9 @@ public class FileReader : MonoBehaviour
     }
     void Start()
     {
-        LoadFile();
+        //LoadFile();
+        TextAsset myText = Resources.Load( "a" ) as TextAsset;
+        print("derp contain : " + myText.ToString());
+        Debug.Break();
     }
 }
