@@ -10,17 +10,11 @@ public class JesseTest : MonoBehaviour
 	void Start () 
     {
         BgM = SceneManager.Instance;
+        Vector3 Pos = new Vector3( 2, 1, -1 );
+
+        InteractableManager.Instance.Spawn( "DefaultProp", Pos );
+        Pos = new Vector3(-3, 1, -1 );
+        InteractableManager.Instance.Spawn( "DefaultDoor", Pos );
 	}
 	
-	// Update is called once per frame
-	void Update () 
-    {
-	    if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            BgM.ChangeScene(0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-            BgM.ChangeScene(1);
-
-	}
 }
