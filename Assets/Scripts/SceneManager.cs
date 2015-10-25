@@ -12,12 +12,12 @@ public class SceneManager : MonoBehaviour
         public uint     Time;
         // TODO(jesse): Load everything in the scene from a 
         // file dynamically
-        public GameObject Prefab;
+        public string Prefab;
     }
     static public SceneManager Instance;
 
     private string CurrentCaseFile = null;
-    private uint Case = 0;
+//    private uint Case = 0;
     List<Scene> Scenes = new List<Scene>();
 
     public Dictionary<string, string> backgroundLookup = new Dictionary<string, string>();
@@ -90,6 +90,7 @@ public class SceneManager : MonoBehaviour
         if( CurrentCaseFile != null )
         {
             ChangeBackground( Scenes[SceneID].Background , 0.7f);
+            InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab ,Vector3.zero);
         }
         else Debug.Log( "[scene manager] No case loaded!" );
     }
@@ -103,7 +104,7 @@ public class SceneManager : MonoBehaviour
         if( CurrentCaseFile != null ) 
         {
             Debug.Log( "[scene manager] Case loaded!" ); 
-            Case = NewCase;
+  //          Case = NewCase;
 
             Scenes.Clear();
 
@@ -113,14 +114,14 @@ public class SceneManager : MonoBehaviour
             NewScene.ID = 0;
             NewScene.Name = "Alley Way";
             NewScene.Time = 1005;
-            NewScene.Prefab = null;
+            NewScene.Prefab = "TestArea1";
             Scenes.Add( NewScene );
 
             NewScene.Background = "test2";
             NewScene.ID = 1;
             NewScene.Name = "Bridge";
             NewScene.Time = 0605;
-            NewScene.Prefab = null;
+            NewScene.Prefab = "TestArea2";
             Scenes.Add( NewScene );
 
         }
