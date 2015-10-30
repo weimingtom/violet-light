@@ -21,6 +21,9 @@ public class CharacterManager : MonoBehaviour {
     private float easeDuration;
     private float deltaAlpha;
 
+    static public CharacterManager Instance;
+    void Awake()
+    { Instance = this;  }
 
     //TODO account for case of starting another movement before last has finished. 
     private string changingPortrait;
@@ -54,7 +57,7 @@ public class CharacterManager : MonoBehaviour {
 
 
 
-    private class Character
+    public class Character
     {
 
         //May need to change expressions so there is functionality to change position
@@ -88,6 +91,10 @@ public class CharacterManager : MonoBehaviour {
             mGObject.transform.position = new Vector3( -20, 0, 0 );
             mPortrait = mGObject.AddComponent<SpriteRenderer>();
             mExpressionRend = mGObject.AddComponent<SpriteRenderer>();
+
+            mPoses = new Dictionary<string,string>();
+            mExpressions = new Dictionary<string,string>();
+
         }
 
         public void AddPose(string name, string filepath)
@@ -102,6 +109,7 @@ public class CharacterManager : MonoBehaviour {
         
         public void ChangePose(string pose)
         {
+            //do an assert or something here to check that the pose exists.
             mPortrait.sprite = Resources.Load<Sprite>( mPoses[pose] );
         }
 
@@ -118,7 +126,7 @@ public class CharacterManager : MonoBehaviour {
         }
 
         //TODO: change these to be able to adapt to the screen size.
-        virtual private Vector3 FindStartPlace( Positions position )
+        private Vector3 FindStartPlace( Positions position )
         { 
             Vector3 startPlace;
              switch(position)
@@ -152,7 +160,7 @@ public class CharacterManager : MonoBehaviour {
              return startPlace;
         }
 
-        virtual private Vector3 FindEndPlace( Positions position ) 
+        private Vector3 FindEndPlace( Positions position ) 
         {
             Vector3 endPlace;
             switch( position )
@@ -191,13 +199,14 @@ public class CharacterManager : MonoBehaviour {
         {
             float alpha = mPortrait.color.a;
             Vector3 destination;
-           
+            destination = FindEndPlace( newPosition );
 
            
 
             if( alpha < 1.0 ) //Still doing Fade and ease
             {
                 mPortrait.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime) );
+                mExpressionRend.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime));
             }
 
             //ease out
@@ -207,7 +216,7 @@ public class CharacterManager : MonoBehaviour {
             mPortrait.transform.position = newposition;
 
 
-            if(false)
+            if(alpha >= 1.0f && mGObject.transform.position == destination)
             {
                 return true;
             }
