@@ -1,35 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
 public class CommandManager : MonoBehaviour {
 
     static public CommandManager Instance;
-	List<int> ID;
-	Dictionary<int, List<Command>> commands;
+	List<string> ID;
+	Dictionary<string, List<Command>> commands;
     private List<Command> temporaryCommandsHolder;
-    private int index;
     void Start()
     {
         Instance = this;
-        ID = new List<int>();
-        commands = new Dictionary<int, List<Command>>();
+        ID = new List<string>();
+        commands = new Dictionary<string, List<Command>>();
         temporaryCommandsHolder = new List<Command>();
-        index = 0;
     }
-    public void RegisterID(int id)
+    public void RegisterID(string id)
 	{
-        ID.Add(id);
-        RegisterSetOfCommand();
-        index++;
+        ID.Add( id );
 	}
-    private void RegisterSetOfCommand()
+    public void RegisterSetOfCommand()
     {
-        if( temporaryCommandsHolder.Count > 0 )
-        { 
-            commands.Add(ID[index], temporaryCommandsHolder);
+        if( ID.Count > 0 )
+        {
+            commands.Add( ID[(ID.Count - 1)], temporaryCommandsHolder );
             temporaryCommandsHolder.Clear();
         }
+        else
+        {
+            print("Please Register ID First");
+            Debug.Break();
+        }
     }
+
     public void AddCommand(Command command)
     {
         temporaryCommandsHolder.Add(command);
@@ -53,6 +56,10 @@ public class ShowCharacterCommand : Command
 {
     string CharacterName;
     string SpawnLocation;
+    public override void ExecuteCommand()
+    {
+
+    }
     public override void PrintData()
     {
         print("Show Character Command\nCharacter Name : " + CharacterName.ToString() + " ::Spawn Location : " + SpawnLocation.ToString());
@@ -104,6 +111,10 @@ public class WaitForTimeCommand : Command
 public class ShowTextCommand : Command
 {
     string conversationTag = "";
+    public override void ExecuteCommand()
+    {
+
+    }
     public override void PrintData()
     {
         print( "ShowTextCommand\nconversationTag : " + conversationTag );
@@ -168,6 +179,10 @@ public class WaitForActionCommand : Command
 public class LocationCommand : Command
 {
     string location = "";
+    public override void ExecuteCommand()
+    {
+
+    }
     public override void PrintData()
     {
         print( "LocationCommand\nlocation : " + location );

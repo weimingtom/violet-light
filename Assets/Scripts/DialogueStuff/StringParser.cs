@@ -124,7 +124,14 @@ public class StringParser : MonoBehaviour
             break;
         case "ShowIcon":
             break;
+        case "End":
+            EndCommand();
+        break;
         }
+    }
+    void EndCommand()
+    {
+        CommandManager.Instance.RegisterSetOfCommand();
     }
     void RegisterCharacter( ref int index, string mainString )
     {
@@ -180,7 +187,7 @@ public class StringParser : MonoBehaviour
             //it is on the next line now
         }
         index--;
-        CommandManager.Instance.RegisterID(Int32.Parse(temporaryID.ToString()));
+        CommandManager.Instance.RegisterID(temporaryID);
     }
     void RegisterWaitForTime(ref int index, string mainString)
     {
