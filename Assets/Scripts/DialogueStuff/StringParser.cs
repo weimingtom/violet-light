@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-public class StringParser : MonoBehaviour 
+using System.Linq;
+public class StringParser : MonoBehaviour
 {
     static public StringParser Instance;
     Dictionary<string, string> conversation;
@@ -11,6 +12,7 @@ public class StringParser : MonoBehaviour
         Instance = this;
         conversation = new Dictionary<string,string>();
     }
+    //Dialogue Stuff
     public void RegisterDialogue(string header, string content)
     {
         string conversationHeader = header;
@@ -25,41 +27,245 @@ public class StringParser : MonoBehaviour
         int locationCheck = 0;
         string header = "";
         string content = "";
+        /*
+            The format of the dialogue text
+         * "header_name""content"
+         * location check is used to track -> "
+         */
         for( int index = 0; index < mainString.Length; index++ )
         {
-            if( mainString[index] == '"')
+            if( mainString[index] == '"' )
             {
                 locationCheck++;
             }
+            else if( mainString[index] == '\r')
+            {
+                //advance once to reach \n
+                //go out from the if statement and increment once again to reach the next line
+                if( locationCheck != 4 )
+                {
+                    print( "Wrong Format!!\n" );
+                }
+                else 
+                {
+                    index++;
+                    locationCheck = 0;
+                    RegisterDialogue( header, content );
+                    header = "";
+                    content = "";
+                }
+            }
             else
-            { 
+            {
                 if( locationCheck == 1 )
                 {
+                    //since we only have one of -> " character assume that we have the header
                     header += mainString[index];
                 }
                 else if( locationCheck == 3 )
                 {
+                    //after location check == 3 we have the content
                     content += mainString[index];
                 }
             }
         }
-
-        if( locationCheck != 4 )
-        {
-            print( "wrong format" );
-            Debug.Break();
-        }
-        else
+        if( locationCheck == 4 )
         { 
+            //register the last dialogue
             RegisterDialogue(header, content);
         }
     }
-    public void CommandParser(string mainstring)
+    //Command Stuff
+    public void ParseCommand(string mainstring)
     {
+        string commandReaded = "";
         for( int i = 0; i < mainstring.Length; i++ )
         {
-
+            //read
+            if(mainstring[i] != ':')
+            {   //to be a valid command therefore the mainstring[i]
+                //parse file
+                commandReaded += mainstring[i].ToString();
+            }
+            else if(mainstring[i] == ':')
+            {
+                i += 2;//get rid off space
+                RegisterCommand(commandReaded, ref i, mainstring);
+                commandReaded = "";
+            }
         }
+        CommandManager.Instance.PrintData();
+    }
+    public void RegisterCommand(string command, ref int index, string mainString)
+    {
+        switch( command )
+        { 
+        case "Conversation":
+            RegisterConversationID(ref index, mainString);
+            break;
+        case "ShowChar":
+            RegisterCharacter(ref index, mainString);
+            break;
+        case "WaitForTime":
+            RegisterWaitForTime( ref index, mainString );
+            break;
+        case "ShowText":
+            RegisterShowText(ref index, mainString);
+            break;
+        case "WaitForAction":
+            RegisterWaitForAction( ref index, mainString );
+            break;
+        case "ShowPrompt":
+            RegisterLocation( ref index, mainString );
+            break;
+        case "If":
+            break;
+        case "Location":
+            break;
+        case "ShowIcon":
+            break;
+        }
+    }
+    void RegisterCharacter( ref int index, string mainString )
+    {
+        string characterName = "";
+        string spawnLocation = "";
+        bool spaceDetected = false;
+        int checkForSpecialCharacter = 0;
+        while(spaceDetected == false)
+        {
+            if( mainString[index] != ' ' )
+            {
+                characterName += mainString[index];
+            }
+            else
+            {
+                spaceDetected = true;
+            }
+            index++;
+        }
+        while(checkForSpecialCharacter < 2)
+        {
+            if( mainString[index] != '\r' && mainString[index] != '\n' )
+            {
+                spawnLocation += mainString[index];
+            }
+            else
+            {
+                checkForSpecialCharacter++;
+            }
+            index++;
+        }
+        index--;
+        ShowCharacterCommand character = new ShowCharacterCommand();
+        character.SetCharacterName(characterName);
+        character.SetSpawnLocation(spawnLocation);
+        CommandManager.Instance.AddCommand(character);
+    }
+    void RegisterConversationID(ref int index, string mainString)
+    {
+        string temporaryID = "";
+        int checkForSpecialCharacter = 0;
+        while(checkForSpecialCharacter < 2)
+        {
+            if( mainString[index] != '\r' && mainString[index] != '\n' )
+            {
+                temporaryID += mainString[index];
+            }
+            else
+            {
+                checkForSpecialCharacter++;
+            }
+            index++;
+            //it is on the next line now
+        }
+        index--;
+        CommandManager.Instance.RegisterID(Int32.Parse(temporaryID.ToString()));
+    }
+    void RegisterWaitForTime(ref int index, string mainString)
+    {
+        string time = "";
+        int checkForSpecialCharacter = 0;
+        while( checkForSpecialCharacter < 2 )
+        {
+            if( mainString[index] != '\r' && mainString[index] != '\n' )
+            {
+                time += mainString[index];
+            }
+            else
+            {
+                checkForSpecialCharacter++;
+            }
+            index++;
+            //it is on the next line now
+        }
+        index--;
+        WaitForTimeCommand waitTimeCommand = new WaitForTimeCommand();
+        waitTimeCommand.SetTime( float.Parse( time.ToString() ) );
+        CommandManager.Instance.AddCommand( waitTimeCommand );
+    }
+    void RegisterShowText( ref int index, string mainString )
+    {
+        string conversationTag = "";
+        int checkForSpecialCharacter = 0;
+        while( checkForSpecialCharacter < 2 )
+        {
+            if( mainString[index] != '\r' && mainString[index] != '\n' )
+            {
+                conversationTag += mainString[index];
+            }
+            else
+            {
+                checkForSpecialCharacter++;
+            }
+            index++;
+        }
+        index--;
+        ShowTextCommand showText = new ShowTextCommand();
+        showText.SetConversation( conversationTag );
+        CommandManager.Instance.AddCommand(showText);
+    }
+    void RegisterWaitForAction(ref int index, string mainString)
+    {
+        string actionTag = "";
+        int checkForSpecialCharacter = 0;
+        while( checkForSpecialCharacter < 2 )
+        {
+            if( mainString[index] != '\r' && mainString[index] != '\n' )
+            {
+                actionTag += mainString[index];
+            }
+            else
+            {
+                checkForSpecialCharacter++;
+            }
+            index++;
+        }
+        index--;
+        WaitForActionCommand action = new WaitForActionCommand();
+        action.SetAction(actionTag);
+        CommandManager.Instance.AddCommand(action);
+    }
+    void RegisterLocation( ref int index, string mainString )
+    {
+        string location = "";
+        int checkForSpecialCharacter = 0;
+        while( checkForSpecialCharacter < 2 )
+        {
+            if( mainString[index] != '\r' && mainString[index] != '\n' )
+            {
+                location += mainString[index];
+            }
+            else
+            {
+                checkForSpecialCharacter++;
+            }
+            index++;
+        }
+        index--;
+        LocationCommand locationCommand = new LocationCommand();
+        locationCommand.SetLocation(location);
+        CommandManager.Instance.AddCommand(locationCommand);
     }
     public void BackgroundReader( string mainString, ref Dictionary<string, string> _background)
     {
@@ -93,6 +299,7 @@ public class StringParser : MonoBehaviour
         }
         else
         {
+            print("Stuff registered\nheader :" + header +"\ncontent :" + content);
             _background.Add( header, content );
         }
     }

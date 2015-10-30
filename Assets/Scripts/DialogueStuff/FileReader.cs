@@ -15,10 +15,20 @@ public class FileReader : MonoBehaviour
     }
     public static FileReader Instance;
     public string fileLocation;
-    //===================================================
+    //=================================================================
     //  Load file function
     //  can be used to read both text sequence and command
-    //===================================================
+    //=================================================================
+    void Awake()
+    {
+        Instance = this;
+    }
+    void Start()
+    {
+        //ReadDialogue();
+        ReadCommand();
+        Debug.Break();
+    }
     private void RegisterFile(eTextType type, string line)
     {
         print( "Raw file : " + line );
@@ -40,7 +50,7 @@ public class FileReader : MonoBehaviour
         }
         else if( type == eTextType.CommandSequence )
         {
-            StringParser.Instance.CommandParser( line );
+            //StringParser.Instance.CommandParser( line );
         }
         else if( type == eTextType.Background )
         {
@@ -73,21 +83,62 @@ public class FileReader : MonoBehaviour
         catch( Exception e )
         {
             //location reading - ask teacher
-
             //Debug.Log( String.Format( "{0}\n", e.Message ) );
             print( String.Format( "{0}\n", e.Message ) );
             Console.WriteLine( "{0}\n", e.Message );
         }
     }
-    void Awake()
+    //================================================//
+    //  Use this Read dialogue to get file from text  //
+    //================================================//
+    private void ReadDialogue()
     {
-        Instance = this;
+        TextAsset dialogueContainer = Resources.Load( "conversation" ) as TextAsset;
+        print( "a contain : " + dialogueContainer.ToString() + "[Length :" + dialogueContainer.ToString().Length + "]" );
+        StringParser.Instance.ParseDialogue( dialogueContainer.ToString() );
     }
-    void Start()
+    private void ReadCommand()
     {
-        //LoadFile();
-        TextAsset myText = Resources.Load( "a" ) as TextAsset;
-        print("derp contain : " + myText.ToString());
-        Debug.Break();
+        TextAsset commandContainer = Resources.Load("command") as TextAsset;
+        //print( "Command raw string :" + commandContainer.ToString() );
+        StringParser.Instance.ParseCommand( commandContainer.ToString());
     }
 }
+/*NOTE
+//Dictionary<uniqueID, String> dialogStringEnglisth = new Dictionary<String, String>();
+//dialogString.Add( "Conversation1_1", "Snowy\n\nYow!...\now! ...ow!" );
+//dialogString.Add( "Conversation1_2", "Tintin\n\n?" );
+//dialogString.Add( "Conversation1_3", "Tintin\n\nThere you are snowy. You see what comes of your dirty habit of exploring rubbish bins…\n I don’t go scavenging do i ?" );
+//dialogString.Add( "Conversation1_4", "<end>" );
+
+//Dictionary<uniqueID, String> dialogStringChinese = new Dictionary<String, String>();
+//dialogString.Add( "Conversation1_1", "雪域\ñ \ nYow ！ ... \吧！ ...嗚！" );
+//dialogString.Add( "Conversation1_2", "丁丁\ñ \ñ ？" );
+//dialogString.Add( "Conversation1_3", "Tintin\n\nThere you are snowy. You see what comes of your dirty habit of exploring rubbish bins…\n I don’t go scavenging do i ?" );
+
+
+//Dictionary<uniqueID, String> dialogString = dialogStringEnglisth;
+//if (Options.Settings.Language == "Chinese")
+//{
+//    dialogString = dialogStringChinese;
+//}
+
+//class DialogPlaybackSystem
+//{
+//    public Play(int convoId)
+//    {
+//        String key = "Conversation" + convoId;
+
+//        int index = 1;
+//        String nextStr = dialogString[key + index]
+//        while (nextStr != "<end>")
+//        {
+//            showText(nextStr);
+
+//            while for click
+//                index++
+//                nextStr = dialogString[key + index];
+//        }
+//    }
+//} 
+*/
