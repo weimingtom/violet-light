@@ -45,6 +45,10 @@ public class CommandManager : MonoBehaviour {
             temporaryCommandsHolder[i].PrintData();
         }
     }
+    public void RunCommand()
+    { 
+        
+    }
 }
 
 abstract public class Command : MonoBehaviour
