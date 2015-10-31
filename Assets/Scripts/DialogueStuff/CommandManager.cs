@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CommandManager : MonoBehaviour {
-
+public class CommandManager : MonoBehaviour 
+{
+    public Text DialogueText;
     static public CommandManager Instance;
 	List<string> ID;
 	Dictionary<string, List<Command>> commands;
@@ -32,7 +34,6 @@ public class CommandManager : MonoBehaviour {
             Debug.Break();
         }
     }
-
     public void AddCommand(Command command)
     {
         temporaryCommandsHolder.Add(command);
@@ -46,7 +47,7 @@ public class CommandManager : MonoBehaviour {
         }
     }
     public void RunCommand()
-    { 
+    {
         
     }
 }
@@ -62,7 +63,7 @@ public class ShowCharacterCommand : Command
     string SpawnLocation;
     public override void ExecuteCommand()
     {
-
+        
     }
     public override void PrintData()
     {
@@ -115,9 +116,15 @@ public class WaitForTimeCommand : Command
 public class ShowTextCommand : Command
 {
     string conversationTag = "";
+    public Text myText;
+    void AssignText()
+    {
+        StringParser.Instance.GetDialogue( conversationTag );
+        myText.text = conversationTag.ToString();
+    }
     public override void ExecuteCommand()
     {
-
+        
     }
     public override void PrintData()
     {
@@ -185,7 +192,7 @@ public class LocationCommand : Command
     string location = "";
     public override void ExecuteCommand()
     {
-
+        
     }
     public override void PrintData()
     {

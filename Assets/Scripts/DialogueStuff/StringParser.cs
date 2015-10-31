@@ -22,13 +22,17 @@ public class StringParser : MonoBehaviour
         print("Content :" + conversationContent);
         Debug.Break();
     }
+    public string GetDialogue( string dialogueID )
+    {
+        return conversation[dialogueID];
+    }
     public void ParseDialogue(string mainString)
     {
         int locationCheck = 0;
         string header = "";
         string content = "";
         /*
-            The format of the dialogue text
+         * The format of the dialogue text
          * "header_name""content"
          * location check is used to track -> "
          */
