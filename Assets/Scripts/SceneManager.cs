@@ -49,9 +49,6 @@ public class SceneManager : MonoBehaviour
         newBackgroundRend = newBackground.AddComponent<SpriteRenderer>();
         newBackgroundRend.sprite = null;
 
-        // Set initial background
-        currBackgroundRend.sprite = Resources.Load<Sprite>( backgroundLookup["test1"] );
-
         LoadCase( 1 );
     }
 
@@ -90,7 +87,9 @@ public class SceneManager : MonoBehaviour
         if( CurrentCaseFile != null )
         {
             ChangeBackground( Scenes[SceneID].Background , 0.7f);
+            InteractableManager.Instance.Clear();
             InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab ,Vector3.zero);
+            Debug.Log( "[scene manager] Changed Scene to number "+SceneID );
         }
         else Debug.Log( "[scene manager] No case loaded!" );
     }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(SpriteRenderer))]
 [RequireComponent (typeof(Collider2D))]
 public class Prop : MonoBehaviour {
 
@@ -10,11 +11,11 @@ public class Prop : MonoBehaviour {
 
     void OnMouseDown()
     {
-        if(IsPickUp)
+        if( IsPickUp )
         {
             //Add to inventory
             Debug.Log( "[Prop] Picked the item up!" );
             Destroy( this.gameObject );
         }
-	}
+    }
 }

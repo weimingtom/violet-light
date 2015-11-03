@@ -9,7 +9,7 @@ public class JesseTest : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        InteractableManager.Instance.Spawn( "TestArea1", Vector3.zero);
+
 
         /*CM = CharacterManager.Instance;
 
@@ -25,6 +25,10 @@ public class JesseTest : MonoBehaviour
         if( Input.anyKeyDown )
         {
            // CM.ChangePosition("Violet", CharacterManager.Positions.Left1);
+        }
+        if(Input.GetKeyDown(KeyCode.F1))
+        {
+            SceneManager.Instance.ChangeScene( 0 );
         }
 
 
