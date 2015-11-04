@@ -16,11 +16,13 @@ public class CharacterManager : MonoBehaviour {
 
     public Dictionary<string, Character> characterList = new Dictionary<string,Character>();
     
-    public const float defaultEasingDuration = 3.0f;
-    public const float defaultDeltaAlpha = 0.04f; //0.0 - 1.0
+    public const float defaultEasingDuration = 2.0f;
+    public const float defaultDeltaAlpha = 2.5f; 
     private float easeDuration;
     private float deltaAlpha;
 
+
+    
     static public CharacterManager Instance;
     void Awake()
     { Instance = this;  }
@@ -43,7 +45,6 @@ public class CharacterManager : MonoBehaviour {
                 positionToGoTo = Positions.Offscreen;
             }
 	}
-
 
     public void ChangePosition(string character, Positions newPosition = Positions.Offscreen, float fadeSpeed = defaultDeltaAlpha, float easeSpeed = defaultEasingDuration) 
     {
@@ -88,7 +89,7 @@ public class CharacterManager : MonoBehaviour {
         {
             mName = name;
             mGObject = new GameObject(name);
-            mGObject.transform.position = new Vector3( -20, 0, 0 );
+            mGObject.transform.position = new Vector3( -30, 0, 0 );
             mPortrait = mGObject.AddComponent<SpriteRenderer>();
             mExpressionRend = mGObject.AddComponent<SpriteRenderer>();
 
@@ -101,18 +102,15 @@ public class CharacterManager : MonoBehaviour {
         {
             mPoses.Add(name, filepath);
         }
-
         public void AddExpression(string name, string filepath)
         {
             mExpressions.Add(name, filepath);
         }
-        
         public void ChangePose(string pose)
         {
             //do an assert or something here to check that the pose exists.
             mPortrait.sprite = Resources.Load<Sprite>( mPoses[pose] );
         }
-
         public void ChangeExpression(string expression)
         {
             mExpressionRend.sprite = Resources.Load<Sprite>( mExpressions[expression] );
@@ -121,7 +119,7 @@ public class CharacterManager : MonoBehaviour {
         public void SetForMovement(Positions position)
         {
             mPortrait.color = new Color( 1f, 1f, 1f, 0f );
-            mExpressionRend.color = new Color( 1f, 1f, 1f, 0f );
+            //mExpressionRend.color = new Color( 1f, 1f, 1f, 0f );
             mGObject.transform.position = FindStartPlace( position );
         }
 
@@ -195,7 +193,7 @@ public class CharacterManager : MonoBehaviour {
         }
 
         //returns true when done
-        public bool GoToNewPosition( Positions newPosition, float deltaAlpha, float easeDuration )
+        public bool GoToNewPosition( Positions newPosition, float DeltaAlpha, float easeDuration )
         {
             float alpha = mPortrait.color.a;
             Vector3 destination;
@@ -205,15 +203,16 @@ public class CharacterManager : MonoBehaviour {
 
             if( alpha < 1.0 ) //Still doing Fade and ease
             {
-                mPortrait.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime) );
-                mExpressionRend.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime));
+                mPortrait.color = new Color( 1f, 1f, 1f, alpha + (DeltaAlpha * Time.deltaTime) );
+                //mExpressionRend.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime));
             }
 
             //ease out
-            Vector3 newposition = new Vector3( mPortrait.transform.position.x, mPortrait.transform.position.y, 0.0f );
-            newposition.x += (destination.x - mPortrait.transform.position.x) / easeDuration;
-            newposition.y += (destination.y - mPortrait.transform.position.y) / easeDuration;
-            mPortrait.transform.position = newposition;
+            Vector3 newCords = new Vector3( mPortrait.transform.position.x, mPortrait.transform.position.y, 0.0f );
+            newCords.x += (destination.x - mPortrait.transform.position.x) / easeDuration;
+            newCords.y += (destination.y - mPortrait.transform.position.y) / easeDuration;
+
+            mPortrait.transform.position = newCords;
 
 
             if(alpha >= 1.0f && mGObject.transform.position == destination)
