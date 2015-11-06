@@ -23,7 +23,8 @@ public class CommandManager : MonoBehaviour
     {
         myTextHolder.text = content;
     }
-    void Start()
+
+    void Awake()
     {
         IDTracker = 0;
         commandTracker = 0;
@@ -33,6 +34,7 @@ public class CommandManager : MonoBehaviour
         //commands = new Dictionary<string, List<Command>>();
         //temporaryCommandsHolder = new List<Command>();
     }
+
     public void RegisterID(string id)
 	{
         ID.Add( id );
@@ -54,7 +56,7 @@ public class CommandManager : MonoBehaviour
     {
         if( myCommand[commandTracker].ExecuteCommand() )
         {
-            if( commandTracker + 1 < myCommand.Count )
+            if( (commandTracker + 1) < myCommand.Count )
             {
                 commandTracker++;
             }
