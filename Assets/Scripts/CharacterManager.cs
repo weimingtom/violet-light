@@ -76,13 +76,12 @@ public class CharacterManager : MonoBehaviour {
         private Dictionary<string, string> mExpressions;
         //private GameObject mExpressionGO; //not needed for now.
         private SpriteRenderer mExpressionRend;
-        private Positions myPosition;
 
         private List<bool> mFlags;  //will add functionality later if time.
         private int mAffinity;      //will add functionality later if time.
 
         public Character()
-        { mAffinity = 0; myPosition = Positions.Offscreen; }
+        { mAffinity = 0; }
 
         //TODO: change Initialize to take a filepath to a file for that character, parse the file and add all expressions and stuff from here
         public void Initialize(string name)
@@ -97,7 +96,12 @@ public class CharacterManager : MonoBehaviour {
             mExpressions = new Dictionary<string,string>();
 
         }
-
+        public string GetName()
+        {   return mName;   }
+        public void AddToAffinity( int change )
+        {
+            mAffinity += change;
+        }
         public void AddPose(string name, string filepath)
         {
             mPoses.Add(name, filepath);
