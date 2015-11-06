@@ -6,9 +6,11 @@ using System.Collections.Generic;
 
 public class CommandManager : MonoBehaviour 
 {
+    bool bannerBoxStat;
     public Text myTextHolder;
+    public GameObject myBannerBox;
     static public CommandManager Instance;
-    
+    bool checkBoxActive;
     //counter for CommandId
     int IDTracker;
 	List<string> ID;
@@ -25,6 +27,8 @@ public class CommandManager : MonoBehaviour
     }
     void Start()
     {
+        bannerBoxStat = true;
+        checkBoxActive = false;
         IDTracker = 0;
         commandTracker = 0;
         Instance = this;
@@ -50,8 +54,24 @@ public class CommandManager : MonoBehaviour
             myCommand[i].PrintData();
         }
     }
+    public void SetBox()
+    {
+        if( bannerBoxStat == true )
+        {
+            bannerBoxStat = false;
+        }
+        else if( bannerBoxStat == false )
+        {
+            bannerBoxStat = true;
+        }
+        myBannerBox.gameObject.SetActive( bannerBoxStat );
+    }
     void Update()
     {
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            SetBox();
+        }
         if( myCommand[commandTracker].ExecuteCommand() )
         {
             if( commandTracker + 1 < myCommand.Count )
