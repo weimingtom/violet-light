@@ -20,6 +20,38 @@ public class StringParser : MonoBehaviour
         print("Header :" + conversationHeader);
         print("Content :" + conversationContent);
     }
+    public void RegisterCommand(string command, ref int index, string mainString)
+    {
+        switch( command )
+        { 
+        case "Conversation":
+            RegisterConversationID(ref index, mainString);
+            break;
+        case "ShowChar":
+            RegisterCharacter(ref index, mainString);
+            break;
+        case "WaitForTime":
+            RegisterWaitForTime( ref index, mainString );
+            break;
+        case "ShowText":
+            RegisterShowText(ref index, mainString);
+            break;
+        case "WaitForAction":
+            RegisterWaitForAction( ref index, mainString );
+            break;
+        case "ShowPrompt":
+            RegisterLocation( ref index, mainString );
+            break;
+        case "If":
+            break;
+        case "Location":
+            break;
+        case "ShowIcon":
+            break;
+        case "End":
+        break;
+        }
+    }
     public void ParseDialogue(string mainString)
     {
         int locationCheck = 0;
@@ -42,7 +74,8 @@ public class StringParser : MonoBehaviour
                 //go out from the if statement and increment once again to reach the next line
                 if( locationCheck != 4 )
                 {
-                    print( "Wrong Format!!\n" );
+                    print( "[StringParser[Parse Dialogue]]Wrong Format!!\n" );
+                    Debug.Break();
                 }
                 else 
                 {
@@ -97,38 +130,6 @@ public class StringParser : MonoBehaviour
         }
         CommandManager.Instance.PrintData();
     }
-    public void RegisterCommand(string command, ref int index, string mainString)
-    {
-        switch( command )
-        { 
-        case "Conversation":
-            RegisterConversationID(ref index, mainString);
-            break;
-        case "ShowChar":
-            RegisterCharacter(ref index, mainString);
-            break;
-        case "WaitForTime":
-            RegisterWaitForTime( ref index, mainString );
-            break;
-        case "ShowText":
-            RegisterShowText(ref index, mainString);
-            break;
-        case "WaitForAction":
-            RegisterWaitForAction( ref index, mainString );
-            break;
-        case "ShowPrompt":
-            RegisterLocation( ref index, mainString );
-            break;
-        case "If":
-            break;
-        case "Location":
-            break;
-        case "ShowIcon":
-            break;
-        case "End":
-        break;
-        }
-    }
     void RegisterCharacter( ref int index, string mainString )
     {
         string characterName = "";
@@ -160,6 +161,7 @@ public class StringParser : MonoBehaviour
             index++;
         }
         index--;
+        
         ShowCharacterCommand character = new ShowCharacterCommand();
         character.SetCharacterName(characterName);
         character.SetSpawnLocation(spawnLocation);

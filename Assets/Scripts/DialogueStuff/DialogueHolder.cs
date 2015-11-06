@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ public class DialogueHolder : MonoBehaviour
 {
     static public DialogueHolder Instance;
     Dictionary<string, string> dialogue;
-
+    
 	// Use this for initialization
 	void Awake () 
     {

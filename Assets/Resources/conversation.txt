@@ -4,5 +4,5 @@
 "Phoenix_4""Detective Sharpe: WOAH WOAH WOAH! HOLD IT!"
 "Phoenix_5""Detective Sharpe: Back away, this is my case. Amatures like you don't understand the law!"
 "Phoenix_6""Alexander: And who might you be?"
-"Phoenix_7""Detective Sharpe: Sharpe, police detective!
+"Phoenix_7""Detective Sharpe: Sharpe, police detective!"
 "Phoenix_8""Violet Light: ..."

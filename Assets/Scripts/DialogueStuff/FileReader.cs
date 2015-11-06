@@ -95,7 +95,7 @@ public class FileReader : MonoBehaviour
     private void ReadDialogue()
     {
         TextAsset dialogueContainer = Resources.Load( "conversation" ) as TextAsset;
-        print( "a contain : " + dialogueContainer.ToString() + "[Length :" + dialogueContainer.ToString().Length + "]" );
+        //print( "a contain : " + dialogueContainer.ToString() + "[Length :" + dialogueContainer.ToString().Length + "]" );
         StringParser.Instance.ParseDialogue( dialogueContainer.ToString() );
     }
     private void ReadCommand()

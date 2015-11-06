@@ -1,13 +1,13 @@
-Conversation: cafe_7  
-ShowChar: Violet Left1
+Conversation: cafe_7
+ShowChar: violet_neutral Left1
 ShowText: Phoenix_1
 WaitForAction: LClick
-ShowChar: Alexander Right2
+ShowChar: Alexander_neutral Right2
 ShowText: Phoenix_2
 WaitForAction: LClick
 ShowText: Phoenix_3
 WaitForTime: 2
-ShowChar: Sharpe Centre
+ShowChar: Sharpe_neutral Centre
 ShowText: Phoenix_4
 WaitForAction: LClick
 ShowText: Phoenix_5
