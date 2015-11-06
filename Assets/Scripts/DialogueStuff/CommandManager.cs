@@ -87,7 +87,7 @@ public class CommandManager : MonoBehaviour
         }
         else
         {
-            print( "Waiting for time command" );
+            //print( "Waiting for time command" );
         }
 
         ////initialize the first set of command
