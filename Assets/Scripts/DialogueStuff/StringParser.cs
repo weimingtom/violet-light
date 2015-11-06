@@ -307,4 +307,32 @@ public class StringParser : MonoBehaviour
             _background.Add( header, content );
         }
     }
+
+    /************************* ADAM'S FILE READING ********************************/
+    /******************** FOR READING THE CHARACTERS IN ***************************/
+
+    public void ParseCharacters( string mainString )
+    {
+
+        /*  EXAMPLE STRING
+         * 
+         * Char Violet "Violet Light" 
+         * Pose Violet neutral "Textures/Portraits/violet_neutral"
+         * Pose Violet happy "Textures/Portraits/violet_happy"
+         * Pose Violet sad "Textures/Portraits/violet_sad"
+         * Char Alexander "Alexander Strong"
+         * Pose Alexander neutral "Textures/Portraits/violet_neutral"
+         * Pose Alexander happy "Textures/Portraits/violet_happy"
+         * Pose Alexander sad "Textures/Portraits/violet_sad"
+         * 
+         */
+
+
+
+
+
+    }
+
+
 }
+

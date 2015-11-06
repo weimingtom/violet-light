@@ -1,10 +1,8 @@
 Char Violet "Violet Light" 
-Poses 3
 Pose Violet neutral "Textures/Portraits/violet_neutral"
 Pose Violet happy "Textures/Portraits/violet_happy"
 Pose Violet sad "Textures/Portraits/violet_sad"
 Char Alexander "Alexander Strong"
-Poses 3
 Pose Alexander neutral "Textures/Portraits/violet_neutral"
 Pose Alexander happy "Textures/Portraits/violet_happy"
 Pose Alexander sad "Textures/Portraits/violet_sad"
