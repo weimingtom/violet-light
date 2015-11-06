@@ -25,9 +25,10 @@ public class FileReader : MonoBehaviour
     }
     void Start()
     {
-        //ReadDialogue();
+        ReadDialogue();
         ReadCommand();
-        Debug.Break();
+        Debug.Log("First Read done");
+        //Debug.Break();
     }
     private void RegisterFile(eTextType type, string line)
     {

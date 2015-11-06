@@ -1,0 +1,10 @@
+Conversation: cafe_7  
+ShowText: Phoenix_1
+WaitForAction: LClick
+ShowText: Phoenix_2
+WaitForAction: LClick
+ShowText: Phoenix_3
+WaitForTime: 2
+ShowText: Phoenix_4
+WaitForAction: LClick
+End:

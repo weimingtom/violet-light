@@ -1,0 +1,8 @@
+"Phoenix_1""Dialogue 1"
+"Phoenix_2""Dialogue 2"
+"Phoenix_3""Dialogue 3"
+"Phoenix_4""Dialogue 4"
+"Phoenix_5""Dialogue 5"
+"Phoenix_6""Dialogue 6"
+"Phoenix_7""Dialogue 7"
+"Phoenix_8""Dialogue 8"

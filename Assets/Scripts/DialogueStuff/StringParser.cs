@@ -6,25 +6,19 @@ using System.Linq;
 public class StringParser : MonoBehaviour
 {
     static public StringParser Instance;
-    Dictionary<string, string> conversation;
+    
     void Awake()
     {
         Instance = this;
-        conversation = new Dictionary<string,string>();
     }
     //Dialogue Stuff
     public void RegisterDialogue(string header, string content)
     {
         string conversationHeader = header;
         string conversationContent = content;
-        conversation.Add(conversationHeader.ToString(), conversationContent.ToString());
+        DialogueHolder.Instance.AddDialogue( conversationHeader.ToString(), conversationContent.ToString() );
         print("Header :" + conversationHeader);
         print("Content :" + conversationContent);
-        Debug.Break();
-    }
-    public string GetDialogue( string dialogueID )
-    {
-        return conversation[dialogueID];
     }
     public void ParseDialogue(string mainString)
     {
@@ -82,6 +76,9 @@ public class StringParser : MonoBehaviour
     //Command Stuff
     public void ParseCommand(string mainstring)
     {
+        //IMPORTANT!
+        //string[] tokens = mainstring.Split( "," );
+
         string commandReaded = "";
         for( int i = 0; i < mainstring.Length; i++ )
         {
@@ -129,13 +126,8 @@ public class StringParser : MonoBehaviour
         case "ShowIcon":
             break;
         case "End":
-            EndCommand();
         break;
         }
-    }
-    void EndCommand()
-    {
-        CommandManager.Instance.RegisterSetOfCommand();
     }
     void RegisterCharacter( ref int index, string mainString )
     {
@@ -306,7 +298,6 @@ public class StringParser : MonoBehaviour
         if( locationCheck != 1 )
         {
             print( "wrong format" );
-            Debug.Break();
         }
         else
         {

@@ -45,7 +45,7 @@ public class CharacterManager : MonoBehaviour {
                 positionToGoTo = Positions.Offscreen;
             }
 	}
-
+    
     public void ChangePosition(string character, Positions newPosition = Positions.Offscreen, float fadeSpeed = defaultDeltaAlpha, float easeSpeed = defaultEasingDuration) 
     {
 

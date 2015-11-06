@@ -1,73 +1,149 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
 public class CommandManager : MonoBehaviour 
 {
-    public Text DialogueText;
+    public Text myTextHolder;
     static public CommandManager Instance;
+    
+    //counter for CommandId
+    int IDTracker;
 	List<string> ID;
-	Dictionary<string, List<Command>> commands;
-    private List<Command> temporaryCommandsHolder;
+    //counter for command
+    int commandTracker;
+    List<Command> myCommand;
+	//Dictionary<string, List<Command>> commands;
+    //private List<Command> temporaryCommandsHolder;
+    //private List<Command> RunnedCommand;
+
+    public void SetTextHolder(string content)
+    {
+        myTextHolder.text = content;
+    }
     void Start()
     {
+        IDTracker = 0;
+        commandTracker = 0;
         Instance = this;
         ID = new List<string>();
-        commands = new Dictionary<string, List<Command>>();
-        temporaryCommandsHolder = new List<Command>();
+        myCommand = new List<Command>();
+        //commands = new Dictionary<string, List<Command>>();
+        //temporaryCommandsHolder = new List<Command>();
     }
     public void RegisterID(string id)
 	{
         ID.Add( id );
 	}
-    public void RegisterSetOfCommand()
-    {
-        if( ID.Count > 0 )
-        {
-            commands.Add( ID[(ID.Count - 1)], temporaryCommandsHolder );
-            temporaryCommandsHolder.Clear();
-        }
-        else
-        {
-            print("Please Register ID First");
-            Debug.Break();
-        }
-    }
+
     public void AddCommand(Command command)
     {
-        temporaryCommandsHolder.Add(command);
+        myCommand.Add(command);
     }
     public void PrintData()
     {
         print("Coversation : " + ID[0]);
-        for( int i = 0; i < temporaryCommandsHolder.Count; i++ )
+        for( int i = 0; i < myCommand.Count; i++ )
         {
-            temporaryCommandsHolder[i].PrintData();
+            myCommand[i].PrintData();
         }
     }
-    public void RunCommand()
+    void Update()
     {
-        
+        if( myCommand[commandTracker].ExecuteCommand() )
+        {
+            if( commandTracker + 1 < myCommand.Count )
+            {
+                commandTracker++;
+            }
+            else
+            {
+                //swap scene
+                Debug.Log("End of scene");
+                Debug.Break();
+            }
+        }
+        else
+        {
+            print( "Waiting for time command" );
+        }
+
+        ////initialize the first set of command
+        //if( FirstInitialization == false )
+        //{
+        //    FirstInitialization = true;
+        //    //DeepCopyCommand();
+        //    commands[ID[IDTracker]][0].ExecuteCommand();
+        //    //RunnedCommand.Add(commands[ID[IDTracker]].ToArray());
+        //}
+        //else
+        //{
+        //    //check if the command is out of bound
+        //    if( commandTracker >= RunnedCommand.Count && (IDTracker + 1) < ID.Count )
+        //    {
+        //        IDTracker++;
+        //        commandTracker = 0;
+                
+        //        RunnedCommand = commands[ID[IDTracker]];
+        //    }
+        //    else
+        //    { 
+        //        //not out of bound
+        //        //therefore execute command
+        //        if( RunnedCommand[commandTracker].ExecuteCommand() )
+        //        {
+        //            commandTracker++;
+        //        }
+        //        else
+        //        {
+        //            print("[Command Manager] Execute Command return false");
+        //        }
+        //    }
+        //}
     }
 }
 
-abstract public class Command : MonoBehaviour
+abstract public class Command
 {
     public abstract void PrintData();
-    public abstract void ExecuteCommand();
+    public abstract bool ExecuteCommand();
 }
 public class ShowCharacterCommand : Command
 {
     string CharacterName;
     string SpawnLocation;
-    public override void ExecuteCommand()
+    public override bool ExecuteCommand()
     {
-        
+        CharacterManager.Positions myPos = CharacterManager.Positions.Offscreen;
+        switch(SpawnLocation)
+        {
+        case "Offscreen":
+        myPos = CharacterManager.Positions.Offscreen;
+        break;
+        case "Left1":
+        myPos = CharacterManager.Positions.Left1;
+        break;
+        case "Left2":
+        myPos = CharacterManager.Positions.Left2;
+        break;
+        case "Centre":
+        myPos = CharacterManager.Positions.Centre;
+        break;
+        case "Right1":
+        myPos = CharacterManager.Positions.Right1;
+        break;
+        case "Right2":
+        myPos = CharacterManager.Positions.Right2;
+        break;
+        }
+        CharacterManager.Instance.ChangePosition(CharacterName, myPos);
+        return true;
     }
     public override void PrintData()
     {
-        print("Show Character Command\nCharacter Name : " + CharacterName.ToString() + " ::Spawn Location : " + SpawnLocation.ToString());
+        Debug.Log("Show Character Command\nCharacter Name : " + CharacterName.ToString() + " ::Spawn Location : " + SpawnLocation.ToString());
     }
     public string GetCharacter()
     {
@@ -89,9 +165,10 @@ public class ShowCharacterCommand : Command
 public class WaitForTimeCommand : Command
 {
     float waitingTime = 0;
+    float totalTime = 0;
     public override void PrintData()
     {
-        print( "WaitForTimeCommand\nTime : " + waitingTime);
+        Debug.Log( "WaitForTimeCommand\nTime : " + waitingTime );
     }
     public void SetTime( float t )
     {
@@ -101,34 +178,32 @@ public class WaitForTimeCommand : Command
     {
         return waitingTime;
     }
-    public override void ExecuteCommand()
+    public override bool ExecuteCommand()
     {
-        print("[Wait For Time]Time Before wait : " + Time.time);
-        StartCoroutine(Wait());
-        print("[Wait For Time]Time After Wait Function is done :" + Time.time);
+        Debug.Log( "[Wait For Time]Time Before wait : " + Time.time );
+        totalTime += Time.deltaTime;
+        //StartCoroutine(Wait());
+        Debug.Log( "[Wait For Time]Time After Wait Function is done :" + Time.time );
+        return totalTime >= waitingTime;
     }
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(waitingTime);
-        print( "[Wait For Time] Time on wait function : " + Time.time );
+        Debug.Log( "[Wait For Time] Time on wait function : " + Time.time );
     }
 }
 public class ShowTextCommand : Command
 {
     string conversationTag = "";
-    public Text myText;
-    void AssignText()
+    
+    public override bool ExecuteCommand()
     {
-        StringParser.Instance.GetDialogue( conversationTag );
-        myText.text = conversationTag.ToString();
-    }
-    public override void ExecuteCommand()
-    {
-        
+        CommandManager.Instance.SetTextHolder(DialogueHolder.Instance.GetDialogue( conversationTag ).ToString());
+        return true;
     }
     public override void PrintData()
     {
-        print( "ShowTextCommand\nconversationTag : " + conversationTag );
+        Debug.Log( "ShowTextCommand\nconversationTag : " + conversationTag );
     }
     public void SetConversation( string _conversationTag )
     {
@@ -144,7 +219,7 @@ public class WaitForActionCommand : Command
     string actionTag = "";
     public override void PrintData()
     {
-        print( "actionTag\nActionTag : " + actionTag );
+        Debug.Log( "actionTag\nActionTag : " + actionTag );
     }
     public void SetAction(string _actionTag)
     {
@@ -154,49 +229,29 @@ public class WaitForActionCommand : Command
     {
         return actionTag;
     }
-    public override void ExecuteCommand()
+    public override bool ExecuteCommand()
     {
-        
-    }
-    private void ActionChecker()
-    {
-        /*
-         This function will be used to select the appropriate wait command
-         */
-        switch( actionTag )
+        if( actionTag == "LClick" && Input.GetMouseButtonUp( 0 ) )
         {
-        case "LClick":
-        WaitForLeftClick();
-        break;
-        case "RClick":
-        break;
+            return true;
         }
-    }
-    private IEnumerator WaitForLeftClick()
-    {
-        bool wait = true;
-        while( wait )
+        else if( actionTag == "RClick" && Input.GetMouseButtonUp( 1 ) )
         {
-            print("[Wait for Left Click] waiting....");
-            if( Input.GetMouseButtonDown( 0 ) || Input.GetMouseButtonUp( 0 ) )
-            {
-                wait = false;
-            }
+            return true;
         }
-        yield return null;
+        return false;
     }
-
 }
 public class LocationCommand : Command
 {
     string location = "";
-    public override void ExecuteCommand()
+    public override bool ExecuteCommand()
     {
-        
+        return true;
     }
     public override void PrintData()
     {
-        print( "LocationCommand\nlocation : " + location );
+        Debug.Log( "LocationCommand\nlocation : " + location );
     }
     public void SetLocation(string _location)
     {
