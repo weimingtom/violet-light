@@ -22,11 +22,14 @@ public class FileReader : MonoBehaviour
     void Awake()
     {
         Instance = this;
+    }
+    void Start()
+    {
         ReadDialogue();
         ReadCommand();
         Debug.Log("First Read done");
+        //Debug.Break();
     }
-    
     private void RegisterFile(eTextType type, string line)
     {
         print( "Raw file : " + line );
