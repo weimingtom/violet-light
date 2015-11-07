@@ -8,6 +8,8 @@ public class ShowTextCommand : Commands
 
     public override bool ExecuteCommand()
     {
+		CommandManager.Instance.TextBoxSwitch (true);
+		CommandManager.Instance.TextSwitch (true);
         CommandManager.Instance.SetTextHolder( DialogueHolder.Instance.GetDialogue( conversationTag ).ToString() );
         return true;
     }
@@ -23,4 +25,9 @@ public class ShowTextCommand : Commands
     {
         return conversationTag;
     }
+	public override void Destroy()
+	{
+		CommandManager.Instance.TextBoxSwitch (false);
+		CommandManager.Instance.TextSwitch (false);
+	}
 }

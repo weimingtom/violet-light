@@ -10,10 +10,9 @@ public class CommandManager : MonoBehaviour
     public Text myTextHolder;
     public GameObject myBannerBox;
     static public CommandManager Instance;
-
     //counter for CommandId
-
-	List<string> ID;
+	List<int> charterCommandTracker;
+	List<string> SceneId;
     //counter for command
     int commandTracker;
     List<Commands> myCommand;
@@ -24,21 +23,29 @@ public class CommandManager : MonoBehaviour
 
     public void SetTextHolder(string content)
     {
-        myTextHolder.text = content;
-    }
+		myTextHolder.text = content;
+	}
+	public void TextSwitch(bool status)
+	{
+		myTextHolder.gameObject.SetActive (status);
+	}
+	public void TextBoxSwitch(bool status)
+	{
+		myBannerBox.gameObject.SetActive (status);
+	}
     void Start()
     {
         bannerBoxStat = true;
         commandTracker = 0;
         Instance = this;
-        ID = new List<string>();
+		SceneId = new List<string>();
         myCommand = new List<Commands>();
         //commands = new Dictionary<string, List<Command>>();
         //temporaryCommandsHolder = new List<Command>();
     }
     public void RegisterID(string id)
 	{
-        ID.Add( id );
+		SceneId.Add( id );
 	}
 
     public void AddCommand(Commands command)
@@ -47,80 +54,36 @@ public class CommandManager : MonoBehaviour
     }
     public void PrintData()
     {
-        print("Coversation : " + ID[0]);
+		print("Coversation : " + SceneId[0]);
         for( int i = 0; i < myCommand.Count; i++ )
         {
             myCommand[i].PrintData();
         }
     }
-    public void SetBox()
-    {
-        if( bannerBoxStat == true )
-        {
-            bannerBoxStat = false;
-        }
-        else if( bannerBoxStat == false )
-        {
-            bannerBoxStat = true;
-        }
-        myBannerBox.gameObject.SetActive( bannerBoxStat );
-    }
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Space))
-        {
-            SetBox();
-        }
-        if( myCommand[commandTracker].ExecuteCommand() )
-        {
-            if( commandTracker + 1 < myCommand.Count )
-            {
-                commandTracker++;
-            }
-            else
-            {
-                //swap scene
-                Debug.Log("End of scene");
-                Debug.Break();
-            }
-        }
-        else
-        {
-            //print( "Waiting for time command" );
-        }
+		if(commandTracker < myCommand.Count)
+		{
+			if (myCommand [commandTracker].ExecuteCommand ()) 
+			{
+				commandTracker++;
+				Debug.Log("Command Tracker Status : " + commandTracker);
+			} 
+		}
+		else if (commandTracker == myCommand.Count)
+		{
+			/*
+				 * Destroy everything
+				 */
+			for (int i = 0; i < myCommand.Count; i++) {
+				myCommand [i].Destroy ();
+			}
+			//print( "Waiting for time command" );
+		} 
+		else
+		{
 
-        ////initialize the first set of command
-        //if( FirstInitialization == false )
-        //{
-        //    FirstInitialization = true;
-        //    //DeepCopyCommand();
-        //    commands[ID[IDTracker]][0].ExecuteCommand();
-        //    //RunnedCommand.Add(commands[ID[IDTracker]].ToArray());
-        //}
-        //else
-        //{
-        //    //check if the command is out of bound
-        //    if( commandTracker >= RunnedCommand.Count && (IDTracker + 1) < ID.Count )
-        //    {
-        //        IDTracker++;
-        //        commandTracker = 0;
-                
-        //        RunnedCommand = commands[ID[IDTracker]];
-        //    }
-        //    else
-        //    { 
-        //        //not out of bound
-        //        //therefore execute command
-        //        if( RunnedCommand[commandTracker].ExecuteCommand() )
-        //        {
-        //            commandTracker++;
-        //        }
-        //        else
-        //        {
-        //            print("[Command Manager] Execute Command return false");
-        //        }
-        //    }
-        //}
+		}
     }
 }
 
