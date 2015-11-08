@@ -37,6 +37,7 @@ public class PuzzleButtons : MonoBehaviour
                 destination = endPosition;
             }
 
+
             Vector3 newCords = new Vector3( transform.position.x, transform.position.y, 0.0f );
             newCords.x += (destination.x - transform.position.x) / easeDuration;
             newCords.y += (destination.y - transform.position.y) / easeDuration;
@@ -51,7 +52,7 @@ public class PuzzleButtons : MonoBehaviour
         }
     }
 
-	void OnMouseDown()
+	void OnClick()
     {
         Debug.Log( "[Puzzle UI] Button Clicked!" );
         switch(thisType)
@@ -65,7 +66,7 @@ public class PuzzleButtons : MonoBehaviour
             case ButtonType.Restart:
             break;
             case ButtonType.Submit:
-            break;
+            break;  
             case ButtonType.Info:
             if(!moving)
             { 
