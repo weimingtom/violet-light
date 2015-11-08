@@ -97,7 +97,7 @@ public class FileReader : MonoBehaviour
 		TextAsset command = Resources.Load(_scene) as TextAsset;
 		TextAsset dialogue = Resources.Load(_dialogue) as TextAsset;
 		StringParser.Instance.ParseCommand(command.ToString());
-		StringParser.Instance.ParseCommand(dialogue.ToString());
+		StringParser.Instance.ParseDialogue(dialogue.ToString());
 	}
     private void ReadDialogue()
     {
