@@ -33,7 +33,7 @@ public class CommandManager : MonoBehaviour
 
     void Start()
     {
-        bannerBoxStat = true;
+        //bannerBoxStat = true;
         commandTracker = 0;
         Instance = this;
 		SceneId = new List<string>();
