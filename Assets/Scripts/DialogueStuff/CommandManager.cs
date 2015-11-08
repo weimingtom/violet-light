@@ -81,7 +81,7 @@ public class CommandManager : MonoBehaviour
             {
                 //swap scene
                 Debug.Log("End of scene");
-                Debug.Break();
+                //Debug.Break();
             }
         }
         else
