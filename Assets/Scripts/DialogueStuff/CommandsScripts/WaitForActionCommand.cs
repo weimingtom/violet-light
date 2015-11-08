@@ -28,4 +28,8 @@ public class WaitForActionCommand : Commands {
         }
         return false;
     }
+	public override void Destroy()
+	{
+		
+	}
 }
