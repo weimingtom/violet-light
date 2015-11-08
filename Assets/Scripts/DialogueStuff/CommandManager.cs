@@ -25,6 +25,11 @@ public class CommandManager : MonoBehaviour
     {
 		myTextHolder.text = content;
 	}
+	public void AddCharIntoTextHolder(char ch)
+	{
+		myTextHolder.text += ch;
+	}
+
 	public void TextSwitch(bool status)
 	{
 		myTextHolder.gameObject.SetActive (status);
@@ -75,7 +80,8 @@ public class CommandManager : MonoBehaviour
 			/*
 				 * Destroy everything
 				 */
-			for (int i = 0; i < myCommand.Count; i++) {
+			for (int i = 0; i < myCommand.Count; i++) 
+			{
 				myCommand [i].Destroy ();
 			}
 			//print( "Waiting for time command" );
