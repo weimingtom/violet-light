@@ -20,8 +20,4 @@ public class LocationCommand : Commands {
     {
         return location;
     }
-	public override void Destroy()
-	{
-		
-	}
 }

@@ -11,6 +11,7 @@ public class ShowTextCommand : Commands
 	int indexPassed = 0;
     public override bool ExecuteCommand()
     {
+<<<<<<< HEAD
 		if (InitialSetup == true) 
 		{
 			CommandManager.Instance.TextBoxSwitch (true);
@@ -38,6 +39,10 @@ public class ShowTextCommand : Commands
 		{
 			return true;
 		}
+=======
+        CommandManager.Instance.SetTextHolder( DialogueHolder.Instance.GetDialogue( conversationTag ).ToString() );
+        return true;
+>>>>>>> origin/master
     }
     public override void PrintData()
     {
@@ -51,9 +56,4 @@ public class ShowTextCommand : Commands
     {
         return conversationTag;
     }
-	public override void Destroy()
-	{
-		CommandManager.Instance.TextBoxSwitch (false);
-		CommandManager.Instance.TextSwitch (false);
-	}
 }

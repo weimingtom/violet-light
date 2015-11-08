@@ -53,8 +53,4 @@ public class ShowCharacterCommand : Commands
     {
         SpawnLocation = location;
     }
-	public override void Destroy()
-	{
-		CharacterManager.Instance.ChangePosition( CharacterName, CharacterManager.Positions.Offscreen );
-	}
 }

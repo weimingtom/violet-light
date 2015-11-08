@@ -26,8 +26,5 @@ public class WaitForTimeCommand : Commands
         Debug.Log( "[Wait For Time]Time After Wait Function is done :" + Time.time );
         return totalTime >= waitingTime;
     }
-	public override void Destroy()
-	{
-		
-	}
+   
 }
