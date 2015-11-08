@@ -20,7 +20,7 @@ public class Prop : MonoBehaviour {
         }
         if(DialougeString != "null")
         {
-            FileReader.Instance.LoadScene( DialougeScene,DialougeString );
+            FileReader.Instance.LoadScene( DialougeScene, DialougeString );
         }
     }
 }
