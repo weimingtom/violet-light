@@ -33,13 +33,10 @@ public class CommandManager : MonoBehaviour
 
     void Start()
     {
-        //bannerBoxStat = true;
         commandTracker = 0;
         Instance = this;
 		SceneId = new List<string>();
         myCommand = new List<Commands>();
-        //commands = new Dictionary<string, List<Command>>();
-        //temporaryCommandsHolder = new List<Command>();
     }
     public void RegisterID(string id)
 	{

@@ -92,6 +92,13 @@ public class FileReader : MonoBehaviour
     //================================================//
     //  Use this Read dialogue to get file from text  //
     //================================================//
+	public void LoadScene(string _scene, string _dialogue)
+	{
+		TextAsset command = Resources.Load(_scene) as TextAsset;
+		TextAsset dialogue = Resources.Load(_dialogue) as TextAsset;
+		StringParser.Instance.ParseCommand(command.ToString());
+		StringParser.Instance.ParseCommand(dialogue.ToString());
+	}
     private void ReadDialogue()
     {
         TextAsset dialogueContainer = Resources.Load( "conversation" ) as TextAsset;
