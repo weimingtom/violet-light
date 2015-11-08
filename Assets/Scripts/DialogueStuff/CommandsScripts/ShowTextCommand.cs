@@ -3,15 +3,14 @@ using System.Collections;
 
 public class ShowTextCommand : Commands
 {
-	float speed = 0.2f;
-	float timeTracker = 0.0f;
 	bool InitialSetup = true;
+	int indexPassed = 0;
+	float timeTracker = 0;
+	float speed = 0.01f;
     string conversationTag = "";
 	char passedChar = '\0';
-	int indexPassed = 0;
     public override bool ExecuteCommand()
     {
-<<<<<<< HEAD
 		if (InitialSetup == true) 
 		{
 			CommandManager.Instance.TextBoxSwitch (true);
@@ -39,10 +38,13 @@ public class ShowTextCommand : Commands
 		{
 			return true;
 		}
-=======
+
         CommandManager.Instance.SetTextHolder( DialogueHolder.Instance.GetDialogue( conversationTag ).ToString() );
         return true;
->>>>>>> origin/master
+		CommandManager.Instance.TextBoxSwitch (true);
+		CommandManager.Instance.TextSwitch (true);
+        CommandManager.Instance.SetTextHolder( DialogueHolder.Instance.GetDialogue( conversationTag ).ToString() );
+        return true;
     }
     public override void PrintData()
     {
@@ -56,4 +58,10 @@ public class ShowTextCommand : Commands
     {
         return conversationTag;
     }
+	public override void Destroy()
+	{
+		CommandManager.Instance.TextBoxSwitch (false);
+		CommandManager.Instance.TextSwitch (false);
+		CommandManager.Instance.SetTextHolder("");
+	}
 }
