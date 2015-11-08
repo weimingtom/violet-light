@@ -6,8 +6,9 @@ using System.Collections;
 public class Prop : MonoBehaviour {
 
     public bool IsPickUp;
-    public string Description;
-    public string DialougeCall;
+    public string Description  = "null";
+    public string DialougeScene = "null";
+    public string DialougeString = "null";
 
     void OnMouseDown()
     {
@@ -16,6 +17,10 @@ public class Prop : MonoBehaviour {
             //Add to inventory
             Debug.Log( "[Prop] Picked the item up!" );
             Destroy( this.gameObject );
+        }
+        if(DialougeString != "null")
+        {
+            FileReader.Instance.LoadScene( DialougeScene,DialougeString );
         }
     }
 }
