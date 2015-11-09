@@ -33,10 +33,7 @@ public class SceneManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-    }
 
-    void Start()
-    {
         backgroundLookup.Add( "test1", "Textures/Backgrounds/backstreet_test" );
         backgroundLookup.Add( "test2", "Textures/Backgrounds/backstreet_test2" );
 

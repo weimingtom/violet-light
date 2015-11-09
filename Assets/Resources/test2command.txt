@@ -1,0 +1,21 @@
+Conversation: cafe_7
+ShowChar: Violet Left1
+ShowText: Phoenix_1
+WaitForAction: LClick
+ShowChar: Alexander Right2
+ShowText: Phoenix_2
+WaitForAction: LClick
+ShowText: Phoenix_3
+WaitForTime: 2
+ShowChar: Sharpe Centre
+ShowText: Phoenix_4
+WaitForAction: LClick
+ShowText: Phoenix_5
+WaitForAction: LClick
+ShowText: Phoenix_6
+WaitForAction: LClick
+ShowText: Phoenix_7
+WaitForAction: LClick
+ShowText: Phoenix_8
+WaitForAction: LClick
+End:

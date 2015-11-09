@@ -17,12 +17,11 @@ public class CharacterManager : MonoBehaviour {
     public Dictionary<string, Character> characterList = new Dictionary<string,Character>();
     
     public const float defaultEasingDuration = 2.0f;
-    public const float defaultDeltaAlpha = 2.5f; 
+    public const float defaultDeltaAlpha = 2.5f;
+    private const float zValue = -3.0f;
     private float easeDuration;
     private float deltaAlpha;
 
-
-    
     static public CharacterManager Instance;
     void Awake()
     { Instance = this;  }
@@ -88,7 +87,7 @@ public class CharacterManager : MonoBehaviour {
         {
             mName = name;
             mGObject = new GameObject(name);
-            mGObject.transform.position = new Vector3( -30, 0, 0 );
+            mGObject.transform.position = new Vector3(-30, 0, zValue);
             mPortrait = mGObject.AddComponent<SpriteRenderer>();
             mExpressionRend = mGObject.AddComponent<SpriteRenderer>();
 
@@ -134,23 +133,23 @@ public class CharacterManager : MonoBehaviour {
              switch(position)
              {
                 case Positions.Left1:
-                startPlace = new Vector3( -10.0f, 0f, 0f);
+                     startPlace = new Vector3(-10.0f, 0f, zValue);
                 break;
 
                 case Positions.Left2:
-                startPlace = new Vector3( -6.0f, 0f, 0f);
+                startPlace = new Vector3(-6.0f, 0f, zValue);
                 break;
 
                 case Positions.Centre:
-                startPlace = new Vector3( 0.0f, 0f, -5.0f);
+                startPlace = new Vector3(0.0f, 0f, zValue);
                 break;
 
                 case Positions.Right1:
-                startPlace = new Vector3( 6.0f, 0f, 0f);
+                startPlace = new Vector3(6.0f, 0f, zValue);
                 break;
 
                 case Positions.Right2:
-                startPlace = new Vector3( 10.0f, 0f, 0f);
+                startPlace = new Vector3(10.0f, 0f, zValue);
                 break;
          
                 case Positions.Offscreen:
@@ -168,23 +167,23 @@ public class CharacterManager : MonoBehaviour {
             switch( position )
             {
             case Positions.Left1:
-            endPlace = new Vector3( -6.0f, 0f, 0f );
+                    endPlace = new Vector3(-6.0f, 0f, zValue);
             break;
 
             case Positions.Left2:
-            endPlace = new Vector3( -3.0f, 0f, 0f );
+            endPlace = new Vector3(-3.0f, 0f, zValue);
             break;
 
             case Positions.Centre:
-            endPlace = new Vector3( 0.0f, 0f, 0.0f );
+            endPlace = new Vector3(0.0f, 0f, zValue);
             break;
 
             case Positions.Right1:
-            endPlace = new Vector3( 3.0f, 0f, 0f );
+            endPlace = new Vector3(3.0f, 0f, zValue);
             break;
 
             case Positions.Right2:
-            endPlace = new Vector3( 6.0f, 0f, 0f );
+            endPlace = new Vector3(6.0f, 0f, zValue);
             break;
 
             case Positions.Offscreen:
@@ -212,7 +211,7 @@ public class CharacterManager : MonoBehaviour {
             }
 
             //ease out
-            Vector3 newCords = new Vector3( mPortrait.transform.position.x, mPortrait.transform.position.y, 0.0f );
+            Vector3 newCords = new Vector3(mPortrait.transform.position.x, mPortrait.transform.position.y, zValue);
             newCords.x += (destination.x - mPortrait.transform.position.x) / easeDuration;
             newCords.y += (destination.y - mPortrait.transform.position.y) / easeDuration;
 

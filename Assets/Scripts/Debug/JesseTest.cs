@@ -25,15 +25,7 @@ public class JesseTest : MonoBehaviour
         CM.characterList["Sharpe"].Initialize( "Detective Sharpe" );
         CM.characterList["Sharpe"].AddPose( "neutral", "Textures/Portraits/sharp_neutral" );
         CM.characterList["Sharpe"].ChangePose( "neutral" );
-    }
-
-    void Update()
-    {
-    
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            SceneManager.Instance.ChangeScene( 0 );
-        }
+        SceneManager.Instance.ChangeScene(0);
 
     }
 }
