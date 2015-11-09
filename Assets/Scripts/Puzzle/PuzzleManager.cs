@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PuzzleManager : MonoBehaviour 
@@ -7,12 +8,22 @@ public class PuzzleManager : MonoBehaviour
 
     public GameObject[] PuzzleList;
 
+    public GameObject PuzzleUIPrefab;
     private GameObject ParentObject;
+    private GameObject PuzzleUI;
+
+    private bool PuzzleActive = false;
+    private uint CurrentPuzzle = 0;
 
     void Awake ()
     {
         Instance = this;
-        ParentObject = new GameObject("ParentObject");
+        ParentObject = new GameObject("PuzzleParent");
+        GameObject MainCanvas = GameObject.Find("Canvas");
+        PuzzleUI = Instantiate(PuzzleUIPrefab,Vector3.zero,Quaternion.identity) as GameObject;
+        PuzzleUI.transform.parent = MainCanvas.transform;
+        PuzzleUI.transform.localScale = Vector3.one;
+        PuzzleUI.transform.localPosition = Vector3.zero;
     }
 
     public void Spawn(uint PuzzleNumber)
@@ -41,6 +52,28 @@ public class PuzzleManager : MonoBehaviour
             Destroy( child.gameObject );
             Debug.Log( "[Interactable Manager] Destroyed " + child.name + "!");
         }
+    }
+
+    // NOTE(jesse): GETTERS AND SETTERS
+
+    public bool GetPuzzleActive()
+    {
+        return PuzzleActive;
+    }
+
+    public void SetPuzzleActive(bool IsActive)
+    {
+        PuzzleActive = IsActive;
+    }
+
+    public uint GetCurrentPuzzle()
+    {
+        return CurrentPuzzle;
+    }
+
+    public void SetCurrentPuzzle(uint New)
+    {
+        CurrentPuzzle = New;
     }
 }
  

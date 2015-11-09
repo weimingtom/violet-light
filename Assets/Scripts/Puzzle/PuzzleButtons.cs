@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+
+[RequireComponent(typeof(GameObject))]
 
 public class PuzzleButtons : MonoBehaviour 
 {
@@ -20,11 +23,21 @@ public class PuzzleButtons : MonoBehaviour
     private bool isDown = false;
     private float easeDuration = 2.0f;
 
+    Vector3 epsilon;
+
+    private UnityEngine.UI.Button ThisButton;
+
     void Start()
     {
+        epsilon = new Vector3(0.001f, 0.001f, 0.001f);
         startPosition = transform.position;
         endPosition = startPosition;
-        endPosition.y += 300;
+        endPosition.y -= 290;
+
+        ThisButton = gameObject.AddComponent<UnityEngine.UI.Button>();
+        ThisButton.transition = Selectable.Transition.None;
+        ThisButton.onClick.RemoveAllListeners();
+        ThisButton.onClick.AddListener(() => OnAClick());
     }
 
     void Update()
@@ -44,35 +57,38 @@ public class PuzzleButtons : MonoBehaviour
 
             transform.position = newCords;
 
-            if(transform.position == destination )
+            if (((transform.position.y <= (destination.y + epsilon.y )) && !isDown) || 
+                ((transform.position.y >= (destination.y - epsilon.y )) && isDown))
             {
+                transform.position = destination;   
                 moving = false;
                 isDown = !isDown;
             }
         }
+
     }
 
-	void OnClick()
+	void OnAClick()
     {
-        Debug.Log( "[Puzzle UI] Button Clicked!" );
-        switch(thisType)
+        Debug.Log("[Puzzle UI] Button Clicked!");
+        switch (thisType)
         {
             case ButtonType.Hint:
-            break;
+                break;
             case ButtonType.Quit:
-            break;
+                break;
             case ButtonType.Memo:
-            break;
+                break;
             case ButtonType.Restart:
-            break;
+                break;
             case ButtonType.Submit:
-            break;  
+                break;
             case ButtonType.Info:
-            if(!moving)
-            { 
-                moving = true;
-            }
-            break;
+                if (!moving)
+                {
+                    moving = true;
+                }
+                break;
         }
     }
 }
