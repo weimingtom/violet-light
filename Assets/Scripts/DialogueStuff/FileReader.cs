@@ -13,7 +13,7 @@ public class FileReader : MonoBehaviour
         Background = 2,
         size = 3
     }
-    public static FileReader Instance;
+    static public FileReader Instance;
     public string fileLocation;
     //=================================================================
     //  Load file function
@@ -110,6 +110,13 @@ public class FileReader : MonoBehaviour
         TextAsset commandContainer = Resources.Load("command") as TextAsset;
         //print( "Command raw string :" + commandContainer.ToString() );
         StringParser.Instance.ParseCommand( commandContainer.ToString());
+    }
+    public void ReadCharacter(string filepath)
+    {
+        Debug.Log("It got here!");
+        TextAsset commandContainer = Resources.Load(filepath) as TextAsset;
+        Debug.Log("[READ CHARACTER]Command raw string :" + commandContainer.ToString());
+        StringParser.Instance.ParseCharacters(commandContainer.ToString());
     }
 }
 /*NOTE

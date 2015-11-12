@@ -311,7 +311,7 @@ public class StringParser : MonoBehaviour
     /************************* ADAM'S FILE READING ********************************/
     /******************** FOR READING THE CHARACTERS IN ***************************/
 
-    public void ParseCharacters( string mainString )
+    public void ParseCharacters(string mainString)
     {
 
         /*  EXAMPLE STRING
@@ -320,19 +320,78 @@ public class StringParser : MonoBehaviour
          * Pose Violet neutral "Textures/Portraits/violet_neutral"
          * Pose Violet happy "Textures/Portraits/violet_happy"
          * Pose Violet sad "Textures/Portraits/violet_sad"
+         * Expr Violet neutral "Textures/Expressions/violet_neutral_expr"
          * Char Alexander "Alexander Strong"
-         * Pose Alexander neutral "Textures/Portraits/violet_neutral"
-         * Pose Alexander happy "Textures/Portraits/violet_happy"
-         * Pose Alexander sad "Textures/Portraits/violet_sad"
+         * Pose Alexander neutral "Textures/Portraits/alex_neutral"
+         * Pose Alexander happy "Textures/Portraits/alex_happy"
+         * Pose Alexander sad "Textures/Portraits/alex_sad"
+         * Expr Alexander curious "Textures/Expressions/alex_curious_expr"
          * 
          */
 
+        CharacterManager CM;
+        CM = CharacterManager.Instance;
 
+        string what = "";
+        string who = "";
+        int i = 0;
 
+        while (i < mainString.Length)
+        {
+            while (mainString[i] != ' ')
+            {
+                what += mainString[i].ToString();
+                i++;
+            }
+            while (mainString[i] != ' ')
+            {
+                who += mainString[i].ToString();
+                i++;
+            }
 
+            string name = "";
 
+            if (what == "Char")
+            {
+                i++;
+                while (mainString[i] != '"')
+                {
+                    name += mainString[i].ToString();
+                    i++;
+                }
+                CM.characterList.Add(who, new CharacterManager.Character());
+                CM.characterList[who].Initialize(name);
+            }
+            else
+            {
+                while (mainString[i] != ' ')
+                {
+                    name += mainString[i].ToString();
+                    i++;
+                }
+                string filePath = "";
+                i++;
+                while (mainString[i] != '"')
+                {
+                    filePath += mainString[i].ToString();
+                    i++;
+                }
+
+                if (what == "Pose")
+                {
+                    CM.characterList[who].AddPose(name, filePath);
+                }
+                else if (what == "Expr")
+                {
+                    CM.characterList[who].AddExpression(name, filePath);
+                }
+                else
+                {
+                    Debug.Log("ERROR: unrecognized command in Loading Characters! StringParser -> ParseCharacters()");
+                }
+            }
+        }
     }
-
 
 }
 

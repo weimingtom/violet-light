@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class SceneManager : MonoBehaviour 
 {
+    private FileReader filereader;
+
     public struct Scene
     {
         public uint     ID;
@@ -47,6 +49,11 @@ public class SceneManager : MonoBehaviour
         newBackgroundRend.sprite = null;
 
         LoadCase( 1 );
+    }
+
+    void Start()
+    {
+        filereader = FileReader.Instance;
     }
 
     void Update()
@@ -103,6 +110,17 @@ public class SceneManager : MonoBehaviour
   //          Case = NewCase;
 
             Scenes.Clear();
+            //ADAM LOOK HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+            //This isn't working right now...
+            //Load in the characters specific to the case. 
+            /*
+            string filepath = "Characters_Scene";
+            filepath += NewCase.ToString();
+            filepath += ".txt";
+            Debug.Log(filepath);
+            filereader.ReadCharacter(filepath);
+            */
+
 
             // TODO(jesse): Load this in from a file
             Scene NewScene = new Scene();

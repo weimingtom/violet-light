@@ -55,6 +55,10 @@ public class CharacterManager : MonoBehaviour {
         deltaAlpha = fadeSpeed;
     }
 
+    public void ChangeCharacterPose(string name, string pose)
+    {
+        characterList[name].ChangePose(pose);
+    }
 
 
     public class Character
