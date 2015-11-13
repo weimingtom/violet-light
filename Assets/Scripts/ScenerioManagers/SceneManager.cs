@@ -48,11 +48,6 @@ public class SceneManager : MonoBehaviour
 
     }
 
-    void Start()
-    {
-        LoadCase( 1 );
-    }
-
     void Update()
     {
         if( newBackgroundRend.sprite != null )
@@ -95,7 +90,7 @@ public class SceneManager : MonoBehaviour
         else Debug.Log( "[scene manager] No case loaded!" );
     }
 
-    void LoadCase(uint NewCase)
+    public void LoadCase(uint NewCase)
     {
         Debug.Log( "[scene manager] loading case..." );
         // TODO(jesse): StringParser read file into memory
@@ -107,13 +102,10 @@ public class SceneManager : MonoBehaviour
   //          Case = NewCase;
 
             Scenes.Clear();
-            //ADAM LOOK HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-            //This isn't working right now...
+            /********* LOADING CHARACTERS FROM FILE ***********/
             //Load in the characters specific to the case. 
-            
             string filepath = "Characters_Scene";
             filepath += NewCase.ToString();
-            Debug.Log(filepath);
             FileReader.Instance.ReadCharacter(filepath);
 
 
@@ -132,6 +124,9 @@ public class SceneManager : MonoBehaviour
             NewScene.Time = 0605;
             NewScene.Prefab = "TestArea2";
             Scenes.Add( NewScene );
+
+
+
 
         }
         else Debug.Log( "[scene manager] Failed to load case" );

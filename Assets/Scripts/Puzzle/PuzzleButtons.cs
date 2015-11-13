@@ -33,7 +33,7 @@ public class PuzzleButtons : MonoBehaviour
         startPosition = transform.position;
         endPosition = startPosition;
         endPosition.y -= 290;
-
+        
         ThisButton = gameObject.AddComponent<UnityEngine.UI.Button>();
         ThisButton.transition = Selectable.Transition.None;
         ThisButton.onClick.RemoveAllListeners();
@@ -50,7 +50,6 @@ public class PuzzleButtons : MonoBehaviour
                 destination = endPosition;
             }
 
-
             Vector3 newCords = new Vector3( transform.position.x, transform.position.y, 0.0f );
             newCords.x += (destination.x - transform.position.x) / easeDuration;
             newCords.y += (destination.y - transform.position.y) / easeDuration;
@@ -65,7 +64,6 @@ public class PuzzleButtons : MonoBehaviour
                 isDown = !isDown;
             }
         }
-
     }
 
 	void OnAClick()
@@ -81,6 +79,7 @@ public class PuzzleButtons : MonoBehaviour
             case ButtonType.Memo:
                 break;
             case ButtonType.Restart:
+                PuzzleManager.Instance.RestartPuzzle();
                 break;
             case ButtonType.Submit:
                 // TODO(jesse): Fix this
