@@ -89,6 +89,7 @@ public class CharacterManager : MonoBehaviour {
         //TODO: change Initialize to take a filepath to a file for that character, parse the file and add all expressions and stuff from here
         public void Initialize(string name)
         {
+            //reference to this code later
             mName = name;
             mGObject = new GameObject(name);
             mGObject.transform.position = new Vector3(-30, 0, zValue);
