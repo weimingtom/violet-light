@@ -9,7 +9,7 @@ public class PuzzleManager : MonoBehaviour
     public GameObject[] PuzzleList;
     public bool[]       CompletedPuzzles;
 
-    public GameObject PuzzleUIPrefab;
+    public  GameObject PuzzleUIPrefab;
     private GameObject ParentObject;
     private GameObject PuzzleUI;
 
@@ -27,8 +27,6 @@ public class PuzzleManager : MonoBehaviour
         if(PuzzleLoaded)
         {
             // NOTE(jesse): Main Puzzle Loop
-
-
         }
     }
 
