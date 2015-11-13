@@ -32,7 +32,7 @@ public class FileReader : MonoBehaviour
     }
     private void RegisterFile(eTextType type, string line)
     {
-        print( "Raw file : " + line );
+        //print( "Raw file : " + line );
         if( line == "TextData" )
         {
             type = eTextType.TextData;
@@ -74,7 +74,7 @@ public class FileReader : MonoBehaviour
                     line = reader.ReadLine();
                     if( line != null ) // line is not empty
                     {
-                        print("detected");
+                        //print("detected");
                         //RegisterFile(type, line);
                     }
                 }
@@ -85,7 +85,7 @@ public class FileReader : MonoBehaviour
         {
             //location reading - ask teacher
             //Debug.Log( String.Format( "{0}\n", e.Message ) );
-            print( String.Format( "{0}\n", e.Message ) );
+            //print( String.Format( "{0}\n", e.Message ) );
             Console.WriteLine( "{0}\n", e.Message );
         }
     }
@@ -110,6 +110,10 @@ public class FileReader : MonoBehaviour
         TextAsset commandContainer = Resources.Load("command") as TextAsset;
         //print( "Command raw string :" + commandContainer.ToString() );
         StringParser.Instance.ParseCommand( commandContainer.ToString());
+    }
+    public string ReadCommandText(string commandAddress)
+    {
+        return (Resources.Load(commandAddress) as TextAsset).ToString();
     }
     public void ReadCharacter(string fileName)
     {

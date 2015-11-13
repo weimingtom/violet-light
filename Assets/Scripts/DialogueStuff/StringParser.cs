@@ -17,8 +17,8 @@ public class StringParser : MonoBehaviour
         string conversationHeader = header;
         string conversationContent = content;
         DialogueHolder.Instance.AddDialogue( conversationHeader.ToString(), conversationContent.ToString() );
-        print("Header :" + conversationHeader);
-        print("Content :" + conversationContent);
+        //print("Header :" + conversationHeader);
+        //print("Content :" + conversationContent);
     }
     public void RegisterCommand(string command, ref int index, string mainString)
     {
@@ -77,7 +77,7 @@ public class StringParser : MonoBehaviour
                 //go out from the if statement and increment once again to reach the next line
                 if( locationCheck != 4 )
                 {
-                    print( "[StringParser[Parse Dialogue]]Wrong Format!!\n" );
+                    //print( "[StringParser[Parse Dialogue]]Wrong Format!!\n" );
                     Debug.Break();
                 }
                 else 

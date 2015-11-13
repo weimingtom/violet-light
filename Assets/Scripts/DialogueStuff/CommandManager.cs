@@ -63,7 +63,6 @@ public class CommandManager : MonoBehaviour
 			if (myCommand [commandTracker].ExecuteCommand ()) 
 			{
 				commandTracker++;
-				Debug.Log("Command Tracker Status : " + commandTracker);
 			} 
 		}
 		else if (commandTracker == myCommand.Count)
