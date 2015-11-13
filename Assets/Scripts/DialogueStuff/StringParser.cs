@@ -42,6 +42,9 @@ public class StringParser : MonoBehaviour
         case "ShowPrompt":
             RegisterLocation( ref index, mainString );
             break;
+        case "StartPuzzle":
+            RegisterPuzzleID(ref index, mainString);
+            break;
         case "If":
             break;
         case "Location":
@@ -250,6 +253,28 @@ public class StringParser : MonoBehaviour
         WaitForActionCommand action = new WaitForActionCommand();
         action.SetAction(actionTag);
         CommandManager.Instance.AddCommand(action);
+    }
+    void RegisterPuzzleID(ref int index, string mainString)
+    {
+        string id = "";
+        int checkForSpecialCharacter = 0;
+        while( checkForSpecialCharacter < 2 )
+        {
+            if( mainString[index] != '\r' && mainString[index] != '\n' )
+            {
+                id += mainString[index];
+            }
+            else
+            {
+                checkForSpecialCharacter++;
+            }
+            index++;
+            //it is on the next line now
+        }
+        index--;
+        SpawnPuzzleCommand puzzleCmd = new SpawnPuzzleCommand();
+        puzzleCmd.RegisterPuzzleNumber(uint.Parse(id.ToString()));
+        CommandManager.Instance.AddCommand( puzzleCmd );
     }
     void RegisterLocation( ref int index, string mainString )
     {
