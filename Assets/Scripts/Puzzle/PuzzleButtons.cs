@@ -76,12 +76,15 @@ public class PuzzleButtons : MonoBehaviour
             case ButtonType.Hint:
                 break;
             case ButtonType.Quit:
+                PuzzleManager.Instance.EndPuzzle();
                 break;
             case ButtonType.Memo:
                 break;
             case ButtonType.Restart:
                 break;
             case ButtonType.Submit:
+                // TODO(jesse): Fix this
+                PuzzleManager.Instance.EndPuzzle();
                 break;
             case ButtonType.Info:
                 if (!moving)
@@ -91,4 +94,5 @@ public class PuzzleButtons : MonoBehaviour
                 break;
         }
     }
+
 }
