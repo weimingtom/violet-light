@@ -50,6 +50,17 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
+    public void RestartPuzzle()
+    {
+        if( PuzzleLoaded )
+        {
+            Clear();
+            DestroyUI();
+            Spawn( CurrentPuzzle );
+            SpawnUI();
+        }
+    }
+
     private void SpawnUI()
     {
         GameObject MainCanvas = GameObject.Find( "Canvas" );

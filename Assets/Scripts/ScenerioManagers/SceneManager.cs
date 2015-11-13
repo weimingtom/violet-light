@@ -48,11 +48,6 @@ public class SceneManager : MonoBehaviour
 
     }
 
-    void Start()
-    {
-        LoadCase( 1 );
-    }
-
     void Update()
     {
         if( newBackgroundRend.sprite != null )
@@ -95,7 +90,7 @@ public class SceneManager : MonoBehaviour
         else Debug.Log( "[scene manager] No case loaded!" );
     }
 
-    void LoadCase(uint NewCase)
+    public void LoadCase(uint NewCase)
     {
         Debug.Log( "[scene manager] loading case..." );
         // TODO(jesse): StringParser read file into memory
