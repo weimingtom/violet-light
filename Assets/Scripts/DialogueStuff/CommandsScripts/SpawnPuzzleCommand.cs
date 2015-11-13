@@ -20,6 +20,6 @@ public class SpawnPuzzleCommand : Commands
     }
     public override void Destroy()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }

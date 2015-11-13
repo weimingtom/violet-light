@@ -124,10 +124,6 @@ public class SceneManager : MonoBehaviour
             NewScene.Time = 0605;
             NewScene.Prefab = "TestArea2";
             Scenes.Add( NewScene );
-
-
-
-
         }
         else Debug.Log( "[scene manager] Failed to load case" );
     }

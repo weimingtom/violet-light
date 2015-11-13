@@ -78,7 +78,7 @@ public class CharacterManager : MonoBehaviour {
         //list of filepaths to all expressions
         private Dictionary<string, string> mExpressions;
         //private GameObject mExpressionGO; //not needed for now.
-        private SpriteRenderer mExpressionRend;
+        //private SpriteRenderer mExpressionRend;
 
         private List<bool> mFlags;  //will add functionality later if time.
         private int mAffinity;      //will add functionality later if time.
@@ -93,7 +93,7 @@ public class CharacterManager : MonoBehaviour {
             mGObject = new GameObject(name);
             mGObject.transform.position = new Vector3(-30, 0, zValue);
             mPortrait = mGObject.AddComponent<SpriteRenderer>();
-            mExpressionRend = mGObject.AddComponent<SpriteRenderer>();
+            //mExpressionRend = mGObject.AddComponent<SpriteRenderer>();
 
             mPoses = new Dictionary<string,string>();
             mExpressions = new Dictionary<string,string>();
@@ -120,7 +120,7 @@ public class CharacterManager : MonoBehaviour {
         }
         public void ChangeExpression(string expression)
         {
-            mExpressionRend.sprite = Resources.Load<Sprite>( mExpressions[expression] );
+            //mExpressionRend.sprite = Resources.Load<Sprite>( mExpressions[expression] );
         }
 
         public void SetForMovement(Positions position)

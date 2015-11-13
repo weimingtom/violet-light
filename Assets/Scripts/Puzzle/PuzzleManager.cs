@@ -37,6 +37,8 @@ public class PuzzleManager : MonoBehaviour
             Spawn( CurrentPuzzle );
             SpawnUI();
             PuzzleLoaded = true;
+
+            // TODO(jesse): Cue transition
         }
     }
 
