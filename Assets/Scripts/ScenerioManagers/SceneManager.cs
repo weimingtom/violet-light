@@ -102,13 +102,10 @@ public class SceneManager : MonoBehaviour
   //          Case = NewCase;
 
             Scenes.Clear();
-            //ADAM LOOK HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-            //This isn't working right now...
+            /********* LOADING CHARACTERS FROM FILE ***********/
             //Load in the characters specific to the case. 
-            
             string filepath = "Characters_Scene";
             filepath += NewCase.ToString();
-            Debug.Log(filepath);
             FileReader.Instance.ReadCharacter(filepath);
 
 
@@ -127,6 +124,9 @@ public class SceneManager : MonoBehaviour
             NewScene.Time = 0605;
             NewScene.Prefab = "TestArea2";
             Scenes.Add( NewScene );
+
+
+
 
         }
         else Debug.Log( "[scene manager] Failed to load case" );

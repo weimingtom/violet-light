@@ -113,9 +113,7 @@ public class FileReader : MonoBehaviour
     }
     public void ReadCharacter(string filepath)
     {
-        Debug.Log("It got here!");
         TextAsset commandContainer = Resources.Load(filepath) as TextAsset;
-        Debug.Log("[READ CHARACTER]Command raw string :" + commandContainer.ToString());
         StringParser.Instance.ParseCharacters(commandContainer.ToString());
     }
 }

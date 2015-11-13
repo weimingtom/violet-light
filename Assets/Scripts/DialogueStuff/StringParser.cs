@@ -332,17 +332,20 @@ public class StringParser : MonoBehaviour
         CharacterManager CM;
         CM = CharacterManager.Instance;
 
-        string what = "";
-        string who = "";
+        
         int i = 0;
 
         while (i < mainString.Length)
         {
+            string what = "";
+            string who = "";
+
             while (mainString[i] != ' ')
             {
                 what += mainString[i].ToString();
                 i++;
             }
+            i++;
             while (mainString[i] != ' ')
             {
                 who += mainString[i].ToString();
@@ -353,7 +356,7 @@ public class StringParser : MonoBehaviour
 
             if (what == "Char")
             {
-                i++;
+                i += 2;
                 while (mainString[i] != '"')
                 {
                     name += mainString[i].ToString();
@@ -361,16 +364,18 @@ public class StringParser : MonoBehaviour
                 }
                 CM.characterList.Add(who, new CharacterManager.Character());
                 CM.characterList[who].Initialize(name);
+                
             }
             else
             {
+                i++;
                 while (mainString[i] != ' ')
                 {
                     name += mainString[i].ToString();
                     i++;
                 }
                 string filePath = "";
-                i++;
+                i += 2;
                 while (mainString[i] != '"')
                 {
                     filePath += mainString[i].ToString();
@@ -389,8 +394,18 @@ public class StringParser : MonoBehaviour
                 {
                     Debug.Log("ERROR: unrecognized command in Loading Characters! StringParser -> ParseCharacters()");
                 }
+                
             }
+
+            i += 3;
         }
+
+        foreach(KeyValuePair<string, CharacterManager.Character> entry in CM.characterList )
+        {
+            entry.Value.ChangePose( "neutral" );
+        }
+
+
     }
 
 }
