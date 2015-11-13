@@ -36,8 +36,9 @@ public class PuzzleManager : MonoBehaviour
         {
             Spawn( CurrentPuzzle );
             SpawnUI();
+            Vector3 Pos = new Vector3( 0f, 0f, -2f );
+            Spawn( "Background", Pos );
             PuzzleLoaded = true;
-
             // TODO(jesse): Cue transition
         }
     }
@@ -58,6 +59,8 @@ public class PuzzleManager : MonoBehaviour
         {
             Clear();
             DestroyUI();
+            Vector3 Pos = new Vector3(0f,0f,-2f);
+            Spawn( "Background", Pos );
             Spawn( CurrentPuzzle );
             SpawnUI();
         }
@@ -94,6 +97,24 @@ public class PuzzleManager : MonoBehaviour
             }
         }
         Debug.Log( "[Puzzle Manager] Cannot find puzzle " + PuzzleNumber );
+    }
+
+    private void Spawn( string ObjectName, Vector3 Pos )
+    {
+        foreach( GameObject Actable in PuzzleList )
+        {
+            if( Actable.name == ObjectName.ToString() )
+            {
+                Debug.Log( "[Puzzle Manager] Spawned " + ObjectName.ToString() );
+
+                GameObject Interactable = Instantiate( Actable, Pos,
+                                                       Quaternion.identity )
+                                                       as GameObject;
+                Interactable.transform.parent = ParentObject.transform;
+                return;
+            }
+        }
+        Debug.Log( "[Puzzle Manager] Cannot find " + ObjectName.ToString() );
     }
 
     private void Clear()
