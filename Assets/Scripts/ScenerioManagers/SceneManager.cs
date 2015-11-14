@@ -33,10 +33,6 @@ public class SceneManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-
-        backgroundLookup.Add( "test1", "Textures/Backgrounds/backstreet_test" );
-        backgroundLookup.Add( "test2", "Textures/Backgrounds/backstreet_test2" );
-
         // Create GameObject
         currBackground = new GameObject( "Background" );
         currBackgroundRend = currBackground.AddComponent<SpriteRenderer>();
@@ -108,17 +104,22 @@ public class SceneManager : MonoBehaviour
             filepath += NewCase.ToString();
             FileReader.Instance.ReadCharacter(filepath);
 
+            /************** LOAD THE BACKGROUNDS FROM A FILE *******************/
+            //Load in the backgrounds that are specific to the case. 
+            filepath = "Backgrounds_Scene";
+            filepath += NewCase.ToString();
+            FileReader.Instance.ReadBackgrounds(filepath);
 
             // TODO(jesse): Load this in from a file
             Scene NewScene = new Scene();
-            NewScene.Background = "test1";
+            NewScene.Background = "alleyway";
             NewScene.ID = 0;
             NewScene.Name = "Alley Way";
             NewScene.Time = 1005;
             NewScene.Prefab = "TestArea1";
             Scenes.Add( NewScene );
 
-            NewScene.Background = "test2";
+            NewScene.Background = "bridge";
             NewScene.ID = 1;
             NewScene.Name = "Bridge";
             NewScene.Time = 0605;

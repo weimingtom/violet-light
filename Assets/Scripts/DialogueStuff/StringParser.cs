@@ -433,5 +433,37 @@ public class StringParser : MonoBehaviour
 
     }
 
+    public void ParseBackgrounds(string mainString)
+    {
+        /*          EXAMPLE STRING
+         * alleyway "Textures/Backgrounds/case1_alley"
+         * test2 "Textures/Backgrounds/backstreet_test2"
+         */
+
+        int i = 0;
+
+        while (i < mainString.Length)
+        {
+            string name = "";
+            string filepath = "";
+
+
+            while (mainString[i] != ' ')
+            {
+                name += mainString[i].ToString();
+                i++;
+            }
+            i += 2;
+            while (mainString[i] != '"')
+            {
+                filepath += mainString[i].ToString();
+                i++;
+            }
+            SceneManager.Instance.backgroundLookup.Add(name, filepath);
+            i += 3;
+        }
+
+
+    }
 }
 

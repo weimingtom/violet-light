@@ -117,11 +117,14 @@ public class FileReader : MonoBehaviour
     }
     public void ReadCharacter(string fileName)
     {
-
-        //Debug.Log("It got here!");
         TextAsset commandContainer = Resources.Load( fileName ) as TextAsset;
-        //Debug.Log("[READ CHARACTER]Command raw string :" + commandContainer.ToString());
         StringParser.Instance.ParseCharacters(commandContainer.ToString());
+    }
+    public void ReadBackgrounds(string fileName)
+    {
+        Debug.Log("Reading in backgrounds...");
+        TextAsset commandContainer = Resources.Load(fileName) as TextAsset;
+        StringParser.Instance.ParseBackgrounds(commandContainer.ToString());
     }
 }
 /*NOTE
