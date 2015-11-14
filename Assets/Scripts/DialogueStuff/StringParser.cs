@@ -387,8 +387,7 @@ public class StringParser : MonoBehaviour
                     name += mainString[i].ToString();
                     i++;
                 }
-                CM.characterList.Add(who, new CharacterManager.Character());
-                CM.characterList[who].Initialize(name);
+                CM.addCharacter( who, name );
                 
             }
             else
@@ -409,11 +408,11 @@ public class StringParser : MonoBehaviour
 
                 if (what == "Pose")
                 {
-                    CM.characterList[who].AddPose(name, filePath);
+                    CM.AddCharacterPose( who, name, filePath );
                 }
                 else if (what == "Expr")
                 {
-                    CM.characterList[who].AddExpression(name, filePath);
+                    CM.AddCharacterExpression( who, name, filePath );
                 }
                 else
                 {
@@ -424,11 +423,7 @@ public class StringParser : MonoBehaviour
 
             i += 3;
         }
-
-        foreach(KeyValuePair<string, CharacterManager.Character> entry in CM.characterList )
-        {
-            entry.Value.ChangePose( "neutral" );
-        }
+        CM.SetAllToNeutral();
 
 
     }

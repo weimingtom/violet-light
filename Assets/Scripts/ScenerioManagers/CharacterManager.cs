@@ -14,7 +14,7 @@ public class CharacterManager : MonoBehaviour {
         Right2
     }
 
-    public Dictionary<string, Character> characterList = new Dictionary<string,Character>();
+    private Dictionary<string, Character> characterList = new Dictionary<string,Character>();
     
     public const float defaultEasingDuration = 2.0f;
     public const float defaultDeltaAlpha = 2.5f;
@@ -47,7 +47,6 @@ public class CharacterManager : MonoBehaviour {
     
     public void ChangePosition(string character, Positions newPosition = Positions.Offscreen, float fadeSpeed = defaultDeltaAlpha, float easeSpeed = defaultEasingDuration) 
     {
-
         changingPortrait = character;
         positionToGoTo = newPosition;
         characterList[character].SetForMovement(newPosition);
@@ -60,8 +59,29 @@ public class CharacterManager : MonoBehaviour {
         characterList[name].ChangePose(pose);
     }
 
+    public void addCharacter( string key, string name )
+    {
+        characterList.Add( key, new CharacterManager.Character() );
+        characterList[key].Initialize( name );
+    }
 
-    public class Character
+    public void AddCharacterPose( string key, string poseName, string posePath )
+    {
+        characterList[key].AddPose( poseName, posePath );
+    }
+    public void AddCharacterExpression( string key, string exprName, string exprPath )
+    {
+        characterList[key].AddExpression( exprName, exprPath );
+    }
+    public void SetAllToNeutral()
+    {
+        foreach( KeyValuePair<string, CharacterManager.Character> entry in characterList )
+        {
+            entry.Value.ChangePose( "neutral" );
+        }
+    }
+
+    private class Character
     {
 
         //May need to change expressions so there is functionality to change position
