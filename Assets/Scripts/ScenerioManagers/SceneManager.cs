@@ -50,8 +50,22 @@ public class SceneManager : MonoBehaviour
             DoFade();
     }
 
+    private bool checkExists( string bgName )
+    {
+        return !backgroundLookup.ContainsKey( bgName );
+    }
+
     void ChangeBackground( string backgroundName, float Speed = 0.5f )
     {
+        //Check if the requested background exists in the dictionary - debug mode only.
+        if( Debug.isDebugBuild )
+        {
+            if( checkExists( backgroundName ) )
+            {
+                Debug.Log( "ERROR: Requested background does not exist - " + backgroundName );
+                Debug.Break();
+            }
+        }
         // Load from \Resources\ folder
         newBackgroundRend.sprite = Resources.Load<Sprite>( backgroundLookup[backgroundName] );
         newBackgroundRend.color = new Color( 1f, 1f, 1f, 0f );
