@@ -3,18 +3,22 @@ using UnityEngine.UI;
 using System.Collections;
 public class Column : MonoBehaviour 
 {
-    public SpriteRenderer barTexture = new SpriteRenderer();
-    public string spriteName;
+	public Image[] bar;
+	public string spriteName;
+	private Vector2 position;
     void Start()
     {
-        barTexture = new SpriteRenderer();
+		position = new Vector2(0 , 0);
         spriteName = "\0";
-        SetBar();
     }
-    void SetBar()
-    {
-        //Debug.Log( "Textures " + Resources.FindObjectsOfTypeAll( typeof( Texture ) ).Length );
-        barTexture = Resources.Load( "Textures/Puzzle/01/" + spriteName ) as SpriteRenderer;
-        
-    }
+	public void SetPosition(Vector2 pos)
+	{
+		position = pos;
+		bar[0].gameObject.transform.position = position;
+	}
+	public Vector2 GetPosition()
+	{
+		return position;
+	}
+
 }
