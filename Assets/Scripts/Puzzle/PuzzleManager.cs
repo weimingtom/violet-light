@@ -34,6 +34,7 @@ public class PuzzleManager : MonoBehaviour
     {
         if( !PuzzleLoaded )
         {
+            SceneManager.Instance.SetInputBlocker( true );
             Spawn( CurrentPuzzle );
             SpawnUI();
             Vector3 Pos = new Vector3( 0f, 0f, -2f );
@@ -47,6 +48,7 @@ public class PuzzleManager : MonoBehaviour
     {
         if( PuzzleLoaded )
         {
+            SceneManager.Instance.SetInputBlocker( false);
             Clear();
             DestroyUI();
             PuzzleLoaded = false;
@@ -59,7 +61,7 @@ public class PuzzleManager : MonoBehaviour
         {
             Clear();
             DestroyUI();
-            Vector3 Pos = new Vector3(0f,0f,-2f);
+            Vector3 Pos = new Vector3(0f,0f,-6f);
             Spawn( "Background", Pos );
             Spawn( CurrentPuzzle );
             SpawnUI();

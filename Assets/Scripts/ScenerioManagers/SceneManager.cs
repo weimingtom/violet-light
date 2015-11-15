@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class SceneManager : MonoBehaviour 
 {
+
     public struct Scene
     {
         public uint     ID;
@@ -24,6 +25,8 @@ public class SceneManager : MonoBehaviour
     private GameObject currBackground;
     private SpriteRenderer currBackgroundRend;
 
+    public GameObject ScreenBlocker;
+
     //0.0 - 1.0. How quickly the picture fades in. 
     public float deltaAlpha = 0.7f;
     //thew new background that is fading in
@@ -34,6 +37,7 @@ public class SceneManager : MonoBehaviour
     {
         Instance = this;
         // Create GameObject
+        ScreenBlocker = Instantiate( ScreenBlocker, new Vector3(0,0,-8), Quaternion.identity ) as GameObject;
         currBackground = new GameObject( "Background" );
         currBackgroundRend = currBackground.AddComponent<SpriteRenderer>();
 
@@ -41,13 +45,17 @@ public class SceneManager : MonoBehaviour
         newBackground.transform.position = new Vector3( 0f, 0f, -0.01f );
         newBackgroundRend = newBackground.AddComponent<SpriteRenderer>();
         newBackgroundRend.sprite = null;
-
     }
 
     void Update()
     {
         if( newBackgroundRend.sprite != null )
             DoFade();
+    }
+
+    public void SetInputBlocker(bool Enabled)
+    {
+        ScreenBlocker.SetActive( Enabled );
     }
 
     private bool checkExists( string bgName )
@@ -70,6 +78,7 @@ public class SceneManager : MonoBehaviour
         newBackgroundRend.sprite = Resources.Load<Sprite>( backgroundLookup[backgroundName] );
         newBackgroundRend.color = new Color( 1f, 1f, 1f, 0f );
         deltaAlpha = Speed;
+        SceneManager.Instance.SetInputBlocker( true );
     }
 
     void DoFade()
@@ -84,6 +93,7 @@ public class SceneManager : MonoBehaviour
         {
             currBackgroundRend.sprite = newBackgroundRend.sprite;
             newBackgroundRend.sprite = null;
+            SceneManager.Instance.SetInputBlocker( false );
         }
 
     }
