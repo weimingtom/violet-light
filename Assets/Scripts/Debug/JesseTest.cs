@@ -9,6 +9,16 @@ public class JesseTest : MonoBehaviour
     {
         SceneManager.Instance.LoadCase( 1 );
         SceneManager.Instance.ChangeScene( 0 );
+
+    }
+
+    void Update()
+    {
+        if( Input.GetKeyDown( KeyCode.F1 ) )
+        {
+            CharacterManager.Instance.StartShake(0.7f);
+        }
+
     }
 
 }

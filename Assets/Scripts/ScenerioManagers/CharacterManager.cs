@@ -14,6 +14,38 @@ public class CharacterManager : MonoBehaviour {
         Right2
     }
 
+    /****************** SCREEN SHAKE CODE ********************/
+    Vector3 originalCameraPosition;
+    private float radius;
+    private float randomAngle;
+    private Vector3 offset;
+    public Camera mainCamera;
+
+    public void StartShake( float magnitude = 0.7f)
+    {
+        radius = magnitude;
+        float randomAngle =  Random.value * 360;
+        offset = new Vector3( Mathf.Sin(randomAngle) * radius , Mathf.Cos(randomAngle) * radius, originalCameraPosition.z); //create offset 2d vector
+        InvokeRepeating( "CameraShake", 0, .02f );
+    }
+
+    private void CameraShake()
+    {
+        if( radius > 0.25 )
+        {
+            radius *= 0.9f; //diminish radius
+            randomAngle += Random.value > 0.5 ? (180 + Random.value * 60) : (180 - Random.value * 60);
+            offset = new Vector3( Mathf.Sin( randomAngle ) * radius, Mathf.Cos( randomAngle ) * radius, originalCameraPosition.z );
+            mainCamera.transform.position = originalCameraPosition + offset;
+        }
+        else 
+        {
+            CancelInvoke( "CameraShake" );
+            mainCamera.transform.position = originalCameraPosition;
+        }
+    }
+    
+    /************************ CHARACTER CODE ******************************/
     private Dictionary<string, Character> characterList = new Dictionary<string,Character>();
     
     public const float defaultEasingDuration = 2.0f;
@@ -33,6 +65,7 @@ public class CharacterManager : MonoBehaviour {
     void Start()
     {
         changingPortrait = null;
+        originalCameraPosition = mainCamera.transform.position;
     }
 
 	void Update () 
