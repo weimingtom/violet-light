@@ -45,14 +45,34 @@ public class CharacterManager : MonoBehaviour {
                 positionToGoTo = Positions.Offscreen;
             }
 	}
+
+    bool GetDoneFade()
+    { return changingPortrait == null; }
+
+    public void FadeAllOut()
+    {
+        foreach( KeyValuePair<string, CharacterManager.Character> entry in characterList )
+        {
+            entry.Value.mGObject.transform.position = new Vector3( -30.0f, 0.0f, zValue );
+        }   
+    }
     
     public void ChangePosition(string character, Positions newPosition = Positions.Offscreen, float fadeSpeed = defaultDeltaAlpha, float easeSpeed = defaultEasingDuration) 
     {
         changingPortrait = character;
         positionToGoTo = newPosition;
-        characterList[character].SetForMovement(newPosition);
+
         easeDuration = easeSpeed;
         deltaAlpha = fadeSpeed;
+
+        if(newPosition != Positions.Offscreen)
+             characterList[character].SetForMovement(newPosition);
+        else 
+        {
+            deltaAlpha = fadeSpeed * -1;
+        }
+        
+        
     }
 
     public void ChangeCharacterPose(string name, string pose)
@@ -234,6 +254,7 @@ public class CharacterManager : MonoBehaviour {
             {
                 mPortrait.color = new Color( 1f, 1f, 1f, alpha + (DeltaAlpha * Time.deltaTime) );
                 //mExpressionRend.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime));
+                alpha = mPortrait.color.a;
             }
             
 
@@ -245,7 +266,7 @@ public class CharacterManager : MonoBehaviour {
             mPortrait.transform.position = newCords;
 
 
-            if(alpha >= 1.0f && mGObject.transform.position == destination)
+            if((alpha >= 1.0f || alpha == 0.0f) && mGObject.transform.position == destination)
             {
                 if( newPosition == Positions.Offscreen )
                     mPortrait.transform.position = new Vector3( -30.0f, 0.0f, zValue );
