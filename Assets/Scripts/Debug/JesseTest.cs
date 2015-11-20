@@ -16,7 +16,7 @@ public class JesseTest : MonoBehaviour
     {
         if( Input.GetKeyDown( KeyCode.F1 ) )
         {
-            CharacterManager.Instance.StartShake(0.7f);
+            FXManager.Instance.StartShake(0.7f);
         }
 
     }
