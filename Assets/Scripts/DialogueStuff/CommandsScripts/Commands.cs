@@ -5,5 +5,5 @@ public abstract class Commands
 {
     public abstract void PrintData();
     public abstract bool ExecuteCommand();
-	public abstract void Destroy();
+	public abstract bool Destroy();
 }

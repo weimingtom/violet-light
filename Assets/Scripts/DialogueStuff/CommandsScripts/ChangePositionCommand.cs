@@ -19,8 +19,8 @@ public class ChangePositionCommand : Commands
 	{
 		return true;
 	}
-	public override void Destroy()
+	public override bool Destroy()
 	{
-
+        return true;
 	}
 }

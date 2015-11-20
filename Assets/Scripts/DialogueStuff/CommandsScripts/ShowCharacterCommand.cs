@@ -9,7 +9,6 @@ public class ShowCharacterCommand : Commands
     public override bool ExecuteCommand()
     {
         Debug.Log("character spawned");
-        //Debug.Break();
         CharacterManager.Positions myPos = CharacterManager.Positions.Offscreen;
         switch( SpawnLocation )
         {
@@ -55,8 +54,10 @@ public class ShowCharacterCommand : Commands
     {
         SpawnLocation = location;
     }
-	public override void Destroy()
+	public override bool Destroy()
 	{
-		CharacterManager.Instance.ChangePosition( CharacterName, CharacterManager.Positions.Offscreen);
+        //if(something)
+        return true;
+        CharacterManager.Instance.ChangePosition( CharacterName, CharacterManager.Positions.Offscreen );
 	}
 }

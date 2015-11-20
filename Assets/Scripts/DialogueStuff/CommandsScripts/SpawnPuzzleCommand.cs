@@ -18,8 +18,9 @@ public class SpawnPuzzleCommand : Commands
     {
 
     }
-    public override void Destroy()
+    public override bool Destroy()
     {
         //throw new System.NotImplementedException();
+        return true;
     }
 }

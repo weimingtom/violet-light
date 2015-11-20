@@ -58,10 +58,11 @@ public class ShowTextCommand : Commands
     {
         return conversationTag;
     }
-	public override void Destroy()
+	public override bool Destroy()
 	{
 		CommandManager.Instance.TextBoxSwitch (false);
 		CommandManager.Instance.TextSwitch (false);
 		CommandManager.Instance.SetTextHolder("");
+        return true;
 	}
 }

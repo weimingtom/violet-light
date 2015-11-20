@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class CommandManager : MonoBehaviour 
 {
+    int destroyCount;
     bool done;
     public Text myTextHolder;
     public GameObject myBannerBox;
@@ -34,6 +35,7 @@ public class CommandManager : MonoBehaviour
 
     void Start()
     {
+        destroyCount = 0;
         done = false;
         commandTracker = 0;
         Instance = this;
@@ -59,6 +61,7 @@ public class CommandManager : MonoBehaviour
     }
     public void Reinitialize()
     {
+        destroyCount = 0;
         done = false;
         commandTracker = 0;
         SceneId.Clear();
@@ -78,20 +81,25 @@ public class CommandManager : MonoBehaviour
 		    }
 		    else if (commandTracker == myCommand.Count)
 		    {
+
 			    /*
 			     * Destroy everything
+                 * Added destroy count, to reversed back to 
 			     */
-			    for (int i = 0; i < myCommand.Count; i++) 
-			    {
-				    myCommand [i].Destroy ();
-			    }
-                SceneManager.Instance.SetInputBlocker( false );
-                done = true;
-			    //print( "Waiting for time command" );
+                if( destroyCount < myCommand.Count
+                    && myCommand[destroyCount].Destroy())
+                {
+                    destroyCount++;
+                }
+                else if(destroyCount == myCommand.Count)
+                {
+                    SceneManager.Instance.SetInputBlocker( false );
+                    done = true;
+                }
 		    } 
-        break;
+            break;
+
         case true:
-        
             break;
         }
     }
