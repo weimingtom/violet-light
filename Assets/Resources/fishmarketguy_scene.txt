@@ -5,5 +5,4 @@ WaitForAction: LClick
 ShowChar: Violet Right2
 ShowText: alex2
 WaitForAction: LClick
-StartPuzzle: 1
 End:

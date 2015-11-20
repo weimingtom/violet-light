@@ -48,8 +48,6 @@ public class CharacterManager : MonoBehaviour {
     
     public void ChangePosition(string character, Positions newPosition = Positions.Offscreen, float fadeSpeed = defaultDeltaAlpha, float easeSpeed = defaultEasingDuration) 
     {
-        Debug.Log( "Character :" + character + " Position : " + newPosition );
-        Debug.Break();
         changingPortrait = character;
         positionToGoTo = newPosition;
         characterList[character].SetForMovement(newPosition);

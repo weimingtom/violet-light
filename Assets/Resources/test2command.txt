@@ -18,4 +18,5 @@ ShowText: Phoenix_7
 WaitForAction: LClick
 ShowText: Phoenix_8
 WaitForAction: LClick
+StartPuzzle: 1
 End:
