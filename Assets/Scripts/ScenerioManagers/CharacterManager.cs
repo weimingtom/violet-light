@@ -249,6 +249,8 @@ public class CharacterManager : MonoBehaviour {
 
             if(alpha >= 1.0f && mGObject.transform.position == destination)
             {
+                if( newPosition == Positions.Offscreen )
+                    mPortrait.transform.position = new Vector3( -30.0f, 0.0f, zValue );
                 return true;
             }
 
