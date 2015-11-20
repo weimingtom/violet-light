@@ -8,6 +8,8 @@ public class ShowCharacterCommand : Commands
     string SpawnLocation;
     public override bool ExecuteCommand()
     {
+        Debug.Log("character spawned");
+        //Debug.Break();
         CharacterManager.Positions myPos = CharacterManager.Positions.Offscreen;
         switch( SpawnLocation )
         {

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class CommandManager : MonoBehaviour 
 {
+    bool done;
     public Text myTextHolder;
     public GameObject myBannerBox;
     static public CommandManager Instance;
@@ -33,6 +34,7 @@ public class CommandManager : MonoBehaviour
 
     void Start()
     {
+        done = false;
         commandTracker = 0;
         Instance = this;
 		SceneId = new List<string>();
@@ -55,26 +57,42 @@ public class CommandManager : MonoBehaviour
             myCommand[i].PrintData();
         }
     }
-
+    public void Reinitialize()
+    {
+        done = false;
+        commandTracker = 0;
+        SceneId.Clear();
+        myCommand.Clear();
+    }
     void Update()
     {
-		if(commandTracker < myCommand.Count)
-		{
-			if (myCommand [commandTracker].ExecuteCommand ()) 
-			{
-				commandTracker++;
-			} 
-		}
-		else if (commandTracker == myCommand.Count)
-		{
-			/*
-				 * Destroy everything
-				 */
-			for (int i = 0; i < myCommand.Count; i++) 
-			{
-				myCommand [i].Destroy ();
-			}
-			//print( "Waiting for time command" );
-		} 
+        switch( done )
+        {
+        case false:
+		    if(commandTracker < myCommand.Count)
+		    {
+			    if (myCommand [commandTracker].ExecuteCommand ()) 
+			    {
+				    commandTracker++;
+			    } 
+		    }
+		    else if (commandTracker == myCommand.Count)
+		    {
+			    /*
+			     * Destroy everything
+			     */
+			    for (int i = 0; i < myCommand.Count; i++) 
+			    {
+				    myCommand [i].Destroy ();
+			    }
+                SceneManager.Instance.SetInputBlocker( false );
+                done = true;
+			    //print( "Waiting for time command" );
+		    } 
+        break;
+        case true:
+        
+            break;
+        }
     }
 }

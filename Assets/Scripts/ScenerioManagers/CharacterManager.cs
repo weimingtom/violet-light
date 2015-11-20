@@ -48,6 +48,8 @@ public class CharacterManager : MonoBehaviour {
     
     public void ChangePosition(string character, Positions newPosition = Positions.Offscreen, float fadeSpeed = defaultDeltaAlpha, float easeSpeed = defaultEasingDuration) 
     {
+        Debug.Log( "Character :" + character + " Position : " + newPosition );
+        Debug.Break();
         changingPortrait = character;
         positionToGoTo = newPosition;
         characterList[character].SetForMovement(newPosition);
@@ -235,6 +237,7 @@ public class CharacterManager : MonoBehaviour {
                 mPortrait.color = new Color( 1f, 1f, 1f, alpha + (DeltaAlpha * Time.deltaTime) );
                 //mExpressionRend.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime));
             }
+            
 
             //ease out
             Vector3 newCords = new Vector3(mPortrait.transform.position.x, mPortrait.transform.position.y, zValue);

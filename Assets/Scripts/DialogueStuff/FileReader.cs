@@ -27,8 +27,6 @@ public class FileReader : MonoBehaviour
     {
         ReadDialogue();
         ReadCommand();
-        Debug.Log("First Read done");
-        //Debug.Break();
     }
     private void RegisterFile(eTextType type, string line)
     {
@@ -94,6 +92,7 @@ public class FileReader : MonoBehaviour
     //================================================//
 	public void LoadScene(string _scene, string _dialogue)
 	{
+        CommandManager.Instance.Reinitialize();
 		TextAsset command = Resources.Load(_scene) as TextAsset;
 		TextAsset dialogue = Resources.Load(_dialogue) as TextAsset;
         SceneManager.Instance.SetInputBlocker( true );
