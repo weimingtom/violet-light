@@ -5,12 +5,10 @@ public class Agent : MonoBehaviour
 {
 	//for environment
 	//for our player
-    public Transform[] columnsPosition;
 	public float speed;
 	public GameObject EndDestinations;
 	private Vector2 temporaryDestination;
 	private bool hitIntersections;
-	private bool reset;
 
 	void Awake () 
 	{
@@ -18,53 +16,65 @@ public class Agent : MonoBehaviour
 	}
 	void Update () 
 	{
+        CheckMouse(1);
 		GotoDestination();
 	}
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "row_red" && hitIntersections == false )
+		if(col.gameObject.tag == "row" && hitIntersections == false )
 		{
-			reset = true;
 			HitIntersection(true);
 			Vector2 newPos = col.gameObject.transform.position;
 			UpdateTemporaryDestinations(newPos);
-			Debug.Log("Enter");
 		}
 	}
-	void OnTriggerExit2D(Collider2D col)
-	{
-	}
-//    void OnTriggerStay2D( Collider2D coll )
-//	{
-//		if(coll.gameObject.tag == "row_red"
-//		   && Mathf.Abs(this.transform.position.y - coll.transform.position.y) < 0.01
-//		   && hitIntersections == false)
-//		{
-//            Debug.Log("triggered");
-//            Debug.Break();
-//            HitIntersection(true);
-//            travelUpPos = coll.gameObject.transform.localScale.y * 0.5f;
-//            UpdateTemporaryDestinations(coll.gameObject.transform.position);
-//		}
-//	}
+    void CheckMouse(int index)
+    {
+        if( Input.GetMouseButtonUp( 0 ) )
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
+            if( hitCollider )
+            {
+                switch( hitCollider.transform.name )
+                {
+                case "blue_row":
+                    Row.Instance.BlueRowSwitch();
+                    break;
+                case "red_row":
+                    Row.Instance.RedRowSwitch();
+                    break;
+                case "green_row":
+                    Row.Instance.GreenRowSwitch();
+                    break;
+                case "yellow_row":
+                    Row.Instance.YellowRowSwitch();
+                    break;
+                }
+                Debug.Log("Hit something : "+hitCollider.transform.name);
+            }
+
+        }
+    }
 	void GotoDestination()
 	{
 		float step = speed * Time.deltaTime;
 		Vector2 updatedPos = new Vector2(0.0f,0.0f);
-
 		if(hitIntersections == true)
 		{
-			step = speed * Time.deltaTime * 5.0f;
+            
+			
 			if(Mathf.Abs(this.transform.position.y - temporaryDestination.y) > 0.05f)	//Navigate Up
 			{
+                step = speed * Time.deltaTime * 8.0f;
 				updatedPos = Vector2.MoveTowards(this.transform.position, temporaryDestination, step);
 				updatedPos.x = this.transform.position.x;
-				Debug.Log("New Pos :" + updatedPos);
 				this.transform.position = updatedPos;
 			}
 			else if(Mathf.Abs(this.transform.position.y - temporaryDestination.y) < 0.05f
 			        && Mathf.Abs(this.transform.position.x - temporaryDestination.x) > 0.05f) //Navigate Horisontally
 			{
+                step = speed * Time.deltaTime * 2.0f;
 				updatedPos = Vector2.MoveTowards(this.transform.position, temporaryDestination, step);
 				updatedPos.y = this.transform.position.y;
 				this.transform.position = updatedPos;
@@ -74,7 +84,6 @@ public class Agent : MonoBehaviour
 			{
 				HitIntersection(false);
 			}
-
 		}
 		else
 		{
@@ -101,8 +110,5 @@ public class Agent : MonoBehaviour
 	{
 		hitIntersections = stat;
 	}
-	private bool TravelToTop()
-	{
-		return false;
-	}
+
 }

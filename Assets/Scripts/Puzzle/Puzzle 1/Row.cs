@@ -1,48 +1,84 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 public class Row : MonoBehaviour 
 {
-	public SpriteRenderer[] red;
-	public SpriteRenderer[] blue;
-	public SpriteRenderer[] green;
-	public SpriteRenderer[] yellow;
+    public static Row Instance;
+	public SpriteRenderer[] redSprite;
+	public SpriteRenderer[] blueSprite;
+	public SpriteRenderer[] greenSprite;
+	public SpriteRenderer[] yellowSprite;
 
-	public GameObject[] redRow; 	
+    private List<Transform> RowObject;
+    private List<SpriteRenderer> RowSprite; 
+
+    public GameObject[] redRow; 	
 	public GameObject[] blueRow;
 	public GameObject[] greenRow;
 	public GameObject[] yellowRow;
-	void Start()
+    bool red, blue, green, yellow;
+    Transform a;
+	void Awake()
 	{
+        RowObject = new List<Transform>();
+        RowSprite = new List<SpriteRenderer>();
+        red = true;
+        blue = true;
+        green = true;
+        yellow = true;
 
+        Instance = this;
+        InitializeRow();
+        Debug.Break();
 	}
-	void SetRedRowActive(bool status)
+    public void InitializeRow()
+    {
+
+        for( int i = 0; i < this.transform.childCount; i++ )
+        {
+            Transform New = this.gameObject.transform.GetChild( i );
+            RowObject.Add( this.gameObject.transform.GetChild( i ) );
+            RowSprite.Add( RowObject[i].gameObject.GetComponent<SpriteRenderer>() );
+        }
+
+    }
+    public void Switch(string nameTag)
+    {
+        string[] temp = nameTag.Split(' ');
+        print("name : " + temp[0]);
+    }
+    public void RedRowSwitch()
 	{
+        red = !red;
 		for(int i = 0; i < redRow.Length; i++)
 		{
-			redRow[i].SetActive(status);
+			redRow[i].SetActive(red);
+            RowSprite[i].color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
 		}
 	}
-	void SetBlueRowActive(bool status)
+    public void BlueRowSwitch()
 	{
+        blue = !blue;
 		for(int i = 0; i < blueRow.Length; i++)
 		{
-			blueRow[i].SetActive(status);
+			blueRow[i].SetActive(true);
 		}
 	}
-	void SetGreenRowActive(bool status)
+    public void GreenRowSwitch()
 	{
+        green = !green;
 		for(int i = 0; i < greenRow.Length; i++)
 		{
-			greenRow[i].SetActive(status);
+			greenRow[i].SetActive(green);
 		}
 	}
-	void SetYellowRowActive(bool status)
+    public void YellowRowSwitch()
 	{
+        yellow = !yellow;
 		for(int i = 0; i < yellowRow.Length; i++)
 		{
-			greenRow[i].SetActive(status);
+			yellowRow[i].SetActive(yellow);
 		}
 	}
 }
