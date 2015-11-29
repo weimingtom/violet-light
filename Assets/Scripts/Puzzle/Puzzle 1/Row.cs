@@ -5,18 +5,10 @@ using System.Collections.Generic;
 public class Row : MonoBehaviour 
 {
     public static Row Instance;
-	public SpriteRenderer[] redSprite;
-	public SpriteRenderer[] blueSprite;
-	public SpriteRenderer[] greenSprite;
-	public SpriteRenderer[] yellowSprite;
-
+	
     private List<Transform> RowObject;
-    private List<SpriteRenderer> RowSprite; 
-
-    public GameObject[] redRow; 	
-	public GameObject[] blueRow;
-	public GameObject[] greenRow;
-	public GameObject[] yellowRow;
+    private List<SpriteRenderer> RowSprite;
+	
     bool red, blue, green, yellow;
     Transform a;
 	void Awake()
@@ -27,14 +19,27 @@ public class Row : MonoBehaviour
         blue = true;
         green = true;
         yellow = true;
-
         Instance = this;
         InitializeRow();
-        Debug.Break();
+	}
+	void Update()
+	{
+		CheckMouse ();
+	}
+	void CheckMouse()
+	{
+		if( Input.GetMouseButtonUp( 0 ) )
+		{
+			Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
+			if( hitCollider )
+			{
+				Switch(hitCollider.transform.name);
+			}
+		}
 	}
     public void InitializeRow()
     {
-
         for( int i = 0; i < this.transform.childCount; i++ )
         {
             Transform New = this.gameObject.transform.GetChild( i );
@@ -45,40 +50,59 @@ public class Row : MonoBehaviour
     }
     public void Switch(string nameTag)
     {
-        string[] temp = nameTag.Split(' ');
-        print("name : " + temp[0]);
+        string[] tempNameTag = nameTag.Split(' ');
+		string[] name;
+		bool passedFlag = true;
+		Debug.Log ("Temp 0 : " + tempNameTag[0]);
+		switch (tempNameTag [0]) 
+		{
+		case "blue_row":
+			blue = !blue;
+			passedFlag = blue;
+			break;
+		case "red_row":
+			red = !red;
+			passedFlag = red;
+			break;
+		case "yellow_row":
+			yellow = !yellow;
+			passedFlag = yellow;
+			break;
+		case "green_row":
+			green = !green;
+			passedFlag = green;
+			break;
+		}
+		for (int i = 0; i < RowSprite.Count; i++) 
+		{
+			name = RowSprite[i].transform.name.Split(' ');
+			if(name[0] == tempNameTag[0])
+			{
+				switch(passedFlag)
+				{
+				case true:
+					RowSprite[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+					break;
+				case false:
+					RowSprite[i].color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+					break;
+				}
+			}
+			name = RowObject[i].transform.name.Split(' ');
+			if(name[0] == tempNameTag[0])
+			{
+				switch(passedFlag)
+				{
+				case true:
+					string[] tagSwap = RowObject[i].tag.Split(':');
+					RowObject[i].tag = tagSwap[0];
+					break;
+				case false:
+					RowObject[i].tag += ":Disabled";
+					break;
+				}
+				//RowObject[i].gameObject.SetActive(passedFlag);
+			}
+		}
     }
-    public void RedRowSwitch()
-	{
-        red = !red;
-		for(int i = 0; i < redRow.Length; i++)
-		{
-			redRow[i].SetActive(red);
-            RowSprite[i].color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
-		}
-	}
-    public void BlueRowSwitch()
-	{
-        blue = !blue;
-		for(int i = 0; i < blueRow.Length; i++)
-		{
-			blueRow[i].SetActive(true);
-		}
-	}
-    public void GreenRowSwitch()
-	{
-        green = !green;
-		for(int i = 0; i < greenRow.Length; i++)
-		{
-			greenRow[i].SetActive(green);
-		}
-	}
-    public void YellowRowSwitch()
-	{
-        yellow = !yellow;
-		for(int i = 0; i < yellowRow.Length; i++)
-		{
-			yellowRow[i].SetActive(yellow);
-		}
-	}
 }
