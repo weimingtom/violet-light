@@ -9,6 +9,7 @@ public class CommandManager : MonoBehaviour
     int destroyCount;
     bool done;
     public Text myTextHolder;
+    public Text myNameHolder;
     public GameObject myBannerBox;
     static public CommandManager Instance;
     //counter for CommandId
@@ -20,13 +21,18 @@ public class CommandManager : MonoBehaviour
 	{
 		myTextHolder.text += c;
 	}
+    public void SetNameIntoNameBox( string name )
+    {
+        myNameHolder.text = name;
+    }
     public void SetTextHolder(string content)
     {
 		myTextHolder.text = content;
 	}
 	public void TextSwitch(bool status)
 	{
-		myTextHolder.gameObject.SetActive (status);
+        myTextHolder.gameObject.SetActive( status );
+        myNameHolder.gameObject.SetActive( status );
 	}
 	public void TextBoxSwitch(bool status)
 	{

@@ -1,8 +1,10 @@
 Conversation: cafe_7
 ShowChar: Alexander Left1
+SetDisplayName: Alexander
 ShowText: alex1
 WaitForAction: LClick
 ShowChar: Violet Right2
+SetDisplayName: Violet
 ShowText: alex2
 WaitForAction: LClick
 End:

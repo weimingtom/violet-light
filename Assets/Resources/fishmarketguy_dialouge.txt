@@ -1,2 +1,2 @@
-"alex1""Alexander: Look I found Something!"
-"alex2""Violet: What a shocking discovery!"
+"alex1""Look I found Something!"
+"alex2""What a shocking discovery!"

@@ -1,5 +1,6 @@
 Conversation: cafe_7
 ShowChar: Violet Left1
+SetDisplayName: Violet
 ShowText: violet1
 WaitForAction: LClick
 End:
