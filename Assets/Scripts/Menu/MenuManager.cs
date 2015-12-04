@@ -18,18 +18,13 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public GameObject menu;
-	private Vector2 hiddenPos;
-	private Vector2 ActivePos;
 	private bool active;
 	private state myState;
+    public GameObject[] States;
 
 	void Start () 
     {
-
-		//TODO Figure out How to do this without magic numbers.
-        hiddenPos = new Vector2(0.0f, Screen.height * 3);
-        ActivePos = new Vector2( 0.0f, Screen.height - 30.0f); 
-        menu.transform.localPosition = hiddenPos;
+        menu.SetActive(false);
         active = false;
 		myState = state.Main;
     }
@@ -37,7 +32,7 @@ public class MenuManager : MonoBehaviour {
 
 	void Update () 
     {
-	    //check if menu button was pressed
+	    //check if open/close menu button was pressed
         if(Input.GetKeyDown(KeyCode.Escape))
         {
 			toggleMenu();
@@ -49,7 +44,7 @@ public class MenuManager : MonoBehaviour {
 		return active;
 	}
 
-	private void toggleMenu()
+	public void toggleMenu()
 	{
 		active = !active;
 		if(active)
@@ -58,90 +53,49 @@ public class MenuManager : MonoBehaviour {
 			CloseMenu();
 	}
 
-	//Get When a button is pressed
-	public void ButtonPressed(string btn)
-	{
-		if(btn == "btnMenu")
-		{
-			toggleMenu();
-			return;
-		}
+    //Get When a Tab button is pressed
+    public void TabPressed( string btn )
+    { 
+         switch(btn)
+	    {
+	    case "btnEvidence":
+		    ChangeState(state.Evience);
+		    break;
+	    case "btnNotes":
+		    ChangeState(state.Notes);
+		    break;
+	    case "btnOptions":
+		    ChangeState(state.Options);
+		    break;
+	    case "btnPuzzles":
+		    ChangeState(state.Puzzles);
+		    break;
+	    case "btnSuspects":
+		    ChangeState(state.Suspects);
+		    break;
+	    case "btnTravel":
+		    ChangeState(state.Travel);
+		    break;
+	    default:
+		    Debug.Log("ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn);
+		    break;
+	    }
+    
+    }
 
-		if(active)
-		{
-			//Not yet implemented into menu UI
-			//Check Tabs
-			if(btn[0] == 't' && btn[1] == 'a' && btn[2] == 'b')
-			switch(btn)
-			{
-			case "tabEvidence":
-				ChangeState(state.Evience);
-				break;
-			case "tabNotes":
-				ChangeState(state.Notes);
-				break;
-			case "tabOptions":
-				ChangeState(state.Options);
-				break;
-			case "tabPuzzles":
-				ChangeState(state.Puzzles);
-				break;
-			case "tabSuspects":
-				ChangeState(state.Suspects);
-				break;
-			case "tabTravel":
-				ChangeState(state.Travel);
-				break;
-			default:
-				Debug.Log("ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn);
-				break;
-			}
-
-			//btn wasn't a Tab button so 
-			switch(myState)
-			{
-			case state.Main:
-				MainButton(btn);
-				break;
-			case state.Evience:
-
-				break;
-			case state.Notes:
-
-				break;
-			case state.Options:
-
-				break;
-			case state.Puzzles:
-
-				break;
-			case state.Suspects:
-
-				break;
-			case state.Travel:
-
-				break;
-			default:
-				Debug.Log("ERROR: myState Set To Unlisted State... How the F did you do that??? " + btn);
-				break;
-			}
-
-
-
-
-		}
-
-	}
-
-	private void MainButton(string btn)
+	public void MainButtonPressed(string btn)
 	{
 		switch(btn)
 		{
 		case "btnContinue":
 			toggleMenu();
 			break;
-		
-
+        case "btnQuit":
+            Debug.Log( "QUIT" );
+            Application.Quit();
+            break;
+        case "btnSave":
+            break;
 		default:
 			Debug.Log("ERROR: Button Not Found In List, " + btn);
 			break;
@@ -152,8 +106,9 @@ public class MenuManager : MonoBehaviour {
 	private void ChangeState(state newState)
 	{
 		//do fancy transistion animation between states
-
+        States[(int)myState].SetActive( false );
 		//set our new state
+        States[(int)newState].SetActive( true );
 		myState = newState;
 
 	}
@@ -161,7 +116,7 @@ public class MenuManager : MonoBehaviour {
     private void OpenMenu()
     {
 		//Do fancy transition animation
-        menu.transform.localPosition = ActivePos;
+        menu.SetActive(true);
 		//spawn input eater
 		SceneManager.Instance.SetInputBlocker(true);
     }
@@ -169,11 +124,14 @@ public class MenuManager : MonoBehaviour {
     private void CloseMenu()
     {
 		//do fancy transition in reverse
-        menu.transform.localPosition = hiddenPos;
+
+        //set menu back to default state
+        ChangeState(state.Main);
+        menu.SetActive(false);
 		//delte input eater
 		SceneManager.Instance.SetInputBlocker(false);
-		//set menu back to default state
-		myState = state.Main;
+		
+		
     }
 }
 
