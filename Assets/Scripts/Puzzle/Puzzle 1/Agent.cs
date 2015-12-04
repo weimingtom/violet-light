@@ -10,37 +10,52 @@ public class Agent : MonoBehaviour
 	public GameObject EndDestinations;
 	private Vector2 temporaryDestination;
 	private bool hitIntersections;
-
+    private Vector2 startPosition;
+    bool reachTop;
+    bool winStatus;
     public void StartRun()
     {
+        reachTop = false;
         GameStart = true;
+        winStatus = false;
     }
-
+    public void Reset()
+    {
+        reachTop = false;
+        GameStart = false;
+        winStatus = false;
+        this.transform.position = startPosition;
+    }
 	void Awake () 
 	{
-		GameStart = false;
 		hitIntersections = false;
+        startPosition = this.transform.position;
 	}
-	void Update () 
-	{
-
-		if (GameStart == true)
-		{
-			GotoDestination();
-		}
-		if (Mathf.Abs(this.transform.position.y - EndDestinations.transform.position.y) < 0.01 && GameStart == true) 
-		{
-			GameStart = false;
-			if(!WinConditionReached())
-			{
-				Debug.Log("Dead");
-			}
-			else
-			{
-				Debug.Log("Win");
-			}
-		}
-	}
+    public void RunGame()
+    {
+        if( GameStart == true )
+        {
+            GotoDestination();
+        }
+        if( Mathf.Abs( this.transform.position.y - EndDestinations.transform.position.y ) < 0.01 && GameStart == true )
+        {
+            GameStart = false;
+            reachTop = true;
+            if( WinConditionReached() )
+            {
+                Debug.Log( "Win" );
+                winStatus = true;
+            }
+        }
+    }
+    public bool ReachTop()
+    {
+        return reachTop;
+    }
+    public bool GetWinStatus()
+    {
+        return winStatus;
+    }
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if(col.gameObject.tag == "row" && hitIntersections == false)
@@ -50,7 +65,6 @@ public class Agent : MonoBehaviour
 			UpdateTemporaryDestinations(newPos);
 		}
 	}
-
 	void GotoDestination()
 	{
 		float step = speed * Time.deltaTime;
@@ -61,7 +75,6 @@ public class Agent : MonoBehaviour
 		{	
 			if(Mathf.Abs(this.transform.position.y - temporaryDestination.y) > 0.01f)	//Navigate Up
 			{
-                //step = speed * Time.deltaTime * 8.0f;
 				usedDestination = temporaryDestination;
 				usedDestination.x = this.transform.position.x;
 				updatedPos = Vector2.MoveTowards(this.transform.position, usedDestination, step);
@@ -71,7 +84,6 @@ public class Agent : MonoBehaviour
 			else if(Mathf.Abs(this.transform.position.y - temporaryDestination.y) < 0.01f
 			        && Mathf.Abs(this.transform.position.x - temporaryDestination.x) > 0.01f) //Navigate Horisontally
 			{
-                //step = speed * Time.deltaTime * 2.0f;
 				usedDestination = temporaryDestination;
 				usedDestination.y = this.transform.position.y;
 				updatedPos = Vector2.MoveTowards(this.transform.position, usedDestination, step);
@@ -104,7 +116,6 @@ public class Agent : MonoBehaviour
 	public void UpdateTemporaryDestinations(Vector2 destination)
 	{
 		temporaryDestination = destination;
-        //check position of the row
         if( this.transform.position.x > destination.x ) // this mean that the bar is on the left of agent
         {
             temporaryDestination.x -= 2;

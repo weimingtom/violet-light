@@ -10,7 +10,6 @@ public class Row : MonoBehaviour
     private List<SpriteRenderer> RowSprite;
 	
     bool red, blue, green, yellow;
-    Transform a;
 	void Awake()
 	{
         RowObject = new List<Transform>();
@@ -22,10 +21,22 @@ public class Row : MonoBehaviour
         Instance = this;
         InitializeRow();
 	}
-	void Update()
-	{
-		CheckMouse ();
-	}
+    public void Reset()
+    {
+        red = true;
+        blue = true;
+        green = true;
+        yellow = true;
+        for( int i = 0; i < RowObject.Capacity; i++ )
+        {
+            RowObject[i].tag = "row";
+            RowSprite[i].color = new Color( 1.0f, 1.0f, 1.0f, 1.0f );
+        }
+    }
+    public void RunGame()
+    {
+        CheckMouse();
+    }
 	void CheckMouse()
 	{
 		if( Input.GetMouseButtonUp( 0 ) )
@@ -53,7 +64,6 @@ public class Row : MonoBehaviour
         string[] tempNameTag = nameTag.Split(' ');
 		string[] name;
 		bool passedFlag = true;
-		Debug.Log ("Temp 0 : " + tempNameTag[0]);
 		switch (tempNameTag [0]) 
 		{
 		case "blue_row":
@@ -81,27 +91,15 @@ public class Row : MonoBehaviour
 				switch(passedFlag)
 				{
 				case true:
+                    string[] tagSwap = RowObject[i].tag.Split(':');
+					RowObject[i].tag = tagSwap[0];
 					RowSprite[i].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 					break;
 				case false:
+                    RowObject[i].tag += ":Disabled";
 					RowSprite[i].color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
 					break;
 				}
-			}
-			name = RowObject[i].transform.name.Split(' ');
-			if(name[0] == tempNameTag[0])
-			{
-				switch(passedFlag)
-				{
-				case true:
-					string[] tagSwap = RowObject[i].tag.Split(':');
-					RowObject[i].tag = tagSwap[0];
-					break;
-				case false:
-					RowObject[i].tag += ":Disabled";
-					break;
-				}
-				//RowObject[i].gameObject.SetActive(passedFlag);
 			}
 		}
     }
