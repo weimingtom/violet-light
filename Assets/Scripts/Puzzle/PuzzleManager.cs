@@ -13,8 +13,9 @@ public class PuzzleManager : MonoBehaviour
     private GameObject ParentObject;
     private GameObject PuzzleUI;
 
+
     private bool PuzzleLoaded = false;
-    private uint CurrentPuzzle = 0;
+    private uint CurrentPuzzle = 1 ;
 
     void Awake ()
     {
@@ -27,7 +28,19 @@ public class PuzzleManager : MonoBehaviour
         if(PuzzleLoaded)
         {
             // NOTE(jesse): Main Puzzle Loop
+            if(PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().IsSolved())
+            {
+                CompletedPuzzles[CurrentPuzzle] = true;
+                EndPuzzle();
+            }
         }
+    }
+
+    public void SubmitPuzzle()
+    {
+
+            PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().Submit();
+       
     }
 
     public void StartPuzzle(uint PuzzleNumber)
@@ -40,6 +53,7 @@ public class PuzzleManager : MonoBehaviour
             Vector3 Pos = new Vector3( 0f, 0f, -2f );
             Spawn( "Background", Pos );
             PuzzleLoaded = true;
+            PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().Initalize();
             // TODO(jesse): Cue transition
         }
     }
@@ -59,12 +73,13 @@ public class PuzzleManager : MonoBehaviour
     {
         if( PuzzleLoaded )
         {
-            Clear();
-            DestroyUI();
-            Vector3 Pos = new Vector3(0f,0f,-6f);
-            Spawn( "Background", Pos );
-            Spawn( CurrentPuzzle );
-            SpawnUI();
+            //Clear();
+            //DestroyUI();
+            //Vector3 Pos = new Vector3(0f,0f,-6f);
+            //Spawn( "Background", Pos );
+            //Spawn( CurrentPuzzle );
+            //SpawnUI();
+            PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().Reset();
         }
     }
 

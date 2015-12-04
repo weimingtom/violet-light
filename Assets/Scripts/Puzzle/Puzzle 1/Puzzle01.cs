@@ -9,12 +9,16 @@ public class Puzzle01 : Puzzle
     public GameObject AgentB;
     public GameObject Rows;
     PuzzleStatus puzzleStatus;
+    public bool Running;
+
     public override void Initalize()
     {
         puzzleStatus = PuzzleStatus.NotRunning;
-        AgentA.GetComponent<Agent>().Reset();
-        AgentB.GetComponent<Agent>().Reset();
-        Rows.GetComponent<Row>().Reset();
+        Running = false;
+
+        //AgentA.GetComponent<Agent>().Reset();
+        //AgentB.GetComponent<Agent>().Reset();
+        //Rows.GetComponent<Row>().Reset();
     }
     public override bool IsSolved()
     {
@@ -24,6 +28,8 @@ public class Puzzle01 : Puzzle
             && AgentB.GetComponent<Agent>().GetWinStatus())
         {
             puzzleStatus = PuzzleStatus.Win;
+            Running = false;
+
             return true;
         }
         else if( AgentA.GetComponent<Agent>().ReachTop()
@@ -31,16 +37,21 @@ public class Puzzle01 : Puzzle
             && (AgentA.GetComponent<Agent>().GetWinStatus() == false || !AgentB.GetComponent<Agent>().GetWinStatus() == false))
         {
             puzzleStatus = PuzzleStatus.Lose;
+            Running = false;
+
         }
         return false;
     }
     public override void Reset()
     {
         // Reset Witches
-        puzzleStatus = PuzzleStatus.NotRunning;
-        AgentA.GetComponent<Agent>().Reset();
-        AgentB.GetComponent<Agent>().Reset();
-        Rows.GetComponent<Row>().Reset();
+        if(puzzleStatus == PuzzleStatus.Running)
+        {
+            AgentA.GetComponent<Agent>().Reset();
+            AgentB.GetComponent<Agent>().Reset();
+            Rows.GetComponent<Row>().Reset();
+            Running = false;
+        }
     }
     void Update()
     {
@@ -48,8 +59,15 @@ public class Puzzle01 : Puzzle
         //Check if they both reached the end, 
         //if they did either reset or change solved to true
         puzzleStatus = PuzzleStatus.Running;
-        Rows.GetComponent<Row>().RunGame();
-        AgentA.GetComponent<Agent>().RunGame();
-        AgentB.GetComponent<Agent>().RunGame();
+        if( Running )
+        {
+            Rows.GetComponent<Row>().RunGame();
+            AgentA.GetComponent<Agent>().RunGame();
+            AgentB.GetComponent<Agent>().RunGame();
+        }
+    }
+    public override void Submit()
+    {
+        Running = true;
     }
 }

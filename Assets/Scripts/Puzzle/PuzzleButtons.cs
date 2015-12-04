@@ -83,7 +83,7 @@ public class PuzzleButtons : MonoBehaviour
                 break;
             case ButtonType.Submit:
                 // TODO(jesse): Fix this
-                PuzzleManager.Instance.EndPuzzle();
+                PuzzleManager.Instance.SubmitPuzzle();
                 break;
             case ButtonType.Info:
                 if (!moving)

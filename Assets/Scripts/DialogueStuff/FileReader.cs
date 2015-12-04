@@ -64,7 +64,7 @@ public class FileReader : MonoBehaviour
             // create a new stream reader, tell it which file to read and what encoding the file was saved as
             StreamReader reader = new StreamReader( fileLocation, Encoding.Default );
             //This bool is used to switch between parsing to script or
-            eTextType type = eTextType.none;
+            //eTextType type = eTextType.none;
             using( reader )
             {
                 do

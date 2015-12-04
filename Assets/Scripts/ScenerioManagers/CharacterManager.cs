@@ -13,6 +13,12 @@ public class CharacterManager : MonoBehaviour {
         Right1,
         Right2
     }
+    public enum Facings
+    { 
+        auto,
+        left,
+        right
+    }
     
     /************************ CHARACTER CODE ******************************/
     private Dictionary<string, Character> characterList = new Dictionary<string,Character>();
@@ -57,7 +63,7 @@ public class CharacterManager : MonoBehaviour {
         }   
     }
     
-    public void ChangePosition(string character, Positions newPosition = Positions.Offscreen, float fadeSpeed = defaultDeltaAlpha, float easeSpeed = defaultEasingDuration) 
+    public void ChangePosition(string character, Positions newPosition = Positions.Offscreen, Facings facing = Facings.auto, float fadeSpeed = defaultDeltaAlpha, float easeSpeed = defaultEasingDuration) 
     {
         changingPortrait = character;
         positionToGoTo = newPosition;
@@ -66,7 +72,7 @@ public class CharacterManager : MonoBehaviour {
         deltaAlpha = fadeSpeed;
 
         if(newPosition != Positions.Offscreen)
-             characterList[character].SetForMovement(newPosition);
+             characterList[character].SetForMovement(newPosition, facing);
         else 
         {
             deltaAlpha = fadeSpeed * -1;
@@ -115,6 +121,7 @@ public class CharacterManager : MonoBehaviour {
         //list of filepaths to all the poses
         private Dictionary<string, string> mPoses;
         private SpriteRenderer mPortrait;
+        private Facings currentFacing; 
 
         //list of filepaths to all expressions
         private Dictionary<string, string> mExpressions;
@@ -136,6 +143,8 @@ public class CharacterManager : MonoBehaviour {
             mGObject.transform.position = new Vector3(-30, 0, zValue);
             mPortrait = mGObject.AddComponent<SpriteRenderer>();
             //mExpressionRend = mGObject.AddComponent<SpriteRenderer>();
+            currentFacing = Facings.left;
+
 
             mPoses = new Dictionary<string,string>();
             mExpressions = new Dictionary<string,string>();
@@ -159,16 +168,38 @@ public class CharacterManager : MonoBehaviour {
         {
             //do an assert or something here to check that the pose exists.
             mPortrait.sprite = Resources.Load<Sprite>( mPoses[pose] );
+            //Set facing back to default(left)
+            currentFacing = Facings.left;
         }
         public void ChangeExpression(string expression)
         {
             //mExpressionRend.sprite = Resources.Load<Sprite>( mExpressions[expression] );
         }
 
-        public void SetForMovement(Positions position)
+        public void SetForMovement(Positions position, Facings facing)
         {
             mPortrait.color = new Color( 1f, 1f, 1f, 0f );
             //mExpressionRend.color = new Color( 1f, 1f, 1f, 0f );
+            
+            //find facing
+            if( facing == Facings.auto )
+            {
+                if( position == Positions.Left1 || position == Positions.Left2 || position == Positions.Centre )
+                    facing = Facings.right;
+                else
+                    facing = Facings.left;
+            }
+
+            if( facing != currentFacing )
+            { 
+                //flip the sprite
+                Vector3 scale = mPortrait.transform.localScale;
+                scale.x *= -1;
+                mPortrait.transform.localScale = scale;
+                //set new currentFacing
+                currentFacing = facing;
+            }
+
             mGObject.transform.position = FindStartPlace( position );
         }
 
@@ -206,7 +237,6 @@ public class CharacterManager : MonoBehaviour {
 
              return startPlace;
         }
-
         private Vector3 FindEndPlace( Positions position ) 
         {
             Vector3 endPlace;
