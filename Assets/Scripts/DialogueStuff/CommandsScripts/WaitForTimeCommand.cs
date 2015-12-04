@@ -20,10 +20,10 @@ public class WaitForTimeCommand : Commands
     }
     public override bool ExecuteCommand()
     {
-        Debug.Log( "[Wait For Time]Time Before wait : " + Time.time );
+        //Debug.Log( "[Wait For Time]Time Before wait : " + Time.time );
         totalTime += Time.deltaTime;
         //StartCoroutine(Wait());
-        Debug.Log( "[Wait For Time]Time After Wait Function is done :" + Time.time );
+        //Debug.Log( "[Wait For Time]Time After Wait Function is done :" + Time.time );
         return totalTime >= waitingTime;
     }
 	public override bool Destroy()
