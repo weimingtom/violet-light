@@ -11,6 +11,11 @@ public class Agent : MonoBehaviour
 	private Vector2 temporaryDestination;
 	private bool hitIntersections;
 
+    public void StartRun()
+    {
+        GameStart = true;
+    }
+
 	void Awake () 
 	{
 		GameStart = false;
@@ -18,13 +23,7 @@ public class Agent : MonoBehaviour
 	}
 	void Update () 
 	{
-		if (GameStart == false)
-		{
-			if (Input.GetKeyUp ("space"))
-			{
-				GameStart = true;
-			}
-		}
+
 		if (GameStart == true)
 		{
 			GotoDestination();
