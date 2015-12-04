@@ -36,6 +36,13 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
+    public void SubmitPuzzle()
+    {
+
+            PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().Submit();
+       
+    }
+
     public void StartPuzzle(uint PuzzleNumber)
     {
         if( !PuzzleLoaded )
@@ -46,7 +53,7 @@ public class PuzzleManager : MonoBehaviour
             Vector3 Pos = new Vector3( 0f, 0f, -2f );
             Spawn( "Background", Pos );
             PuzzleLoaded = true;
-            PuzzleList[CurrentPuzzle].GetComponent(Puzzle).Initalize();
+            PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().Initalize();
             // TODO(jesse): Cue transition
         }
     }

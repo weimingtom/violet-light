@@ -5,7 +5,7 @@ public class Agent : MonoBehaviour
 {
 	//for environment
 	//for our player
-	bool GameStart;
+	private bool GameStart = true;
 	public float speed;
 	public GameObject EndDestinations;
 	private Vector2 temporaryDestination;
@@ -13,6 +13,7 @@ public class Agent : MonoBehaviour
     private Vector2 startPosition;
     bool reachTop;
     bool winStatus;
+    public float SizeofTravelWidth = 1.75f;
     public void StartRun()
     {
         reachTop = false;
@@ -33,10 +34,9 @@ public class Agent : MonoBehaviour
 	}
     public void RunGame()
     {
-        if( GameStart == true )
-        {
-            GotoDestination();
-        }
+        //GameStart = true;
+        //if( GameStart )
+        GotoDestination();
         if( Mathf.Abs( this.transform.position.y - EndDestinations.transform.position.y ) < 0.01 && GameStart == true )
         {
             GameStart = false;
@@ -118,11 +118,11 @@ public class Agent : MonoBehaviour
 		temporaryDestination = destination;
         if( this.transform.position.x > destination.x ) // this mean that the bar is on the left of agent
         {
-            temporaryDestination.x -= 2;
+            temporaryDestination.x -= SizeofTravelWidth;
         }
         else if( this.transform.position.x < destination.x ) // bar is on the right of agent
         {
-            temporaryDestination.x += 2;
+            temporaryDestination.x += SizeofTravelWidth;
         }
 	}
 

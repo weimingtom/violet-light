@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SetDisplayNameCommand : Commands
 {
-	bool InitialSetup = true;
+	//bool InitialSetup = true;
     string name;
     public override bool ExecuteCommand()
     {

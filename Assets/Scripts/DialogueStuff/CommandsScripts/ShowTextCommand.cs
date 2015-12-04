@@ -39,12 +39,12 @@ public class ShowTextCommand : Commands
 			return true;
 		}
 
-        CommandManager.Instance.SetTextHolder( DialogueHolder.Instance.GetDialogue( conversationTag ).ToString() );
-        return true;
-		CommandManager.Instance.TextBoxSwitch (true);
-		CommandManager.Instance.TextSwitch (true);
-        CommandManager.Instance.SetTextHolder( DialogueHolder.Instance.GetDialogue( conversationTag ).ToString() );
-        return true;
+        //CommandManager.Instance.SetTextHolder( DialogueHolder.Instance.GetDialogue( conversationTag ).ToString() );
+        //return true;
+		//CommandManager.Instance.TextBoxSwitch (true);
+		//CommandManager.Instance.TextSwitch (true);
+        //CommandManager.Instance.SetTextHolder( DialogueHolder.Instance.GetDialogue( conversationTag ).ToString() );
+        //return true;
     }
     public override void PrintData()
     {

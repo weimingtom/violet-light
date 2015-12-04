@@ -53,7 +53,7 @@ public class Row : MonoBehaviour
     {
         for( int i = 0; i < this.transform.childCount; i++ )
         {
-            Transform New = this.gameObject.transform.GetChild( i );
+            //Transform New = this.gameObject.transform.GetChild( i );
             RowObject.Add( this.gameObject.transform.GetChild( i ) );
             RowSprite.Add( RowObject[i].gameObject.GetComponent<SpriteRenderer>() );
         }
