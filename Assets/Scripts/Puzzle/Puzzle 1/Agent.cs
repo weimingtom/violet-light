@@ -32,7 +32,7 @@ public class Agent : MonoBehaviour
 	void Start () 
 	{
 		hitIntersections = false;
-        this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, ZValue );
+        this.transform.position = new Vector3( this.transform.position.x, Column.instance.GetYPos()*1.2f, ZValue );
         startPosition = this.transform.position;
 	}
     public void RunGame()
