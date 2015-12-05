@@ -50,17 +50,19 @@ public class Puzzle01 : Puzzle
             puzzleStatus = PuzzleStatus.NotRunning;
        }
     }
-    public override void RunPuzzle()
+    void Update()
     {
-        if(puzzleStatus == PuzzleStatus.Running )
-        {
-            Rows.GetComponent<Row>().RunGame();
-            AgentA.GetComponent<Agent>().RunGame();
-            AgentB.GetComponent<Agent>().RunGame();
-        }
+        ////if(puzzleStatus == PuzzleStatus.Running )
+        //{
+        Rows.GetComponent<Row>().RunGame();
+        AgentA.GetComponent<Agent>().RunGame();
+        AgentB.GetComponent<Agent>().RunGame();
+        //}
     }
     public override void Submit()
     {
-        puzzleStatus = PuzzleStatus.Running;
+        //puzzleStatus = PuzzleStatus.Running;
+        AgentA.GetComponent<Agent>().StartRun();
+        AgentB.GetComponent<Agent>().StartRun();
     }
 }

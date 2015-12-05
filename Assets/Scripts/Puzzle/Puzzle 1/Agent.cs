@@ -5,7 +5,7 @@ public class Agent : MonoBehaviour
 {
 	//for environment
 	//for our player
-	private bool GameStart = true;
+	private bool gameStart = false;
 	public float speed;
 	public GameObject EndDestinations;
 	private Vector2 temporaryDestination;
@@ -15,16 +15,17 @@ public class Agent : MonoBehaviour
     bool winStatus;
     public float SizeofTravelWidth = 1.75f;
     public float ZValue = -5f;
+
     public void StartRun()
     {
         reachTop = false;
-        GameStart = true;
+        gameStart = true;
         winStatus = false;
     }
     public void Reset()
     {
         reachTop = false;
-        GameStart = false;
+        gameStart = false;
         winStatus = false;
         this.transform.position = startPosition;
     }
@@ -37,12 +38,13 @@ public class Agent : MonoBehaviour
     public void RunGame()
     {
         //GameStart = true;
-        //if( GameStart )
-        this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, ZValue );
-        GotoDestination();
-        if( Mathf.Abs( this.transform.position.y - EndDestinations.transform.position.y ) < 0.01 )//&& GameStart == true )
+        if( gameStart )
         {
-            GameStart = false;
+            GotoDestination();
+        }
+        if( Mathf.Abs( this.transform.position.y - EndDestinations.transform.position.y ) < 0.01 && gameStart == true )
+        {
+            gameStart = false;
             reachTop = true;
             if( WinConditionReached() )
             {
