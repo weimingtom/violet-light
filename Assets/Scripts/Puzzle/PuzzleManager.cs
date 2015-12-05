@@ -28,6 +28,7 @@ public class PuzzleManager : MonoBehaviour
         if(PuzzleLoaded)
         {
             // NOTE(jesse): Main Puzzle Loop
+            PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().RunPuzzle();
             if(PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().IsSolved())
             {
                 CompletedPuzzles[CurrentPuzzle] = true;

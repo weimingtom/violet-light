@@ -28,7 +28,6 @@ public class Puzzle01 : Puzzle
             && AgentB.GetComponent<Agent>().GetWinStatus())
         {
             puzzleStatus = PuzzleStatus.Win;
-            Running = false;
 
             return true;
         }
@@ -37,29 +36,23 @@ public class Puzzle01 : Puzzle
             && (AgentA.GetComponent<Agent>().GetWinStatus() == false || !AgentB.GetComponent<Agent>().GetWinStatus() == false))
         {
             puzzleStatus = PuzzleStatus.Lose;
-            Running = false;
-
         }
         return false;
     }
     public override void Reset()
     {
-        // Reset Witches
-        if(puzzleStatus == PuzzleStatus.Running)
-        {
+       //Reset Witches
+       if(puzzleStatus == PuzzleStatus.Running)
+       {
             AgentA.GetComponent<Agent>().Reset();
             AgentB.GetComponent<Agent>().Reset();
             Rows.GetComponent<Row>().Reset();
-            Running = false;
-        }
+            puzzleStatus = PuzzleStatus.NotRunning;
+       }
     }
-    void Update()
+    public override void RunPuzzle()
     {
-        //Run witches logic
-        //Check if they both reached the end, 
-        //if they did either reset or change solved to true
-        puzzleStatus = PuzzleStatus.Running;
-        if( Running )
+        if(puzzleStatus == PuzzleStatus.Running )
         {
             Rows.GetComponent<Row>().RunGame();
             AgentA.GetComponent<Agent>().RunGame();
@@ -68,6 +61,6 @@ public class Puzzle01 : Puzzle
     }
     public override void Submit()
     {
-        Running = true;
+        puzzleStatus = PuzzleStatus.Running;
     }
 }

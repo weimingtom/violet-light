@@ -7,5 +7,6 @@ public abstract class Puzzle : MonoBehaviour {
     public abstract bool IsSolved();
     public abstract void Submit();
     public abstract void Reset();
+    public abstract void RunPuzzle();
 
 }

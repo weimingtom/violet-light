@@ -14,6 +14,7 @@ public class Agent : MonoBehaviour
     bool reachTop;
     bool winStatus;
     public float SizeofTravelWidth = 1.75f;
+    public float ZValue = -5f;
     public void StartRun()
     {
         reachTop = false;
@@ -27,17 +28,19 @@ public class Agent : MonoBehaviour
         winStatus = false;
         this.transform.position = startPosition;
     }
-	void Awake () 
+	void Start () 
 	{
 		hitIntersections = false;
+        this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, ZValue );
         startPosition = this.transform.position;
 	}
     public void RunGame()
     {
         //GameStart = true;
         //if( GameStart )
+        this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, ZValue );
         GotoDestination();
-        if( Mathf.Abs( this.transform.position.y - EndDestinations.transform.position.y ) < 0.01 && GameStart == true )
+        if( Mathf.Abs( this.transform.position.y - EndDestinations.transform.position.y ) < 0.01 )//&& GameStart == true )
         {
             GameStart = false;
             reachTop = true;
@@ -68,8 +71,8 @@ public class Agent : MonoBehaviour
 	void GotoDestination()
 	{
 		float step = speed * Time.deltaTime;
-		Vector2 updatedPos = new Vector2(0.0f,0.0f);
-		Vector2 usedDestination;
+		Vector3 updatedPos = new Vector3(0.0f,0.0f, ZValue);
+		Vector3 usedDestination;
 		
 		if(hitIntersections == true)
 		{	
@@ -80,6 +83,7 @@ public class Agent : MonoBehaviour
 				updatedPos = Vector2.MoveTowards(this.transform.position, usedDestination, step);
 				updatedPos.x = this.transform.position.x;
 				this.transform.position = updatedPos;
+                this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, ZValue );
 			}
 			else if(Mathf.Abs(this.transform.position.y - temporaryDestination.y) < 0.01f
 			        && Mathf.Abs(this.transform.position.x - temporaryDestination.x) > 0.01f) //Navigate Horisontally
@@ -89,6 +93,7 @@ public class Agent : MonoBehaviour
 				updatedPos = Vector2.MoveTowards(this.transform.position, usedDestination, step);
 				updatedPos.y = this.transform.position.y;
 				this.transform.position = updatedPos;
+                this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, ZValue );
 			}
 			else if(Mathf.Abs(this.transform.position.y - temporaryDestination.y) < 0.01f
 			        && Mathf.Abs(this.transform.position.x - temporaryDestination.x) < 0.01f)
@@ -103,6 +108,7 @@ public class Agent : MonoBehaviour
 			updatedPos = Vector2.MoveTowards(this.transform.position, usedDestination, step);
 			updatedPos.x = this.transform.position.x;
 			this.transform.position = updatedPos;
+            this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, ZValue );
 		}
 	}
 	bool WinConditionReached()
