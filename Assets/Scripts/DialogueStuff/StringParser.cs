@@ -48,6 +48,12 @@ public class StringParser : MonoBehaviour
         case "SetDisplayName":
             RegisterSetDisplayName( ref index, mainString );
             break;
+        case "ChangePose":
+            RegisterChangePose( ref index, mainString );
+            break;
+        case "ChangePosition":
+            RegisterChangePosition( ref index, mainString );
+            break;
         case "If":
             break;
         case "Location":
@@ -173,6 +179,81 @@ public class StringParser : MonoBehaviour
         character.SetSpawnLocation(spawnLocation);
         CommandManager.Instance.AddCommand(character);
     }
+
+    void RegisterChangePosition( ref int index, string mainString )
+    {
+        string characterName = "";
+        string spawnLocation = "";
+        bool spaceDetected = false;
+        int checkForSpecialCharacter = 0;
+        while( spaceDetected == false )
+        {
+            if( mainString[index] != ' ' )
+            {
+                characterName += mainString[index];
+            }
+            else
+            {
+                spaceDetected = true;
+            }
+            index++;
+        }
+        while( checkForSpecialCharacter < 2 )
+        {
+            if( mainString[index] != '\r' && mainString[index] != '\n' )
+            {
+                spawnLocation += mainString[index];
+            }
+            else
+            {
+                checkForSpecialCharacter++;
+            }
+            index++;
+        }
+        index--;
+
+        ChangePositionCommand character = new ChangePositionCommand();
+        character.SetNewPosition( characterName, spawnLocation );
+        CommandManager.Instance.AddCommand( character );
+    }
+
+    void RegisterChangePose( ref int index, string mainString )
+    {
+        string characterName = "";
+        string spawnLocation = "";
+        bool spaceDetected = false;
+        int checkForSpecialCharacter = 0;
+        while( spaceDetected == false )
+        {
+            if( mainString[index] != ' ' )
+            {
+                characterName += mainString[index];
+            }
+            else
+            {
+                spaceDetected = true;
+            }
+            index++;
+        }
+        while( checkForSpecialCharacter < 2 )
+        {
+            if( mainString[index] != '\r' && mainString[index] != '\n' )
+            {
+                spawnLocation += mainString[index];
+            }
+            else
+            {
+                checkForSpecialCharacter++;
+            }
+            index++;
+        }
+        index--;
+
+        ChangePoseCommand character = new ChangePoseCommand();
+        character.SetNewPose( characterName, spawnLocation );
+        CommandManager.Instance.AddCommand( character );
+    }
+
     void RegisterConversationID(ref int index, string mainString)
     {
         string temporaryID = "";

@@ -16,6 +16,7 @@ public class SetDisplayNameCommand : Commands
     }
     public override void PrintData()
     {
+
     }
 	public override bool Destroy()
 	{

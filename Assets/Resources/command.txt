@@ -3,4 +3,7 @@ ShowChar: Violet Left1
 SetDisplayName: Violet
 ShowText: violet1
 WaitForAction: LClick
+ChangePose: Violet excited
+ShowText: violet2
+WaitForAction: LClick
 End:

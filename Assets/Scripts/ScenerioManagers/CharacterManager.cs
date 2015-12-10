@@ -77,8 +77,6 @@ public class CharacterManager : MonoBehaviour {
         {
             deltaAlpha = fadeSpeed * -1;
         }
-        
-        
     }
 
     public void ChangeCharacterPose(string name, string pose)

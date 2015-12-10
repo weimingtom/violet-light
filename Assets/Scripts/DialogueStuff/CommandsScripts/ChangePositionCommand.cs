@@ -3,20 +3,42 @@ using System.Collections;
 
 public class ChangePositionCommand : Commands
 {
-	string characaterName;
+	string characterName;
 	string newPosition;
 
 	public void SetNewPosition(string character, string pos)
 	{
-		characaterName = character;
+		characterName = character;
 		newPosition = pos;
 	}
 	public override void PrintData()
 	{
-		Debug.Log ("[Change Character Command] Contain CharacterName : " + characaterName.ToString() + ":: New Position : " + newPosition.ToString() );
 	}
 	public override bool ExecuteCommand()
 	{
+        CharacterManager.Positions myPos = CharacterManager.Positions.Offscreen;
+        switch( newPosition )
+        {
+        case "Offscreen":
+        myPos = CharacterManager.Positions.Offscreen;
+        break;
+        case "Left1":
+        myPos = CharacterManager.Positions.Left1;
+        break;
+        case "Left2":
+        myPos = CharacterManager.Positions.Left2;
+        break;
+        case "Centre":
+        myPos = CharacterManager.Positions.Centre;
+        break;
+        case "Right1":
+        myPos = CharacterManager.Positions.Right1;
+        break;
+        case "Right2":
+        myPos = CharacterManager.Positions.Right2;
+        break;
+        }
+        CharacterManager.Instance.ChangePosition( characterName, myPos );
 		return true;
 	}
 	public override bool Destroy()
