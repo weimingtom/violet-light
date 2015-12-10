@@ -37,8 +37,6 @@ public class Agent : MonoBehaviour
 
 	void Start () 
 	{
-        Debug.Log("Start Agent called");
-        Debug.Break();
         failedPath = false;
         //this.transform.position = new Vector3( this.transform.position.x, Column.instance.GetYPos()*1.2f, ZValue );
         startPosition = this.transform.localPosition;
