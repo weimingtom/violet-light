@@ -133,5 +133,18 @@ public class MenuManager : MonoBehaviour {
 		
 		
     }
+
+    public void VolumeSlider( float multiplier )
+    {
+        Debug.Log( "Volume Changed: " + multiplier );
+    }
+
+    public void BrightnessSlider( float multiplier )
+    {
+        Debug.Log( "Brightness Changed: " + multiplier );
+    }
+
+
 }
+
 

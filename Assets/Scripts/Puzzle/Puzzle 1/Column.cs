@@ -21,7 +21,7 @@ public class Column : MonoBehaviour
 				count++;
 			}
 		}
-		yPos = colSprite.renderer.bounds.min.y;
+		yPos = colSprite.GetComponent<Renderer>().bounds.min.y;
 	}
 	public float GetYPos()
 	{
