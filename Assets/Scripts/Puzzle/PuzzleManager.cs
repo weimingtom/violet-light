@@ -29,11 +29,16 @@ public class PuzzleManager : MonoBehaviour
         if(PuzzleLoaded)
         {
             // NOTE(jesse): Main Puzzle Loop
-            if(PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().IsSolved())
+            if(PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().GetStatus() == PuzzleStatus.Win)
             {
                 CompletedPuzzles[CurrentPuzzle] = true;
                 EndPuzzle();
             }
+			else if(PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().GetStatus() == PuzzleStatus.Lose)
+			{
+				// TODO(jesse): Write gameover/failure screen
+				EndPuzzle();
+			}
         }
     }
 

@@ -3,134 +3,128 @@ using System.Collections;
 using System.Collections.Generic;
 public class Agent : MonoBehaviour 
 {
-	//for environment
-	//for our player
-	private bool gameStart = false;
-	public float speed;
-	public GameObject EndDestinations;
-	private Vector2 temporaryDestination;
-	private bool hitIntersections;
-    private Vector2 startPosition;
-    bool reachTop;
-    bool winStatus;
-    public float SizeofTravelWidth = 1.75f;
-    public float ZValue = -5f;
+    // NOTE(jesse): testingWitches controls whether the witches should be moving
+    // or not, after the submit button is pressed
+	private bool runningSimulation;
+    private bool touchedCorrectCastle;
+	public float movementSpeed;
+	public GameObject goalCastle;
 
-    public void StartRun()
+    // TODO(jesse): Change this name/functionality?
+	private Vector2 seekDestination;
+    private bool crossingRow;
+    private bool failedPath;
+
+    public Vector2 startPosition;
+    
+    // NOTE(jesse): Appearence issues, columnWidth helps if you rescale puzzle
+    // Zvalue forces everything to that value 
+    public float columnWidth = 1.75f;
+
+    public void Submit()
     {
-        reachTop = false;
-        gameStart = true;
-        winStatus = false;
+        Reset();
+        runningSimulation = true;
     }
+
     public void Reset()
     {
-        reachTop = false;
-        gameStart = false;
-        winStatus = false;
-        this.transform.position = startPosition;
+        crossingRow = false;
+        runningSimulation = false;
+        touchedCorrectCastle = false;
+        this.transform.localPosition = startPosition;
     }
+
 	void Start () 
 	{
-		hitIntersections = false;
-        this.transform.position = new Vector3( this.transform.position.x, Column.instance.GetYPos()*1.2f, ZValue );
-        startPosition = this.transform.position;
+        Debug.Log("Start Agent called");
+        Debug.Break();
+        failedPath = false;
+        //this.transform.position = new Vector3( this.transform.position.x, Column.instance.GetYPos()*1.2f, ZValue );
+        startPosition = this.transform.localPosition;
+        Reset();
 	}
-    public void RunGame()
+
+    void Update()
     {
-        //GameStart = true;
-        if( gameStart )
+        if( runningSimulation )
         {
-            GotoDestination();
-        }
-        if( Mathf.Abs( this.transform.position.y - EndDestinations.transform.position.y ) < 0.01 && gameStart == true )
-        {
-            gameStart = false;
-            reachTop = true;
-            if( WinConditionReached() )
+            GotoDestination
+                ();
+            
+            if( this.transform.localPosition.y >= goalCastle.transform.localPosition.y)
             {
-                Debug.Log( "Win" );
-                winStatus = true;
+                runningSimulation = false;
+                if(!touchedCorrectCastle)
+                    failedPath = true;
             }
         }
     }
-    public bool ReachTop()
+    public bool GetLostStatus()
     {
-        return reachTop;
+        return failedPath;
     }
     public bool GetWinStatus()
     {
-        return winStatus;
+        return touchedCorrectCastle;
     }
+
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "row" && hitIntersections == false)
+        if( col.gameObject.tag == "row" && crossingRow == false )
 		{
-			hitIntersections = true;
-			Vector2 newPos = col.gameObject.transform.position;
-			UpdateTemporaryDestinations(newPos);
+            crossingRow = true;
+			Vector2 newPos = col.gameObject.transform.localPosition;
+			UpdateSeekDestination(newPos);
 		}
+        else if( col.gameObject.tag == "destination" + this.transform.name )
+        {
+            touchedCorrectCastle = true;
+        }
 	}
+
 	void GotoDestination()
 	{
-		float step = speed * Time.deltaTime;
-		Vector3 updatedPos = new Vector3(0.0f,0.0f, ZValue);
-		Vector3 usedDestination;
-		
-		if(hitIntersections == true)
+		float step = movementSpeed * Time.deltaTime;
+
+        if( crossingRow == true )
 		{	
-			if(Mathf.Abs(this.transform.position.y - temporaryDestination.y) > 0.01f)	//Navigate Up
+            // NOTE(hendry): The moves the agent first to the center of the row, before it starts moving
+            // horizontally
+            if( this.transform.localPosition.y <= seekDestination.y )
 			{
-				usedDestination = temporaryDestination;
-				usedDestination.x = this.transform.position.x;
-				updatedPos = Vector2.MoveTowards(this.transform.position, usedDestination, step);
-				updatedPos.x = this.transform.position.x;
-				this.transform.position = updatedPos;
-                this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, ZValue );
+                seekDestination.x = this.transform.localPosition.x;
 			}
-			else if(Mathf.Abs(this.transform.position.y - temporaryDestination.y) < 0.01f
-			        && Mathf.Abs(this.transform.position.x - temporaryDestination.x) > 0.01f) //Navigate Horisontally
+            // NOTE(jesse): else move horizontally
+			else if(Mathf.Abs(this.transform.localPosition.x - seekDestination.x) > 0.01f) 
+            {
+                seekDestination.y = this.transform.localPosition.y;			
+            }
+			else
 			{
-				usedDestination = temporaryDestination;
-				usedDestination.y = this.transform.position.y;
-				updatedPos = Vector2.MoveTowards(this.transform.position, usedDestination, step);
-				updatedPos.y = this.transform.position.y;
-				this.transform.position = updatedPos;
-                this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, ZValue );
-			}
-			else if(Mathf.Abs(this.transform.position.y - temporaryDestination.y) < 0.01f
-			        && Mathf.Abs(this.transform.position.x - temporaryDestination.x) < 0.01f)
-			{
-				hitIntersections = false;
+				crossingRow = false;
 			}
 		}
 		else
 		{
-			usedDestination = EndDestinations.transform.position;
-			usedDestination.x = this.transform.position.x;
-			updatedPos = Vector2.MoveTowards(this.transform.position, usedDestination, step);
-			updatedPos.x = this.transform.position.x;
-			this.transform.position = updatedPos;
-            this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, ZValue );
+            seekDestination = goalCastle.transform.localPosition;
+            seekDestination.x = this.transform.localPosition.x;
 		}
-	}
-	bool WinConditionReached()
+        this.transform.localPosition = Vector3.MoveTowards( this.transform.localPosition, seekDestination, step );
+    }
+
+	public void UpdateSeekDestination(Vector2 destination)
 	{
-		if (Mathf.Abs (this.transform.position.x - EndDestinations.transform.position.x) < 0.01f)
-		{
-			return true;
-		}
-		return false;
-	}
-	public void UpdateTemporaryDestinations(Vector2 destination)
-	{
-		temporaryDestination = destination;
-        if( this.transform.position.x > destination.x ) // this mean that the bar is on the left of agent
+        seekDestination = destination;
+
+        // NOTE(hendry): this means that the bar is on the left of agent
+        if( this.transform.localPosition.x > destination.x ) 
         {
-            temporaryDestination.x -= SizeofTravelWidth;
+            seekDestination.x -= columnWidth;
         }
-        else if( this.transform.position.x < destination.x ) // bar is on the right of agent
+        else 
         {
-            temporaryDestination.x += SizeofTravelWidth;
+            seekDestination.x += columnWidth;
         }
 	}
 

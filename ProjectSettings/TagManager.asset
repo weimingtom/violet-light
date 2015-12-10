@@ -9,6 +9,8 @@ TagManager:
   - row:Disabled
   - player
   - test
+  - destinationA
+  - destinationB
   layers:
   - Default
   - TransparentFX
