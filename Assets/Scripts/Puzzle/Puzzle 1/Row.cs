@@ -33,9 +33,12 @@ public class Row : MonoBehaviour
             RowSprite[i].color = new Color( 1.0f, 1.0f, 1.0f, 1.0f );
         }
     }
-    public void RunGame()
+    public void Update()
     {
-        CheckMouse();
+        if( !Agent1.instance.GetRunningStatus() && !Agent2.instance.GetRunningStatus() )
+        {
+            CheckMouse();
+        }
     }
 	void CheckMouse()
 	{

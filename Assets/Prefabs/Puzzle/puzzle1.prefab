@@ -10,7 +10,7 @@ GameObject:
   - 224: {fileID: 22402326}
   - 61: {fileID: 6163114}
   - 212: {fileID: 21211466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: blue_row 3
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 50: {fileID: 5051378}
   - 114: {fileID: 11439878}
   - 114: {fileID: 11421538}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: B
   m_TagString: player
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 4: {fileID: 476520}
   - 212: {fileID: 21251348}
   - 61: {fileID: 6100218}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Destination
   m_TagString: destinationA
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - 224: {fileID: 22457782}
   - 61: {fileID: 6159098}
   - 212: {fileID: 21258118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: yellow_row
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 475592}
   - 212: {fileID: 21287266}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fourth_col
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 446808}
   - 212: {fileID: 21278216}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: second_col
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - 224: {fileID: 22428458}
   - 61: {fileID: 6139902}
   - 212: {fileID: 21272512}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: yellow_row 1
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - 224: {fileID: 22437030}
   - 61: {fileID: 6198358}
   - 212: {fileID: 21241432}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: red_row
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - 224: {fileID: 22451074}
   - 61: {fileID: 6121348}
   - 212: {fileID: 21236164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: green_row 3
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - 224: {fileID: 22479208}
   - 61: {fileID: 6174776}
   - 212: {fileID: 21250108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: blue_row 1
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 418930}
   - 212: {fileID: 21266440}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fifth_col
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 438314}
   - 212: {fileID: 21287080}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: third_col
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 460946}
   - 114: {fileID: 11488904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - 224: {fileID: 22443808}
   - 61: {fileID: 6195830}
   - 212: {fileID: 21220584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: blue_row 2
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - 224: {fileID: 22417950}
   - 61: {fileID: 6140542}
   - 212: {fileID: 21229806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: green_row 2
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - 224: {fileID: 22469376}
   - 61: {fileID: 6164712}
   - 212: {fileID: 21267622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: blue_row
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - 4: {fileID: 467020}
   - 212: {fileID: 21222544}
   - 61: {fileID: 6186336}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: first_col
   m_TagString: test
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 486390}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: puzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - 50: {fileID: 5031478}
   - 114: {fileID: 11478328}
   - 114: {fileID: 11431426}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: A
   m_TagString: player
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   - 224: {fileID: 22493610}
   - 61: {fileID: 6126670}
   - 212: {fileID: 21261350}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: green_row
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   - 224: {fileID: 22466512}
   - 61: {fileID: 6168488}
   - 212: {fileID: 21286600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: green_row 1
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   - 224: {fileID: 22455654}
   - 61: {fileID: 6100266}
   - 212: {fileID: 21283092}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: yellow_row 3
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - 4: {fileID: 489760}
   - 212: {fileID: 21236752}
   - 61: {fileID: 6111442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Destination 1
   m_TagString: destinationB
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - 224: {fileID: 22432858}
   - 61: {fileID: 6102696}
   - 212: {fileID: 21211298}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: red_row 3
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - 224: {fileID: 22480956}
   - 61: {fileID: 6137678}
   - 212: {fileID: 21283736}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: yellow_row 2
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 458684}
   - 114: {fileID: 11495724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: puzzle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - 224: {fileID: 22403846}
   - 61: {fileID: 6131416}
   - 212: {fileID: 21231542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: red_row 1
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - 224: {fileID: 22436260}
   - 61: {fileID: 6153328}
   - 212: {fileID: 21273704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: red_row 2
   m_TagString: row
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 425392}
   - 114: {fileID: 11478120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: columns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .518355727, y: 6.44328737, z: 0}
+  m_LocalPosition: {x: .263213158, y: -.300461173, z: -10.3342724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 486390}
@@ -990,7 +990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   goalCastle: {fileID: 110366}
-  columnWidth: 1.75
+  columnWidth: 2
 --- !u!114 &11431426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   goalCastle: {fileID: 175446}
-  columnWidth: 1.75
+  columnWidth: 2
 --- !u!114 &11439878
 MonoBehaviour:
   m_ObjectHideFlags: 1

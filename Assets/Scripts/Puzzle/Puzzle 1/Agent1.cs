@@ -14,18 +14,16 @@ public class Agent1 : MonoBehaviour
     // TODO(jesse): Change this name/functionality?
 	private Vector2 seekDestination;
     private bool crossingRow;
-	private bool crossingRowX;
     private bool failedPath;
-	private float zValue = -5.0f;
+	private float zValue = -4.0f;
     private Vector2 startPosition;
     
     // NOTE(jesse): Appearence issues, columnWidth helps if you rescale puzzle
     // Zvalue forces everything to that value 
-    public float columnWidth = 1.75f;
+    public float columnWidth = 2.0f;
 	void Awake()
 	{
 		instance = this;
-		crossingRowX = false;
 		//Vector2 startPos = new Vector2 (-4.0f, -5.0f);
 		//this.transform.position = startPos;
 	}
@@ -65,6 +63,10 @@ public class Agent1 : MonoBehaviour
             }
         }
     }
+    public bool GetRunningStatus()
+    {
+        return runningSimulation;
+    }
     public bool GetLostStatus()
     {
         return failedPath;
@@ -95,7 +97,9 @@ public class Agent1 : MonoBehaviour
 		Vector3 usedDestination;
         if( crossingRow == true )
 		{	
-			if(Mathf.Abs(this.transform.position.y - seekDestination.y) > 0.01f)
+            //NOTE(Hendry):Use this to bypass getting height of the row
+            //this make sure that the y value between agent and row is at least 0.01f 
+			if(Mathf.Abs(this.transform.localPosition.y - seekDestination.y) > 0.01f )
 			{
 				usedDestination = seekDestination;
 				usedDestination.x = this.transform.localPosition.x;
@@ -104,8 +108,8 @@ public class Agent1 : MonoBehaviour
 				updatedPos.z = zValue;
 				this.transform.localPosition = updatedPos;
 			}
-			else if(Mathf.Abs(this.transform.position.y - seekDestination.y) < 0.01f
-			        && Mathf.Abs(this.transform.position.x - seekDestination.x) > 0.01f)
+            else if( Mathf.Abs( this.transform.localPosition.y - seekDestination.y ) < 0.01f
+                    && Mathf.Abs( this.transform.localPosition.x - seekDestination.x ) > 0.0001f )
 			{
 				usedDestination = seekDestination;
 				usedDestination.y = this.transform.localPosition.y;
@@ -114,11 +118,12 @@ public class Agent1 : MonoBehaviour
 				updatedPos.z = zValue;
 				this.transform.localPosition = updatedPos;
 			}
-			else if(Mathf.Abs(this.transform.position.y - seekDestination.y) < 0.01f
-			        && Mathf.Abs(this.transform.position.x - seekDestination.x) < 0.01f)
+            else if( Mathf.Abs( this.transform.localPosition.y - seekDestination.y ) < 0.01f
+                    && Mathf.Abs( this.transform.localPosition.x - seekDestination.x ) < 0.0001f )
 			{
 				crossingRow = false;
-				UpdateSeekDestination(goalCastle.transform.localPosition);
+                seekDestination = goalCastle.transform.localPosition;
+				//UpdateSeekDestination(goalCastle.transform.localPosition);
 			}
 //            // NOTE(hendry): The moves the agent first to the center of the row, before it starts moving
 //            // horizontally
