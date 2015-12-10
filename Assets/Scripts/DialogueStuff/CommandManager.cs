@@ -16,7 +16,9 @@ public class CommandManager : MonoBehaviour
 	List<string> SceneId;
     //counter for command
     int commandTracker;
+    
     List<Commands> myCommand;
+
 	public void AddCharIntoTextHolder(char c)
 	{
 		myTextHolder.text += c;

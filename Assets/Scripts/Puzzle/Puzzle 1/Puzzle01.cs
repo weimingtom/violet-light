@@ -49,7 +49,8 @@ public class Puzzle01 : Puzzle
 		Agent2.instance.Reset ();
 		//AgentA.GetComponent<Agent>().Reset();
 		//AgentB.GetComponent<Agent>().Reset();
-		Rows.GetComponent<Row>().    Reset();
+        Row.Instance.Reset();
+		//Rows.GetComponent<Row>().    Reset();
 	}
 	
 	public override void Submit()

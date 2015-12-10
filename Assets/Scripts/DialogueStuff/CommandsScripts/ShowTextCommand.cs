@@ -9,10 +9,14 @@ public class ShowTextCommand : Commands
 	float speed = 0.01f;
     string conversationTag = "";
 	char passedChar = '\0';
+
     public override bool ExecuteCommand()
     {
 		if (InitialSetup == true) 
 		{
+            //myAudio = ; //new AudioSource("audio");
+            //myAudio.transform.position = Vector3.zero;
+            //myAudio.clip = Resources.Load( "Audio/TypeWritterSound" ) as AudioClip;
 			CommandManager.Instance.TextBoxSwitch (true);
 			CommandManager.Instance.TextSwitch (true);
 			CommandManager.Instance.SetTextHolder("");
