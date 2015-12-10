@@ -8,6 +8,7 @@ public class Puzzle01 : Puzzle
     public GameObject AgentA;
     public GameObject AgentB;
     public GameObject Rows;
+
     PuzzleStatus puzzleStatus;
 
     public override void Initalize()
@@ -23,7 +24,7 @@ public class Puzzle01 : Puzzle
             puzzleStatus = PuzzleStatus.Win;
         }
         else if( AgentA.GetComponent<Agent>().GetLostStatus()
-                ||  AgentB.GetComponent<Agent>().GetLostStatus() )
+               ||AgentB.GetComponent<Agent>().GetLostStatus() )
         {
             puzzleStatus = PuzzleStatus.Lose;
         }

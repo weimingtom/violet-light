@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PuzzleList:
   - {fileID: 166494, guid: 988da0d0f8248b54eb2906d985f14d07, type: 2}
-  - {fileID: 183656, guid: 56e1b9ef71c5bd6468e923c4995a66fb, type: 2}
+  - {fileID: 183656, guid: 1bbe74ab94b9d2944b5b410db348a852, type: 2}
   CompletedPuzzles: 
   PuzzleUIPrefab: {fileID: 124930, guid: 088ee54227e00394f87e82fdb17bb284, type: 2}
 --- !u!1 &1551209344

@@ -15,7 +15,7 @@ public class Agent : MonoBehaviour
     private bool crossingRow;
     private bool failedPath;
 
-    public Vector2 startPosition;
+    private Vector2 startPosition;
     
     // NOTE(jesse): Appearence issues, columnWidth helps if you rescale puzzle
     // Zvalue forces everything to that value 
@@ -47,8 +47,7 @@ public class Agent : MonoBehaviour
     {
         if( runningSimulation )
         {
-            GotoDestination
-                ();
+            GotoDestination();
             
             if( this.transform.localPosition.y >= goalCastle.transform.localPosition.y)
             {

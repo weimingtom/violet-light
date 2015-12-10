@@ -13,7 +13,6 @@ public class PuzzleManager : MonoBehaviour
     private GameObject ParentObject;
     private GameObject PuzzleUI;
 
-
     private bool PuzzleLoaded = false;
     private uint CurrentPuzzle = 1 ;
 
