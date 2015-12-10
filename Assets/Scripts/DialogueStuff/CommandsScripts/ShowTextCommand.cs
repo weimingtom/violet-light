@@ -6,7 +6,7 @@ public class ShowTextCommand : Commands
 	bool InitialSetup = true;
 	int indexPassed = 0;
 	float timeTracker = 0;
-	float speed = 0.01f;
+	float speed = 0.05f;
     string conversationTag = "";
 	char passedChar = '\0';
 
@@ -14,6 +14,7 @@ public class ShowTextCommand : Commands
     {
 		if (InitialSetup == true) 
 		{
+
             //myAudio = ; //new AudioSource("audio");
             //myAudio.transform.position = Vector3.zero;
             //myAudio.clip = Resources.Load( "Audio/TypeWritterSound" ) as AudioClip;
@@ -26,6 +27,7 @@ public class ShowTextCommand : Commands
 		{
 			if(timeTracker >= speed)
 			{
+				AudioPlayer.instance.Play();
 				passedChar = DialogueHolder.Instance.GetDialogue(conversationTag).ToString()[indexPassed];
 				CommandManager.Instance.AddCharIntoTextHolder(passedChar);
 				timeTracker = 0;

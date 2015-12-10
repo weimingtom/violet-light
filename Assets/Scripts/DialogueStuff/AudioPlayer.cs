@@ -3,15 +3,21 @@ using System.Collections;
 
 public class AudioPlayer : MonoBehaviour
 {
-
+	static public AudioPlayer instance;
+	AudioSource audioSource;
 	// Use this for initialization
-	void Start () 
+	void Awake () 
     {
-	
+		instance = this;
+		audioSource = GetComponent<AudioSource>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void SetAudio(AudioClip clip)
+	{
+		audioSource.clip = clip;
 	}
+	public void Play()
+	{
+		audioSource.Play();
+	}
+
 }
