@@ -29,6 +29,7 @@ GameObject:
   - 58: {fileID: 5808446}
   - 50: {fileID: 5051378}
   - 114: {fileID: 11439878}
+  - 114: {fileID: 11421538}
   m_Layer: 8
   m_Name: B
   m_TagString: player
@@ -313,6 +314,7 @@ GameObject:
   - 58: {fileID: 5887130}
   - 50: {fileID: 5031478}
   - 114: {fileID: 11478328}
+  - 114: {fileID: 11431426}
   m_Layer: 8
   m_Name: A
   m_TagString: player
@@ -495,7 +497,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: -4.82000017, z: 0}
+  m_LocalPosition: {x: -4, y: -5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 486390}
@@ -560,7 +562,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: -4.82000017, z: 0}
+  m_LocalPosition: {x: 4, y: -5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 486390}
@@ -572,7 +574,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .518355727, y: 6.44328737, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 486390}
@@ -975,7 +977,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 2, y: .5}
---- !u!114 &11439878
+--- !u!114 &11421538
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -983,12 +985,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 108712}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff8bca5d0da2364cacdece4cdbd0ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
+  goalCastle: {fileID: 110366}
+  columnWidth: 1.75
+--- !u!114 &11431426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac9fbe2416aa33488168dd2af51e990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
+  goalCastle: {fileID: 175446}
+  columnWidth: 1.75
+--- !u!114 &11439878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108712}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d90471b19a30145bffaff9241cd444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0
   goalCastle: {fileID: 110366}
-  startPosition: {x: 0, y: 0}
   columnWidth: 1.75
 --- !u!114 &11478120
 MonoBehaviour:
@@ -1007,14 +1036,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165558}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d90471b19a30145bffaff9241cd444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0
   goalCastle: {fileID: 175446}
-  startPosition: {x: 0, y: 0}
   columnWidth: 1.75
 --- !u!114 &11488904
 MonoBehaviour:
