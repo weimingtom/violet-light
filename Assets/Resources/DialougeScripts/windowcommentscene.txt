@@ -2,32 +2,32 @@ Conversation: windowcomment
 ChangePose: Alexander neutral
 ShowChar: Alexander Left1
 SetDisplayName: Alexander
-ShowText: ax_1
+ShowText: win_ax_1
 WaitForAction: LClick
-ShowText: ax_2
+ShowText: win_ax_2
 WaitForAction: LClick
 ChangePose: Violet neutral
 ShowChar: Violet Right2
 SetDisplayName: Violet
-ShowText: vio_1
+ShowText: win_vio_1
 WaitForAction: LClick
 SetDisplayName: Alexander
-ShowText: ax_3
+ShowText: win_ax_3
 WaitForAction: LClick
 SetDisplayName: Violet
-ShowText: vio_2
+ShowText: win_vio_2
 WaitForAction: LClick
 ChangePose: Violet excited
-ShowText: vio_3
+ShowText: win_vio_3
 WaitForAction: LClick
-ShowText: vio_4
+ShowText: win_vio_4
 WaitForAction: LClick
 SetDisplayName: Alexander
-ShowText: ax_4
+ShowText: win_ax_4
 ChangePosition: Violet Offscreen
 WaitForAction: LClick
-ShowText: ax_5
-ShowText: ax_6
+ShowText: win_ax_5
+ShowText: win_ax_6
 ChangePose: Violet neutral
 WaitForAction: LClick
 End:
