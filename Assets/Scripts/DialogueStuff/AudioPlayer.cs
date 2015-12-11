@@ -30,7 +30,7 @@ public class AudioPlayer : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        audioSource.volume = volume;
+        audioSource.volume = volume*0.25f;
     }
 
 }
