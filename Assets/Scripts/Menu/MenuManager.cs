@@ -136,7 +136,7 @@ public class MenuManager : MonoBehaviour {
 
     public void VolumeSlider( float multiplier )
     {
-        Debug.Log( "Volume Changed: " + multiplier );
+        AudioPlayer.instance.SetVolume(multiplier);
     }
 
     public void BrightnessSlider( float multiplier )

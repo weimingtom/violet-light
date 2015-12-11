@@ -9,6 +9,7 @@ public class ShowTextCommand : Commands
 	float speed = 0.05f;
     string conversationTag = "";
 	char passedChar = '\0';
+    bool isMale = false;
 
     public override bool ExecuteCommand()
     {
@@ -27,7 +28,7 @@ public class ShowTextCommand : Commands
 		{
 			if(timeTracker >= speed)
 			{
-				AudioPlayer.instance.Play();
+				AudioPlayer.instance.PlayBlip(!isMale);
 				passedChar = DialogueHolder.Instance.GetDialogue(conversationTag).ToString()[indexPassed];
 				CommandManager.Instance.AddCharIntoTextHolder(passedChar);
 				timeTracker = 0;
