@@ -26,7 +26,7 @@ public class FadeOutScreen : MonoBehaviour {
         return (fadeSpeed);
     }
 
-    void OnLevelWasLoaded()
+    void OnLevelWasLoaded(int level)
     {
         BeginFade(-1);
     }

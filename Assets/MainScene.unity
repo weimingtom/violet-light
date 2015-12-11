@@ -335,6 +335,7 @@ GameObject:
   - 114: {fileID: 208540495}
   - 114: {fileID: 208540491}
   - 114: {fileID: 208540496}
+  - 114: {fileID: 208540497}
   m_Layer: 0
   m_Name: Main Manager
   m_TagString: Untagged
@@ -423,6 +424,19 @@ MonoBehaviour:
   - {fileID: 213451812}
   - {fileID: 176003912}
   - {fileID: 872171083}
+--- !u!114 &208540497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 208540490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9bc2a038323ab45912ae0609d0354c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTex: {fileID: 0}
+  fadeSpeed: .800000012
 --- !u!1 &213451812 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 165578, guid: b969fac1b5422364d835450772a15f8a, type: 2}

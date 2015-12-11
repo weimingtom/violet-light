@@ -32,7 +32,7 @@ public class PuzzleButtons : MonoBehaviour
         epsilon = new Vector3(0.001f, 0.001f, 0.001f);
         startPosition = transform.position;
         endPosition = startPosition;
-        endPosition.y -= 290;
+        endPosition.y -= Screen.height*0.75f;
         
         ThisButton = gameObject.AddComponent<UnityEngine.UI.Button>();
         ThisButton.transition = Selectable.Transition.None;
