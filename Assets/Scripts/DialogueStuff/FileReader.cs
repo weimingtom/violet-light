@@ -15,6 +15,7 @@ public class FileReader : MonoBehaviour
     }
     static public FileReader Instance;
     public string fileLocation;
+    public string scriptFolder = "DialougeScripts/";
     //=================================================================
     //  Load file function
     //  can be used to read both text sequence and command
@@ -25,8 +26,8 @@ public class FileReader : MonoBehaviour
     }
     void Start()
     {
-        ReadDialogue();
-        ReadCommand();
+        //ReadDialogue();
+        //ReadCommand();
     }
     private void RegisterFile(eTextType type, string line)
     {
@@ -93,8 +94,8 @@ public class FileReader : MonoBehaviour
 	public void LoadScene(string _scene, string _dialogue)
 	{
         CommandManager.Instance.Reinitialize();
-		TextAsset command = Resources.Load(_scene) as TextAsset;
-		TextAsset dialogue = Resources.Load(_dialogue) as TextAsset;
+		TextAsset command = Resources.Load(scriptFolder + _scene) as TextAsset;
+        TextAsset dialogue = Resources.Load(scriptFolder + _dialogue) as TextAsset;
         SceneManager.Instance.SetInputBlocker( true );
 		StringParser.Instance.ParseCommand(command.ToString());
 		StringParser.Instance.ParseDialogue(dialogue.ToString());
@@ -123,7 +124,7 @@ public class FileReader : MonoBehaviour
     public void ReadBackgrounds(string fileName)
     {
         Debug.Log("Reading in backgrounds...");
-        TextAsset commandContainer = Resources.Load(fileName) as TextAsset;
+        TextAsset commandContainer = Resources.Load(scriptFolder + fileName) as TextAsset;
         StringParser.Instance.ParseBackgrounds(commandContainer.ToString());
     }
 }

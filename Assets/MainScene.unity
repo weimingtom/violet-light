@@ -430,12 +430,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 208540490}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e9bc2a038323ab45912ae0609d0354c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTex: {fileID: 0}
+  fadeOutTex: {fileID: 2800000, guid: ac707a88c1e2db4409a1b89f9f7a49f8, type: 3}
   fadeSpeed: .800000012
 --- !u!1 &213451812 stripped
 GameObject:
@@ -506,6 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: 
+  scriptFolder: DialougeScripts/
 --- !u!114 &436912954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1794,6 +1795,26 @@ Prefab:
     - target: {fileID: 133394, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
       propertyPath: m_Name
       value: Text Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488546, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 143554, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 102458, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 144486, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 144368, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}

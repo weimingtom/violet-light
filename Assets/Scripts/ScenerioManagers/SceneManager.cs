@@ -124,7 +124,7 @@ public class SceneManager : MonoBehaviour
             Scenes.Clear();
             /********* LOADING CHARACTERS FROM FILE ***********/
             //Load in the characters specific to the case. 
-            string filepath = "Characters_Scene";
+            string filepath = "DialougeScripts/Characters_Scene";
             filepath += NewCase.ToString();
             FileReader.Instance.ReadCharacter(filepath);
 
