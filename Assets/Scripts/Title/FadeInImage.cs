@@ -6,6 +6,9 @@ public class FadeInImage : MonoBehaviour
 {
     public float fadeDuration;
     private Image image;
+    private float delayTimer = 0.0f;
+    public float delay;
+
     void Start()
     {
         image = this.gameObject.GetComponent<Image>();
@@ -13,6 +16,13 @@ public class FadeInImage : MonoBehaviour
     }
 	void Update () 
     {
-        image.CrossFadeAlpha( 1.0f, fadeDuration, false );
+        if (delayTimer > delay)
+        {
+            image.CrossFadeAlpha(1.0f, fadeDuration, false);
+        }
+        else
+        {
+            delayTimer += Time.deltaTime;
+        }
 	}
 }
