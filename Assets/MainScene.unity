@@ -87,52 +87,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &4428190
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 462128, guid: f2d29c2695b5f3140ba4397d9dd2e6d7, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2.54999995
-      objectReference: {fileID: 0}
-    - target: {fileID: 462128, guid: f2d29c2695b5f3140ba4397d9dd2e6d7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.42000008
-      objectReference: {fileID: 0}
-    - target: {fileID: 462128, guid: f2d29c2695b5f3140ba4397d9dd2e6d7, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 462128, guid: f2d29c2695b5f3140ba4397d9dd2e6d7, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 462128, guid: f2d29c2695b5f3140ba4397d9dd2e6d7, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 462128, guid: f2d29c2695b5f3140ba4397d9dd2e6d7, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 462128, guid: f2d29c2695b5f3140ba4397d9dd2e6d7, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 462128, guid: f2d29c2695b5f3140ba4397d9dd2e6d7, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 11471746, guid: f2d29c2695b5f3140ba4397d9dd2e6d7, type: 2}
-      propertyPath: RoomToChangeTo
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f2d29c2695b5f3140ba4397d9dd2e6d7, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &134968812
 GameObject:
   m_ObjectHideFlags: 0
