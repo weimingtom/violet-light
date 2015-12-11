@@ -6,7 +6,8 @@ public class ShowTextCommand : Commands
 	bool InitialSetup = true;
 	int indexPassed = 0;
 	float timeTracker = 0;
-	float speed = 0.05f;
+    // TODO(jesse): Make set speed command
+	float speed = 0.035f;
     string conversationTag = "";
 	char passedChar = '\0';
     bool isMale = false;

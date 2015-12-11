@@ -8,7 +8,7 @@ public class JesseTest : MonoBehaviour
 	void Start () 
     {
         SceneManager.Instance.LoadCase( 1 );
-        SceneManager.Instance.ChangeScene( 0 );
+        SceneManager.Instance.ChangeScene( 2 );
 
     }
 

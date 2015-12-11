@@ -149,6 +149,13 @@ public class SceneManager : MonoBehaviour
             NewScene.Time = 0605;
             NewScene.Prefab = "TestArea2";
             Scenes.Add( NewScene );
+
+            NewScene.Background = "market";
+            NewScene.ID = 1;
+            NewScene.Name = "Market";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "TestArea3";
+            Scenes.Add(NewScene);
         }
         else Debug.Log( "[scene manager] Failed to load case" );
     }
