@@ -1,21 +1,10 @@
 Conversation: cafe_7
-ShowChar: Violet Left1
-SetDisplayName: Violet
-ShowText: vio_1
-WaitForAction: LClick
+ShowChar: Alexander Left1
 SetDisplayName: Alexander
-ShowChar: Alexander Right2
-ShowText: ax_1
+ShowText: alex1
 WaitForAction: LClick
+ShowChar: Violet Right2
 SetDisplayName: Violet
-ShowText: vio_2
+ShowText: alex2
 WaitForAction: LClick
-SetDisplayName: Alexander
-ShowText: vio_3
-WaitForTime: 1
-ShowChar: Sharpe Centre
-SetDisplayName: Sharp
-ShowText: srp_1
-WaitForAction: LClick
-StartPuzzle: 1
 End:
