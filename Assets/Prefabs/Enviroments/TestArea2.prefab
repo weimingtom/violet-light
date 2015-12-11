@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1012bfc45b47f409faac200a442995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomToChangeTo: 0
+  RoomToChangeTo: 2
   IsUnlocked: 1
 --- !u!212 &21202642
 SpriteRenderer:
