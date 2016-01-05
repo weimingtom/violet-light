@@ -97,8 +97,10 @@ public class FileReader : MonoBehaviour
 		TextAsset command = Resources.Load(scriptFolder + _scene) as TextAsset;
         TextAsset dialogue = Resources.Load(scriptFolder + _dialogue) as TextAsset;
         SceneManager.Instance.SetInputBlocker( true );
+
+        //NOTE(HENDRY) : ParseCommand and ParseDialogue will be combined in RunParse
 		StringParser.Instance.ParseCommand(command.ToString());
-		StringParser.Instance.ParseDialogue(dialogue.ToString());
+        StringParser.Instance.ParseDialogue(dialogue.ToString());
 	}
     private void ReadDialogue()
     {

@@ -20,50 +20,79 @@ public class StringParser : MonoBehaviour
         //print("Header :" + conversationHeader);
         //print("Content :" + conversationContent);
     }
-    public void RegisterCommand(string command, ref int index, string mainString)
+    public void RegisterCommand( string command, ref int index, string mainString )
     {
         switch( command )
-        { 
+        {
         case "Conversation":
-            RegisterConversationID(ref index, mainString);
-            break;
+        RegisterConversationID( ref index, mainString );
+        break;
         case "ShowChar":
-            RegisterCharacter(ref index, mainString);
-            break;
+        RegisterCharacter( ref index, mainString );
+        break;
         case "WaitForTime":
-            RegisterWaitForTime( ref index, mainString );
-            break;
+        RegisterWaitForTime( ref index, mainString );
+        break;
         case "ShowText":
-            RegisterShowText(ref index, mainString);
-            break;
+        RegisterShowText( ref index, mainString );
+        break;
         case "WaitForAction":
-            RegisterWaitForAction( ref index, mainString );
-            break;
+        RegisterWaitForAction( ref index, mainString );
+        break;
         case "ShowPrompt":
-            RegisterLocation( ref index, mainString );
-            break;
+        RegisterLocation( ref index, mainString );
+        break;
         case "StartPuzzle":
-            RegisterPuzzleID(ref index, mainString);
-            break;
+        RegisterPuzzleID( ref index, mainString );
+        break;
         case "SetDisplayName":
-            RegisterSetDisplayName( ref index, mainString );
-            break;
+        RegisterSetDisplayName( ref index, mainString );
+        break;
         case "ChangePose":
-            RegisterChangePose( ref index, mainString );
-            break;
+        RegisterChangePose( ref index, mainString );
+        break;
         case "ChangePosition":
-            RegisterChangePosition( ref index, mainString );
-            break;
+        RegisterChangePosition( ref index, mainString );
+        break;
         case "If":
-            break;
+        break;
         case "Location":
-            break;
+        break;
         case "ShowIcon":
-            break;
+        break;
         case "End":
         break;
         }
     }
+    //Note(HENDRY) : Run Parse will be used instead of parse doalogue and parse command
+    public void RunParse(string _mainString)
+    {
+        char[] delimiterChar = {'\r', '\n', '<', '>', '"'};
+        string[] extractedWord = _mainString.Split(delimiterChar, System.StringSplitOptions.RemoveEmptyEntries);
+        Debug.Log("[RunParse] wordLength : " + extractedWord.Length);
+        for( Int16 i = 0; i < extractedWord.Length; i++ )
+        {
+            extractedWord[i].ToLower();
+            //NOTE(Hendry): Make sure it is not a comment
+            if( extractedWord[i].ToString()[0] != '/' )
+            {
+                //Check what kind of command
+                switch (extractedWord[i].ToString()[0])
+                {
+                case '<':
+                
+                break;
+                default:
+
+                break;
+                }
+            }
+             
+            Debug.Log("[RunParse] Data[" + i +"] : " + extractedWord[i]);
+        }
+        Debug.Break();
+    }
+    
     public void ParseDialogue(string mainString)
     {
         int locationCheck = 0;
@@ -123,7 +152,7 @@ public class StringParser : MonoBehaviour
     {
         //IMPORTANT!
         //string[] tokens = mainstring.Split( "," );
-
+        RunParse(mainstring);
         string commandReaded = "";
         for( int i = 0; i < mainstring.Length; i++ )
         {
