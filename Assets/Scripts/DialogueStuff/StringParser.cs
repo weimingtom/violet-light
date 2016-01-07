@@ -67,32 +67,72 @@ public class StringParser : MonoBehaviour
     //Note(HENDRY) : Run Parse will be used instead of parse doalogue and parse command
     public void RunParse(string _mainString)
     {
-        char[] delimiterChar = {'\r', '\n', '<', '>', '"'};
+        char[] delimiterChar = {'\r', '\n'};
         string[] extractedWord = _mainString.Split(delimiterChar, System.StringSplitOptions.RemoveEmptyEntries);
         Debug.Log("[RunParse] wordLength : " + extractedWord.Length);
         for( Int16 i = 0; i < extractedWord.Length; i++ )
         {
+            NewParseCommand( extractedWord[i] );
             extractedWord[i].ToLower();
-            //NOTE(Hendry): Make sure it is not a comment
-            if( extractedWord[i].ToString()[0] != '/' )
-            {
-                //Check what kind of command
-                switch (extractedWord[i].ToString()[0])
-                {
-                case '<':
-                
-                break;
-                default:
-
-                break;
-                }
-            }
-             
             Debug.Log("[RunParse] Data[" + i +"] : " + extractedWord[i]);
         }
-        Debug.Break();
+        //Debug.Break();
     }
-    
+    void NewParseCommand(string command)
+    {
+        // NOTE(Hendry): Make sure it is not a comment
+        // talk to the maker of sceneProp to work with new script
+        char[] delimiter;
+        string[] parsedCommand;
+        if( command[0] != '/' )
+        {
+            switch( command[0] )
+            {
+            case '<':
+                delimiter = new char[3];
+                delimiter[0] = '<';
+                delimiter[1] = '>';
+                delimiter[2] = '"';
+                parsedCommand = command.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
+                DialogueHolder.Instance.AddDialogue( parsedCommand[0], parsedCommand[2] );
+                ShowTextCommand showText = new ShowTextCommand();
+                showText.SetConversation( parsedCommand[0] );
+                CommandManager.Instance.AddCommand(showText);
+                break;
+            default:
+                delimiter = new char[1];
+                delimiter[0] = ' ';
+                parsedCommand = command.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
+                switch(parsedCommand[0].ToLower())
+                {
+                case "bg":
+
+                    break;
+                case "bgm":
+
+                    break;
+                case "show":
+                    ShowCharacterCommand character = new ShowCharacterCommand();
+                    character.SetCharacterName(parsedCommand[1]);
+                    character.SetSpawnLocation(parsedCommand[2]);
+                    CommandManager.Instance.AddCommand(character);
+                    break;
+                case "pose":
+                    ChangePoseCommand newPoseCommand = new ChangePoseCommand();
+                    newPoseCommand.SetNewPose(parsedCommand[1], parsedCommand[2]);
+                    CommandManager.Instance.AddCommand(newPoseCommand);
+                    break;
+                case "eff":
+                    
+                    break;
+                case "sfx":
+
+                    break;
+                }
+                break;
+            }
+        }
+    }
     public void ParseDialogue(string mainString)
     {
         int locationCheck = 0;
@@ -152,7 +192,7 @@ public class StringParser : MonoBehaviour
     {
         //IMPORTANT!
         //string[] tokens = mainstring.Split( "," );
-        RunParse(mainstring);
+        //RunParse(mainstring);
         string commandReaded = "";
         for( int i = 0; i < mainstring.Length; i++ )
         {

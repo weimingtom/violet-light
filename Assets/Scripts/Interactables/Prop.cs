@@ -18,9 +18,11 @@ public class Prop : MonoBehaviour {
             Debug.Log( "[Prop] Picked the item up!" );
             Destroy( this.gameObject );
         }
-        if(DialougeString != "null")
+        if(/*DialougeString != "null"*/
+            DialougeScene != "null"
+            )
         {
-            FileReader.Instance.LoadScene( DialougeScene, DialougeString );
+            FileReader.Instance.LoadScene( DialougeScene/*, DialougeString*/);
         }
     }
 }

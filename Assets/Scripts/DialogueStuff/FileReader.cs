@@ -26,8 +26,6 @@ public class FileReader : MonoBehaviour
     }
     void Start()
     {
-        //ReadDialogue();
-        //ReadCommand();
     }
     private void RegisterFile(eTextType type, string line)
     {
@@ -91,17 +89,19 @@ public class FileReader : MonoBehaviour
     //================================================//
     //  Use this Read dialogue to get file from text  //
     //================================================//
-	public void LoadScene(string _scene, string _dialogue)
+	public void LoadScene(string _scene/*, string _dialogue*/)
 	{
         CommandManager.Instance.Reinitialize();
 		TextAsset command = Resources.Load(scriptFolder + _scene) as TextAsset;
-        TextAsset dialogue = Resources.Load(scriptFolder + _dialogue) as TextAsset;
+        //TextAsset dialogue = Resources.Load(scriptFolder + _dialogue) as TextAsset;
         SceneManager.Instance.SetInputBlocker( true );
 
         //NOTE(HENDRY) : ParseCommand and ParseDialogue will be combined in RunParse
-		StringParser.Instance.ParseCommand(command.ToString());
-        StringParser.Instance.ParseDialogue(dialogue.ToString());
+        StringParser.Instance.RunParse(command.ToString());
+        //StringParser.Instance.ParseCommand(command.ToString());
+        //StringParser.Instance.ParseDialogue(dialogue.ToString());
 	}
+
     private void ReadDialogue()
     {
         TextAsset dialogueContainer = Resources.Load( "conversation" ) as TextAsset;
@@ -130,41 +130,3 @@ public class FileReader : MonoBehaviour
         StringParser.Instance.ParseBackgrounds(commandContainer.ToString());
     }
 }
-/*NOTE
-//Dictionary<uniqueID, String> dialogStringEnglisth = new Dictionary<String, String>();
-//dialogString.Add( "Conversation1_1", "Snowy\n\nYow!...\now! ...ow!" );
-//dialogString.Add( "Conversation1_2", "Tintin\n\n?" );
-//dialogString.Add( "Conversation1_3", "Tintin\n\nThere you are snowy. You see what comes of your dirty habit of exploring rubbish bins…\n I don’t go scavenging do i ?" );
-//dialogString.Add( "Conversation1_4", "<end>" );
-
-//Dictionary<uniqueID, String> dialogStringChinese = new Dictionary<String, String>();
-//dialogString.Add( "Conversation1_1", "雪域\ñ \ nYow ！ ... \吧！ ...嗚！" );
-//dialogString.Add( "Conversation1_2", "丁丁\ñ \ñ ？" );
-//dialogString.Add( "Conversation1_3", "Tintin\n\nThere you are snowy. You see what comes of your dirty habit of exploring rubbish bins…\n I don’t go scavenging do i ?" );
-
-
-//Dictionary<uniqueID, String> dialogString = dialogStringEnglisth;
-//if (Options.Settings.Language == "Chinese")
-//{
-//    dialogString = dialogStringChinese;
-//}
-
-//class DialogPlaybackSystem
-//{
-//    public Play(int convoId)
-//    {
-//        String key = "Conversation" + convoId;
-
-//        int index = 1;
-//        String nextStr = dialogString[key + index]
-//        while (nextStr != "<end>")
-//        {
-//            showText(nextStr);
-
-//            while for click
-//                index++
-//                nextStr = dialogString[key + index];
-//        }
-//    }
-//} 
-*/
