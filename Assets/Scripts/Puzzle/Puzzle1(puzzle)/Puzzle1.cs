@@ -20,6 +20,7 @@ public class Puzzle1 : MonoBehaviour {
             GameObject puzzlePiece = new GameObject("PuzzlePiece" + i);
             puzzlePiece.AddComponent<SpriteRenderer>();
             puzzlePiece.AddComponent<Piece>();
+            puzzlePiece.AddComponent<PolygonCollider2D>();
             pieceList.Add( puzzlePiece );
             pieceList[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>( "Textures/Puzzle/01/TestPuzzlePiece" );
             pieceList[i].transform.parent = this.transform;
@@ -33,10 +34,22 @@ public class Puzzle1 : MonoBehaviour {
 	
 	}
 	
+    //TODO: Bring Peice to front when clicked and always take the peice on top.
 	void Update () 
     {
-        //check for completeion
+        //check if any of the peices were clicked. 
+        //if( Input.GetMouseButtonDown( 0 ) )
+        //{
+            //RaycastHit2D hit = Physics2D.Raycast( Camera.main.ScreenToWorldPoint( Input.mousePosition ), Vector2.zero );
+            //Debug.Log( hit.collider.transform );
 
+            //Vector2 mousePos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+            //Collider2D hitCollider = Physics2D.OverlapPoint( mousePos );
+            //Debug.Log( hitCollider );
+        //}
+        
 	
 	}
+
+   
 }
