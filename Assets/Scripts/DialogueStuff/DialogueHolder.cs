@@ -17,7 +17,10 @@ public class DialogueHolder : MonoBehaviour
 	}
     public void AddDialogue( string header, string content )
     {
-        dialogue.Add(header.ToString(), content.ToString());
+        if( !dialogue.ContainsKey( header ) )
+        {
+            dialogue.Add(header.ToString(), content.ToString());
+        }
     }
     public string GetDialogue( string index )
     {

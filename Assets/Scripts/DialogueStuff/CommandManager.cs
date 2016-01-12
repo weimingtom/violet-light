@@ -18,11 +18,18 @@ public class CommandManager : MonoBehaviour
     int commandTracker;
     
     List<Commands> myCommand;
-
+    public void ChangeSize()
+    {
+        myTextHolder.supportRichText = true;
+    }
 	public void AddCharIntoTextHolder(char c)
 	{
 		myTextHolder.text += c;
 	}
+    public void AddStringIntoTextHolder( string str )
+    {
+        myTextHolder.text += str;
+    }
     public void SetNameIntoNameBox( string name )
     {
         myNameHolder.text = name;
@@ -43,6 +50,7 @@ public class CommandManager : MonoBehaviour
 
     void Start()
     {
+        myTextHolder.supportRichText = true;
         destroyCount = 0;
         done = false;
         commandTracker = 0;

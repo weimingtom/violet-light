@@ -88,10 +88,10 @@ public class StringParser : MonoBehaviour
         {
             switch( command[0] )
             {
-            case '<':
+            case '$':
                 delimiter = new char[3];
-                delimiter[0] = '<';
-                delimiter[1] = '>';
+                delimiter[0] = '$';
+                delimiter[1] = '$';
                 delimiter[2] = '"';
                 parsedCommand = command.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
                 DialogueHolder.Instance.AddDialogue( parsedCommand[0], parsedCommand[2] );

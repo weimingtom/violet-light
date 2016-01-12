@@ -1,5 +1,5 @@
 show Alexander Left1
-<testAlex> "Dialogue[sound potato] Alex [color red] more stuff[time 1]"
+$testAlex$ "<b><i>Dialogue</i></b> Alex [color red] more stuff[time 1]"
 pose Alexander UpsideDown
 show Violet Right2
-<testVio> "dialogue vio"
+$testVio$ "dialogue vio"
