@@ -1,0 +1,57 @@
+/*----------------------*
+|	KEY	|
+|	|
+|BG Background	|
+|BGM Background Music	|
+|show Portrait, Pos	|
+|<name> “Text”	|
+|	|
+|	NAMES:	|
+|	AX – Alex	|
+|	VL – Violet	|
+|	SP – Sharp	|
+|	HM – Harmony	|
+|	SX – Micheal G.	|
+|	FM – Fisher	|
+|	|
+|	|
+|EFF Effect (visual)	|
+|SFX Effect (sound)	|
+*----------------------*/
+//Day 1 Morning//
+begin scene
+
+eff FadeIn
+
+bg WhiteScreen
+
+show VioletSilhouette left
+<none> "Zzzz....."
+
+show AlexSilhouette right
+<???> "..."
+<???> "... ... up"
+
+<none> "Mrmm... hrmmh..."
+
+show AlexSilhouetteShock right
+<???> "Hey! [eff Hit] It's b... ..ng ..ough, you sh... g.. up ...ready!"
+
+<none> *mumbles* "No... No dad, I don't..."
+<none> "... don't wanna grow up yet..." *yawn*
+
+show  AlexSilhouetteShrug right
+<???> "Geez Violet, you never cease to confound me."
+<???> "If I'd know that the famous Doctor Light was such a slouch I might have never signed up for this job..."
+
+<VL> "Huh? Oh Alex *yawn* you're not my dad..."
+
+bg HotelRoom
+bgm Neutral
+
+show VioletHappy left
+show AlexUnimpressed right
+
+<AX> *sigh* "I would hope not! [eff Hit]"
+
+<-> *ding dong* [sfx Doorbell]

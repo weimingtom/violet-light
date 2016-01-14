@@ -18,10 +18,6 @@ public class CommandManager : MonoBehaviour
     int commandTracker;
     
     List<Commands> myCommand;
-    public void ChangeSize()
-    {
-        myTextHolder.supportRichText = true;
-    }
 	public void AddCharIntoTextHolder(char c)
 	{
 		myTextHolder.text += c;

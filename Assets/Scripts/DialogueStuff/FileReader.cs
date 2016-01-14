@@ -42,10 +42,6 @@ public class FileReader : MonoBehaviour
         {
             type = eTextType.Background;
         }
-        else if( type == eTextType.TextData )
-        {
-            StringParser.Instance.ParseDialogue( line );
-        }
         else if( type == eTextType.CommandSequence )
         {
             //StringParser.Instance.CommandParser( line );
@@ -98,22 +94,7 @@ public class FileReader : MonoBehaviour
 
         //NOTE(HENDRY) : ParseCommand and ParseDialogue will be combined in RunParse
         StringParser.Instance.RunParse(command.ToString());
-        //StringParser.Instance.ParseCommand(command.ToString());
-        //StringParser.Instance.ParseDialogue(dialogue.ToString());
 	}
-
-    private void ReadDialogue()
-    {
-        TextAsset dialogueContainer = Resources.Load( "conversation" ) as TextAsset;
-        //print( "a contain : " + dialogueContainer.ToString() + "[Length :" + dialogueContainer.ToString().Length + "]" );
-        StringParser.Instance.ParseDialogue( dialogueContainer.ToString() );
-    }
-    private void ReadCommand()
-    {
-        TextAsset commandContainer = Resources.Load("command") as TextAsset;
-        //print( "Command raw string :" + commandContainer.ToString() );
-        StringParser.Instance.ParseCommand( commandContainer.ToString());
-    }
     public string ReadCommandText(string commandAddress)
     {
         return (Resources.Load(commandAddress) as TextAsset).ToString();

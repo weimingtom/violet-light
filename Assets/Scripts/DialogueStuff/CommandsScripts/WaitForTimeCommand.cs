@@ -6,11 +6,17 @@ public class WaitForTimeCommand : Commands
 {
     float waitingTime = 0;
     float totalTime = 0;
+    bool Initialized = false;
+
+    void Initialize( float t )
+    {
+        Initialized = true;
+    }
     public override void PrintData()
     {
         Debug.Log( "WaitForTimeCommand\nTime : " + waitingTime );
     }
-    public void SetTime( float t )
+    void SetTime( float t )
     {
         waitingTime = t;
     }
@@ -20,15 +26,28 @@ public class WaitForTimeCommand : Commands
     }
     public override bool ExecuteCommand()
     {
-        if( Input.anyKey )
+        if( Initialized == false )
         {
             return true;
         }
-        totalTime += Time.deltaTime;
-        return totalTime >= waitingTime;
+        else
+        {
+            if( Input.anyKey )
+            {
+                return true;
+            }
+            totalTime += Time.deltaTime;
+            return totalTime >= waitingTime;
+        }
+    }
+    void Reset()
+    {
+        totalTime = 0;
+        waitingTime = 0;
     }
 	public override bool Destroy()
 	{
+        Reset();
         return true;
 	}
    
