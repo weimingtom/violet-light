@@ -16,7 +16,7 @@ public class JesseTest : MonoBehaviour
     {
         if( Input.GetKeyDown( KeyCode.F1 ) )
         {
-            FXManager.Instance.StartShake(0.7f);
+            FXManager.Instance.Spawn("ScreenShake");
         }
 
     }

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FadeOutScreen : MonoBehaviour {
+public class FadeOutScreen : MonoBehaviour 
+{
 
     public Texture2D fadeOutTex;
     public float fadeSpeed = 0.8f;
@@ -20,6 +21,7 @@ public class FadeOutScreen : MonoBehaviour {
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeOutTex);
        
     }
+
     public float BeginFade(int newFadeDir)
     {
         fadeDir = newFadeDir;

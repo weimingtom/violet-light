@@ -1,46 +1,30 @@
 ﻿using UnityEngine;
+ using UnityEditor;
 using System.Collections;
 
 public class FXManager : MonoBehaviour {
 
     static public FXManager Instance;
+    public GameObject[] Effects;
 
     void Awake()
     {
         Instance = this;
     }
 
-
-    /****************** SCREEN SHAKE CODE ********************/
-    Vector3 originalCameraPosition;
-    private float radius;
-    private float randomAngle;
-    private Vector3 offset;
-    public Camera mainCamera;
-
-    public void StartShake( float magnitude = 0.7f )
+    public void Spawn( string Name )
     {
-        originalCameraPosition = mainCamera.transform.position;
-        radius = magnitude;
-        float randomAngle = Random.value * 360;
-        offset = new Vector3( Mathf.Sin( randomAngle ) * radius, Mathf.Cos( randomAngle ) * radius, originalCameraPosition.z ); //create offset 2d vector
-        InvokeRepeating( "CameraShake", 0, .02f );
-    }
-
-    private void CameraShake()
-    {
-        if( radius > 0.25 )
+        foreach( GameObject Effect in Effects )
         {
-            radius *= 0.9f; //diminish radius
-            randomAngle += Random.value > 0.5 ? (180 + Random.value * 60) : (180 - Random.value * 60);
-            offset = new Vector3( Mathf.Sin( randomAngle ) * radius, Mathf.Cos( randomAngle ) * radius, originalCameraPosition.z );
-            mainCamera.transform.position = originalCameraPosition + offset;
+            if( Effect.name == Name )
+            {
+                Debug.Log( "[FX Manager] Spawned Prop " + Name );
+                GameObject Interactable = Instantiate( Effect, Vector3.zero,
+                                                       Quaternion.identity )
+                                                       as GameObject;
+                return;
+            }
         }
-        else
-        {
-            CancelInvoke( "CameraShake" );
-            mainCamera.transform.position = originalCameraPosition;
-        }
+        Debug.Log( "[FX Manager] Cannot find Interactable " + Name);
     }
-
 }

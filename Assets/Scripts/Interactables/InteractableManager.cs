@@ -30,7 +30,7 @@ public class InteractableManager : MonoBehaviour
                 return;
             }
         }
-        Debug.Log( "[Interactable Manager] Cannot find Interactable " + Name );
+        Debug.Log( "[Interactable Manager] Cannot find Interactable " + Name);
     }
 
     public void Clear()
