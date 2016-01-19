@@ -1,57 +1,48 @@
-/*----------------------*
-|	KEY	|
-|	|
-|BG Background	|
-|BGM Background Music	|
-|show Portrait, Pos	|
-|<name> “Text”	|
-|	|
-|	NAMES:	|
-|	AX – Alex	|
-|	VL – Violet	|
-|	SP – Sharp	|
+|	NAMES:			|
+|	AX – Alex		|
+|	VL – Violet		|
+|	SP – Sharp		|
 |	HM – Harmony	|
 |	SX – Micheal G.	|
-|	FM – Fisher	|
-|	|
-|	|
-|EFF Effect (visual)	|
-|SFX Effect (sound)	|
-*----------------------*/
-//Day 1 Morning//
-begin scene
+|	FM – Fisher		|
+|	PL - Policeman	|
 
 eff FadeIn
 
-bg WhiteScreen
+<PL> “WA-WAIT- [eff flash] You can’t go in there!”
 
-show VioletSilhouette left
-<none> "Zzzz....."
+show Policeman right
+show Alex left1
+pose Alex Puzzled
+show Violet Left2
+pose Violet Serious
 
-show AlexSilhouette right
-<???> "..."
-<???> "... ... up"
+<AX> “We’re here f-for [eff smash]... [pause] Uh! Harmony! [eff crash] Y-You have to let us through!”
 
-<none> "Mrmm... hrmmh..."
+<PL> “Sorry, no one sees the Ms.Harmony without proper permission”
 
-show AlexSilhouetteShock right
-<???> "Hey! [eff Hit] It's b... ..ng ..ough, you sh... g.. up ...ready!"
+<PL> “I-I’m terribly sorry! I’ll let you through right now!”
 
-<none> *mumbles* "No... No dad, I don't..."
-<none> "... don't wanna grow up yet..." *yawn*
+!Violet Smirk
+<VL> “Thanks, luv.”
+Alex Determined
 
-show  AlexSilhouetteShrug right
-<???> "Geez Violet, you never cease to confound me."
-<???> "If I'd know that the famous Doctor Light was such a slouch I might have never signed up for this job..."
+show Policeman Offscreen
 
-<VL> "Huh? Oh Alex *yawn* you're not my dad..."
+show Harmony Ashamed right slow
 
-bg HotelRoom
-bgm Neutral
+Violet shock
+<VL> “H-Harmony, are you okay? [eff crash]”
+<VL> “Did they do anything to you? [eff smash] hurt you in any way, omygod that must have been a terrible experience! [eff crash] I’ll find the guy who did this, I can’t believe it, I’m so sorry about your sister, ahh omygod-“ //Run on sentence Alex Cuts her off
 
-show VioletHappy left
-show AlexUnimpressed right
+Alex Umimpressed
+<AX> “Violet calm down...”
 
-<AX> *sigh* "I would hope not! [eff Hit]"
+eff ding
+Violet Shock
+<VL> “R-right!”
+Violet Neutral
 
-<-> *ding dong* [sfx Doorbell]
+Alex Scribbling
+<AX> “Now what can you tell us, Miss Rush?”
+Alex Determined

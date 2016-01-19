@@ -1,4 +1,0 @@
-Conversation:cafe_7
-ShowChar:Violet:Left1
-ShowText:violet1
-WaitForAction:LClick
