@@ -24,10 +24,8 @@ public class PuzzleManager : MonoBehaviour
 
     void Update()
     {
-        //PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().RunPuzzle();
         if(PuzzleLoaded)
         {
-            // NOTE(jesse): Main Puzzle Loop
             if(PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().GetStatus() == PuzzleStatus.Win)
             {
                 CompletedPuzzles[CurrentPuzzle] = true;
@@ -43,23 +41,37 @@ public class PuzzleManager : MonoBehaviour
 
     public void SubmitPuzzle()
     {
-
             PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().Submit();
-       
     }
 
     public void StartPuzzle(uint PuzzleNumber)
     {
         if( !PuzzleLoaded )
         {
+            //set which puzzle to load
+            CurrentPuzzle = PuzzleNumber;
             SceneManager.Instance.SetInputBlocker( true );
-            Spawn( CurrentPuzzle );
-            SpawnUI();
+            Debug.Log( "[Puzzle Manager] Spawned Puzzle " + PuzzleNumber );
+
+            //Instantiate the puzzle
+            GameObject Interactable = Instantiate( PuzzleList[PuzzleNumber], Vector3.zero,Quaternion.identity ) as GameObject;
+            //parent the puzzle to the parent object "ParentObject"
+            Interactable.transform.parent = ParentObject.transform;
+            //Instatiate the puzzle UI
+            GameObject MainCanvas = GameObject.Find( "Canvas" );
+            PuzzleUI = Instantiate( PuzzleUIPrefab, Vector3.zero, Quaternion.identity ) as GameObject;
+            PuzzleUI.transform.parent = MainCanvas.transform;
+            PuzzleUI.transform.localScale = Vector3.one;
+            PuzzleUI.transform.localPosition = Vector3.zero;
             Vector3 Pos = new Vector3( 0f, 0f, -2f );
-            Spawn( "Background", Pos );
+            //set up background
+            GameObject Interactable2 = Instantiate( PuzzleList[0], Pos,
+                                               Quaternion.identity )
+                                               as GameObject;
+            Interactable2.transform.parent = ParentObject.transform;
             PuzzleLoaded = true;
+            //Initialize the puzzle
             PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().Initalize();
-            // TODO(jesse): Cue transition
         }
     }
 
@@ -68,8 +80,13 @@ public class PuzzleManager : MonoBehaviour
         if( PuzzleLoaded )
         {
             SceneManager.Instance.SetInputBlocker( false);
-            Clear();
-            DestroyUI();
+            Debug.Log( "[Puzzle Manager] Clearing Puzzle" );
+            foreach( Transform child in ParentObject.transform )
+            {
+                Destroy( child.gameObject );
+                Debug.Log( "[Interactable Manager] Destroyed " + child.name + "!" );
+            }
+            Destroy( PuzzleUI );
             PuzzleLoaded = false;
         }
     }
@@ -78,78 +95,11 @@ public class PuzzleManager : MonoBehaviour
     {
         if( PuzzleLoaded )
         {
-            //Clear();
-            //DestroyUI();
-            //Vector3 Pos = new Vector3(0f,0f,-6f);
-            //Spawn( "Background", Pos );
-            //Spawn( CurrentPuzzle );
-            //SpawnUI();
             PuzzleList[CurrentPuzzle].GetComponent<Puzzle>().Reset();
         }
     }
 
-    private void SpawnUI()
-    {
-        GameObject MainCanvas = GameObject.Find( "Canvas" );
-        PuzzleUI = Instantiate( PuzzleUIPrefab, Vector3.zero, Quaternion.identity ) as GameObject;
-        PuzzleUI.transform.parent = MainCanvas.transform;
-        PuzzleUI.transform.localScale = Vector3.one;
-        PuzzleUI.transform.localPosition = Vector3.zero;
-    }
 
-    private void DestroyUI()
-    {
-        // TODO(jesse): Maybe don't destroy this and just hide it?
-        Destroy( PuzzleUI );
-    }
-
-    private void Spawn(uint PuzzleNumber)
-    {
-        foreach(GameObject Actable in PuzzleList)
-        {
-            if( Actable.name == "puzzle" + PuzzleNumber.ToString() )
-            {
-                Debug.Log( "[Puzzle Manager] Spawned Puzzle " + PuzzleNumber);
-
-                GameObject Interactable = Instantiate( Actable, Vector3.zero, 
-                                                       Quaternion.identity ) 
-                                                       as GameObject;
-                Interactable.transform.parent = ParentObject.transform;
-                return;
-            }
-        }
-        Debug.Log( "[Puzzle Manager] Cannot find puzzle " + PuzzleNumber );
-    }
-
-    private void Spawn( string ObjectName, Vector3 Pos )
-    {
-        foreach( GameObject Actable in PuzzleList )
-        {
-            if( Actable.name == ObjectName.ToString() )
-            {
-                Debug.Log( "[Puzzle Manager] Spawned " + ObjectName.ToString() );
-
-                GameObject Interactable = Instantiate( Actable, Pos,
-                                                       Quaternion.identity )
-                                                       as GameObject;
-                Interactable.transform.parent = ParentObject.transform;
-                return;
-            }
-        }
-        Debug.Log( "[Puzzle Manager] Cannot find " + ObjectName.ToString() );
-    }
-
-    private void Clear()
-    {
-        Debug.Log( "[Puzzle Manager] Clearing Puzzle");
-        foreach( Transform child in ParentObject.transform )
-        {
-            Destroy( child.gameObject );
-            Debug.Log( "[Interactable Manager] Destroyed " + child.name + "!");
-        }
-    }
-
-    // NOTE(jesse): GETTERS AND SETTERS
 
     public uint GetCurrentPuzzle()
     {

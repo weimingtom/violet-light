@@ -3,7 +3,9 @@ using System.Collections;
 
 public class Piece : MonoBehaviour {
 
-    private Vector3 lastMousePos;
+    public int uniqueID;
+    private Puzzle1 puzzleScript;
+    public bool moveable = true;
 
 	void Start () 
     {
@@ -12,32 +14,34 @@ public class Piece : MonoBehaviour {
 	
 	}
 
-	void Update () 
+    public void SetDetails( int uID, Puzzle1 newScript )
     {
-        if( lastMousePos != new Vector3( 0, 0, 0 ) )
-        {
-            this.transform.position += Camera.main.ScreenToWorldPoint(Input.mousePosition) - lastMousePos;
-            lastMousePos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-        }
+        uniqueID = uID;
+        puzzleScript = newScript;
 
-        
-	
-	}
+    }
+
+    public void doneMoving()
+    {
+        moveable = false;
+        this.GetComponent<ClickToMove>().moveable = false;
+    }
 
     void OnMouseDown()
     {
         //rotate if double clicked.
-        if( DoubleClick.Instance.TestDoubleClick() )
-        {
-            this.transform.Rotate( 0, 0, -90 );
+        if( moveable )
+        { 
+            if( DoubleClick.Instance.TestDoubleClick() )
+            {
+                this.transform.Rotate( 0, 0, -90.0f );
+            }
         }
-
-        lastMousePos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-
     }
 
-    void OnMouseUp()
+    public void OnMouseUp()
     {
-        lastMousePos = new Vector3(0,0,0);
+        puzzleScript.Placed( uniqueID );
+        
     }
 }

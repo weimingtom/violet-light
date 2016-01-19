@@ -7,7 +7,7 @@ public class DoubleClick : MonoBehaviour
     private float clickOne;
     private float clickTwo;
     private bool flipflop;
-    const float tapSpeed = 0.50f;
+    const float tapSpeed = 0.20f;
     const float minumum = 0.005f;
     private float lastClick; 
 
