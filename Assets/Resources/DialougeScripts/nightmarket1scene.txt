@@ -1,5 +1,9 @@
 show Alexander Left1
-$alex1$ "<b><i><color=red>Dialogue</color></i></b> Alex more stuff[time 1]"
+eff SoundEffect
+eff ScreenFlash
+eff ScreenShake
+$ax$ "<b><i><color=red>Dialogue</color></i></b> Alex more stuff[time 1]"
 pose Alexander UpsideDown
 show Violet Right2
-$testVio$ "<b>dialogue</b> violet"
+$vl$ "<b>dialogue</b> violet"
+$+$ "<b>*nuke blast in background*</b>"

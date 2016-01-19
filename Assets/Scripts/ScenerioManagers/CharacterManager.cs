@@ -167,7 +167,6 @@ public class CharacterManager : MonoBehaviour {
             //do an assert or something here to check that the pose exists.
             mPortrait.sprite = Resources.Load<Sprite>( mPoses[pose] );
             //Set facing back to default(left)
-            currentFacing = Facings.left;
         }
         public void ChangeExpression(string expression)
         {

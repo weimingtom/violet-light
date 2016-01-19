@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item
+public class Item:MonoBehaviour
 {
     private string name;
+    private GameObject item;
+    private PolygonCollider2D collider;
     private Texture2D myTexture;
-    private Vector2 position;
+
     bool collected;
     void Awake()
     {
-        name = "\0";
+        name = "";
     }
     void SetName(string _nm)
     {
@@ -18,10 +20,6 @@ public class Item
     void SetTexture(string _add)
     {
         myTexture = Resources.Load(_add) as Texture2D;
-    }
-    void SetPosition(Vector2 pos )
-    {
-        position = pos;
     }
     public void InitializeItem(string _name, string _address, bool _flag)
     {
@@ -37,8 +35,5 @@ public class Item
     {
         return collected;
     }
-    Vector2 GetPosition()
-    {
-        return position;
-    }
+
 }

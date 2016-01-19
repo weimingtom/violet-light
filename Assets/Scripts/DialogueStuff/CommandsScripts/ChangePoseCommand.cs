@@ -21,6 +21,7 @@ public class ChangePoseCommand : Commands
 	}
 	public override bool Destroy()
 	{
+        CharacterManager.Instance.ChangeCharacterPose( characaterName, "neutral" );
         return true;
 	}
 }

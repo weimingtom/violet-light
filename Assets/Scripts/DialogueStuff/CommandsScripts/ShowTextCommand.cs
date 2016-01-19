@@ -27,6 +27,7 @@ public class ShowTextCommand : Commands
 			CommandManager.Instance.TextBoxSwitch (true);
 			CommandManager.Instance.TextSwitch (true);
 			CommandManager.Instance.SetTextHolder("");
+            CommandManager.Instance.SetNameIntoNameBox(DialogueHolder.Instance.GetCharacterNameFromToken(conversationTag));
 			InitialSetup = false;
 		}
 		if (indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true) 
