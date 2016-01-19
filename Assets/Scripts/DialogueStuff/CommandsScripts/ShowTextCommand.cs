@@ -27,46 +27,47 @@ public class ShowTextCommand : Commands
 			CommandManager.Instance.TextBoxSwitch (true);
 			CommandManager.Instance.TextSwitch (true);
 			CommandManager.Instance.SetTextHolder("");
-
 			InitialSetup = false;
 		}
-		if (indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length) 
+		if (indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true) 
 		{
             if( waitForTime == true )
             {
-                return false;
+                UpdateTime();
             }
-			if(timeTracker >= speed)
-			{
-				
-                passedChar = DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
-                //check if it is html or not
-                if( passedChar == '<'
-                    && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] != '/' )
-                {
-                    //Add command
-                    RegisterHtmlCommand();
+            else
+            {
+			    if(timeTracker >= speed)
+			    {
+                    passedChar = DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
+                    //check if it is html or not
+                    if( passedChar == '<'
+                        && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] != '/' )
+                    {
+                        //Add command
+                        RegisterHtmlCommand();
+                    }
+                    else if( passedChar == '<'
+                        && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] == '/' )
+                    {
+                        //delete command
+                        UnRegisterHtmlCommand();
+                    }
+                    else if(passedChar == '[')
+                    {
+                        //register custom command
+                        ParseCustomTextCommand();
+                    }
+                    else
+                    {
+                        PassTextToCommandManager();
+                    }
                 }
-                else if( passedChar == '<'
-                    && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] == '/' )
-                {
-                    //delete command
-                    UnRegisterHtmlCommand();
-                }
-                else if(passedChar == '[')
-                {
-                    //register custom command
-                    ParseCustomTextCommand();
-                }
-                else
-                {
-                    PassTextToCommandManager();
-                }
+			    else
+			    {
+				    timeTracker += Time.deltaTime;
+			    }
             }
-			else
-			{
-				timeTracker += Time.deltaTime;
-			}
 			return false;
 		}
 		else
@@ -110,19 +111,25 @@ public class ShowTextCommand : Commands
         case "time":
         SetWaitForTime(float.Parse(_value));
         break;
-        default :
+        default:
+        Debug.Log("[Show Text Command]command not found");
         break;
         }
     }
-    float UpdateTime()
+    void UpdateTime()
     {
         totalTime += Time.deltaTime;
-
-        return 0;
+        if(totalTime >= time)
+        {
+            waitForTime = false;
+            time = 0;
+            totalTime = 0;
+        }
     }
     void SetWaitForTime(float _t)
     {
         time = _t;
+        waitForTime = true;
     }
     void PassTextToCommandManager()
     {

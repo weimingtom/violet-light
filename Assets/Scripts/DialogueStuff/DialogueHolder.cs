@@ -8,12 +8,13 @@ public class DialogueHolder : MonoBehaviour
 {
     static public DialogueHolder Instance;
     Dictionary<string, string> dialogue;
-    
+    Dictionary<string, string> characterName;
 	// Use this for initialization
 	void Awake () 
     {
         Instance = this;
         dialogue = new Dictionary<string, string>();
+        string nameCode = (Resources.Load( "DialougeScripts/CharacterName" ) as TextAsset).ToString();
 	}
     public void AddDialogue( string header, string content )
     {
