@@ -458,6 +458,7 @@ MonoBehaviour:
   Effects:
   - {fileID: 131968, guid: 2ab347bea3abf124ca35fec830714821, type: 2}
   - {fileID: 110772, guid: 7a8fd3fa8b4734344a815165ef8f6bac, type: 2}
+  - {fileID: 144574, guid: 855617872df0eaa4cb2ad0116f33b9bb, type: 2}
 --- !u!1 &213451812 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 165578, guid: b969fac1b5422364d835450772a15f8a, type: 2}
