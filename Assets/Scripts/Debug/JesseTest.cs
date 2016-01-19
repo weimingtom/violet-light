@@ -18,7 +18,10 @@ public class JesseTest : MonoBehaviour
         {
             FXManager.Instance.Spawn("ScreenShake");
         }
-
+        if( Input.GetKeyDown( KeyCode.F2 ) )
+        {
+            FXManager.Instance.Spawn( "ScreenFlash" );
+        }
     }
 
 }
