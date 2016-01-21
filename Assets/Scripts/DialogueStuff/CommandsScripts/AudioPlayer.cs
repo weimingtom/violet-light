@@ -6,7 +6,8 @@ public class AudioPlayer : MonoBehaviour
 	static public AudioPlayer instance;
     public AudioClip maleBlip;
     public AudioClip femaleBlip;
-	AudioSource audioSource;
+    private AudioSource audioSource;
+
 	// Use this for initialization
 	void Awake () 
     {
@@ -30,7 +31,7 @@ public class AudioPlayer : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        audioSource.volume = volume*0.25f;
+        audioSource.volume = volume;
     }
 
 }

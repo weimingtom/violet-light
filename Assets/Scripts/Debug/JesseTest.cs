@@ -9,6 +9,7 @@ public class JesseTest : MonoBehaviour
     {
         SceneManager.Instance.LoadCase( 1 );
         SceneManager.Instance.ChangeScene( 2 );
+        MusicManager.instance.ChangeSong( "v1" );
 
     }
 
@@ -18,17 +19,19 @@ public class JesseTest : MonoBehaviour
         {
             FXManager.Instance.Spawn("ScreenShake");
         }
-        if( Input.GetKeyDown( KeyCode.F2 ) )
+        else if( Input.GetKeyDown( KeyCode.F2 ) )
         {
             FXManager.Instance.Spawn( "ScreenFlash" );
         }
-
-        if( Input.GetKeyDown( KeyCode.F3 ) )
+        else if( Input.GetKeyDown( KeyCode.F3 ) )
         {
             FXManager.Instance.Spawn( "ScreenShake" ); 
             FXManager.Instance.Spawn( "ScreenFlash" );
             FXManager.Instance.Spawn( "SoundEffect" );          
         }
+        else if( Input.GetKeyDown( KeyCode.F4 ) )
+        {
+            MusicManager.instance.ChangeSong( "caught" );
+        }
     }
-
 }
