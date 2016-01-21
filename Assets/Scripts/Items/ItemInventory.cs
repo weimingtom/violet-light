@@ -1,21 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class ItemInventory : MonoBehaviour
-{
-    Dictionary<string, Item> itemDictionary;
+public class ItemInventory : MonoBehaviour {
+
+    public static ItemInventory Instance;
+    private int size = 16;
+    private List<SpriteRenderer> spriteRenderer;
+
     void Initialize()
     {
-        
+        for( int i = 0; i < this.transform.childCount; i++ )
+        {
+            spriteRenderer.Add(this.gameObject.transform.gameObject.GetComponent<SpriteRenderer>());
+        }
     }
-    void AddItem(string idname, string name, string address)
+    void SetItemToInventory( Sprite texture, int index )
     {
-        Item temporary = new Item();
-        temporary.InitializeItem(name, address, false);
-        itemDictionary.Add(idname, temporary);
+        spriteRenderer[index].enabled = true;
+        spriteRenderer[index].sprite = texture;
     }
-    void GetItem( int index )
+    void DeleteFromInventory(int index)
     {
-        
+        spriteRenderer[index].enabled = false;
+        spriteRenderer[index].sprite = null;
     }
 }

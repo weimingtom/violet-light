@@ -11,6 +11,9 @@ TagManager:
   - test
   - destinationA
   - destinationB
+  - main_item_sprite
+  - inventory_item_sprites
+  - item
   layers:
   - Default
   - TransparentFX

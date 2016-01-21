@@ -17,8 +17,6 @@ public class StringParser : MonoBehaviour
         string conversationHeader = header;
         string conversationContent = content;
         DialogueHolder.Instance.AddDialogue( conversationHeader.ToString(), conversationContent.ToString() );
-        //print("Header :" + conversationHeader);
-        //print("Content :" + conversationContent);
     }
     //Note(HENDRY) : Run Parse will be used instead of parse doalogue and parse command
     public void RunRegisterCharacterCode(string _address, ref Dictionary<string, string> _characterDict)
@@ -43,7 +41,6 @@ public class StringParser : MonoBehaviour
             extractedWord[i].ToLower();
             Debug.Log("[RunParse] Data[" + i +"] : " + extractedWord[i]);
         }
-        //Debug.Break();
     }
     void ParseCommand(string command)
     {
@@ -100,6 +97,7 @@ public class StringParser : MonoBehaviour
             }
         }
     }
+
     public void BackgroundReader( string mainString, ref Dictionary<string, string> _background)
     {
         int locationCheck = 0;
@@ -156,7 +154,6 @@ public class StringParser : MonoBehaviour
          * Expr Alexander curious "Textures/Expressions/alex_curious_expr"
          * 
          */
-
         CharacterManager CM;
         CM = CharacterManager.Instance;
 
