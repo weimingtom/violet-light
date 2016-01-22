@@ -9,9 +9,14 @@ public class Puzzle03 : MonoBehaviour
     public GameObject[] fruits;
     public GameObject[] crates;
     private Vector3[] fruitLoc;
+    private Vector3[] labelLoc;
 
     private int fruitShown;
     private bool correctChoice = false;
+    private int holding;
+
+    private int lastTriggered;
+
 
     //0 - APPLES, 1 - Oranges, 2 - App&Orange
 
@@ -19,21 +24,22 @@ public class Puzzle03 : MonoBehaviour
     {
         //get locations
         fruitLoc = new Vector3[3];
-        float[] loc = new float[3]; 
-        for(int i = 0; i < 3; ++i)
+        labelLoc = new Vector3[3];
+        for( int i = 0; i < 3; ++i )
         {
             fruitLoc[i] = fruits[i].transform.position;
-            fruits[i].SetActive(false);
-            loc[i] = labels[i].transform.position.x;
-            labels[i].GetComponent<ClickToMove>().moveable = false;
+            fruits[i].SetActive( false );
+            labelLoc[i] = labels[i].transform.position;
+            crates[i].GetComponent<Crate>().SetScript( this );
         }
         int randLoc = Random.Range( 0, 2 );
 
         for( int i = 0; i < 3; ++i )
         {
-            if(randLoc == 3)
-                randLoc = 0; 
-            labels[i].transform.position = new Vector3( loc[randLoc], labels[0].transform.position.y );
+            if( randLoc == 3 )
+                randLoc = 0;
+            labels[i].transform.position = new Vector3( labels[i].transform.position.x + 0.5f, labels[i].transform.position.y - 1.3f, -1.2f );
+            labels[i].GetComponent<ClickToMove>().moveable = false;
             crates[randLoc].GetComponent<Crate>().sign = i;
             randLoc++;
         }
@@ -41,31 +47,30 @@ public class Puzzle03 : MonoBehaviour
 
     }
 
-
-    void Clicked(int id)
+    void Clicked( int id )
     {
         if( !chosen )
-        { 
+        {
             chosen = true;
             Debug.Log( "Box " + id + "Clicked, Sign " + crates[id].GetComponent<Crate>().sign );
 
             //decide which fruit to show.
             int sign = crates[id].GetComponent<Crate>().sign;
             switch( sign )
-            { 
+            {
             case 2:
-                fruitShown = Random.Range( 0, 1 );
-                correctChoice = true;
-                break;
+            fruitShown = Random.Range( 0, 1 );
+            correctChoice = true;
+            break;
             case 1:
-                fruitShown = 0;
-                break;
+            fruitShown = 0;
+            break;
             case 0:
-                fruitShown = 1;
-                break;
+            fruitShown = 1;
+            break;
             default:
-                Debug.Log( "ERROR: Sign incorrect, Puzzle03" );
-                break;
+            Debug.Log( "ERROR: Sign incorrect, Puzzle03" );
+            break;
             }
 
             //show the fruit
@@ -76,9 +81,46 @@ public class Puzzle03 : MonoBehaviour
 
             //make labels moveable
             for( int i = 0; i < 3; ++i )
-                labels[i].GetComponent<ClickToMove>().moveable = true; 
-            
+                labels[i].GetComponent<ClickToMove>().moveable = true;
+
         }
     }
 
+    public void LastTriggered( int id, GameObject held )
+    {
+        lastTriggered = id;
+    }
+    public void ClearTrigger()
+    {
+        lastTriggered = -1;
+    }
+
+    void Update()
+    {
+        if( Input.GetMouseButtonDown( 0 ) )
+        {
+            for( int i = 0; i < 3; ++i )
+            {
+                if( labels[i].GetComponent<ClickToMove>().GetMoving() )
+                {
+                    holding = i;
+                }
+            }
+        }
+        if( chosen && lastTriggered != -1 )
+        {
+            if( Input.GetMouseButtonUp( 0 ) )
+            {
+                for( int i = 0; i < 3; ++i )
+                {
+                    if( holding == labels[i] )
+                    {
+                        labels[i].transform.position = labelLoc[lastTriggered];
+                        lastTriggered = -1;
+                        break;
+                    }
+                }
+            }
+        }
+    }
 }
