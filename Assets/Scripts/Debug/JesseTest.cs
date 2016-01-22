@@ -9,7 +9,7 @@ public class JesseTest : MonoBehaviour
     {
         SceneManager.Instance.LoadCase( 1 );
         SceneManager.Instance.ChangeScene( 2 );
-        MusicManager.instance.ChangeSong( "v1" );
+        MusicManager.instance.ChangeSong( "violetstheme" );
 
     }
 

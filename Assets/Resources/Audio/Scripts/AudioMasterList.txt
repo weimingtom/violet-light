@@ -1,2 +1,9 @@
 caught Audio/Music/08-investigation-cornered-1
 v1 Audio/Music/24_-_London_Variation_(Live_Version)
+drama_theme Audio/Music/Alt_Theme_Drama
+theme Audio/Music/Theme
+violetstheme Audio/Music/Violet_Theme
+waltz Audio/Music/Waltz
+soul Audio/Music/Soul
+crime Audio/Music/Crime_Scene_Drama
+idea Audio/Music/Idea
