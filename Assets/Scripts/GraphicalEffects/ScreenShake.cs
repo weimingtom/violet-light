@@ -12,7 +12,7 @@ public class ScreenShake : MonoBehaviour
 
     public void Start()
     {
-        originalCameraPosition = Camera.main.transform.position;
+        originalCameraPosition = new Vector3( 0.0f, 0.0f, -10.0f ); //Camera.main.transform.position;
         radius = magnitude;
         float randomAngle = Random.value * 360;
         offset = new Vector3( Mathf.Sin( randomAngle ) * radius, Mathf.Cos( randomAngle ) * radius, originalCameraPosition.z ); //create offset 2d vector
