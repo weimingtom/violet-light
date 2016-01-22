@@ -1,0 +1,3 @@
+Potion Textures/potion "A magical potion that grants you special powers to defeat the final boss of magic and stuff 2 the sequel."
+Potion2 Textures/potion2 "A magical potion that grants you special powers to defeat the final boss of magic and stuff 3 the sequel."
+Potion3 Textures/potion3 "A magical potion that grants you special powers to defeat the final boss of magic and stuff 4 the sequel."

@@ -60,7 +60,6 @@ public class Row : MonoBehaviour
             RowObject.Add( this.gameObject.transform.GetChild( i ) );
             RowSprite.Add( RowObject[i].gameObject.GetComponent<SpriteRenderer>() );
         }
-
     }
     public void Switch(string nameTag)
     {

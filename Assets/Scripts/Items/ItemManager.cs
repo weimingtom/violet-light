@@ -5,8 +5,8 @@ using System.Linq;
 
 public class ItemManager : MonoBehaviour
 {
-    List<Item> AllItems;
-    List<Item> PlayerItems;
+    List<Item> AllItems = new List<Item>();
+    List<Item> PlayerItems = new List<Item>();
     int CurrentNumberOfItems = 0;
 
     void Start()
@@ -74,8 +74,5 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
-    public void Destroy()
-    {
-        
-    }
+
 }

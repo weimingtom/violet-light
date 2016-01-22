@@ -1,2 +1,0 @@
-Potion images/potion "A magical potion that grants you special powers to defeat the final boss of magic and stuff 2 the sequel."
-Potion2 images/potion2 "A magical potion that grants you special powers to defeat the final boss of magic and stuff 3 the sequel."

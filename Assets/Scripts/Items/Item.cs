@@ -23,9 +23,9 @@ public class Item:MonoBehaviour
     {
         return itemDescription;
     }
+
     public Sprite GetItemTexture()
     {
-        
         return itemTexture;
     }
 }

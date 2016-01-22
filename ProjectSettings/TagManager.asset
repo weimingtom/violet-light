@@ -14,6 +14,7 @@ TagManager:
   - main_item_sprite
   - inventory_item_sprites
   - item
+  - inventory_item_text
   layers:
   - Default
   - TransparentFX
