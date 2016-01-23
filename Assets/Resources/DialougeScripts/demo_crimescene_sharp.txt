@@ -1,0 +1,52 @@
+show Alexander Right1
+show Violet Right2
+pose Alexander neutral
+pose Violet neutral
+
+show Sharp left
+pose Sharp Cocky
+$SP$ “Well...[time 2] yeah?[time 1] Of course I was right!”
+show Sharp Thinking
+$SP$ “H-huh?[pause] Behind me?[eff SoundEffect]”
+// Sharp Turns around
+show Sharp Neutral
+$SP$ “Woah, woah, woah. HOLD IT![eff SoundEffect]”
+$SP$ “You guys can’t be here, this is a Crime Scene.”
+
+Alex unimpressed
+show Violet Neutral
+ 
+$VL$ “Nuh-uh, we’re totally allowed to be here, luv.”
+show Violet Cocky
+$VL$ “We’re Miss Rush’s lawyers, on official business.”
+
+
+show Sharp Surprised
+
+show Alexander Surprised
+$AX$ “Wait, We are-?”
+
+$VL$ “As you can see by my <color=blue>official papers</color>, so please step aside, we’re looking for someone with a knife.”
+
+show Sharp Nervous
+$SP$ “U-uh right!”
+show Sharp Cocky
+$SP$ “Of course, Miss...?”
+
+$VL$ “Light, Violet Light. And this Is my assistant Alexander Strong.”
+
+show Alexander Unimpressed
+$AX$ “[small text] W-wow that worked. I think this is illegal...” //cut off
+
+$SP$ “I’m Detective Sharp, but there really isn’t much to investigate here. It’s a pretty open and shut case, if I do say so myself.”
+
+$VL$ “I’llWe’ll be the judge of that!”
+
+$SP$ “Uh, well no you won’t. The judge will.”
+
+show Violet Nervous
+$VL$ “R-right!”
+
+show Alexander Neutral
+
+$SP$ “So what’s this about a knife?”
