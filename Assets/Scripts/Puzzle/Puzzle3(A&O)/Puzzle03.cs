@@ -97,28 +97,13 @@ public class Puzzle03 : MonoBehaviour
 
     void Update()
     {
-        if( Input.GetMouseButtonDown( 0 ) )
+        if( Input.GetMouseButtonUp( 0 ) )
         {
             for( int i = 0; i < 3; ++i )
             {
-                if( labels[i].GetComponent<ClickToMove>().GetMoving() )
+                if( labels[i].GetComponent<ClickToMove>().GetHeld() )
                 {
                     holding = i;
-                }
-            }
-        }
-        if( chosen && lastTriggered != -1 )
-        {
-            if( Input.GetMouseButtonUp( 0 ) )
-            {
-                for( int i = 0; i < 3; ++i )
-                {
-                    if( holding == labels[i] )
-                    {
-                        labels[i].transform.position = labelLoc[lastTriggered];
-                        lastTriggered = -1;
-                        break;
-                    }
                 }
             }
         }
