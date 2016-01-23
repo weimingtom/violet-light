@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
-[RequireComponent(typeof(GameObject))]
-[RequireComponent(typeof(FadeOutScreen))]
+
+
 public class TitleDebug : MonoBehaviour 
 {
-    float fadeTime;
+    float fadeTime = 0.0f;
     float timer = 0.0f;
     void Start()
     {
-        GameObject.FindObjectOfType<FadeOutScreen>().BeginFade(-1);
+        GetComponent<FadeOutScreen>().BeginFade(-1);
     }
 
     void Update()
@@ -24,8 +24,8 @@ public class TitleDebug : MonoBehaviour
 
     }
 
-    void OnMouseDown()
+    public void StartGame()
     {
-        fadeTime = GameObject.FindObjectOfType<FadeOutScreen>().BeginFade(1);
+        fadeTime = GetComponent<FadeOutScreen>().BeginFade(1);
 	}
 }

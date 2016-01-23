@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
- using UnityEditor;
+//using UnityEditor;
 using System.Collections;
 
 public class FXManager : MonoBehaviour {
@@ -19,9 +19,7 @@ public class FXManager : MonoBehaviour {
             if( Effect.name == Name )
             {
                 Debug.Log( "[FX Manager] Spawned Prop " + Name );
-                GameObject Interactable = Instantiate( Effect, Vector3.zero,
-                                                       Quaternion.identity )
-                                                       as GameObject;
+                Instantiate( Effect, Vector3.zero, Quaternion.identity );
                 return;
             }
         }

@@ -24,4 +24,13 @@ public class FadeFlyText : MonoBehaviour {
             delayTimer += Time.deltaTime;
         }
     }
+
+    public bool GetDoneFade()
+    {
+        if (text.canvasRenderer.GetAlpha() >.95f)
+        {
+            return true;
+        }
+        return false;
+    }
 }

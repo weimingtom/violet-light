@@ -9,7 +9,6 @@ public class FlashScreen : MonoBehaviour
     private int drawDepth = -1000;
     private float alpha = 0.0f;
     private int fadeDir = 1;
-    private bool firstRun = true;
 
     void OnGUI()
     {

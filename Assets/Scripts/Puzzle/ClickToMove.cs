@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ClickToMove : MonoBehaviour {
+public class ClickToMove : MonoBehaviour 
+{
 
     private Vector3 lastMousePos = new Vector3(0.0f, 0.0f, 0.0f);
     public bool moveable = true;
@@ -32,5 +33,10 @@ public class ClickToMove : MonoBehaviour {
     public void OnMouseUp()
     {
         held = false;
+    }
+
+    public void Snap(int location)
+    {
+        Debug.Log( "Snapped to "+ location + "!" );
     }
 }
