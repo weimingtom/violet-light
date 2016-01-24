@@ -6,11 +6,14 @@ public class ItemInventory : MonoBehaviour {
 
     public static ItemInventory Instance;
     private int size = 0;
-    private List<SpriteRenderer> spriteRenderer = new List<SpriteRenderer>();
+	private List<Image> spriteRenderer = new List<Image>();
     private List<Text> textHolder = new List<Text>();
-    void Start()
+    void Awake()
+	{
+		Instance = this;
+	}
+	void Start()
     {
-        Instance = this;
         Initialize();
     }
     void Initialize()
@@ -20,7 +23,7 @@ public class ItemInventory : MonoBehaviour {
         {
             if( this.gameObject.transform.GetChild( i ).tag == "inventory_item_sprites" )
             {
-                spriteRenderer.Add(this.gameObject.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>());
+				spriteRenderer.Add(this.gameObject.transform.GetChild(i).gameObject.GetComponent<Image>());
             }
             else if( this.gameObject.transform.GetChild( i ).tag == "inventory_item_text" )
             {
@@ -29,7 +32,7 @@ public class ItemInventory : MonoBehaviour {
         }
     }
 
-    void SetItemToInventory( Sprite texture, int index )
+    public void SetItemToInventory( Sprite texture, int index )
     {
         spriteRenderer[index].enabled = true;
         spriteRenderer[index].sprite = texture;

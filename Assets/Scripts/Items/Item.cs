@@ -9,9 +9,9 @@ public class Item:MonoBehaviour
 
     public void InitializeItem(string name, string textureAddress, string description)
     {
-        name = itemName;
+        itemName = name;
         itemDescription = description;
-        itemTexture = Resources.Load( textureAddress ) as Sprite;
+        itemTexture = Resources.Load<Sprite>( textureAddress );
     }
 
     public string GetItemName()
