@@ -26,35 +26,31 @@ public class CharacterManager : MonoBehaviour {
     public const float defaultEasingDuration = 2.0f;
     public const float defaultDeltaAlpha = 2.5f;
     private const float zValue = -3.0f;
-    private float easeDuration;
-    private float deltaAlpha;
+    
 
     static public CharacterManager Instance;
     void Awake()
     { Instance = this;  }
 
     //TODO account for case of starting another movement before last has finished. 
-    private string changingPortrait;
-    private Positions positionToGoTo;
-    
-    void Start()
-    {
-        changingPortrait = null;
-    }
+    private List<string> changingPortraits;
 
 	void Update () 
     {
-        if( changingPortrait != null )
-            if( characterList[changingPortrait].GoToNewPosition( positionToGoTo, deltaAlpha, easeDuration ) )
+        foreach (string thisString in changingPortraits)
+        {
+            if( characterList[thisString].UpdatePosition() )
             {
-                changingPortrait = null;
-                positionToGoTo = Positions.Offscreen;
+                changingPortraits.Remove( thisString );
             }
+
+        }
 	}
 
     bool GetDoneFade()
-    { return changingPortrait == null; }
+    { return changingPortraits.Count == 0; }
 
+    //this just teleports all offscreen for now.
     public void FadeAllOut()
     {
         foreach( KeyValuePair<string, CharacterManager.Character> entry in characterList )
@@ -65,31 +61,23 @@ public class CharacterManager : MonoBehaviour {
     
     public void ChangePosition(string character, Positions newPosition = Positions.Offscreen, Facings facing = Facings.auto, float fadeSpeed = defaultDeltaAlpha, float easeSpeed = defaultEasingDuration) 
     {
-        changingPortrait = character;
-        positionToGoTo = newPosition;
+        changingPortraits.Add(character);
 
-        easeDuration = easeSpeed;
-        deltaAlpha = fadeSpeed;
-
-        if(newPosition != Positions.Offscreen)
-             characterList[character].SetForMovement(newPosition, facing);
-        else 
-        {
-            deltaAlpha = fadeSpeed * -1;
-        }
+        if(newPosition == Positions.Offscreen)
+            fadeSpeed *= -1;
+        
+        characterList[character].SetForMovement(newPosition, facing, fadeSpeed, easeSpeed);
     }
 
     public void ChangeCharacterPose(string name, string pose)
     {
         characterList[name].ChangePose(pose);
     }
-
     public void addCharacter( string key, string name )
     {
         characterList.Add( key, new CharacterManager.Character() );
         characterList[key].Initialize( name );
     }
-
     public void AddCharacterPose( string key, string poseName, string posePath )
     {
         characterList[key].AddPose( poseName, posePath );
@@ -129,6 +117,12 @@ public class CharacterManager : MonoBehaviour {
         private List<bool> mFlags;  //will add functionality later if time.
         private int mAffinity;      //will add functionality later if time.
 
+        //new stuffs
+        private float easeDuration;
+        private float deltaAlpha;
+        private Positions positionToGoTo;
+
+
         public Character()
         { mAffinity = 0; }
 
@@ -142,7 +136,6 @@ public class CharacterManager : MonoBehaviour {
             mPortrait = mGObject.AddComponent<SpriteRenderer>();
             //mExpressionRend = mGObject.AddComponent<SpriteRenderer>();
             currentFacing = Facings.left;
-
 
             mPoses = new Dictionary<string,string>();
             mExpressions = new Dictionary<string,string>();
@@ -173,11 +166,17 @@ public class CharacterManager : MonoBehaviour {
             //mExpressionRend.sprite = Resources.Load<Sprite>( mExpressions[expression] );
         }
 
-        public void SetForMovement(Positions position, Facings facing)
+        public void SetForMovement(Positions position, Facings facing, float fadeSpeed, float easeSpeed)
         {
-            mPortrait.color = new Color( 1f, 1f, 1f, 0f );
+            if(position != Positions.Offscreen)
+                mPortrait.color = new Color( 1f, 1f, 1f, 0f );
             //mExpressionRend.color = new Color( 1f, 1f, 1f, 0f );
-            
+
+            easeDuration = easeSpeed;
+            deltaAlpha = fadeSpeed;
+            positionToGoTo = position;
+
+
             //find facing
             if( facing == Facings.auto )
             {
@@ -200,7 +199,7 @@ public class CharacterManager : MonoBehaviour {
             mGObject.transform.position = FindStartPlace( position );
         }
 
-        //TODO: change these to be able to adapt to the screen size.
+        //TODO: change these to be able to adapt to the screen size. NO MORE MAGIC NUMBERS
         private Vector3 FindStartPlace( Positions position )
         { 
             Vector3 startPlace;
@@ -269,17 +268,17 @@ public class CharacterManager : MonoBehaviour {
         }
 
         //returns true when done
-        public bool GoToNewPosition( Positions newPosition, float DeltaAlpha, float easeDuration )
+        public bool UpdatePosition()
         {
             float alpha = mPortrait.color.a;
             Vector3 destination;
-            destination = FindEndPlace( newPosition );
+            destination = FindEndPlace( positionToGoTo );
 
            
 
-            if( alpha < 1.0 ) //Still doing Fade and ease
+            if( alpha < 1.0 ) //Still doing Fade
             {
-                mPortrait.color = new Color( 1f, 1f, 1f, alpha + (DeltaAlpha * Time.deltaTime) );
+                mPortrait.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime) );
                 //mExpressionRend.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime));
                 alpha = mPortrait.color.a;
             }
@@ -295,7 +294,7 @@ public class CharacterManager : MonoBehaviour {
 
             if((alpha >= 1.0f || alpha == 0.0f) && mGObject.transform.position == destination)
             {
-                if( newPosition == Positions.Offscreen )
+                if( positionToGoTo == Positions.Offscreen )
                     mPortrait.transform.position = new Vector3( -30.0f, 0.0f, zValue );
                 return true;
             }

@@ -5,7 +5,8 @@ public class Crate : MonoBehaviour
 {
 
     public int id;
-    public int sign;
+    public int initLabel;
+    public int endLabel;
     private Puzzle03 puzScript;
 
     public void SetScript( Puzzle03 newScript )
@@ -20,16 +21,13 @@ public class Crate : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        puzScript.LastTriggered( id, other.gameObject );
-
-        if (!other.GetComponent<ClickToMove>().GetHeld())
-        {
-            other.GetComponent<ClickToMove>().Snap(3);
+        if( other.GetComponent<ClickToMove>().touched )
+        { 
+            if (!other.GetComponent<ClickToMove>().GetHeld())
+            {
+                puzScript.Snap(id, other.gameObject);
+            }
         }
     }
 
-    void OnTriggerExit2D( Collider2D other )
-    {
-        puzScript.ClearTrigger();
-    }
 }

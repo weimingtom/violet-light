@@ -7,12 +7,13 @@ public class ClickToMove : MonoBehaviour
     private Vector3 lastMousePos = new Vector3(0.0f, 0.0f, 0.0f);
     public bool moveable = true;
     private bool held = false;
+    public bool touched = false;
     
 
 	// Update is called once per frame
 	void Update () 
     {
-        if( moveable && held)
+        if(held)
         {
             this.transform.position += Camera.main.ScreenToWorldPoint( Input.mousePosition ) - lastMousePos;
             lastMousePos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
@@ -26,8 +27,12 @@ public class ClickToMove : MonoBehaviour
 
     void OnMouseDown()
     {
-        held = true;
-        lastMousePos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+        if( moveable )
+        { 
+            held = true;
+            touched = true;
+            lastMousePos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+        }
     }
 
     public void OnMouseUp()
