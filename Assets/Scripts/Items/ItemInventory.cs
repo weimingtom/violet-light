@@ -14,14 +14,6 @@ public class ItemInventory : MonoBehaviour {
 		Instance = this;
         buttons = this.GetComponentsInChildren<Button>();
         Initialize();
-        int i = 0;
-        foreach( Button thisButton in buttons)
-        {
-            thisButton.onClick.RemoveAllListeners();
-            thisButton.onClick.AddListener( () => ClickedButton(thisButton, i) );
-            i++;
-        }
-        
 	}
     void Initialize()
     {
@@ -38,37 +30,56 @@ public class ItemInventory : MonoBehaviour {
                 mainTextHolder.text = "No Item Selected\n\nPlease Select Item From Inventory";
             }
         }
+        buttons[0].onClick.AddListener(() => ClickedButton_0());
+        buttons[1].onClick.AddListener( () => ClickedButton_1() );
+        buttons[2].onClick.AddListener( () => ClickedButton_2() );
+        buttons[3].onClick.AddListener( () => ClickedButton_3() );
+        buttons[4].onClick.AddListener( () => ClickedButton_4() );
+        buttons[5].onClick.AddListener( () => ClickedButton_5() );
+        buttons[6].onClick.AddListener( () => ClickedButton_6() );
     }
-    void ClickedButton(Button button, int i)
+    
+    void ClickedButton_0()
     {
-        switch( i )
-        {
-        case 0:
-        Debug.Log( i );
-        break;
-        case 1:
-        Debug.Log( i );
-        break;
-        case 2:
-        Debug.Log( i );
-        break;
-        case 3:
-        Debug.Log( i );
-        break;
-        case 4:
-        Debug.Log( i );
-        break;
-        case 5:
-        Debug.Log( i );
-        break;
-        case 6:
-        Debug.Log( i );
-        break;
-        default:
-            Debug.Log("fail");
-            break;
-        }
-        
+        mainImageHolder.sprite = buttons[0].image.sprite;
+        mainTextHolder.text = ItemManager.Instance.GetDescriptions(buttons[0].GetComponentInChildren<Text>().text);
+        Debug.Log("0");
+    }
+    void ClickedButton_1()
+    {
+        mainImageHolder.sprite = buttons[1].image.sprite;
+        mainTextHolder.text = buttons[1].GetComponentInChildren<Text>().text;
+        Debug.Log( "1" );
+    }
+    void ClickedButton_2()
+    {
+        mainImageHolder.sprite = buttons[2].image.sprite;
+        mainTextHolder.text = buttons[2].GetComponentInChildren<Text>().text;
+        Debug.Log( "2" );
+    }
+    void ClickedButton_3()
+    {
+        mainImageHolder.sprite = buttons[3].image.sprite;
+        mainTextHolder.text = buttons[3].GetComponentInChildren<Text>().text;
+        Debug.Log( "3" );
+    }
+    void ClickedButton_4()
+    {
+        mainImageHolder.sprite = buttons[4].image.sprite;
+        mainTextHolder.text = buttons[4].GetComponentInChildren<Text>().text;
+        Debug.Log( "4" );
+    }
+    void ClickedButton_5()
+    {
+        mainImageHolder.sprite = buttons[5].image.sprite;
+        mainTextHolder.text = buttons[5].GetComponentInChildren<Text>().text;
+        Debug.Log( "5" );
+    }
+    void ClickedButton_6()
+    {
+        mainImageHolder.sprite = buttons[6].image.sprite;
+        mainTextHolder.text = buttons[6].GetComponentInChildren<Text>().text;
+        Debug.Log( "6" );
     }
 
     public void SetItemToInventory( Sprite texture, string name, int index )
@@ -77,7 +88,6 @@ public class ItemInventory : MonoBehaviour {
         buttons[index].image.sprite = texture;
         buttons[index].GetComponentInChildren<Text>().text = name;
     }
-
     public void DeleteFromInventory(int index)
     {
         buttons[index].enabled = false;

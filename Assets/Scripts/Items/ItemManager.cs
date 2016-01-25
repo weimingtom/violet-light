@@ -6,12 +6,14 @@ using System.Linq;
 
 public class ItemManager : MonoBehaviour
 {
+    static public ItemManager Instance;
     List<Item> AllItems = new List<Item>();
     List<Item> PlayerItems = new List<Item>();
     int CurrentNumberOfItems = 0;
 	
     void Start()
     {
+        Instance = this;
 		ParseItem("ItemScript/scene1");
 		TemporaryLoad();
     }
@@ -20,14 +22,27 @@ public class ItemManager : MonoBehaviour
     {
     }
     
+    //NOTE(Hendry): Used to temporarily fill the inventory
+    //The method to fill from inventory should be the same
 	void TemporaryLoad()
 	{
         for( int i = 0; i < AllItems.Count; i++ )
         {
-            //if(i < ItemInventory.Instance)
             ItemInventory.Instance.SetItemToInventory( AllItems[i].GetItemTexture(), AllItems[i].GetItemName(), i );
         }
 	}
+    public string GetDescriptions(string name)
+    {
+        string description = "";
+        foreach( Item thisItem in AllItems )
+        {
+            if( thisItem.GetItemName() == name )
+            {
+                description = thisItem.GetItemDescriptions();
+            }
+        }
+        return description;
+    }
     public void ParseItem(string itemAddress)
     {
         char[] delimiterChar = { '\r', '\n' };
@@ -93,5 +108,5 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
-
+    
 }
