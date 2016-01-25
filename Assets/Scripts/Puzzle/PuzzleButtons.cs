@@ -36,6 +36,7 @@ public class PuzzleButtons : MonoBehaviour
         
         ThisButton = gameObject.AddComponent<UnityEngine.UI.Button>();
         ThisButton.transition = Selectable.Transition.None;
+
         ThisButton.onClick.RemoveAllListeners();
         ThisButton.onClick.AddListener(() => OnAClick());
     }

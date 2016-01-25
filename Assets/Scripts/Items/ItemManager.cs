@@ -9,38 +9,24 @@ public class ItemManager : MonoBehaviour
     List<Item> AllItems = new List<Item>();
     List<Item> PlayerItems = new List<Item>();
     int CurrentNumberOfItems = 0;
-	Sprite test;
-	Image mainImageHolder;
-	Text mainTextHolder;
+	
     void Start()
     {
 		ParseItem("ItemScript/scene1");
 		TemporaryLoad();
     }
-	void Initialize()
-	{
-		for(int i = 0; i < this.transform.childCount; i++)
-		{
-			if( this.gameObject.transform.GetChild( i ).tag == "inventory_item_sprites" )
-			{
-				mainImageHolder = this.gameObject.transform.GetChild(i).gameObject.GetComponent<Image>();
-				test = Resources.Load<Sprite>("Textures/Item/no_item");
-				
-				mainImageHolder.sprite = test;
-			}
-			else if( this.gameObject.transform.GetChild( i ).tag == "inventory_item_text" )
-			{
-				mainTextHolder = this.gameObject.transform.GetChild(i).gameObject.GetComponent<Text>();
-				mainTextHolder.text = "No Item Selected\n\nPlease Select Item From Inventory";
-			}
-		}
-	}
+
+    void Update()
+    {
+    }
+    
 	void TemporaryLoad()
 	{
-		for(int i = 0; i < AllItems.Count; i++)
-		{
-			ItemInventory.Instance.SetItemToInventory(AllItems[i].GetItemTexture(),i);
-		}
+        for( int i = 0; i < AllItems.Count; i++ )
+        {
+            //if(i < ItemInventory.Instance)
+            ItemInventory.Instance.SetItemToInventory( AllItems[i].GetItemTexture(), AllItems[i].GetItemName(), i );
+        }
 	}
     public void ParseItem(string itemAddress)
     {
