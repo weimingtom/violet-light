@@ -9,6 +9,7 @@ public class DialogueHolder : MonoBehaviour
     static public DialogueHolder Instance;
     Dictionary<string, string> dialogue;
     Dictionary<string, string> characterNameDictionary;
+    int index = 0;
 	// Use this for initialization
 	void Awake () 
     {
@@ -28,14 +29,23 @@ public class DialogueHolder : MonoBehaviour
         }
         catch( KeyNotFoundException )
         {
-            return "";
+            string failed = _token + " no name found";
+            Debug.Log(failed);
+            Debug.Break();
+            return "no name found";
         }
     }
-    public void AddDialogue( string header, string content )
+    public void AddDialogue(ref string header, string content )
     {
         if( !dialogue.ContainsKey( header ) )
         {
-            dialogue.Add(header.ToString(), content.ToString());
+            dialogue.Add( header.ToString(), content.ToString() );
+        }
+        else
+        {
+            header += index.ToString();
+            index++;
+            dialogue.Add( header.ToString(), content.ToString() );
         }
     }
     public string GetDialogue( string index )

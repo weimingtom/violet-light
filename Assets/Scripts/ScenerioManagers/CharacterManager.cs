@@ -71,7 +71,27 @@ public class CharacterManager : MonoBehaviour {
 
     public void ChangeCharacterPose(string name, string pose)
     {
-        characterList[name].ChangePose(pose);
+        try
+        {
+            Debug.Log( "Success ! [Character Manager] name : " + name + "[Character Manager] pose : "  + pose);
+            characterList[name].ChangePose( pose );
+        }
+        catch( KeyNotFoundException )
+        {
+            if( name == null )
+            {
+                Debug.Log( "Failed ! [Character Manager] name is null" );
+            }
+            else if( pose == null )
+            {
+                Debug.Log("Failed ! [Character Manager] pose is null");
+            }
+            else
+            {
+                Debug.Log("Failed to get key [" + name + "]" + " pose : " + pose);
+                Debug.Break();
+            }
+        }
     }
     public void addCharacter( string key, string name )
     {

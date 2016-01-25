@@ -12,23 +12,27 @@ public class ShowCharacterCommand : Commands
         CharacterManager.Positions myPos = CharacterManager.Positions.Offscreen;
         switch( SpawnLocation )
         {
-        case "Offscreen":
+        case "offscreen":
         myPos = CharacterManager.Positions.Offscreen;
         break;
-        case "Left1":
+        case "left1":
         myPos = CharacterManager.Positions.Left1;
         break;
-        case "Left2":
+        case "left2":
         myPos = CharacterManager.Positions.Left2;
         break;
-        case "Centre":
+        case "centre":
         myPos = CharacterManager.Positions.Centre;
         break;
-        case "Right1":
+        case "right1":
         myPos = CharacterManager.Positions.Right1;
         break;
-        case "Right2":
+        case "right2":
         myPos = CharacterManager.Positions.Right2;
+        break;
+        default:
+        Debug.Log("No position found\nName : " + CharacterName + " Spawn location :" + SpawnLocation);
+        Debug.Break();
         break;
         }
         CharacterManager.Instance.ChangePosition( CharacterName, myPos );

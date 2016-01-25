@@ -73,13 +73,13 @@ public class ShowTextCommand : Commands
 		}
 		else
 		{
-            if( Input.GetMouseButtonUp( 0 ) )
+            if( Input.GetKeyUp( "space" ) )
             {
                 return true;
             }
             else
             {
-                return false;
+                return true;
             }
 		}
     }
@@ -120,6 +120,7 @@ public class ShowTextCommand : Commands
     void UpdateTime()
     {
         totalTime += Time.deltaTime;
+        Debug.Log("waiting for time");
         if(totalTime >= time)
         {
             waitForTime = false;

@@ -11,13 +11,7 @@ public class StringParser : MonoBehaviour
     {
         Instance = this;
     }
-    //Dialogue Stuff
-    public void RegisterDialogue(string header, string content)
-    {
-        string conversationHeader = header;
-        string conversationContent = content;
-        DialogueHolder.Instance.AddDialogue( conversationHeader.ToString(), conversationContent.ToString() );
-    }
+
     //Note(HENDRY) : Run Parse will be used instead of parse doalogue and parse command
     public void RunRegisterCharacterCode(string _address, ref Dictionary<string, string> _characterDict)
     {
@@ -48,7 +42,7 @@ public class StringParser : MonoBehaviour
         // talk to the maker of sceneProp to work with new script
         char[] delimiter;
         string[] parsedCommand;
-        if( command[0] != '/' )
+        if( command[0] != '/' && command[0] != ' ')
         {
             switch( command[0] )
             {
@@ -58,7 +52,19 @@ public class StringParser : MonoBehaviour
                 delimiter[1] = '$';
                 delimiter[2] = '"';
                 parsedCommand = command.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
-                DialogueHolder.Instance.AddDialogue( parsedCommand[0], parsedCommand[2] );
+                if( parsedCommand.Length == 3 )
+                {
+                    DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[2] );
+                }
+                else if(parsedCommand.Length == 2)
+                {
+                    DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[1] );
+                }
+                else
+                {
+                    Debug.Log("[Parse Command]Unexpected number of character");
+                    Debug.Break();
+                }
                 ShowTextCommand showText = new ShowTextCommand();
                 showText.SetConversation( parsedCommand[0] );
                 CommandManager.Instance.AddCommand(showText);
@@ -78,13 +84,16 @@ public class StringParser : MonoBehaviour
                     break;
                 case "show":
                     ShowCharacterCommand character = new ShowCharacterCommand();
-                    character.SetCharacterName(parsedCommand[1]);
-                    character.SetSpawnLocation(parsedCommand[2]);
-                    CommandManager.Instance.AddCommand(character);
+                    if( parsedCommand.Length == 3 )
+                    {
+                        character.SetCharacterName( parsedCommand[1].ToLower() );
+                        character.SetSpawnLocation( parsedCommand[2].ToLower() );
+                        CommandManager.Instance.AddCommand(character);
+                    }
                     break;
                 case "pose":
                     ChangePoseCommand newPoseCommand = new ChangePoseCommand();
-                    newPoseCommand.SetNewPose(parsedCommand[1], parsedCommand[2]);
+                    newPoseCommand.SetNewPose( parsedCommand[1].ToLower(), parsedCommand[2].ToLower() );
                     CommandManager.Instance.AddCommand(newPoseCommand);
                     break;
                 case "eff":
@@ -187,7 +196,7 @@ public class StringParser : MonoBehaviour
                     name += mainString[i].ToString();
                     i++;
                 }
-                CM.addCharacter( who, name );
+                CM.addCharacter( who.ToLower(), name.ToLower() );
                 
             }
             else
@@ -208,11 +217,11 @@ public class StringParser : MonoBehaviour
 
                 if (what == "Pose")
                 {
-                    CM.AddCharacterPose( who, name, filePath );
+                    CM.AddCharacterPose( who.ToLower(), name.ToLower(), filePath );
                 }
                 else if (what == "Expr")
                 {
-                    CM.AddCharacterExpression( who, name, filePath );
+                    CM.AddCharacterExpression( who.ToLower(), name.ToLower(), filePath );
                 }
                 else
                 {
