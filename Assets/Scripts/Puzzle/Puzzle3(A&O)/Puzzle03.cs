@@ -14,8 +14,9 @@ public class Puzzle03 : MonoBehaviour
     private Vector3 labelOffset;
 
     private int fruitShown;
+    private int boxClicked;
     private bool correctChoice = false;
-    private bool won = true;
+    private bool won = false;
 
     private PuzzleStatus status = PuzzleStatus.NotRunning;
 
@@ -73,27 +74,72 @@ public class Puzzle03 : MonoBehaviour
     //public override void Submit()
     public void Submit()
     {
-        if( correctChoice )
+        int counter = boxClicked;
+
+        for( int i = 0; i < 3; ++i )
         {
-            for( int i = 0; i < 3; ++i )
+            //show fruits inside
+            int myfruit;
+            if( correctChoice )
             {
                 switch( crates[i].GetComponent<Crate>().initLabel )
-                { 
-                case 2:
-                    if( fruitShown != crates[i].GetComponent<Crate>().endLabel )
-                        won = false;
-                    break;
-                case 1:
-                    if( crates[i].GetComponent<Crate>().endLabel != 0 )
-                        won = false;
-                    break;
+                {
                 case 0:
-                if( crates[i].GetComponent<Crate>().endLabel != 1 )
-                        won = false;
-                    break;
-                    
+                if( fruitShown == 0 )
+                    myfruit = 3;
+                else
+                    myfruit = 1;
+                fruits[myfruit].transform.position = fruitLoc[i];
+
+                if( crates[i].GetComponent<Crate>().endLabel != myfruit )
+                    won = false;
+                break;
+                case 1:
+                if( fruitShown == 0 )
+                    myfruit = 3;
+                else
+                    myfruit = 0;
+                fruits[myfruit].transform.position = fruitLoc[i];
+                if( crates[i].GetComponent<Crate>().endLabel != myfruit )
+                    won = false;
+                break;
+                case 2:
+                if( crates[i].GetComponent<Crate>().endLabel != fruitShown )
+                    won = false;
+                break;
+                default:
+                Debug.Log( "ERROR: InitLabel Incorrect [ Puzzle 03 ]" );
+                break;
                 }
             }
+            else
+            {
+                //turn the clicked one into apples and oranges
+                fruits[3].transform.position = fruitLoc[boxClicked];
+                counter++;
+                if( counter == 3 )
+                    counter = 0;
+
+                //switch( crates[counter].GetComponent<Crate>().initLabel )
+                //{
+                //case 0:
+
+                //case 1:
+                //case 2:
+                //if( fruitShown == 0 )
+                //    myfruit = 1;
+                //else
+                //    myfruit = 0;
+                //fruits[myfruit].transform.position = fruitLoc[counter];
+                
+
+                //default:
+                //break;
+                //}
+
+                counter++;
+            }
+
         }
     
     }
@@ -115,6 +161,7 @@ public class Puzzle03 : MonoBehaviour
         if( !chosen )
         {
             chosen = true;
+            boxClicked = id; 
             Debug.Log( "Box " + id + "Clicked, Sign " + crates[id].GetComponent<Crate>().initLabel );
 
             //decide which fruit to show.
