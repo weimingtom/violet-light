@@ -13,6 +13,7 @@ public class ShowTextCommand : Commands
     string conversation = "";
 	char passedChar = '\0';
     bool isMale = false;
+
     List<string> htmlFront = new List<string>();
     List<string> htmlBack = new List<string>();
     

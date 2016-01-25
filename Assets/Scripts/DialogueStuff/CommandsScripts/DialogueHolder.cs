@@ -29,9 +29,10 @@ public class DialogueHolder : MonoBehaviour
         }
         catch( KeyNotFoundException )
         {
+
             string failed = _token + " no name found";
             Debug.Log(failed);
-            Debug.Break();
+            //Debug.Break();
             return "no name found";
         }
     }

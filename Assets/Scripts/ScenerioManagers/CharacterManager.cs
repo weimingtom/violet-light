@@ -33,7 +33,7 @@ public class CharacterManager : MonoBehaviour {
     { Instance = this;  }
 
     //TODO account for case of starting another movement before last has finished. 
-    private List<string> changingPortraits;
+    private List<string> changingPortraits = new List<string>();
 
 	void Update () 
     {
