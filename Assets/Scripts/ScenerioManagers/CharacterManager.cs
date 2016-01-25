@@ -37,13 +37,13 @@ public class CharacterManager : MonoBehaviour {
 
 	void Update () 
     {
-        foreach (string thisString in changingPortraits)
+        for( int i = 0; i < changingPortraits.Count; i++ )
         {
-            if( characterList[thisString].UpdatePosition() )
+            if( characterList[changingPortraits[i]].UpdatePosition() )
             {
-                changingPortraits.Remove( thisString );
+                changingPortraits.Remove( changingPortraits[i] );
+                break;
             }
-
         }
 	}
 

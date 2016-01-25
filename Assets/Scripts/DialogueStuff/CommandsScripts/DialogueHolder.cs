@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Linq;
 public class DialogueHolder : MonoBehaviour 
 {
@@ -25,28 +25,34 @@ public class DialogueHolder : MonoBehaviour
     {
         try
         {
-            return characterNameDictionary[_token];
+            return characterNameDictionary[_token.ToLower()];
         }
         catch( KeyNotFoundException )
         {
+            string[] passedString = _token.Split('_');
+            try
+            {
 
-            string failed = _token + " no name found";
-            Debug.Log(failed);
-            //Debug.Break();
-            return "no name found";
+                return characterNameDictionary[passedString[0].ToLower()];
+            }
+            catch( KeyNotFoundException )
+            {
+                Debug.Log("Nothing found, is the id special character ?");
+                return _token;
+            }
         }
     }
     public void AddDialogue(ref string header, string content )
     {
-        if( !dialogue.ContainsKey( header ) )
+        if( !dialogue.ContainsKey( header.ToLower() ) )
         {
-            dialogue.Add( header.ToString(), content.ToString() );
+            dialogue.Add( header.ToLower(), content.ToString() );
         }
         else
         {
-            header += index.ToString();
+            header += "_" + index.ToString();
             index++;
-            dialogue.Add( header.ToString(), content.ToString() );
+            dialogue.Add( header.ToLower(), content.ToString() );
         }
     }
     public string GetDialogue( string index )

@@ -21,6 +21,8 @@ public class ShowTextCommand : Commands
     float time = 0;
     float totalTime = 0;
     bool waitForTime = false;
+    bool pause = false;
+    bool skipCheck = false;
     public override bool ExecuteCommand()
     {
 		if (InitialSetup == true) 
@@ -31,56 +33,87 @@ public class ShowTextCommand : Commands
             CommandManager.Instance.SetNameIntoNameBox(DialogueHolder.Instance.GetCharacterNameFromToken(conversationTag));
 			InitialSetup = false;
 		}
-		if (indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true) 
+		if (indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true) 
 		{
             if( waitForTime == true )
             {
                 UpdateTime();
             }
-            else
+            else if( pause == true  )
             {
-			    if(timeTracker >= speed)
-			    {
-                    passedChar = DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
-                    //check if it is html or not
-                    if( passedChar == '<'
-                        && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] != '/' )
-                    {
-                        //Add command
-                        RegisterHtmlCommand();
-                    }
-                    else if( passedChar == '<'
-                        && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] == '/' )
-                    {
-                        //delete command
-                        UnRegisterHtmlCommand();
-                    }
-                    else if(passedChar == '[')
-                    {
-                        //register custom command
-                        ParseCustomTextCommand();
-                    }
-                    else
-                    {
-                        PassTextToCommandManager();
-                    }
+                if( Input.GetMouseButtonUp( 0 ) )
+                {
+                    pause = false;
                 }
-			    else
-			    {
-				    timeTracker += Time.deltaTime;
-			    }
             }
+            else if(SceneManager.Instance.GetCanSkip())
+            {
+                if( Input.GetMouseButtonUp( 0 ) )
+                { 
+                    string passedString = "";
+                    bool checkSpecial = false;
+                    skipCheck = true;
+                    for( int i = 0; i < DialogueHolder.Instance.GetDialogue( conversationTag ).Length; i++ )
+                    {
+                        if(DialogueHolder.Instance.GetDialogue( conversationTag )[i] == '['
+                            ||DialogueHolder.Instance.GetDialogue( conversationTag )[i] == ']')
+                        {
+                            checkSpecial = !checkSpecial;
+                        }
+                        else if(checkSpecial == false)
+                        {
+                            passedString += DialogueHolder.Instance.GetDialogue( conversationTag )[i];
+                        }
+                    }
+                    CommandManager.Instance.SetTextHolder( passedString );
+                    indexPassed = DialogueHolder.Instance.GetDialogue( conversationTag ).Length;
+                }
+            }
+        }
+        if(indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true)
+        {
+			if(timeTracker >= speed)
+			{
+                passedChar = DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
+                //check if it is html or not
+                if( passedChar == '<'
+                    && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] != '/' )
+                {
+                    //Add command
+                    RegisterHtmlCommand();
+                }
+                else if( passedChar == '<'
+                    && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] == '/' )
+                {
+                    //delete command
+                    UnRegisterHtmlCommand();
+                }
+                else if(passedChar == '[')
+                {
+                    //register custom command
+                    ParseCustomTextCommand();
+                }
+                else
+                {
+                    PassTextToCommandManager();
+                }
+            }
+			else
+			{
+				timeTracker += Time.deltaTime;
+			}
 			return false;
-		}
+        }
 		else
 		{
-            if( Input.GetKeyUp( "space" ) )
+            if( Input.GetMouseButtonUp( 0 ) && skipCheck == false)
             {
                 return true;
             }
             else
             {
-                return true;
+                skipCheck = false;
+                return false;
             }
 		}
     }
@@ -90,20 +123,30 @@ public class ShowTextCommand : Commands
         string commandValue = "";
         //bypass '['
         indexPassed++;
-        while( DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed] != ' ' )
+        while( DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed] != ' ' && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed] != ']')
         {
             commandTag += DialogueHolder.Instance.GetDialogue(conversationTag)[indexPassed];
             indexPassed++;
         }
-        //bypass ' '
-        indexPassed++;
-        while(DialogueHolder.Instance.GetDialogue(conversationTag)[indexPassed] != ']')
+        char test = DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
+        Debug.Log( "test : [" + test +"]");
+        //Debug.Break();
+        if( DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed] == ']' )
         {
-            commandValue += DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
             indexPassed++;
         }
-        //bypass ']'
-        indexPassed++;
+        else
+        { 
+            //bypass ' '
+            indexPassed++;
+            while(DialogueHolder.Instance.GetDialogue(conversationTag)[indexPassed] != ']')
+            {
+                commandValue += DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
+                indexPassed++;
+            }
+            //bypass ']'
+            indexPassed++;
+        }
         RegisterTextCommand(commandTag.ToLower(), commandValue);
     }
     void RegisterTextCommand(string _tag, string _value)
@@ -113,8 +156,15 @@ public class ShowTextCommand : Commands
         case "time":
         SetWaitForTime(float.Parse(_value));
         break;
+        case "pause":
+        Debug.Log("[Show Text Command]pause command : " + _tag);
+        pause = true;
+        break;
+        case "eff":
+        FXManager.Instance.Spawn( _value );
+        break;
         default:
-        Debug.Log("[Show Text Command]command not found");
+        Debug.Log("[Show Text Command]command not found command : " + _tag);
         break;
         }
     }
@@ -137,7 +187,6 @@ public class ShowTextCommand : Commands
     void PassTextToCommandManager()
     {
         AudioPlayer.instance.PlayBlip( !isMale );
-        //append html command based on how many command
         if( htmlFront.Count > 0 && htmlBack.Count > 0 )
         {
             string passedStr = "";

@@ -66,7 +66,7 @@ public class StringParser : MonoBehaviour
                     Debug.Break();
                 }
                 ShowTextCommand showText = new ShowTextCommand();
-                showText.SetConversation( parsedCommand[0] );
+                showText.SetConversation( parsedCommand[0].ToLower() );
                 CommandManager.Instance.AddCommand(showText);
                 break;
             default:
@@ -263,7 +263,7 @@ public class StringParser : MonoBehaviour
                 filepath += mainString[i].ToString();
                 i++;
             }
-            SceneManager.Instance.backgroundLookup.Add(name, filepath);
+            SceneManager.Instance.backgroundLookup.Add(name.ToLower(), filepath);
             i += 3;
         }
 

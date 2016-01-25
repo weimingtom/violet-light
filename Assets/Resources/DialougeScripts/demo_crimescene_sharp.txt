@@ -36,11 +36,12 @@ $sp$ “Of course, Miss...?”
 $VL$ “Light, Violet Light. And this Is my assistant Alexander Strong.”
 
 pose Alexander Unimpressed
-$AX$ “[small text] W-wow that worked. I think this is illegal...” //cut off
+$AX$ “<size=20> W-wow that worked. I think this is illegal...</size>”
+//cut off
 
 $sp$ “I’m Detective Sharp, but there really isn’t much to investigate here. It’s a pretty open and shut case, if I do say so myself.”
 
-$VL$ “I’llWe’ll be the judge of that!”
+$VL$ “We’ll be the judge of that!”
 
 $sp$ “Uh, well no you won’t. The judge will.”
 

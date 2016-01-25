@@ -33,6 +33,8 @@ public class SceneManager : MonoBehaviour
     private GameObject newBackground;
     private SpriteRenderer newBackgroundRend;
 
+    private bool CanSkip;
+
     void Awake()
     {
         Instance = this;
@@ -45,6 +47,8 @@ public class SceneManager : MonoBehaviour
         newBackground.transform.position = new Vector3( 0f, 0f, -0.01f );
         newBackgroundRend = newBackground.AddComponent<SpriteRenderer>();
         newBackgroundRend.sprite = null;
+        
+        CanSkip = true;
     }
 
     void Update()
@@ -160,5 +164,8 @@ public class SceneManager : MonoBehaviour
         else Debug.Log( "[scene manager] Failed to load case" );
     }
 
-    
+    public bool GetCanSkip()
+    {
+        return CanSkip;
+    }
 }
