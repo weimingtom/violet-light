@@ -2,7 +2,6 @@
 using System.Collections;
 
 [RequireComponent (typeof(SpriteRenderer))]
-[RequireComponent (typeof(Collider2D))]
 public class Prop : MonoBehaviour {
 
     public bool IsPickUp;
