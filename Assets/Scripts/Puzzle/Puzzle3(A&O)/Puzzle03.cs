@@ -90,7 +90,7 @@ public class Puzzle03 : MonoBehaviour
                 {
                 case 0:
                 if( fruitShown == 0 )
-                    myfruit = 3;
+                    myfruit = 2;
                 else
                     myfruit = 1;
                 fruits[myfruit].transform.position = fruitLoc[i];
@@ -100,7 +100,7 @@ public class Puzzle03 : MonoBehaviour
                 break;
                 case 1:
                 if( fruitShown == 0 )
-                    myfruit = 3;
+                    myfruit = 2;
                 else
                     myfruit = 0;
                 fruits[myfruit].transform.position = fruitLoc[i];
@@ -113,6 +113,7 @@ public class Puzzle03 : MonoBehaviour
                 break;
                 default:
                 Debug.Log( "ERROR: InitLabel Incorrect [ Puzzle 03 ]" );
+                myfruit = -1;
                 break;
                 }
             }
@@ -121,8 +122,8 @@ public class Puzzle03 : MonoBehaviour
                 //turn the clicked one into apples and oranges
                 if( counter == boxClicked )
                 { 
-                    fruits[3].transform.position = fruitLoc[boxClicked];
-                    fruits[3].SetActive( true );
+                    fruits[2].transform.position = fruitLoc[boxClicked];
+                    fruits[2].SetActive( true );
                     counter++;
                     i++;
                 }
