@@ -167,6 +167,13 @@ public class SceneManager : MonoBehaviour
             NewScene.Time = 0605;
             NewScene.Prefab = "demo_crimescene";
             Scenes.Add(NewScene);
+
+            NewScene.Background = "police_station";
+            NewScene.ID = 4;
+            NewScene.Name = "Police Station";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_policestation";
+            Scenes.Add(NewScene);
         }
         else Debug.Log( "[scene manager] Failed to load case" );
     }

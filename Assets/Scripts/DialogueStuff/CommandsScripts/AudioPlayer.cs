@@ -14,11 +14,7 @@ public class AudioPlayer : MonoBehaviour
 		instance = this;
 		audioSource = GetComponent<AudioSource>();
 	}
-    public void Play(AudioClip clip)
-	{
-        audioSource.clip = clip;
-		audioSource.Play();
-	}
+
     public void PlayBlip(bool female)
     {
         audioSource.clip = maleBlip;

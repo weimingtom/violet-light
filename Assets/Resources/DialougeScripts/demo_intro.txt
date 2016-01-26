@@ -1,0 +1,12 @@
+show Alexander Right1
+show Violet Right2
+pose Alexander neutral
+pose Violet neutral
+
+$ax$ “Well...[time 1] What's the plan, Violet?”
+pose Violet happy
+$vl$ “It's time to prove[eff SoundEffect][eff ScreenShake][eff ScreenFlash] <color=green>Harmony's</color> innocence![eff SoundEffect][eff ScreenShake][eff ScreenFlash] The Policeman told us we need to talk to some <color=green>Sharp man</color> at the <color=blue>crimescene</color>.”
+pose Alexander scribbling
+pose Violet neutral
+$ax$ "Right... He told us it's near the river bed."
+$vl$ "Ah! Electrifying! I know exactly where, shall we bolt over there now?"
