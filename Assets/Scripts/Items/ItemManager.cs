@@ -3,42 +3,54 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.IO;
+using System.Text;
 public class ItemManager : MonoBehaviour
 {
     static public ItemManager Instance;
     List<Item> allItems = new List<Item>();
     List<Item> playerItems = new List<Item>();
     int currentNumberOfItems = 0;
-	
-    void Start()
+    bool loadInventory = false;
+    
+    void Awake()
     {
         Instance = this;
-		ParseItem("ItemScript/scene1");
-		//Use this for temporary purposes
-		//TemporaryLoad();
+       
+    }
+    void Start()
+    {
+        ParseItem( "ItemScript/scene1" );
     }
     void Update()
     {
 		//NOTE(Hendry):Use this for diplaying purposes, use load Inventory to load actual item
 		LoadInventory();
     }
+    public void SetLoadInventory( bool load )
+    {
+        loadInventory = load;
+    }
 	void LoadInventory()
 	{
-		//Note(Hendry): check if the number is bigger than the number of slots
-		if (currentNumberOfItems != playerItems.Count && playerItems.Count > 0)
-		{
-			ItemInventory.Instance.ResetButton();
-			int index = 0;
-			foreach(Item item in playerItems)
-			{
-				if(index < ItemInventory.Instance.GetInventorySize())
-				{
-					ItemInventory.Instance.SetItemToInventory(item.GetItemTexture(), item.GetItemName(), index);
-					index++;
-				}
-			}
-		}
+        if( loadInventory )
+        {
+		    //Note(Hendry): check if the number is bigger than the number of slots
+		    if (currentNumberOfItems != playerItems.Count && playerItems.Count > 0)
+		    {
+			    ItemInventory.Instance.ResetButton();
+			    int index = 0;
+			    foreach(Item item in playerItems)
+			    {
+				    if(index < ItemInventory.Instance.GetInventorySize())
+				    {
+					    ItemInventory.Instance.SetItemToInventory(item.GetItemTexture(), item.GetItemName(), index);
+					    index++;
+				    }
+			    }
+                currentNumberOfItems = playerItems.Count;
+		    }
+        }
 		//TODO(Hendry): add support for multiple page
 	}
 	void ResetInventory()
@@ -117,24 +129,24 @@ public class ItemManager : MonoBehaviour
     }
     public void AddItem(string item_name)
     {
-        foreach( Item ThisItem in allItems)
+        bool addItem = false;
+        for( int i = 0; i < allItems.Count; i++ )
         {
-			try {
-				
-			} 
-			catch (System.Exception ex) {
-				
-			}
-            if( ThisItem.GetItemName() == item_name
-			   && !playerItems.Contains(ThisItem))
+            if( allItems[i].GetItemName() == item_name )
             {
-                playerItems.Add(ThisItem);
-                return;
+                addItem = true;
+                for( int j = 0; j < playerItems.Count; j++ )
+                {
+                    if( playerItems[j].GetItemName() == item_name )
+                    {
+                        addItem = false;
+                    }
+                }
+                if( addItem )
+                {
+                    playerItems.Add( allItems [i]);
+                }
             }
-			if(playerItems.Contains(ThisItem))
-			{	
-				Debug.Log("already in inventory");
-			}
         }
     }
     public void RemoveItem(string item_name)

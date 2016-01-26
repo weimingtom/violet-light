@@ -743,7 +743,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_rubbish
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11410668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -756,7 +781,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_body
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11417326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -769,7 +816,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_rubbish
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11440742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -782,7 +854,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_rubbish
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11447304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -795,7 +892,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_rubbish
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11448306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -808,7 +930,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_rubbish
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11458580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -821,7 +968,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_rubbish
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11466832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -834,7 +1006,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_river
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11467778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -847,7 +1042,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_river
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11467922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -860,7 +1078,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_policetape
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11470588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -873,7 +1119,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_policetape
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11471902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -886,7 +1160,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 1
-  DialougeScene: demo_crimescene_sharp
+  DialougeScene:
+  - demo_crimescene_sharp
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items:
+  - knife
+  Character: sharp
 --- !u!114 &11479644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -899,7 +1197,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_background
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11485076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -912,7 +1238,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_rubbish
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11486784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -925,7 +1276,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_policetape
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!114 &11493890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -938,7 +1317,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_crimescene_rubbish
+  DialougeScene:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  items: []
+  Character: 
 --- !u!212 &21202388
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -957,9 +1361,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -985,9 +1387,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1013,9 +1413,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1041,9 +1439,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1069,9 +1465,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1097,9 +1491,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1125,9 +1517,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1153,9 +1543,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1181,9 +1569,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1209,9 +1595,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1237,9 +1621,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1265,9 +1647,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1293,9 +1673,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1321,9 +1699,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1349,9 +1725,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1377,9 +1751,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1393,7 +1765,47 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: item.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Character
+      value: sharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: DialougeScene.Array.data[0]
+      value: demo_crimescene_sharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: DialougeScene.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: DialougeScene.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: DialougeScene.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: item.Array.data[0]
+      value: bloody_knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: item.Array.data[1]
+      value: note
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: items.Array.data[0]
+      value: knife
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185872}

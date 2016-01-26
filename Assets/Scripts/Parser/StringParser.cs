@@ -106,6 +106,9 @@ public class StringParser : MonoBehaviour
 					//TODO(Hendry): add item command to handle this, may countain sound etc
 					ItemManager.Instance.AddItem(parsedCommand[1].ToLower());
 					break;
+                case "advquest":
+                    SceneManager.Instance.AdvQuest();
+                    break;
                 }
                 break;
             }
@@ -238,8 +241,6 @@ public class StringParser : MonoBehaviour
             i += 3;
         }
         CM.SetAllToNeutral();
-
-
     }
 
     public void ParseBackgrounds(string mainString)
@@ -248,9 +249,7 @@ public class StringParser : MonoBehaviour
          * alleyway "Textures/Backgrounds/case1_alley"
          * test2 "Textures/Backgrounds/backstreet_test2"
          */
-
         int i = 0;
-
         while (i < mainString.Length)
         {
             string name = "";

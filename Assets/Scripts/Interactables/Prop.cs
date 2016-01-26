@@ -1,20 +1,44 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 [RequireComponent (typeof(SpriteRenderer))]
 [RequireComponent (typeof(Collider2D))]
 public class Prop : MonoBehaviour {
 
+    static public Prop Instance;
     public bool IsPickUp;
-    public string DialougeScene = "null";
-
+    public string[] DialougeScene;
+    public string[] items;
+    public string Character = "";
+    string checkedItem = "";
+    void Awake()
+    {
+        Instance = this;
+    }
+    void Start()
+    {
+        if(Character != "")
+        {
+            SceneManager.Instance.SetChar( Character );
+        }
+    }
+    public void SetCheckedItem(string item)
+    {
+        checkedItem = "defaultItem";
+        foreach( string myitem in items )
+        {
+            if( item == myitem )
+            {
+                checkedItem = item;
+            }
+        }
+    }
     void OnMouseDown()
     {
-        if(/*DialougeString != "null"*/
-            DialougeScene != "null"
-            )
+        if( DialougeScene[SceneManager.Instance.GetQuestStage()] != "null" )
         {
-            FileReader.Instance.LoadScene( DialougeScene/*, DialougeString*/);
+            FileReader.Instance.LoadScene(SceneManager.Instance.GetChar() + "_" + DialougeScene[SceneManager.Instance.GetQuestStage()] + "_" + checkedItem );
         }
         if( IsPickUp )
         {

@@ -34,6 +34,30 @@ public class SceneManager : MonoBehaviour
     private SpriteRenderer newBackgroundRend;
 
     private bool CanSkip;
+    private string CurrentChar = "";
+
+    private int QuestStage = 0;
+
+    
+    public void AdvQuest()
+    {
+        ++QuestStage;
+    }
+
+    public int GetQuestStage()
+    {
+        return QuestStage;
+    }
+
+    public string GetChar()
+    {
+        return CurrentChar;
+    }
+
+    public void SetChar(string New)
+    {
+        CurrentChar = New;
+    }
 
     void Awake()
     {

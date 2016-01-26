@@ -32,7 +32,6 @@ public class DialogueHolder : MonoBehaviour
             string[] passedString = _token.Split('_');
             try
             {
-
                 return characterNameDictionary[passedString[0].ToLower()];
             }
             catch( KeyNotFoundException )

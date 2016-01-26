@@ -8,12 +8,18 @@ public class ItemInventory : MonoBehaviour {
     Image mainImageHolder;
     Text[] mainTextHolder = new Text[2];
     Button[] buttons;
+    
     void Awake()
 	{
 		Instance = this;
+        ItemManager.Instance.SetLoadInventory(true);
         
         Initialize();
 	}
+    void Start()
+    {
+        TogglePresentButton(false);
+    }
     void Initialize()
     {
 		int index = 0;
@@ -46,54 +52,64 @@ public class ItemInventory : MonoBehaviour {
         buttons[4].onClick.AddListener( () => ClickedButton_4() );
         buttons[5].onClick.AddListener( () => ClickedButton_5() );
         buttons[6].onClick.AddListener( () => ClickedButton_6() );
+        buttons[7].onClick.AddListener( () => PresentButton()   );
     }
     void ClickedButton_0()
     {
 		SetMainImage (0);
-        Debug.Log("0");
     }
     void ClickedButton_1()
     {
 		SetMainImage (1);
-        Debug.Log( "1" );
     }
     void ClickedButton_2()
     {
 		SetMainImage (2);
-        Debug.Log( "2" );
     }
     void ClickedButton_3()
     {
 		SetMainImage (3);
-        Debug.Log( "3" );
     }
     void ClickedButton_4()
     {
 		SetMainImage (4);
-        Debug.Log( "4" );
     }
     void ClickedButton_5()
     {
 		SetMainImage (5);
-        Debug.Log( "5" );
     }
     void ClickedButton_6()
     {
 		SetMainImage (6);
-        Debug.Log( "6" );
+    }
+    public void TogglePresentButton( bool toggle )
+    {
+        buttons[7].gameObject.SetActive(toggle);
+    }
+    public void PresentButton()
+    {
+        Prop.Instance.SetCheckedItem( mainTextHolder[0].text.ToString() );
     }
 	void SetMainImage(int buttonIndex)
-	{
-		mainImageHolder.sprite = buttons[buttonIndex].image.sprite;
-		mainTextHolder[0].text = buttons[buttonIndex].GetComponentInChildren<Text>().text;
-		mainTextHolder[1].text = ItemManager.Instance.GetDescriptions (buttons[buttonIndex].GetComponentInChildren<Text>().text);
-	}
+    {
+        if( buttons[buttonIndex].image.sprite.texture.name != "UISprite"
+            && buttons[buttonIndex].image.sprite.texture.name != "no_item" )
+        {
+            TogglePresentButton(true);
+            mainImageHolder.sprite = buttons[buttonIndex].image.sprite;
+            mainTextHolder[0].text = buttons[buttonIndex].GetComponentInChildren<Text>().text;
+            mainTextHolder[1].text = ItemManager.Instance.GetDescriptions( buttons[buttonIndex].GetComponentInChildren<Text>().text );
+        }
+    }
 	public void ResetButton()
 	{
 		foreach (Button button in buttons) 
 		{
-			button.image.sprite = Resources.Load<Sprite>( "Textures/Item/no_item" );
-			button.GetComponentInChildren<Text>().text = "empty";
+            if( button.tag != "PresentButton" )
+            {
+			    button.image.sprite = Resources.Load<Sprite>( "Textures/Item/no_item" );
+			    button.GetComponentInChildren<Text>().text = "empty";
+            }
 		}
 	}
 	public int GetInventorySize()
@@ -112,5 +128,8 @@ public class ItemInventory : MonoBehaviour {
         buttons[index].image.sprite = null;
         buttons[index].GetComponentInChildren<Text>().text = "";
     }
-
+    void OnDisable()
+    {
+        ItemManager.Instance.SetLoadInventory( false );
+    }
 }

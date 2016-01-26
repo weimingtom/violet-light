@@ -8,13 +8,15 @@ TagManager:
   - column_1
   - row:Disabled
   - player
-  - test
+  - EvidenceUI
   - destinationA
   - destinationB
   - main_item_sprite
   - inventory_item_sprites
   - item
   - inventory_item_text
+  - PresentButton
+  - InventoryHolder
   layers:
   - Default
   - TransparentFX
