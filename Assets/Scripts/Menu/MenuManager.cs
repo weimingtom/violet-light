@@ -46,42 +46,64 @@ public class MenuManager : MonoBehaviour {
 
 	public void toggleMenu()
 	{
-		active = !active;
-		if(active)
+		if(active && myState != state.Main)
+        {
+            ChangeState(state.Main);
+        }
+        else if (!active)
+        {
 			OpenMenu();
+            active = true;
+        }
 		else
+        {
+            active = false;
 			CloseMenu();
+        }
 	}
 
     //Get When a Tab button is pressed
     public void TabPressed( string btn )
-    { 
-         switch(btn)
-	    {
-	    case "btnEvidence":
-		    ChangeState(state.Evience);
-		    break;
-	    case "btnNotes":
-		    ChangeState(state.Notes);
-		    break;
-	    case "btnOptions":
-		    ChangeState(state.Options);
-		    break;
-	    case "btnPuzzles":
-		    ChangeState(state.Puzzles);
-		    break;
-	    case "btnSuspects":
-		    ChangeState(state.Suspects);
-		    break;
-	    case "btnTravel":
-		    ChangeState(state.Travel);
-		    break;
-	    default:
-		    Debug.Log("ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn);
-		    break;
-	    }
+    {
+        // TODO(jesse): THis is a quick hack to ensure that you don't travel during dialogue
+        if (!CommandManager.Instance.myBannerBox.activeInHierarchy)
+        {
+            switch (btn)
+            {
+                case "btnEvidence":
+                    ChangeState(state.Evience);
+                    break;
+                case "btnNotes":
+                    ChangeState(state.Notes);
+                    break;
+                case "btnOptions":
+                    ChangeState(state.Options);
+                    break;
+                case "btnPuzzles":
+                    ChangeState(state.Puzzles);
+                    break;
+                case "btnSuspects":
+                    ChangeState(state.Suspects);
+                    break;
+                case "btnTravel":
+                    ChangeState(state.Travel);
+                    break;
+                default:
+                    Debug.Log("ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn);
+                    break;
+            }
     
+        }
+         
     }
+
+
+    public void TravelButtonPressed(int btn)
+    {
+        SceneManager.Instance.ChangeScene(btn);
+        CloseMenu();
+    }
+
 
 	public void MainButtonPressed(string btn)
 	{
@@ -137,6 +159,7 @@ public class MenuManager : MonoBehaviour {
     public void VolumeSlider( float multiplier )
     {
         AudioPlayer.instance.SetVolume(multiplier);
+        MusicManager.instance.SetVolume(multiplier);
     }
 
     public void BrightnessSlider( float multiplier )
