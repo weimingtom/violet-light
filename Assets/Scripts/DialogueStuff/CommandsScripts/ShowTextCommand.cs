@@ -35,7 +35,11 @@ public class ShowTextCommand : Commands
             return false;
         }
         // NOTE(jesse): This is so you can't go to next dialogue when menu is open
-        if (indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true && !MenuManager.instance.GetMenuActive()) 
+        if( !MenuManager.instance.GetMenuActive() )
+        {
+
+        
+        if ((indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true)) 
 		{
             if( waitForTime == true )
             {
@@ -123,6 +127,7 @@ public class ShowTextCommand : Commands
                 return false;
             }
 		}
+        }
         return false;
     }
     void ParseCustomTextCommand()

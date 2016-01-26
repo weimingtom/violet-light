@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 
 [RequireComponent (typeof(SpriteRenderer))]
-[RequireComponent (typeof(Collider2D))]
 public class Prop : MonoBehaviour {
 
     static public Prop Instance;
