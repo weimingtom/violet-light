@@ -20,7 +20,7 @@ public class Prop : MonoBehaviour {
         {
             //Add to inventory
             Debug.Log( "[Prop] Picked the item up!" );
-            Destroy( this.gameObject );
+            this.gameObject.SetActive(false);
         }
     }
 }

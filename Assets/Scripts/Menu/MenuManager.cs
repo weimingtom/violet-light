@@ -22,6 +22,13 @@ public class MenuManager : MonoBehaviour {
 	private state myState;
     public GameObject[] States;
 
+    public static MenuManager instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
 	void Start () 
     {
         menu.SetActive(false);
@@ -151,7 +158,13 @@ public class MenuManager : MonoBehaviour {
         ChangeState(state.Main);
         menu.SetActive(false);
 		//delte input eater
-		SceneManager.Instance.SetInputBlocker(false);
+
+        // TODO(jesse): Hacky fix to input blocker disappearing while still in dialogue
+        // so we need to make a better one
+        if (!CommandManager.Instance.myBannerBox.activeInHierarchy)
+        {
+            SceneManager.Instance.SetInputBlocker(false);
+        }
 		
 		
     }

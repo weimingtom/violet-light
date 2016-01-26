@@ -16,7 +16,7 @@ public class ItemManager : MonoBehaviour
         Instance = this;
 		ParseItem("ItemScript/scene1");
 		//Use this for temporary purposes
-		TemporaryLoad();
+		//TemporaryLoad();
     }
     void Update()
     {

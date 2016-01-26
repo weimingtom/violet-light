@@ -2,3 +2,4 @@ Potion Textures/Item/potion_1 "A magical potion that grants you special powers t
 Potion2 Textures/Item/potion_2 "A magical potion that grants you special powers to defeat the final boss of magic and stuff 3 the sequel."
 Potion3 Textures/Item/potion_3 "A magical potion that grants you special powers to defeat the final boss of magic and stuff 4 the sequel."
 bloody_knife Textures/Item/bloody_knife "a knife with blood on it"
+demo_report Textures/Item/note "A temporary and unfinished report detailing information relating to Melody Rush's body. According to this it appears she was discovered recently washed up by a passing fisherman on his boat. The current cause of death has yet to be determined, but it appears to be related to the blunt force trauma on the back of her head."

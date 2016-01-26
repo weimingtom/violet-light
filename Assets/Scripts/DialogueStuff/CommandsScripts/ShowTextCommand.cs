@@ -34,7 +34,8 @@ public class ShowTextCommand : Commands
             InitialSetup = false;
             return false;
         }
-		if (indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true ) 
+        // NOTE(jesse): This is so you can't go to next dialogue when menu is open
+        if (indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true && !MenuManager.instance.GetMenuActive()) 
 		{
             if( waitForTime == true )
             {
@@ -44,7 +45,7 @@ public class ShowTextCommand : Commands
             {
                 if( Input.GetMouseButtonUp( 0 ) )
                 {
-                    pause = false;
+                        pause = false;
                 }
             }
             else if(SceneManager.Instance.GetCanSkip())
@@ -114,7 +115,7 @@ public class ShowTextCommand : Commands
 		{
             if( Input.GetMouseButtonDown( 0 ) && skipCheck == false)
             {
-                return true;
+                    return true;
             }
             else
             {
@@ -122,6 +123,7 @@ public class ShowTextCommand : Commands
                 return false;
             }
 		}
+        return false;
     }
     void ParseCustomTextCommand()
     {

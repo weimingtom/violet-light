@@ -22,7 +22,6 @@ public class OldDemo : MonoBehaviour
     {
         if (timer < Time.time && secondRun)
         {
-            
             if(firstRun)
             {
                 firstRun = false;
@@ -35,7 +34,6 @@ public class OldDemo : MonoBehaviour
                 SceneManager.Instance.ChangeScene(3);
                 MusicManager.instance.ChangeSong("theme");
             }
-
         }
 	}
 }
