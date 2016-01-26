@@ -101,6 +101,11 @@ public class StringParser : MonoBehaviour
                     newEffect.SetEffect( parsedCommand[1]);
                     CommandManager.Instance.AddCommand(newEffect);
                     break;
+				case "item":
+					//NOTE(Hendry): Temporary stuff, add item to inventory
+					//TODO(Hendry): add item command to handle this, may countain sound etc
+					ItemManager.Instance.AddItem(parsedCommand[1].ToLower());
+					break;
                 }
                 break;
             }

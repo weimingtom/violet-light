@@ -119,11 +119,22 @@ public class ItemManager : MonoBehaviour
     {
         foreach( Item ThisItem in allItems)
         {
-            if( ThisItem.GetItemName() == item_name )
+			try {
+				
+			} 
+			catch (System.Exception ex) {
+				
+			}
+            if( ThisItem.GetItemName() == item_name
+			   && !playerItems.Contains(ThisItem))
             {
                 playerItems.Add(ThisItem);
                 return;
             }
+			if(playerItems.Contains(ThisItem))
+			{	
+				Debug.Log("already in inventory");
+			}
         }
     }
     public void RemoveItem(string item_name)
