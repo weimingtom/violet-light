@@ -174,6 +174,22 @@ public class SceneManager : MonoBehaviour
             NewScene.Time = 0605;
             NewScene.Prefab = "demo_policestation";
             Scenes.Add(NewScene);
+
+            NewScene.Background = "music_shop";
+            NewScene.ID = 5;
+            NewScene.Name = "Rush's Music Shop";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_music";
+            Scenes.Add(NewScene);
+
+            NewScene.Background = "docks";
+            NewScene.ID = 6;
+            NewScene.Name = "Fisherman's Wharf";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_warf";
+            Scenes.Add(NewScene);
+
+           
         }
         else Debug.Log( "[scene manager] Failed to load case" );
     }
