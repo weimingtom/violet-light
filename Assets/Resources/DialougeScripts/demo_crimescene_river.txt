@@ -1,0 +1,7 @@
+show Alexander Right1
+show Violet Left1
+pose Alexander puzzled
+pose Violet neutral
+
+
+$VL$ “River Thames! Good fish, not so great for swimming and body dumping...”

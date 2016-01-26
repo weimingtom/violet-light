@@ -74,7 +74,7 @@ public class SceneManager : MonoBehaviour
         {
             if( checkExists( backgroundName ) )
             {
-                Debug.Log( "ERROR: Requested background does not exist - " + backgroundName );
+                Debug.Log( "[Scene Manager] ERROR: Requested background does not exist - " + backgroundName );
                 Debug.Break();
             }
         }
@@ -155,10 +155,17 @@ public class SceneManager : MonoBehaviour
             Scenes.Add( NewScene );
 
             NewScene.Background = "market";
-            NewScene.ID = 1;
+            NewScene.ID = 2;
             NewScene.Name = "Market";
             NewScene.Time = 0605;
             NewScene.Prefab = "TestArea3";
+            Scenes.Add(NewScene);
+
+            NewScene.Background = "crimescene";
+            NewScene.ID = 3;
+            NewScene.Name = "Crime Scene";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_crimescene";
             Scenes.Add(NewScene);
         }
         else Debug.Log( "[scene manager] Failed to load case" );

@@ -1,0 +1,8 @@
+show Alexander Right1
+show Violet Left1
+pose Alexander neutral
+pose Violet neutral
+
+$VL$ “The city looks so peaceful from down here...”
+$AX$ “Too bad we can't be up there instead!”
+

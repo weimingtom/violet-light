@@ -1,3 +1,8 @@
 alleyway "Textures/Backgrounds/backstreet_test"
 bridge "Textures/Backgrounds/backstreet_test2"
 market "Textures/Backgrounds/backstreet_test3"
+crimescene "Textures/Backgrounds/crime_scene"
+hotel "Textures/Backgrounds/bg_hotel"
+police_station "Textures/Backgrounds/holding_cell"
+music_shop "Textures/Backgrounds/music_shop"
+wharf "Textures/Backgrounds/boat_docks"

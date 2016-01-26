@@ -1,0 +1,17 @@
+show Alexander Right1
+show Violet Left1
+pose Alexander puzzled
+pose Violet neutral
+
+$AX$ “There’s a multitude of seashells and trash that line the river bed...”
+
+$VL$ “Well… y’know river Thames is both a freshwater and saltwater river.”
+
+pose Alexander neutral 
+$AX$ “Ah! I see! So that explains the bustling fishing life.”
+
+pose Violet happy
+$VL$ “Mhmm! The variety of fresh and saltwater fish in this city is really great! I’m getting hungry just thinking about it.”
+
+pose Alexander unimpressed
+$VL$ “Maybe we should focus on the case...”

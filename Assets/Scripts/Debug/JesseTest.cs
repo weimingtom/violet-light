@@ -33,5 +33,10 @@ public class JesseTest : MonoBehaviour
         {
             MusicManager.instance.ChangeSong( "caught" );
         }
+        if(Input.GetKeyDown(KeyCode.F5))
+        {
+            SceneManager.Instance.ChangeScene(3);
+            MusicManager.instance.ChangeSong("theme");
+        }
     }
 }
