@@ -7,34 +7,64 @@ using System.Linq;
 public class ItemManager : MonoBehaviour
 {
     static public ItemManager Instance;
-    List<Item> AllItems = new List<Item>();
-    List<Item> PlayerItems = new List<Item>();
-    int CurrentNumberOfItems = 0;
+    List<Item> allItems = new List<Item>();
+    List<Item> playerItems = new List<Item>();
+    int currentNumberOfItems = 0;
 	
     void Start()
     {
         Instance = this;
 		ParseItem("ItemScript/scene1");
+		//Use this for temporary purposes
 		TemporaryLoad();
     }
-
     void Update()
     {
+		//NOTE(Hendry):Use this for diplaying purposes, use load Inventory to load actual item
+		LoadInventory();
     }
-    
-    //NOTE(Hendry): Used to temporarily fill the inventory
-    //The method to fill from inventory should be the same
+	void LoadInventory()
+	{
+		//Note(Hendry): check if the number is bigger than the number of slots
+		if (currentNumberOfItems != playerItems.Count && playerItems.Count > 0)
+		{
+			ItemInventory.Instance.ResetButton();
+			int index = 0;
+			foreach(Item item in playerItems)
+			{
+				if(index < ItemInventory.Instance.GetInventorySize())
+				{
+					ItemInventory.Instance.SetItemToInventory(item.GetItemTexture(), item.GetItemName(), index);
+					index++;
+				}
+			}
+		}
+		//TODO(Hendry): add support for multiple page
+	}
+	void ResetInventory()
+	{
+
+	}
 	void TemporaryLoad()
 	{
-        for( int i = 0; i < AllItems.Count; i++ )
+		int index = 0;
+		for( int i = 0; i < ItemInventory.Instance.GetInventorySize(); i++ )
         {
-            ItemInventory.Instance.SetItemToInventory( AllItems[i].GetItemTexture(), AllItems[i].GetItemName(), i );
+			if(index < allItems.Count)
+			{
+				ItemInventory.Instance.SetItemToInventory( allItems[i].GetItemTexture(), allItems[i].GetItemName(), i );
+				index++;
+			}
+			else
+			{
+				ItemInventory.Instance.SetItemToInventory( Resources.Load<Sprite>( "Textures/Item/no_item"), "empty", i );
+			}
         }
 	}
     public string GetDescriptions(string name)
     {
         string description = "";
-        foreach( Item thisItem in AllItems )
+        foreach( Item thisItem in allItems )
         {
             if( thisItem.GetItemName() == name )
             {
@@ -47,7 +77,6 @@ public class ItemManager : MonoBehaviour
     {
         char[] delimiterChar = { '\r', '\n' };
         char[] otherDelimiter = { ':' };
-
         string[] extractedWord = (Resources.Load( itemAddress ) as TextAsset).ToString().Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
         string name = "";
         string textureAddress = "";
@@ -83,30 +112,41 @@ public class ItemManager : MonoBehaviour
             }
             Item newItem =  new Item();
             newItem.InitializeItem(name, textureAddress, description);
-            AllItems.Add(newItem);
+            allItems.Add(newItem);
         }
     }
     public void AddItem(string item_name)
     {
-        foreach( Item ThisItem in AllItems)
+        foreach( Item ThisItem in allItems)
         {
-            if( ThisItem.GetItemName() == item_name )
+			try {
+				
+			} 
+			catch (System.Exception ex) {
+				
+			}
+            if( ThisItem.GetItemName() == item_name
+			   && !playerItems.Contains(ThisItem))
             {
-                PlayerItems[CurrentNumberOfItems++] = ThisItem;
+                playerItems.Add(ThisItem);
                 return;
             }
+			if(playerItems.Contains(ThisItem))
+			{	
+				Debug.Log("already in inventory");
+			}
         }
     }
     public void RemoveItem(string item_name)
     {
-        for( int i = 0; i < PlayerItems.Count; i++ )
-        {
-            if( PlayerItems[i].GetItemName() == item_name )
-            {
-                PlayerItems.RemoveAt(i);
-                return;
-            }
-        }
+		foreach(Item item in playerItems)
+		{
+			if(item.GetItemName() == item_name)
+			{
+				playerItems.Remove(item);
+				return;
+			}
+		}
     }
     
 }
