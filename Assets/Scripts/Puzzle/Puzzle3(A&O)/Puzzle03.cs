@@ -75,18 +75,22 @@ public class Puzzle03 : MonoBehaviour
     public void Submit()
     {
         int counter = boxClicked;
+        if( correctChoice )
+        {
+            won = true;
+        }
 
         for( int i = 0; i < 3; ++i )
         {
             //show fruits inside
-            int myfruit;
+            int myfruit = -1;
             if( correctChoice )
             {
                 switch( crates[i].GetComponent<Crate>().initLabel )
                 {
                 case 0:
                 if( fruitShown == 0 )
-                    myfruit = 3;
+                    myfruit = 2;
                 else
                     myfruit = 1;
                 fruits[myfruit].transform.position = fruitLoc[i];
@@ -96,7 +100,7 @@ public class Puzzle03 : MonoBehaviour
                 break;
                 case 1:
                 if( fruitShown == 0 )
-                    myfruit = 3;
+                    myfruit = 2;
                 else
                     myfruit = 0;
                 fruits[myfruit].transform.position = fruitLoc[i];
@@ -109,37 +113,58 @@ public class Puzzle03 : MonoBehaviour
                 break;
                 default:
                 Debug.Log( "ERROR: InitLabel Incorrect [ Puzzle 03 ]" );
+                myfruit = -1;
                 break;
                 }
             }
             else
             {
                 //turn the clicked one into apples and oranges
-                fruits[3].transform.position = fruitLoc[boxClicked];
-                counter++;
+                if( counter == boxClicked )
+                { 
+                    fruits[2].transform.position = fruitLoc[boxClicked];
+                    fruits[2].SetActive( true );
+                    counter++;
+                    i++;
+                }
                 if( counter == 3 )
                     counter = 0;
 
-                //switch( crates[counter].GetComponent<Crate>().initLabel )
-                //{
-                //case 0:
+                switch( crates[counter].GetComponent<Crate>().initLabel )
+                { 
+                case 0:
+                    myfruit = 1;
+                    break;
+                case 1:
+                    myfruit = 0;
+                    break;
+                case 2:
+                    if( fruitShown == 0 )
+                        myfruit = 1;
+                    else
+                        myfruit = 0;
+                    break;
+                default:
+                    Debug.Log( "ERROR: InitLabel Incorrect [ Puzzel 03 ]" );
+                    myfruit = -1;
+                    break;
+                }
 
-                //case 1:
-                //case 2:
-                //if( fruitShown == 0 )
-                //    myfruit = 1;
-                //else
-                //    myfruit = 0;
-                //fruits[myfruit].transform.position = fruitLoc[counter];
-                
-
-                //default:
-                //break;
-                //}
+                fruits[myfruit].transform.position = fruitLoc[counter];
+                fruits[myfruit].SetActive( true );
 
                 counter++;
             }
 
+        }
+
+        if( won )
+        {
+            status = PuzzleStatus.Win;
+        }
+        else
+        {
+            status = PuzzleStatus.Lose;
         }
     
     }
