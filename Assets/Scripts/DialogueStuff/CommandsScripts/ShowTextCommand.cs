@@ -25,15 +25,16 @@ public class ShowTextCommand : Commands
     bool skipCheck = false;
     public override bool ExecuteCommand()
     {
-		if (InitialSetup == true) 
-		{
-			CommandManager.Instance.TextBoxSwitch (true);
-			CommandManager.Instance.TextSwitch (true);
-			CommandManager.Instance.SetTextHolder("");
-            CommandManager.Instance.SetNameIntoNameBox(DialogueHolder.Instance.GetCharacterNameFromToken(conversationTag));
-			InitialSetup = false;
-		}
-		if (indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true) 
+        if( InitialSetup == true )
+        {
+            CommandManager.Instance.TextBoxSwitch( true );
+            CommandManager.Instance.TextSwitch( true );
+            CommandManager.Instance.SetTextHolder( "" );
+            CommandManager.Instance.SetNameIntoNameBox( DialogueHolder.Instance.GetCharacterNameFromToken( conversationTag ) );
+            InitialSetup = false;
+            return false;
+        }
+		if (indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true ) 
 		{
             if( waitForTime == true )
             {
@@ -48,7 +49,7 @@ public class ShowTextCommand : Commands
             }
             else if(SceneManager.Instance.GetCanSkip())
             {
-                if( Input.GetMouseButtonUp( 0 ) )
+                if( Input.GetMouseButtonDown( 0 ) )
                 { 
                     string passedString = "";
                     bool checkSpecial = false;
@@ -70,10 +71,15 @@ public class ShowTextCommand : Commands
                 }
             }
         }
-        if(indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true)
+        if(indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length)
         {
 			if(timeTracker >= speed)
 			{
+                if( indexPassed >= DialogueHolder.Instance.GetDialogue( conversationTag ).Length )
+                {
+                    Debug.Log( "index length : " + indexPassed + " conversation length : " + DialogueHolder.Instance.GetDialogue( conversationTag ).Length );
+                    Debug.Break();
+                }
                 passedChar = DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
                 //check if it is html or not
                 if( passedChar == '<'
@@ -106,7 +112,7 @@ public class ShowTextCommand : Commands
         }
 		else
 		{
-            if( Input.GetMouseButtonUp( 0 ) && skipCheck == false)
+            if( Input.GetMouseButtonDown( 0 ) && skipCheck == false)
             {
                 return true;
             }
