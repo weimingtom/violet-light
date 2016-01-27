@@ -11,6 +11,7 @@ public class Prop : MonoBehaviour {
     public string[] items;
     public string Character = "";
     string checkedItem = "";
+    bool checkItem = false;
     void Awake()
     {
         Instance = this;
@@ -32,12 +33,21 @@ public class Prop : MonoBehaviour {
                 checkedItem = item;
             }
         }
+        checkItem = true;
     }
     void OnMouseDown()
     {
         if( DialougeScene[SceneManager.Instance.GetQuestStage()] != "null" )
         {
-            FileReader.Instance.LoadScene(SceneManager.Instance.GetChar() + "_" + DialougeScene[SceneManager.Instance.GetQuestStage()] + "_" + checkedItem );
+            if( SceneManager.Instance.GetChar().Length > 0 && checkItem )
+            {
+                FileReader.Instance.LoadScene( SceneManager.Instance.GetChar() + "_" + DialougeScene[SceneManager.Instance.GetQuestStage()] + "_" + checkedItem );
+                checkItem = false;
+            }
+            else
+            {
+                FileReader.Instance.LoadScene( SceneManager.Instance.GetChar() + "_" + DialougeScene[SceneManager.Instance.GetQuestStage()] + "_" + checkedItem );
+            }
         }
         if( IsPickUp )
         {
