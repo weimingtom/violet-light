@@ -10,3 +10,4 @@ pose Alexander scribbling
 pose Violet neutral
 $ax$ "Right... He told us it's near the river bed."
 $vl$ "Ah! Electrifying! I know exactly where, shall we bolt over there now?"
+

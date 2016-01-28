@@ -1,0 +1,17 @@
+// Day 1, Evening, Town – Fisherman’s Warf 1st Entry//
+
+show Alexander Right1
+Show Violet Left1
+
+Alexander Scribbling
+Violet Neutral
+
+$AX$ “Sooo... according to the notes Detective Sharp gave us..."
+$AX$ “We’re supposed to be able to find the man who discovered the body here...[eff SoundEffect][eff ScreenShake][eff ScreenFlash] but it looks like everyone is either packing up or already went home!”
+Alexander Serious
+
+Violet Thinking
+$VL$ “Hmm...”
+Violet Happy
+$VL$ “There might be a few chaps left around! Let’s see what we can find, luv!” 
+// end scene
