@@ -52,4 +52,9 @@ pose Alexander Neutral
 
 $sp$ “So what’s this about a knife?”
 
+
+$sp$ "Look theres no time, I'm just going to add an item to your inventory!”
+
+
+$sp$ "Goodbye!”
 item demo_report

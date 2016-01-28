@@ -1,4 +1,4 @@
-show Alex right1
+show Alexander right1
 Show Violet left2
 
 pose Alexander Scribbling
@@ -6,7 +6,6 @@ pose Violet Neutral
 
 $AX$ “Sooo...[time 1] according to the notes Detective Sharp gave us...”
 $AX$ “We can't go in this place yet”
-pose Alexander Serious
 
 pose Violet Thinking
 $VL$ “Hmm.[time 1].[time 1].”
