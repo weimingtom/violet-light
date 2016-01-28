@@ -21,6 +21,8 @@ public class SceneManager : MonoBehaviour
 //    private uint Case = 0;
     List<Scene> Scenes = new List<Scene>();
 
+    private int currentScene;
+
     public Dictionary<string, string> backgroundLookup = new Dictionary<string, string>();
     private GameObject currBackground;
     private SpriteRenderer currBackgroundRend;
@@ -83,6 +85,13 @@ public class SceneManager : MonoBehaviour
 
     public void SetInputBlocker(bool Enabled)
     {
+        if(!Enabled)
+        {
+            if(CommandManager.Instance.myBannerBox.activeInHierarchy)
+            {
+                Enabled = true;
+            }
+        }
         ScreenBlocker.SetActive( Enabled );
     }
 
@@ -130,12 +139,18 @@ public class SceneManager : MonoBehaviour
     {
         if( CurrentCaseFile != null )
         {
+            currentScene = SceneID;
             ChangeBackground( Scenes[SceneID].Background , 0.7f);
             InteractableManager.Instance.Clear();
             InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab ,Vector3.zero);
             Debug.Log( "[scene manager] Changed Scene to number "+SceneID );
         }
         else Debug.Log( "[scene manager] No case loaded!" );
+    }
+
+    public int GetScene()
+    {
+        return currentScene;
     }
 
     public void LoadCase(uint NewCase)

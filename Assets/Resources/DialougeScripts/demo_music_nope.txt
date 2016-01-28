@@ -1,14 +1,14 @@
 show Alex Right
 Show Violet Left
 
-pose Alexander Scribbling
-pose Violet Neutral
+Alexander Scribbling
+Violet Neutral
 
 $AX$ “Sooo...[time 1] according to the notes Detective Sharp gave us...”
 $AX$ “We’re supposed to be able to find the man who discovered the body here...[time 1][eff ScreenFlash][eff ScreenShake][eff SoundEffect] but it looks like everyone is either packing up or already went home!”
-pose Alexander Serious
+Alexander Serious
 
-pose Violet Thinking
+Violet Thinking
 $VL$ “Hmm.[time 1].[time 1].”
-pose Violet Happy
+Violet Happy
 $VL$ “There might be a few chaps left around! Let’s see what we can find, luv!” 

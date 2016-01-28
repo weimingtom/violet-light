@@ -1,0 +1,16 @@
+show Alexander right1
+Show Violet left2
+
+pose Alexander Scribbling
+pose Violet Neutral
+
+$AX$ “Sooo...[time 1] remeber Violet! Press Escape to open the inventory...”
+$AX$ “Wha-Whatever[eff SoundEffect][eff ScreenShake][eff ScreenFlash] that means!"
+
+
+pose Violet Thinking
+$VL$ “Hmm.[time 1].[time 1].”
+pose Violet Happy
+$VL$ “Alex have you gone a bit mad?"
+
+$AX$ "H-HEY! Don't do all your crazy psychological evaluations on me!"

@@ -87,6 +87,7 @@ public class FileReader : MonoBehaviour
     //================================================//
 	public void LoadScene(string _scene/*, string _dialogue*/)
 	{
+        Debug.Log("[File Reader] Loading in scene " + _scene);
         CommandManager.Instance.Reinitialize();
 		TextAsset command = Resources.Load(scriptFolder + _scene) as TextAsset;
         //TextAsset dialogue = Resources.Load(scriptFolder + _dialogue) as TextAsset;

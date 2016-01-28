@@ -37,6 +37,8 @@ public class Prop : MonoBehaviour {
     }
     void OnMouseDown()
     {
+        FileReader.Instance.LoadScene(DialougeScene[SceneManager.Instance.GetQuestStage()]);
+        /*
         if( DialougeScene[SceneManager.Instance.GetQuestStage()] != "null" )
         {
             if( SceneManager.Instance.GetChar().Length > 0 && checkItem )
@@ -48,7 +50,7 @@ public class Prop : MonoBehaviour {
             {
                 FileReader.Instance.LoadScene( SceneManager.Instance.GetChar() + "_" + DialougeScene[SceneManager.Instance.GetQuestStage()] + "_" + checkedItem );
             }
-        }
+        }*/
         if( IsPickUp )
         {
             //Add to inventory

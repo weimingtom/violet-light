@@ -215,7 +215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_wharf_boat
+  DialougeScene:
+  - demo_warf_boat
+  items: []
+  Character: 
 --- !u!114 &11439932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,7 +231,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_wharf_fisherman
+  DialougeScene:
+  - demo_warf_fisherman
+  items: []
+  Character: 
 --- !u!114 &11453576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,7 +247,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_wharf_water
+  DialougeScene:
+  - demo_warf_water
+  items: []
+  Character: 
 --- !u!114 &11480550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,7 +263,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene: demo_wharf_fishcrates
+  DialougeScene:
+  - demo_warf_fishcrates
+  items: []
+  Character: 
 --- !u!212 &21212814
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -373,7 +385,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: DialougeScene.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: DialougeScene.Array.data[0]
+      value: demo_warf_fisherman
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 124290}
