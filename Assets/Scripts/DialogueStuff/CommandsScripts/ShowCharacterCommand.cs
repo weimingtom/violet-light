@@ -60,7 +60,6 @@ public class ShowCharacterCommand : Commands
     }
 	public override bool Destroy()
 	{
-        //if(something)
         CharacterManager.Instance.ChangePosition( CharacterName, CharacterManager.Positions.Offscreen );
         return true;
 	}

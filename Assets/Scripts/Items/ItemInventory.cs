@@ -2,7 +2,9 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-public class ItemInventory : MonoBehaviour {
+
+public class ItemInventory : MonoBehaviour
+{
     public static ItemInventory Instance;
     private int size = 0;
     Image mainImageHolder;
@@ -54,34 +56,40 @@ public class ItemInventory : MonoBehaviour {
         buttons[6].onClick.AddListener( () => ClickedButton_6() );
         buttons[7].onClick.AddListener( () => PresentButton()   );
     }
+
     void ClickedButton_0()
     {
-		SetMainImage (0);
+		SetMainImage(0);
     }
     void ClickedButton_1()
     {
-		SetMainImage (1);
+		SetMainImage(1);
     }
     void ClickedButton_2()
     {
-		SetMainImage (2);
+		SetMainImage(2);
     }
     void ClickedButton_3()
     {
-		SetMainImage (3);
+		SetMainImage(3);
     }
     void ClickedButton_4()
     {
-		SetMainImage (4);
+		SetMainImage(4);
     }
     void ClickedButton_5()
     {
-		SetMainImage (5);
+		SetMainImage(5);
     }
     void ClickedButton_6()
     {
-		SetMainImage (6);
+		SetMainImage(6);
     }
+    void ClickPresent()
+    {
+        
+    }
+
     public void TogglePresentButton( bool toggle )
     {
         buttons[7].gameObject.SetActive(toggle);

@@ -10,6 +10,7 @@ public class EffectCommand : Commands
     }
     public override void PrintData()
     {
+
     }
     public override bool ExecuteCommand()
     {
