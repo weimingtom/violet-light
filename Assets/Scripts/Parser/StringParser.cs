@@ -244,6 +244,82 @@ public class StringParser : MonoBehaviour
         CM.SetAllToNeutral();
     }
 
+    public void ParseScene(string mainString)
+    {
+        /*      EXAMPLE STRING
+         *  BG=alleyway
+         *  ID=0
+         *  NM=Alley Way
+         *  TM=1005
+         *  PF=TestArea1
+         *  DONE
+         */
+
+        for( int i = 0; i < mainString.Length; ++i )
+        {
+            string bg = "", name = "", prefab = "";
+            uint id = 0, time = 0;
+
+            while( mainString[i] != ' ' && mainString[i] != '\r' && mainString[i] != '\n')
+            {
+                char operation = ' ';
+                string dogma = "";
+                bool success;
+
+                operation = mainString[i];
+                i+=2;
+                for( int j = ++i; mainString[j] != '\r'; ++j, ++i )
+                {
+                    dogma += mainString[j];
+                }
+
+                    switch( operation )
+                    {
+                    case 'B':
+                        bg = dogma;
+                        break;
+
+                    case 'I':
+                        success = uint.TryParse( dogma, out id );
+                        if( !success )
+                            Debug.Log( "ERROR: Could Not Parse ID from string to uint [StringParser.cs]" );
+                        break;
+
+                    case 'N':
+                        name = dogma;
+                        break;
+
+                    case 'T':
+                        success = uint.TryParse( dogma, out time );
+                        if( !success )
+                            Debug.Log( "ERROR: Could Not Parse time(TM) from string to uint [StringParser.cs]" );
+                        break;
+
+                    case 'P':
+                        prefab = dogma;
+                        break;
+
+                    case 'D':
+                        if( bg == null || name == null || prefab == null || id == 0 || time == 0 )
+                            Debug.Log( "WARNING: Some scenes contain undefined data. [StringParser.cs]" );
+                        SceneManager.Instance.NewScene( bg, id, name, time, prefab );
+                        break;
+
+                    default:
+                        Debug.Log( "ERROR: Unrecognized command in Parse Scene. [String Parser.cs]" );
+                        break;
+                    }
+
+
+
+            }
+        }
+
+
+
+
+    }
+
     public void ParseBackgrounds(string mainString)
     {
         /*          EXAMPLE STRING

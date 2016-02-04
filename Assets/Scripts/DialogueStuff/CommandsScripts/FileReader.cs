@@ -107,8 +107,15 @@ public class FileReader : MonoBehaviour
     }
     public void ReadBackgrounds(string fileName)
     {
-        Debug.Log("Reading in backgrounds...");
+        Debug.Log("Reading in backgrounds... ");
         TextAsset commandContainer = Resources.Load(scriptFolder + fileName) as TextAsset;
         StringParser.Instance.ParseBackgrounds(commandContainer.ToString());
+    }
+
+    public void ReadScenes( string fileName )
+    {
+        Debug.Log( "Reading in Scenes... " );
+        TextAsset commandContainer = Resources.Load( scriptFolder + fileName ) as TextAsset;
+        StringParser.Instance.ParseScene( commandContainer.ToString() );
     }
 }

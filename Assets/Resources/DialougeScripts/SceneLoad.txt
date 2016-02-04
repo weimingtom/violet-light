@@ -1,0 +1,48 @@
+BG=alleyway
+ID=0
+NM=Alley Way
+TM=1005
+PF=TestArea1
+DONE
+
+BG=bridge
+ID=1
+NM=Bridge
+TM=0605
+PF=TestArea2
+DONE
+
+BG=market
+ID=2
+NM=Market
+TM=0605
+PF=TestArea3
+DONE
+
+BG=crimescene
+ID=3
+NM=Crime Scene
+TM=0605
+PF=demo_crimescene
+DONE
+
+BG=police_station
+ID=4
+NM=Police Station
+TM=0605
+PF=demo_policestation
+DONE
+
+BG=music_shop
+ID=5
+NM=Rush's Music Shop
+TM=0605
+PF=demo_music
+DONE
+
+BG=docks
+ID=6
+NM=Fisherman's Wharf
+TM=0605
+PF=demo_warf
+DONE
