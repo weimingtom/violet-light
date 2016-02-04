@@ -12,7 +12,13 @@ public class ItemManager : MonoBehaviour
     List<Item> playerItems = new List<Item>();
     int currentNumberOfItems = 0;
     bool loadInventory = false;
-    
+    public void LoadItems( ref List<string> itemHolder )
+    {
+        foreach( Item itm in playerItems )
+        {
+            itemHolder.Add( itm.GetItemName() );
+        }
+    }
     void Awake()
     {
         Instance = this;

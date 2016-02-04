@@ -4,17 +4,30 @@ using System.Collections;
 
 public class PresentItemManager : MonoBehaviour
 {
-    public Dictionary<string, PresentHandler> presentItem;
+    //string to store when to present, and present handler to store item inside of it
+    public Dictionary<string, PresentHandler> presentedItemLibrary;
     void Start()
     {
-        presentItem = new Dictionary<string, PresentHandler>();
+        presentedItemLibrary = new Dictionary<string, PresentHandler>();
     }
+    
     //TODO: Do this
-    void AddItem( string timmingId )
+    void AddItem( string presentedItem, string correctItem, string timingId)
     {
-        PresentHandler presentItem;
-        //presentItem.SetPresentHandler();
-        //presentItem.Add(timmingId, );
+        PresentHandler presentItem = new PresentHandler();
+        presentItem.correctItem = correctItem;
+        presentedItemLibrary.Add( timingId, presentItem );
     }
 
+    bool checkItem(string conversationId, string itemPresented)
+    {
+        bool check = false;
+        if( presentedItemLibrary.ContainsKey( conversationId ) )
+        {
+            Debug.Log("[PresentItemManager] item presented, it is removed from the library");
+            check = presentedItemLibrary[conversationId].CheckItem(itemPresented);
+            presentedItemLibrary.Remove( conversationId );
+        }
+        return check;
+    }
 }
