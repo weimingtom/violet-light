@@ -17,11 +17,8 @@ public class SceneManager : MonoBehaviour
     }
     static public SceneManager Instance;
 
-    private string CurrentCaseFile = null;
 //    private uint Case = 0;
     List<Scene> Scenes = new List<Scene>();
-
-    private int currentScene;
 
     public Dictionary<string, string> backgroundLookup = new Dictionary<string, string>();
     private GameObject currBackground;
@@ -38,7 +35,14 @@ public class SceneManager : MonoBehaviour
     private bool CanSkip;
     private string CurrentChar = "";
 
+    private string CurrentCaseFile = null;
+    private int currentScene;
     private int QuestStage = 0;
+
+    public string GetCaseFile()
+    {
+        return CurrentCaseFile;
+    }
 
     
     public void AdvQuest()

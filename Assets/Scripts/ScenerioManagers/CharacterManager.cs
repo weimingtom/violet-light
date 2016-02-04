@@ -114,6 +114,11 @@ public class CharacterManager : MonoBehaviour {
         }
     }
 
+    public Positions GetPosition( string character )
+    {
+        return characterList[character].positionToGoTo;
+    }
+
     private class Character
     {
 
@@ -140,7 +145,7 @@ public class CharacterManager : MonoBehaviour {
         //new stuffs
         private float easeDuration;
         private float deltaAlpha;
-        private Positions positionToGoTo;
+        public Positions positionToGoTo;
 
 
         public Character()
