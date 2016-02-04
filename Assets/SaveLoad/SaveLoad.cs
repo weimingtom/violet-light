@@ -12,15 +12,19 @@ using System.Net;
 // - int QuestStage 
 // - list of inventory item names
 
+
+
 [System.Serializable]
 public class Game
 {
-    private string currentCaseFile;
-    private int currentScene;
-    private int questStage;
-    private List<string> inventory;
     private string date;
     private string time;
+    
+    private int questStage;
+    private int currentScene;
+    private string currentCaseFile;
+    
+    private List<string> inventory;
 
     public Game()
     {
@@ -31,9 +35,9 @@ public class Game
         currentScene = SceneManager.Instance.GetScene();
         currentCaseFile = SceneManager.Instance.GetCaseFile();
 
-        inventory = null;
+        //this will change to GetHeldItems( ref inventory ) in the next update
+        ItemManager.Instance.LoadItems( ref inventory );
         
-
     }
 
 }
@@ -44,14 +48,26 @@ public static class SaveLoad
 {
     //can me used for multiple save files!
     public static List<Game> savedGames = new List<Game>();
+    private const string VLSaveFile = "/saveGames.vls";
 
     public static void Save()
     {
         savedGames.Add( new Game() );
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create( Application.persistentDataPath + "/savedGames.gd" );
+        FileStream file = File.Create( Application.persistentDataPath + VLSaveFile );
         bf.Serialize( file, SaveLoad.savedGames );
         file.Close();
+    }
+
+    public static void Load()
+    {
+        if( File.Exists( Application.persistentDataPath + VLSaveFile ) )
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open( Application.persistentDataPath + VLSaveFile, FileMode.Open );
+            SaveLoad.savedGames = (List<Game>)bf.Deserialize( file );
+            file.Close();
+        }
     }
 	
 }
