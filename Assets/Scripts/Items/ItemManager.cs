@@ -12,13 +12,8 @@ public class ItemManager : MonoBehaviour
     List<Item> playerItems = new List<Item>();
     int currentNumberOfItems = 0;
     bool loadInventory = false;
-    public void LoadItems( ref List<string> itemHolder )
-    {
-        foreach( Item itm in playerItems )
-        {
-            itemHolder.Add( itm.GetItemName() );
-        }
-    }
+    
+
     void Awake()
     {
         Instance = this;
@@ -32,6 +27,14 @@ public class ItemManager : MonoBehaviour
     {
 		//NOTE(Hendry):Use this for diplaying purposes, use load Inventory to load actual item
 		LoadInventory();
+    }
+    //NOTE(Hendry): adam call this
+    public void GetHeldItem( ref List<string> itemHolder )
+    {
+        foreach( Item itm in playerItems )
+        {
+            itemHolder.Add( itm.GetItemName() );
+        }
     }
     public void SetLoadInventory( bool load )
     {

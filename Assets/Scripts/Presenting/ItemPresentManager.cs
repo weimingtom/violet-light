@@ -6,11 +6,12 @@ public class PresentItemManager : MonoBehaviour
 {
     //string to store when to present, and present handler to store item inside of it
     public Dictionary<string, PresentHandler> presentedItemLibrary;
+    public string currentConversationID { get; set; }
+
     void Start()
     {
         presentedItemLibrary = new Dictionary<string, PresentHandler>();
     }
-    
     //TODO: Do this
     void AddItem( string presentedItem, string correctItem, string timingId)
     {
@@ -19,7 +20,7 @@ public class PresentItemManager : MonoBehaviour
         presentedItemLibrary.Add( timingId, presentItem );
     }
 
-    bool checkItem(string conversationId, string itemPresented)
+    public bool checkItem(string conversationId, string itemPresented)
     {
         bool check = false;
         if( presentedItemLibrary.ContainsKey( conversationId ) )
@@ -30,4 +31,5 @@ public class PresentItemManager : MonoBehaviour
         }
         return check;
     }
+
 }

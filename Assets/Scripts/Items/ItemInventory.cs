@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class ItemInventory : MonoBehaviour
 {
     public static ItemInventory Instance;
+
     private int size = 0;
     Image mainImageHolder;
     Text[] mainTextHolder = new Text[2];
@@ -15,13 +16,14 @@ public class ItemInventory : MonoBehaviour
 	{
 		Instance = this;
         ItemManager.Instance.SetLoadInventory(true);
-        
         Initialize();
 	}
+
     void Start()
     {
         TogglePresentButton(false);
     }
+
     void Initialize()
     {
 		int index = 0;

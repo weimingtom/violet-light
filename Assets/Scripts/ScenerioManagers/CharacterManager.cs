@@ -113,7 +113,7 @@ public class CharacterManager : MonoBehaviour {
             entry.Value.ChangePose( "neutral" );
         }
     }
-
+    //Hendry what i need to call
     public Positions GetPosition( string character )
     {
         return characterList[character].positionToGoTo;
