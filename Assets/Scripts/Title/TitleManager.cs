@@ -6,7 +6,7 @@ public class TitleManager : MonoBehaviour
     public GameObject ScrollingBackground;
     public GameObject WhiteBackground;
     public GameObject GameCompany;
-    public GameObject StartButton;
+    //public GameObject StartButton;
     private float CompanyShowTimer = 2.0f;
     private float CompanyDelayTimer =0.0f;
 
@@ -49,11 +49,11 @@ public class TitleManager : MonoBehaviour
             DoneSecondPart = true;
         }
 
-        if(StartButton.GetComponent<FadeFlyText>().GetDoneFade() && !DoneThirdPart)
-        {
-            StartButton.GetComponent<StartButton>().EnableButton();
-            DoneThirdPart = true;
-        }
+        //if(StartButton.GetComponent<FadeFlyText>().GetDoneFade() && !DoneThirdPart)
+        //{
+        //    StartButton.GetComponent<StartButton>().EnableButton();
+        //    DoneThirdPart = true;
+        //}
 	}
 
     public void StartGame()
