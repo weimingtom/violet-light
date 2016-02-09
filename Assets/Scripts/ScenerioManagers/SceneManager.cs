@@ -193,56 +193,56 @@ public class SceneManager : MonoBehaviour
             FileReader.Instance.ReadBackgrounds(filepath);
 
             // TODO(adam): Load this in from a file
-            FileReader.Instance.ReadScenes("SceneLoad");
+            //FileReader.Instance.ReadScenes("SceneLoad");
+            Scene NewScene = new Scene();
+            NewScene.Background = "alleyway";
+            NewScene.ID = 0;
+            NewScene.Name = "Alley Way";
+            NewScene.Time = 1005;
+            NewScene.Prefab = "TestArea1";
+            Scenes.Add( NewScene );
 
-            //NewScene.Background = "alleyway";
-            //NewScene.ID = 0;
-            //NewScene.Name = "Alley Way";
-            //NewScene.Time = 1005;
-            //NewScene.Prefab = "TestArea1";
-            //Scenes.Add( NewScene );
+            NewScene.Background = "bridge";
+            NewScene.ID = 1;
+            NewScene.Name = "Bridge";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "TestArea2";
+            Scenes.Add( NewScene );
 
-            //NewScene.Background = "bridge";
-            //NewScene.ID = 1;
-            //NewScene.Name = "Bridge";
-            //NewScene.Time = 0605;
-            //NewScene.Prefab = "TestArea2";
-            //Scenes.Add( NewScene );
+            NewScene.Background = "market";
+            NewScene.ID = 2;
+            NewScene.Name = "Market";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "TestArea3";
+            Scenes.Add( NewScene );
 
-            //NewScene.Background = "market";
-            //NewScene.ID = 2;
-            //NewScene.Name = "Market";
-            //NewScene.Time = 0605;
-            //NewScene.Prefab = "TestArea3";
-            //Scenes.Add(NewScene);
+            NewScene.Background = "crimescene";
+            NewScene.ID = 3;
+            NewScene.Name = "Crime Scene";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_crimescene";
+            Scenes.Add( NewScene );
 
-            //NewScene.Background = "crimescene";
-            //NewScene.ID = 3;
-            //NewScene.Name = "Crime Scene";
-            //NewScene.Time = 0605;
-            //NewScene.Prefab = "demo_crimescene";
-            //Scenes.Add(NewScene);
+            NewScene.Background = "police_station";
+            NewScene.ID = 4;
+            NewScene.Name = "Police Station";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_policestation";
+            Scenes.Add( NewScene );
 
-            //NewScene.Background = "police_station";
-            //NewScene.ID = 4;
-            //NewScene.Name = "Police Station";
-            //NewScene.Time = 0605;
-            //NewScene.Prefab = "demo_policestation";
-            //Scenes.Add(NewScene);
+            NewScene.Background = "music_shop";
+            NewScene.ID = 5;
+            NewScene.Name = "Rush's Music Shop";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_music";
+            Scenes.Add( NewScene );
 
-            //NewScene.Background = "music_shop";
-            //NewScene.ID = 5;
-            //NewScene.Name = "Rush's Music Shop";
-            //NewScene.Time = 0605;
-            //NewScene.Prefab = "demo_music";
-            //Scenes.Add(NewScene);
-
-            //NewScene.Background = "docks";
-            //NewScene.ID = 6;
-            //NewScene.Name = "Fisherman's Wharf";
-            //NewScene.Time = 0605;
-            //NewScene.Prefab = "demo_warf";
-            //Scenes.Add(NewScene);
+            NewScene.Background = "docks";
+            NewScene.ID = 6;
+            NewScene.Name = "Fisherman's Wharf";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_warf";
+            Scenes.Add( NewScene );
 
            
         }

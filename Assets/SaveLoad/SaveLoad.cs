@@ -36,7 +36,7 @@ public class Game
         currentCaseFile = SceneManager.Instance.GetCaseFile();
 
         //this will change to GetHeldItems( ref inventory ) in the next update
-        ItemManager.Instance.LoadItems( ref inventory );
+        ItemManager.Instance.GetHeldItem( ref inventory );
         
     }
 

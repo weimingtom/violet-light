@@ -2,27 +2,30 @@
 using System.Collections;
 
 
-public class MenuManager : MonoBehaviour {
-
-   
+public class MenuManager : MonoBehaviour
+{
 
 	private enum state
 	{
-		Main,
-		Evience,
-		Notes,
-		Travel,
-		Suspects,
-		Puzzles,
-		Options
+        SaveLoad,
+        Evidence,
+        end
 	}
 
+    public static MenuManager instance;
 	public GameObject menu;
 	private bool active;
 	private state myState;
+    //animation purposes
     public GameObject[] States;
-
-    public static MenuManager instance;
+    public GameObject[] StatesButton;
+    public Vector3[] menuUIOriginalPos;
+    public Vector3[] btnUIOriginalPos;
+    public float offset = 100.0f;
+    private bool moveRight = true;
+    public float speed = 1.0f;
+    private bool animateMenu = false;
+    private state animateState = state.SaveLoad;
 
     void Awake()
     {
@@ -33,9 +36,27 @@ public class MenuManager : MonoBehaviour {
     {
         menu.SetActive(false);
         active = false;
-		myState = state.Main;
+        myState = state.Evidence;
+        InitializeUI();
     }
-	
+    void InitializeUI()
+    {
+        if( States.Length != StatesButton.Length )
+        {
+            Debug.Log( "menu ui need to have btn come with it" );
+            Debug.Break();
+        }
+        else
+        {
+            menuUIOriginalPos = new Vector3[States.Length];
+            btnUIOriginalPos = new Vector3[StatesButton.Length];
+            for( int i = 0; i < menuUIOriginalPos.Length; i++ )
+            {
+                menuUIOriginalPos[i] = States[i].transform.position;
+                btnUIOriginalPos[i] = StatesButton[i].transform.position;
+            }
+        }
+    }
 
 	void Update () 
     {
@@ -44,6 +65,10 @@ public class MenuManager : MonoBehaviour {
         {
 			toggleMenu();
 		}
+        //if( animateMenu == true )
+        //{
+        //    AnimateMenu();
+        //}
 	}
 
 	public bool GetMenuActive()
@@ -53,9 +78,9 @@ public class MenuManager : MonoBehaviour {
 
 	public void toggleMenu()
 	{
-		if(active && myState != state.Main)
+        if( active && myState != state.SaveLoad )
         {
-            ChangeState(state.Main);
+            ChangeState( state.SaveLoad );
         }
         else if (!active)
         {
@@ -72,28 +97,18 @@ public class MenuManager : MonoBehaviour {
     //Get When a Tab button is pressed
     public void TabPressed( string btn )
     {
+       
         // TODO(jesse): THis is a quick hack to ensure that you don't travel during dialogue
         if (!CommandManager.Instance.myBannerBox.activeInHierarchy)
         {
+            //animateMenu = true;
             switch (btn)
             {
-                case "btnEvidence":
-                    ChangeState(state.Evience);
+                case "btn_save_load":
+                    ChangeState(state.SaveLoad);
                     break;
-                case "btnNotes":
-                    ChangeState(state.Notes);
-                    break;
-                case "btnOptions":
-                    ChangeState(state.Options);
-                    break;
-                case "btnPuzzles":
-                    ChangeState(state.Puzzles);
-                    break;
-                case "btnSuspects":
-                    ChangeState(state.Suspects);
-                    break;
-                case "btnTravel":
-                    ChangeState(state.Travel);
+                case "btn_evidence":
+                    ChangeState(state.Evidence);
                     break;
                 default:
                     Debug.Log("ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn);
@@ -135,13 +150,42 @@ public class MenuManager : MonoBehaviour {
 	private void ChangeState(state newState)
 	{
 		//do fancy transistion animation between states
-        States[(int)myState].SetActive( false );
+        States[(int)myState].transform.SetAsLastSibling();
+        //States[(int)myState].SetActive( false );
 		//set our new state
-        States[(int)newState].SetActive( true );
+        States[(int)newState].transform.SetAsFirstSibling();
 		myState = newState;
 
 	}
-
+    private void AnimateMenu()
+    {
+        if( animateState == myState )
+        { 
+            animateState++;
+        }
+        else if( animateState == state.end )
+        {
+            animateMenu = false;
+        }
+        else
+        {
+            float step = speed * Time.deltaTime;
+            Vector3[] dest = new Vector3[2];
+            dest[0] = menuUIOriginalPos[(int)animateState];
+            dest[1] = btnUIOriginalPos[(int)animateState];
+            if(moveRight == true)
+            {
+                dest[0].x += offset;
+                dest[1].x += offset;
+            }
+            States[(int)animateState].transform.position = Vector2.MoveTowards( States[(int)animateState].transform.position, dest[0], step );
+            StatesButton[(int)animateState].transform.position = Vector2.MoveTowards( States[(int)animateState].transform.position, dest[1], step );
+            if( States[(int)animateState].transform.position == dest[0] && StatesButton[(int)animateState].transform.position == dest[1] )
+            {
+                animateState++;
+            }
+        }
+    }
     private void OpenMenu()
     {
 		//Do fancy transition animation
@@ -155,7 +199,7 @@ public class MenuManager : MonoBehaviour {
 		//do fancy transition in reverse
 
         //set menu back to default state
-        ChangeState(state.Main);
+        ChangeState( state.SaveLoad );
         menu.SetActive(false);
 		//delte input eater
 
@@ -165,8 +209,6 @@ public class MenuManager : MonoBehaviour {
         {
             SceneManager.Instance.SetInputBlocker(false);
         }
-		
-		
     }
 
     public void VolumeSlider( float multiplier )
