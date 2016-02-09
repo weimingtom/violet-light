@@ -255,10 +255,12 @@ public class StringParser : MonoBehaviour
          *  DONE
          */
 
+        string bg = "", name = "", prefab = "";
+        uint id = 0, time = 0;
+
         for( int i = 0; i < mainString.Length; ++i )
         {
-            string bg = "", name = "", prefab = "";
-            uint id = 0, time = 0;
+            
 
             while( mainString[i] != ' ' && mainString[i] != '\r' && mainString[i] != '\n')
             {
@@ -303,6 +305,11 @@ public class StringParser : MonoBehaviour
                         if( bg == null || name == null || prefab == null || id == 0 || time == 0 )
                             Debug.Log( "WARNING: Some scenes contain undefined data. [StringParser.cs]" );
                         SceneManager.Instance.NewScene( bg, id, name, time, prefab );
+                        bg = "";
+                        name = "";
+                        prefab = "";
+                        id = 0;
+                        time = 0;;
                         break;
 
                     default:
