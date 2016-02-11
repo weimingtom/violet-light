@@ -14,6 +14,8 @@ public class TitleManager : MonoBehaviour
     private bool DoneSecondPart = false;
     private bool DoneThirdPart = false;
 
+    public GameObject mything;
+
     static public TitleManager instance;
 
     void Awake()
@@ -31,6 +33,9 @@ public class TitleManager : MonoBehaviour
 
         CompanyDelayTimer += Time.time;
         CompanyShowTimer += CompanyDelayTimer;
+
+        mything.AddComponent<Blink>();
+        mything.GetComponent<Blink>().Initialize(mything);
     }
 	
 	void Update () 
