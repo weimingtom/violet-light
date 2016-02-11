@@ -10,6 +10,8 @@ public class MenuManager : MonoBehaviour
         SaveLoad,
         Evidence,
         Note,
+        Location,
+        Suspect,
         end
 	}
 
@@ -18,7 +20,7 @@ public class MenuManager : MonoBehaviour
 	private bool active;
 	private state myState;
     //animation purposes
-    public GameObject[] States;
+    //public GameObject[] States;
     public float speed = 1.0f;
     void Awake()
     {
@@ -38,10 +40,6 @@ public class MenuManager : MonoBehaviour
         {
 			toggleMenu();
 		}
-        //if( animateMenu == true )
-        //{
-        //    AnimateMenu();
-        //}
 	}
 
 	public bool GetMenuActive()
@@ -86,6 +84,12 @@ public class MenuManager : MonoBehaviour
                 case "btn_note":
                     ChangeState( state.Note );
                     break;
+                case "btn_location":
+                    ChangeState( state.Location );
+                    break;
+                case "btn_suspect":
+                    ChangeState( state.Suspect );
+                    break;
                 default:
                     Debug.Log("ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn);
                     break;
@@ -124,15 +128,10 @@ public class MenuManager : MonoBehaviour
 
 	private void ChangeState(state newState)
 	{
-		//do fancy transistion animation between states
-        //States[(int)myState].transform.SetAsLastSibling();
         if( myState != newState )
         {
             //Refactor!
             UIAnimation.Instance.StartAnimate(newState);
-            //ResetPosition();
-            //AnimateState(newState);
-
 		    myState = newState;
         }
 	}
@@ -151,10 +150,6 @@ public class MenuManager : MonoBehaviour
         //set menu back to default state
         ChangeState( state.SaveLoad );
 		//reset menu hierarchy
-        foreach( GameObject ui in States )
-        {
-            ui.SetActive(true);
-        }
         menu.SetActive(false);
         //delte input eater
         

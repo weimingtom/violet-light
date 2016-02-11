@@ -6,7 +6,7 @@ public class UIAnimation : MonoBehaviour
     public static UIAnimation Instance;
     public GameObject[] uiElements;
     public GameObject[] uiElementButtons;
-    public Vector3[] uiButtonOriginalPos;
+    private Vector3[] uiButtonOriginalPos;
     private Vector3 originalPosition;
     MenuManager.state myState = MenuManager.state.SaveLoad;
     MenuManager.state destinationState = MenuManager.state.SaveLoad;
@@ -47,8 +47,13 @@ public class UIAnimation : MonoBehaviour
     bool AnimateElement()
     {
         float step = speed * Time.deltaTime;
+        Vector3 posBtn = uiButtonOriginalPos[(int)myState];
+        posBtn.x += 800.0f;
+
         Vector3 pos = originalPosition;
         pos.x += 800.0f;
+
+        uiElementButtons[(int)myState].transform.position = Vector3.MoveTowards( uiElementButtons[(int)myState].transform.position, posBtn, step);
         uiElements[(int)myState].transform.position = Vector3.MoveTowards( uiElements[(int)myState].transform.position, pos, step );
         if( uiElements[(int)myState].transform.position == pos )
         {
