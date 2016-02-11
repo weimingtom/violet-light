@@ -17,6 +17,7 @@ TagManager:
   - inventory_item_text
   - PresentButton
   - InventoryHolder
+  - test
   layers:
   - Default
   - TransparentFX

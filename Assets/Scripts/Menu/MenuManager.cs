@@ -5,10 +5,11 @@ using System.Collections;
 public class MenuManager : MonoBehaviour
 {
 
-	private enum state
+	public enum state
 	{
         SaveLoad,
         Evidence,
+        Note,
         end
 	}
 
@@ -18,44 +19,16 @@ public class MenuManager : MonoBehaviour
 	private state myState;
     //animation purposes
     public GameObject[] States;
-    public GameObject[] StatesButton;
-    public Vector3[] menuUIOriginalPos;
-    public Vector3[] btnUIOriginalPos;
-    public float offset = 100.0f;
-    private bool moveRight = true;
     public float speed = 1.0f;
-    private bool animateMenu = false;
-    private state animateState = state.SaveLoad;
-
     void Awake()
     {
         instance = this;
     }
-
 	void Start () 
     {
         menu.SetActive(false);
         active = false;
-        myState = state.Evidence;
-        InitializeUI();
-    }
-    void InitializeUI()
-    {
-        if( States.Length != StatesButton.Length )
-        {
-            Debug.Log( "menu ui need to have btn come with it" );
-            Debug.Break();
-        }
-        else
-        {
-            menuUIOriginalPos = new Vector3[States.Length];
-            btnUIOriginalPos = new Vector3[StatesButton.Length];
-            for( int i = 0; i < menuUIOriginalPos.Length; i++ )
-            {
-                menuUIOriginalPos[i] = States[i].transform.position;
-                btnUIOriginalPos[i] = StatesButton[i].transform.position;
-            }
-        }
+        myState = state.SaveLoad;
     }
 
 	void Update () 
@@ -110,11 +83,13 @@ public class MenuManager : MonoBehaviour
                 case "btn_evidence":
                     ChangeState(state.Evidence);
                     break;
+                case "btn_note":
+                    ChangeState( state.Note );
+                    break;
                 default:
                     Debug.Log("ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn);
                     break;
             }
-    
         }
          
     }
@@ -150,42 +125,17 @@ public class MenuManager : MonoBehaviour
 	private void ChangeState(state newState)
 	{
 		//do fancy transistion animation between states
-        States[(int)myState].transform.SetAsLastSibling();
-        //States[(int)myState].SetActive( false );
-		//set our new state
-        States[(int)newState].transform.SetAsFirstSibling();
-		myState = newState;
+        //States[(int)myState].transform.SetAsLastSibling();
+        if( myState != newState )
+        {
+            //Refactor!
+            UIAnimation.Instance.StartAnimate(newState);
+            //ResetPosition();
+            //AnimateState(newState);
 
+		    myState = newState;
+        }
 	}
-    private void AnimateMenu()
-    {
-        if( animateState == myState )
-        { 
-            animateState++;
-        }
-        else if( animateState == state.end )
-        {
-            animateMenu = false;
-        }
-        else
-        {
-            float step = speed * Time.deltaTime;
-            Vector3[] dest = new Vector3[2];
-            dest[0] = menuUIOriginalPos[(int)animateState];
-            dest[1] = btnUIOriginalPos[(int)animateState];
-            if(moveRight == true)
-            {
-                dest[0].x += offset;
-                dest[1].x += offset;
-            }
-            States[(int)animateState].transform.position = Vector2.MoveTowards( States[(int)animateState].transform.position, dest[0], step );
-            StatesButton[(int)animateState].transform.position = Vector2.MoveTowards( States[(int)animateState].transform.position, dest[1], step );
-            if( States[(int)animateState].transform.position == dest[0] && StatesButton[(int)animateState].transform.position == dest[1] )
-            {
-                animateState++;
-            }
-        }
-    }
     private void OpenMenu()
     {
 		//Do fancy transition animation
@@ -200,9 +150,14 @@ public class MenuManager : MonoBehaviour
 
         //set menu back to default state
         ChangeState( state.SaveLoad );
+		//reset menu hierarchy
+        foreach( GameObject ui in States )
+        {
+            ui.SetActive(true);
+        }
         menu.SetActive(false);
-		//delte input eater
-
+        //delte input eater
+        
         // TODO(jesse): Hacky fix to input blocker disappearing while still in dialogue
         // so we need to make a better one
         if (!CommandManager.Instance.myBannerBox.activeInHierarchy)
