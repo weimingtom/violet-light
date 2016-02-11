@@ -12,6 +12,8 @@ public class MenuManager : MonoBehaviour
         Note,
         Location,
         Suspect,
+        Puzzle,
+        Setting,
         end
 	}
 
@@ -73,7 +75,7 @@ public class MenuManager : MonoBehaviour
         if (!CommandManager.Instance.myBannerBox.activeInHierarchy)
         {
             //animateMenu = true;
-            switch (btn)
+            switch (btn.ToLower())
             {
                 case "btn_save_load":
                     ChangeState(state.SaveLoad);
@@ -89,6 +91,12 @@ public class MenuManager : MonoBehaviour
                     break;
                 case "btn_suspect":
                     ChangeState( state.Suspect );
+                    break;
+                case "btn_puzzle":
+                    ChangeState( state.Puzzle );
+                    break;
+                case "btn_setting":
+                    ChangeState( state.Setting );
                     break;
                 default:
                     Debug.Log("ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn);
