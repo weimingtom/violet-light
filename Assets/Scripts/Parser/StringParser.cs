@@ -47,10 +47,9 @@ public class StringParser : MonoBehaviour
             switch( command[0] )
             {
             case '$':
-                delimiter = new char[3];
+                delimiter = new char[2];
                 delimiter[0] = '$';
-                delimiter[1] = '$';
-                delimiter[2] = '"';
+                delimiter[1] = '"';
                 parsedCommand = command.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
                 if( parsedCommand.Length == 3 )
                 {
@@ -68,6 +67,13 @@ public class StringParser : MonoBehaviour
                 ShowTextCommand showText = new ShowTextCommand();
                 showText.SetConversation( parsedCommand[0].ToLower() );
                 CommandManager.Instance.AddCommand(showText);
+                break;
+            case '~':
+                delimiter = new char[4];
+                delimiter[0] = '$';
+                delimiter[1] = '~';
+                delimiter[2] = '"';
+                //parsedCommand = ;
                 break;
             default:
                 delimiter = new char[1];
