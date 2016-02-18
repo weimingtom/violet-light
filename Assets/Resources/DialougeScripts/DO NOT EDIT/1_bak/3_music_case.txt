@@ -1,0 +1,13 @@
+v puzzled
+v “Hey alex, look at this.”
+
+a “Hmmm?”
+
+v “An empty record case, among all the others.”
+
+a “We should keep a look out for the record, it could help us catch the killer.”
+a scribbling
+
+v “Good idea!”
+
+“Empty Record Case Added”

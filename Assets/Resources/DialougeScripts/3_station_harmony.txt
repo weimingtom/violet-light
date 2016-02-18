@@ -1,0 +1,26 @@
+// Learn about some of the evidence by presenting it to Harmony
+
+a “Harmony, we’re back!”
+
+h sad
+h “.........”
+
+a “Uhm-”
+
+v “Ah, hey Harmony!”
+
+h excited
+h “!!!!..!”
+
+h happy
+a “R-right, we’d like to ask you some questions..."
+h sad
+
+v srs
+v “Maybe I should do the talking..."
+
+a unimpressed
+a “Wh-what did I even do?”
+
+// This should really be presented like questions. that you can ask in any order, and present and such
+v “So ”

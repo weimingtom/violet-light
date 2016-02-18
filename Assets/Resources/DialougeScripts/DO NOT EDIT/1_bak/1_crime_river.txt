@@ -1,0 +1,10 @@
+show Alexander Right1
+show Violet Left1
+pose Alexander puzzled
+pose Violet neutral
+
+a puzzled
+a “I wonder where where the body was dumped for it to get here.”
+v “The river Thames is the second longest in the world so we have a long ways to look.”
+a “If we were going to do that we had better hurry up because the tide is going to come back in soon.”
+v “We can leave the grunt work to the ‘ace detective.’”

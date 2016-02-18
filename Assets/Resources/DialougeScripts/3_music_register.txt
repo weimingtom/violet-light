@@ -1,0 +1,17 @@
+v “Seems like the cash register is pretty well stocked.”
+
+puzzled
+a “You seem a little too interested in that cash.”
+
+v upset
+v “H-huh...”
+v “ALEX!”
+v “you think I would steal from my beloved friend?”
+
+v happy
+a unimpressed
+a “Uhm- N-no Of course not!”
+
+v “Good, now look the other way.”
+
+a “W-wait.”

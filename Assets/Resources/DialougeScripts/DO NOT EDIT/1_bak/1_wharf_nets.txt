@@ -1,0 +1,11 @@
+show Alexander Right1
+show Violet Left1
+pose Alexander neutral
+pose Violet neutral
+
+v “Wow, look at how big these nets are! Should I stuff them in my pocket and take them with me? I could throw it on the bad guy at the very last second and then he would scream ‘AH! I would have gotten away with it too if it weren’t for this fishnet!”
+pose Alexander Unimpressed
+a “Violet… You’re embarrassing me.”
+v “Loosen up a little bit, don’t get all tangled over a couple of nets.”
+a “Ahh! Don’t touch me with that! It’s all slimy!
+

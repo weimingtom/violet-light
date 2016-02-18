@@ -1,15 +1,15 @@
-BG=alleyway
+BG=hotel
 ID=0
-NM=Alley Way
+NM=Mountain Side Inn
 TM=1005
-PF=TestArea1
+PF=Inn
 DONE
 
-BG=bridge
+BG=police_station
 ID=1
-NM=Bridge
+NM=Police Station
 TM=0605
-PF=TestArea2
+PF=station
 DONE
 
 BG=market
@@ -19,30 +19,30 @@ TM=0605
 PF=TestArea3
 DONE
 
-BG=crimescene
+BG=crime_scene
 ID=3
 NM=Crime Scene
 TM=0605
-PF=demo_crimescene
-DONE
-
-BG=police_station
-ID=4
-NM=Police Station
-TM=0605
-PF=demo_policestation
+PF=crime
 DONE
 
 BG=music_shop
-ID=5
+ID=4
 NM=Rush's Music Shop
 TM=0605
-PF=demo_music
+PF=music
 DONE
 
 BG=docks
-ID=6
+ID=5
 NM=Fisherman's Wharf
 TM=0605
-PF=demo_warf
+PF=wharf
+DONE
+
+BG=sax_man_house
+ID=5
+NM=Fisherman's Wharf
+TM=0605
+PF=estate
 DONE

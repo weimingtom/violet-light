@@ -1,0 +1,28 @@
+// Find subtle evidence of there being THREE people at the social gathering, this is hint towards secret that Harmony is killer too
+v thinking
+v “Hmmm... Two spots of afternoon tea.”
+
+a “So there was most likely two people here.”
+a shock
+a “H-hey Violet don’t stick your finger in it!”
+
+v neutral
+v “Just as I thought, room temperature.”
+
+a “WAIT DON’T DRINK IT!”
+
+v “The tea is strong, it’s definitely been sitting for more than 24 hours.”
+
+a “Wow, that’s uh, kinda impressive.”
+
+a scribbling
+v “I think we can deduce that there was definitely more than one person here.”
+
+a “Why would he just leave all this evidence out here though? If this guy is our killer, then you think he would clean up right?”
+
+v “He’s probably just busy... or absent minded.”
+
+a thinking
+a “Hmmm... “
+
+“Tea cups added to evidence locker”

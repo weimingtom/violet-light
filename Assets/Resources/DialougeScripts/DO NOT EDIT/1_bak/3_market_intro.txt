@@ -1,0 +1,33 @@
+//Short scene, forces you to go to police station after
+
+a tired
+v happy
+v “hehehe, alex why so gloom?”
+
+a “It’s earrrly!”
+
+v “Don’t whine, love!”
+v cocky
+v “It’s childish.”
+
+a “COMING FROM YOU!”
+
+v “Hahaha”
+
+a “You got to sleep right away, AND slept in.”
+
+v “Mmmhmm...”
+
+a “I had to wait an extra hour before you would finally get out of bed.”
+
+v “Hehehe”
+
+a “Look, we need to head to the police station. We can finally ask harmony questions now.”
+
+v neutral
+v “Of course.”
+v “I’m just waitin on youuu~”
+
+a “... right...”
+
+// end fade out, go to police station

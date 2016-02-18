@@ -1,0 +1,11 @@
+show Alexander Right1
+show Violet Left1
+pose Alexander neutral
+pose Violet neutral
+
+a “I didn’t know there were fish in this river.”
+v “Silly Alex, there are fish in every river.”
+pose unimpressed
+a “I meant that I didn’t know that there were enough fish to be able to fish commercially.”
+v “This is far from a commercial fishing barge. This looks like one man trying to feed a couple hungry mouths.”
+a “I guess you’re right.”

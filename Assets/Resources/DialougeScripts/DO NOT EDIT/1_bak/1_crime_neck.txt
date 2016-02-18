@@ -1,0 +1,41 @@
+v surprised
+v “H-huh!? What’s this?”
+a curious
+a “What did you find Violet?”
+
+v thinking
+v “Doesn’t the back of her neck look... a littttle strange to you?”
+
+a thinking
+a “Uhm- I mean she’s kinda pale...”
+
+v upset
+
+a unimpressed
+
+v “ALEX! NO NOT THAT!”
+v happy
+v “You dork!”
+
+a “...”
+
+a neutral
+v thinking
+
+v “She appears to have some sort of mark... as if something injured her neck”
+
+a thinking
+a “Hmmm, you’re right...”
+a “It’s not post mortem, you can tell by the color of the mark.”
+
+v “Could it have been some kind of rope or... jewelry?”
+
+a scribble
+a “I’ll write it down, maybe someone else might know more.”
+
+// It’s a necklace that had been torn off her neck
+
+“Neck wound added to journal!”
+// Add to journal
+
+// scene end

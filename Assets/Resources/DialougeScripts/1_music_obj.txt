@@ -1,0 +1,8 @@
+// Policemen stop you
+show Alexander right1
+Show Violet left2
+
+pose Alexander neutral
+pose Violet Neutral
+
+$AX$ “We can't touch that!”

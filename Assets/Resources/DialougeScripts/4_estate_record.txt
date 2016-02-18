@@ -1,0 +1,11 @@
+// Record matches Case
+a “Hey isn’t this...”
+a “The same record as the empty case we found earlier?”
+
+v “It appears sooo, Detective Alex!”
+
+a scribbling
+a “That almost defiantely places Melody at the scene of the crime!”
+
+
+“Empty record case updated!”

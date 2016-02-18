@@ -1,0 +1,36 @@
+// Sharp has to come with you or something, to see the breakdown, gotta work that in
+// Maybe go back to police station for final confrontation?
+
+a “Detective Sharp. I think we know who the real murderer is!”
+
+s “Huh, do you have any evidence, kid?”
+
+
+a nervous
+a “Uhm..."
+
+v srs
+v “We don’t have anything decisive yet.”
+v “But we’re so close.”
+
+s “Sigh~”
+s “Unless you can prove it was him-”
+
+v “Looook, just come with us. We can get him to admit to the crime.”
+
+s “I don’t really have time for games..."
+
+a “Is that because you need more evidence against Harmony?”
+
+
+s shock
+s “Well, I mean-”
+
+
+a “If you come with us you won’t need to look any further.
+
+s “You’ve got 15 minutes, kid.”
+
+v “Let’s bolt then~”
+
+// end scene, can now travel to Sax Guy’s house again

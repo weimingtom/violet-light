@@ -1,0 +1,94 @@
+v happy
+v “Hey Ho! All aboaarrrd!”
+
+a embarrassed
+a “Uhm... what are you doing violet?”
+
+v neutral
+v “Fisherman folk talk.”
+
+f “Why, Uhm... EHello derethere!”
+
+v neutral
+v “Fisherman folk talk.”
+
+a nervous
+a “R-right.”
+a neutral
+a “Hello, my name is Alexander, and this is my partner Violet.”
+
+f “Nice to meet you, I’m Dale!”
+
+v “The pleasure is ours”
+
+a “Do you mind if we ask you some questions?”
+
+f “Well, I’m awfully busy at the moment.”
+
+// Buuuut if you help with the puzzle? Jk puzzles removed
+
+f “Awh, well I suppose I could spare a couple of seconds for some fine young chaps like yourselves.”
+
+v happy
+v “Awww, thanks love!”
+v neutral
+
+a “Perfect.”
+a “Do you happen to know of anyone around here who discovered a body last morning?”
+
+f “Awh! That I do!”
+f “You be lookin at em’!”
+
+a neutral
+a “Huh?”
+
+v “He means himself, you dummy.”
+
+f “in the flesh!”
+
+a “Ri-right!”
+
+f “So what is it you want to know?”
+
+a “What can you tell us about the account?”
+a cocky
+
+f “Well i mean, I was just out ere’ sailing about, getin me’ mornin’ dues in.”
+f “When all of a sudden I spots me a floatin girl out by younder river.”
+
+a neutral
+
+f “An’ that’s when I saild’o’er er’ and found ‘er floatin’ ashore by y’old’river”
+
+a “uhm...”
+
+f “An’ then I be quip’n a bout, callin about, try’n to get er attention!”
+f “Then I noticed, young lass be dead!”
+
+a nervous
+
+f “An I be callin the police as I pull ashore, laying me hat on the box.”
+
+a unimpressed
+
+f “An’ then they show up and question me an be off!”
+
+a “Uhm... thank you... for that...”
+
+v cocky
+v “Hmm... so you’re saying she washed ashore as you saw her this morning?”
+a surprised
+
+f “Exactly!”
+
+a scribbling
+a “W-wow Violet.”
+
+v “That’s why I’m the expert”
+
+v “Anyways thank you for your time, we won’t keep you any longer.”
+
+f “New proben!”
+
+“Report update in journal”
+// add that she had just floated ashore that morning

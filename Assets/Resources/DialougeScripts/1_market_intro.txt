@@ -1,0 +1,22 @@
+Show Alex Left
+Show Violet Right
+
+// if came here before music shop	 
+<Alex> "Do you really think we'll find anything here, Violet? Shouldn't we be checking out the Music Shop first?"
+<Violet> "Well of course we'll go there next, but you know I just had a strange feeling that there'd be something here we won't be able to find later."
+<Alex> "Wait, so your approach to solving this case is based on feelings and hunches?"
+Violet Happy
+<Violet> "Well of cour-- Wait, if you put it that way it makes me seem like an idiot, doesn't it? You could say that sometimes I decide to follow my instincts, call it a woman's intuition. That's all."
+Alex Unimpressed
+<Alex> "..."
+// else
+	<Alex> “Do you think anyone around here will know anything useful?”
+	Violet Thinking
+	<Violet> “Hmmm... I mean maybe! B-but probably not.”
+	Alex Unimpressed	
+<Alex> “Th-then why did we come here?”
+Violet Happy
+<Violet> “Well because! There’s gotta be some delicious places to eat around here! Don’t you think?”
+<Alex> “Wh-WHAT, What about the case?”
+// Violet walks off screen
+<Alex> “H-hey! C-COME BACK!”

@@ -1,0 +1,120 @@
+show Alex Right1
+show Violet Right2
+Alex Neutral
+Violet Neutral
+
+show Sharp left //facing wrong way
+Sharp Cocky
+<SP> “Well... yeah? Of course I was right!”
+Sharp Thinking
+<SP> “H-huh?[pause] Behind me?[eff discovery]”
+// Sharp Turns around
+Sharp Neutral
+<SP> “Woah, woah, woah. HOLD IT![eff yell]”
+<SP> “This... This, is a Crime Scene.”
+<SP> “Common folk like yourselves can’t be here.
+<SP> “Especially you sweetheart.”
+
+violet upset
+<VL> “You...”
+
+Alex unimpressed
+<AX> “Keep it together Violet...”
+
+<VL> “Eh, ehm..”
+Violet Neutral
+<VL> “Actually, you’re wrong, love.”
+
+Sharp Surprised
+
+Violet Cocky
+<VL> “We’re Miss Rush’s lawyers, on official business.”
+
+
+
+
+Alex Surprised
+<AX> “Wait, We are-?” // Gets cut off
+
+<VL> “As you can see by my official papers, [Show Icon Notebook very quickly then hide] so please step aside, we’re looking for someone with a knife.”
+
+Sharp Nervous
+<SP> “U-uh right!”
+Sharp Cocky
+<SP> “Of course, Miss...?”
+
+<VL> “Light, Violet Light. And this Is my assistant Alexander Strong.”
+
+Alex Unimpressed
+<AX> “[small text] W-wow that worked. I think this is illegal...” //cut off
+
+<SP> “I’m Detective Sharp, but there really isn’t much to investigate here. It’s a pretty open and shut case, if I do say so myself.”
+
+<VL> “I’ll be the judge of that!”
+
+<SP> “Uh, well no you won’t. The judge will.”
+
+Violet Nervous
+<VL> “R-right!”
+
+Alex Neutral
+
+<SP> “So what’s this about a knife?”
+
+// TODO Choice? Maybe put in the choice to say either We were looking for: A man named Sharp, A knife man, or a Sharply dressed man
+
+Alex Thinking
+<AX> “No, no, no..[pause] We were looking for the lead detective, he was supposed to be sharply dressed or something...“
+
+Sharp Neutral
+<SP> “Well that’s me! Just because I look young doesn’t mean I can’t be in charge here.”
+
+<VL> “Uhuh...[pause] we need to get access to the crime scene. How about you tell your goons to let us through?”
+
+Sharp Cocky
+<SP> “I guess, but it’s not like you’re going to find anything I haven’t already found yet.”
+Sharp Serious
+<SP> “Really you two, uh… ‘Lawyers’, should just give up now. I have this case totally under control.”
+
+Violet Cocky
+<VL> “It won’t be that simple for ya, love. I’ve never lost a case.” 
+
+Sharp Shock
+<SP> “Wh-what?”
+Sharp Nervous
+<SP> “Psh, neither have I!”
+Sharp Cocky
+<SP> “Actually sweetheart, none of my investigations ever last longer than a day...”
+<SP> “I usually find the culprit within thean hour, so, y’know, have fun losing.” 
+
+Alex unimpressed
+// Under his breath, quiet, small text, gets cut off
+<AX> “You’ve never actually taken a crime case before, nor are you a lawyer-“ 
+
+// Sharp and violet stare at eachother
+
+
+// TODO This needs to be expanded
+// Adam suggested: maybe mention that he will tell his blue's to stand down and then you can talk to a police guy who will give you the report.
+// And that makes more sense character wise.
+
+Sharp Neutral
+<SP> “Anyways, you guys’ll need this if you don’t have a copy already. [show Police report icon] It’s a report of what we know about the body at this time.”
+
+Alex Scribbling
+<AX> “I’ll take that, thank you.”
+
+<SP> “I’ve got some important detective business to attend to, so I’ll catch you two ladies later!”
+
+// Sharp leaves
+
+<AX> “W-wait, [small text]I’m not a lady...”
+
+Violet Neutral
+
+<VL> “Time to look around!~”
+<AX> “R-right”
+
+//Sharps information added/updated in journal Gain access to going to town, fish docks, music shop
+
+//scene end
