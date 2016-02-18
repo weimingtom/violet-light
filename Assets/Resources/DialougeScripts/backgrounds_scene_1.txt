@@ -1,0 +1,7 @@
+sax_man_house "Textures/Backgrounds/saxhouse"
+market "Textures/Backgrounds/marketsquare"
+crime_scene "Textures/Backgrounds/crime_scene"
+hotel "Textures/Backgrounds/bg_hotel"
+police_station "Textures/Backgrounds/holding_cell"
+music_shop "Textures/Backgrounds/music_shop"
+docks "Textures/Backgrounds/docks"

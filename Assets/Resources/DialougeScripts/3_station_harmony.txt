@@ -1,26 +1,26 @@
 // Learn about some of the evidence by presenting it to Harmony
 
-a “Harmony, we’re back!”
+$AX$ "Harmony, we’re back!”
 
-h sad
-h “.........”
+pose Harmonysad
+<HR> “.........”
 
-a “Uhm-”
+$AX$ "Uhm-”
 
-v “Ah, hey Harmony!”
+$VL$ "Ah, hey Harmony!”
 
-h excited
-h “!!!!..!”
+pose Harmonyexcited
+<HR> “!!!!..!”
 
-h happy
-a “R-right, we’d like to ask you some questions..."
-h sad
+pose Harmonyhappy
+$AX$ "R-right, we’d like to ask you some questions..."
+pose Harmonysad
 
-v srs
-v “Maybe I should do the talking..."
+pose Violet Serious
+$VL$ "Maybe I should do the talking..."
 
-a unimpressed
-a “Wh-what did I even do?”
+pose Alexander Unimpressed
+$AX$ "Wh-what did I even do?”
 
 // This should really be presented like questions. that you can ask in any order, and present and such
-v “So ”
+$VL$ "So ”

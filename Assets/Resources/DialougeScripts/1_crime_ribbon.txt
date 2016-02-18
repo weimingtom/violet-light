@@ -1,20 +1,20 @@
-v thinking
-v “look at this.”
+pose Violet Thinking
+$VL$ "look at this.”
 
-a neutral
-a “I don’t see anything...”
+pose Alexander Neutral
+$AX$ "I don’t see anything...”
 
-v cocky
-v “Exactly.”
+pose Violet Cocky
+$VL$ "Exactly.”
 
-a shocked
-a “Oh! Part of her dress is missing on this side.”
-a “Some sort of ribbon?”
+pose Alexander Shocked
+$AX$ "Oh! Part of her dress is missing on this side.”
+$AX$ "Some sort of ribbon?”
 
-v “Write it down alex!”
+$VL$ "Write it down alex!”
 
-a scribbling
-a “On it!”
+pose Alexander Scribbling
+$AX$ "On it!”
 
 “missing ribbon added to journal”
 // add to journal

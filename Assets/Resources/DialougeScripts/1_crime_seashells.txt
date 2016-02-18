@@ -5,15 +5,15 @@ pose Alex Thinking
 pose Violet Neutral
 
 $VL$ “River Thames! Good fish, not so great for swimming or body dumping...” 
-<AX> “There’s a multitude of seashells and trash that line the river bed...”
+$AX$ “There’s a multitude of seashells and trash that line the river bed...”
 
-<VL> “Well… y’know river Thames is both a freshwater and saltwater river.”
+$VL$ “Well… y’know river Thames is both a freshwater and saltwater river.”
 
 pose Alex neutral 
-<AX> “Ah! I see! So that explains the bustling fishing life.”
+$AX$ “Ah! I see! So that explains the bustling fishing life.”
 
 pose Violet happy
-<VL> “Mhmm! The variety of fresh and saltwater fish in this city is really great! I’m getting hungry just thinking about it.”
+$VL$ “Mhmm! The variety of fresh and saltwater fish in this city is really great! I’m getting hungry just thinking about it.”
 
 pose Alex Unimpressed
-<VL> “Maybe we should focus on the case...”
+$VL$ “Maybe we should focus on the case...”

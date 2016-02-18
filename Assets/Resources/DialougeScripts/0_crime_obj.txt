@@ -1,12 +1,12 @@
 show Violet Right1
 show Alex Right2
 
-<VL> “I wonder what this is?”
+$VL$ “I wonder what this is?”
 
-<PL> “HEY! YOU CAN’T TOUCH THAT!”
+$PL$ “HEY! YOU CAN’T TOUCpose Harmony THAT!”
 
-<VL> “Ugh- no fun...”
-<VL> “Alex, try and find the guy in charge.”
+$VL$ “Ugh- no fun...”
+$VL$ “Alex, try and find the guy in charge.”
 
 pose Alexander Unimpressed
-<AX> “Why don’t you..."
+$AX$ “Why don’t you..."

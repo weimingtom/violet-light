@@ -8,25 +8,25 @@ $AX$ “Crates!”
 
 $VL$ “Good job Alex. They are probably made out oF WOOD! WHOOPDEDOO YOU LEARNED WHAT CRATES ARE MADE OUT OF!”
 
-a “What do you suppose is in these crates Violet?”
+$AX$ "What do you suppose is in these crates Violet?”
 
 
-v thinking
-v “Probably fish, or supplies or something.”
-v “You probably shouldn't lean against it though, Alexander.”
+pose Violet Thinking
+$VL$ "Probably fish, or supplies or something.”
+$VL$ "You probably shouldn't lean against it though, Alexander.”
 
 
-a “Huh? Why not?”
+$AX$ "Huh? Why not?”
 
-v shock
-v “Wait Alex, the crates! Be careful!”
+pose Violet Shock
+$VL$ "Wait Alex, the crates! Be careful!”
 
-a shock
-a “Wh-what?!”
+pose Alexander Shock
+$AX$ "Wh-what?!”
 
 
-v happy
-v “Hahaha, made’ya jump!”
+pose Violet Happy
+$VL$ "Hahaha, made’ya jump!”
 
-a unimpressed
-a “...”
+pose Alexander Unimpressed
+$AX$ "...”

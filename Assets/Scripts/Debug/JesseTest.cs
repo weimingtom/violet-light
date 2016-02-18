@@ -7,16 +7,13 @@ public class JesseTest : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        SceneManager.Instance.LoadCase( 1 );
-        SceneManager.Instance.ChangeScene( 2 );
-        MusicManager.instance.ChangeSong( "violetstheme" );
-
     }
 
     void Update()
     {
         if( Input.GetKeyDown( KeyCode.F1 ) )
         {
+            FileReader.Instance.LoadScene( "0_inn_intro" );
             FXManager.Instance.Spawn("ScreenShake");
         }
         else if( Input.GetKeyDown( KeyCode.F2 ) )

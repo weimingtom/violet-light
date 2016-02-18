@@ -5,24 +5,24 @@ show Violet left1
 pose Violet thinking
 pose Alexander neutral
 
-<AX> “What’s wrong Violet?”
+$AX$ “What’s wrong Violet?”
 
-<VL> “Look outside the [clue]Windows, Alex.”
+$VL$ “Look outside the [clue]Windows, Alex.”
 
 pose Alexander shock
-<AX> “H-huh? What about it? I mean it’s kinda icy out there...”
+$AX$ “H-huh? What about it? I mean it’s kinda icy out there...”
 pose Alexander thinking
-<AX> “B-but I don’t really see the significance.”
+$AX$ “B-but I don’t really see the significance.”
 
 pose Violet cocky
-<VL> “Alex, you dummy.”
+$VL$ “Alex, you dummy.”
 
 pose Alexander unimpressed
-<AX> “Uhm-..”
+$AX$ “Uhm-..”
 
-<VL> “The roads are salted for the winter, love.”
+$VL$ “The roads are salted for the winter, love.”
 
 pose Alexander scribbling
-<AX> “Hmm... I’ll jot that down.”
+$AX$ “Hmm... I’ll jot that down.”
 
 “Icy Streets added to your Evidence Journal”

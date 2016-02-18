@@ -4,8 +4,8 @@ show Violet Left1
 pose Alexander neutral
 pose Violet neutral
 
-v “Ah, the old black and yellow, it has been too long.”
-a “you really do love solving crimes don't you?”
-v cocky
-v “Who wouldn't fall in love with the bumble bee of justice and despair?”
-a “Whatever you say Violet.”
+$VL$ "Ah, the old black and yellow, it has been too long.”
+$AX$ "you really do love solving crimes don't you?”
+pose Violet Cocky
+$VL$ "Who wouldn't fall in love with the bumble bee of justice and despair?”
+$AX$ "Whatever you say Violet.”

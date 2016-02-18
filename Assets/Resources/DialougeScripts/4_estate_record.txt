@@ -1,11 +1,11 @@
 // Record matches Case
-a “Hey isn’t this...”
-a “The same record as the empty case we found earlier?”
+$AX$ "Hey isn’t this...”
+$AX$ "The same record as the empty case we found earlier?”
 
-v “It appears sooo, Detective Alex!”
+$VL$ "It appears sooo, Detective Alex!”
 
-a scribbling
-a “That almost defiantely places Melody at the scene of the crime!”
+pose Alexander Scribbling
+$AX$ "That almost defiantely places Melody at the scene of the crime!”
 
 
 “Empty record case updated!”

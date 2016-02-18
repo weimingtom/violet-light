@@ -1,8 +1,8 @@
-v “Looks like they’re not stopping us this time.”
-a “Well that’s good.”
+$VL$ "Looks like they’re not stopping us this time.”
+$AX$ "Well that’s good.”
 
-v “Let’s take a look around shall we?”
-v “I’m sure we can discover something quite electrifying.”
+$VL$ "Let’s take a look around shall we?”
+$VL$ "I’m sure we can discover something quite electrifying.”
 
-a unimpressed
-a “R-right.”
+pose Alexander Unimpressed
+$AX$ "R-right.”

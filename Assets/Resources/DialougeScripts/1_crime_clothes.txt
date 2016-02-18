@@ -1,23 +1,23 @@
-v happy
-v “Her clothes look absolutely adorable! As always!”
+pose Violet Happy
+$VL$ "Her clothes look absolutely adorable! As always!”
 
-a nervous
-a “Uhm- y-yeah they are quite... stunning?”
+pose Alexander Nervousous
+$AX$ "Uhm- y-yeah they are quite... stunning?”
 
-v neutral
-v “Alex! That isn’t how you compliment a woman!”
+pose Violet Neutral
+$VL$ "Alex! That isn’t how you compliment a woman!”
 
-a unimpressed
-a “Uhm- I mean, I hate to be that guy but, uhm...”
+pose Alexander Unimpressed
+$AX$ "Uhm- I mean, I hate to be that guy but, uhm...”
 
-v thinking
-v “I mean usually you should use a word like beautiful... but you don’t want to come off too strong...”
-v “So maybe pretty?”
-v happy
-v “OH maybe charming!”
+pose Violet Thinking
+$VL$ "I mean usually you should use a word like beautiful... but you don’t want to come off too strong...”
+$VL$ "So maybe pretty?”
+pose Violet Happy
+$VL$ "Oh maybe charming!”
 v surprised
-v “Wait? Do you notice anything odd about the dress?”
+$VL$ "Wait? Do you notice anything odd about the dress?”
 
-a thinking
-a “Hmmm...”
-a “She is dressed up fairly elaborately for an average night out...” 
+pose Alexander Thinking
+$AX$ "Hmmm...”
+$AX$ "She is dressed up fairly elaborately for an average night out...” 
