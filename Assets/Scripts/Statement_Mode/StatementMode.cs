@@ -4,35 +4,25 @@ using System.Collections.Generic;
 public class StatementMode
 {
     //use set display command
-
-    List<string> mainStatements;
-    Dictionary<int, List<string>> pushStatements;
+    List<string> mainStatements = new List<string>();
+    Dictionary<int, List<string>> pushStatements = new Dictionary<int, List<string>>();
     List<string> endText;
 
-
-    int mainIndex;
-    int pushIndex;
-    int endTextIndex;
+    int mainIndex = 0;
+    int pushIndex = 0;
+    int endTextIndex = 0;
 
     public bool push { get; set; }
     public bool end { get; set; }
-	// Use this for initialization
-	public void OnInitialize ()
-    {
-        mainStatements = new List<string>();
-        pushStatements = new Dictionary<int, List<string>>();
-        endText = new List<string>();
-        mainIndex = 0;
-        pushIndex = 0;
-        endTextIndex = 0;
-	}
 
     public void AddMainStatement(string str)
     {
         mainStatements.Add( str );
     }
+
     public void AddPushStatement(string str)
     {
+        //Rule ! push need to folowed by main
         if( mainStatements.Count == 0 )
         {
             Debug.Log( "[Stement Holder] : failed no main statement!" );
@@ -55,7 +45,7 @@ public class StatementMode
         {
             if( pushStatements.Count == 0 )
             {
-                Debug.Log( "[Stement Holder] : no push statement added!" );
+                Debug.Log( "[Stement Holder] : no push statement registered!" );
                 Debug.Break();
             }
             return pushStatements[mainIndex][pushIndex];
@@ -64,37 +54,50 @@ public class StatementMode
         {
             if( endText.Count == 0 )
             {
-                Debug.Log("[Stement Holder] : no end text!");
+                Debug.Log( "[Stement Holder] : no end text registered!" );
                 Debug.Break();
             }
             return endText[endTextIndex];
         }
         else
         {
+            if(mainStatements.Count == 0)
+            {
+                Debug.Log( "[Stement Holder] : no main text registered!" );
+                Debug.Break();
+            }
             return mainStatements[mainIndex];
         }
     }
+
     public void AdvancePush()
     {
-        if( pushIndex < pushStatements.Count )
+        pushIndex++;
+        if( pushIndex == pushStatements.Count )
         {
-            pushIndex++;
+            push = false;
+            pushIndex = 0;
         }
     }
 
     public void AdvanceEnd()
     {
-        if( endTextIndex < endText.Count )
+        endTextIndex++;
+        if( endTextIndex == endText.Count )
         {
-            endTextIndex++;
+            end = false;
+            endTextIndex = 0;
         }
     }
 
     public void AdvanceMain()
     {
-        if( mainIndex < mainStatements.Count )
+        mainIndex++;
+        if( mainIndex == mainStatements.Count )
         {
-            mainIndex++;
+            //if reach max play end statement
+            end = true;
+            mainIndex = 0;
         }
     }
 
@@ -105,5 +108,4 @@ public class StatementMode
             mainIndex--;
         }
     }
-
 }

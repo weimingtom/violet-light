@@ -17,6 +17,9 @@ public class EffectCommand : Commands
         FXManager.Instance.Spawn( effect );
         return true;
     }
+    public override void Reset()
+    {
+    }
     public override bool Destroy()
     {
         return true;

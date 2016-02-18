@@ -11,6 +11,9 @@ public class ChangePoseCommand : Commands
 		characaterName = character;
         newPose = pos;
 	}
+    public override void Reset()
+    {
+    }
 	public override void PrintData()
 	{
 	}

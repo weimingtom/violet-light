@@ -18,6 +18,10 @@ public class SetDisplayNameCommand : Commands
     {
 
     }
+    public override void Reset()
+    {
+        
+    }
 	public override bool Destroy()
 	{
         return true;

@@ -12,11 +12,12 @@ public class CommandManager : MonoBehaviour
     public Text myNameHolder;
     public GameObject myBannerBox;
     static public CommandManager Instance;
+    
     //counter for CommandId
 	List<string> SceneId;
     //counter for command
     int commandTracker;
-    
+    public bool loop { get; set; }
     List<Commands> myCommand;
 	public void AddCharIntoTextHolder(char c)
 	{
@@ -46,6 +47,7 @@ public class CommandManager : MonoBehaviour
 
     void Start()
     {
+        loop = true;
         myTextHolder.supportRichText = true;
         destroyCount = 0;
         done = false;
@@ -69,6 +71,19 @@ public class CommandManager : MonoBehaviour
         for( int i = 0; i < myCommand.Count; i++ )
         {
             myCommand[i].PrintData();
+        }
+    }
+    public void AdvanceCommand()
+    {
+        commandTracker++;
+        myCommand[commandTracker].Reset();
+    }
+    public void RewindCommand()
+    {
+        if( commandTracker > 0 )
+        {
+            commandTracker--;
+            myCommand[commandTracker].Reset();
         }
     }
     public void Reinitialize()
@@ -99,15 +114,18 @@ public class CommandManager : MonoBehaviour
 			     * Destroy everything
                  * Added destroy count, to reversed back to 
 			     */
-                if( destroyCount < myCommand.Count
-                    && myCommand[destroyCount].Destroy())
+                if( loop == false )
                 {
-                    destroyCount++;
-                }
-                else if(destroyCount == myCommand.Count)
-                {
-                    SceneManager.Instance.SetInputBlocker( false );
-                    done = true;
+                    if( destroyCount < myCommand.Count
+                        && myCommand[destroyCount].Destroy())
+                    {
+                        destroyCount++;
+                    }
+                    else if(destroyCount == myCommand.Count)
+                    {
+                        SceneManager.Instance.SetInputBlocker( false );
+                        done = true;
+                    }
                 }
 		    } 
             break;

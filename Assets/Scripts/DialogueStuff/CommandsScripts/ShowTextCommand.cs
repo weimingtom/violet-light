@@ -10,7 +10,7 @@ public class ShowTextCommand : Commands
     float speed = 0.015f;
     //0.035f
     string conversationTag = "";
-    string conversation = "";
+    //string conversation = "";
 	char passedChar = '\0';
     bool isMale = false;
 
@@ -23,6 +23,20 @@ public class ShowTextCommand : Commands
     bool waitForTime = false;
     bool pause = false;
     bool skipCheck = false;
+    bool loopMode = false;
+    public override void Reset()
+    {
+        htmlFront.Clear();
+        htmlBack.Clear();
+        time = 0;
+        totalTime = 0;
+        waitForTime = false;
+        pause = false;
+        indexPassed = 0;
+        timeTracker = 0;
+        InitialSetup = true;
+        loopMode = true;
+    }
     public override bool ExecuteCommand()
     {
         if( InitialSetup == true )
@@ -115,14 +129,17 @@ public class ShowTextCommand : Commands
             }
 		    else
 		    {
-                if( Input.GetMouseButtonDown( 0 ) && skipCheck == false)
+                if( loopMode == false )
                 {
+                    if( Input.GetMouseButtonDown( 0 ) && skipCheck == false )
+                    {
                         return true;
-                }
-                else
-                {
-                    skipCheck = false;
-                    return false;
+                    }
+                    else
+                    {
+                        skipCheck = false;
+                        return false;
+                    }
                 }
 		    }
         }

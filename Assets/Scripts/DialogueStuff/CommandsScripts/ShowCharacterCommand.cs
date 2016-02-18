@@ -10,6 +10,7 @@ public class ShowCharacterCommand : Commands
     {
         Debug.Log("character spawned");
         CharacterManager.Positions myPos = CharacterManager.Positions.Offscreen;
+        CharacterManager.Instance.ChangePosition( CharacterName, myPos );
         switch( SpawnLocation )
         {
         case "offscreen":
@@ -37,6 +38,10 @@ public class ShowCharacterCommand : Commands
         }
         CharacterManager.Instance.ChangePosition( CharacterName, myPos );
         return true;
+    }
+    public override void Reset()
+    {
+        CharacterManager.Instance.ChangePosition( CharacterName, CharacterManager.Positions.Offscreen );
     }
     public override void PrintData()
     {

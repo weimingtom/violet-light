@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 public class PresentHandler
 {
     public string correctItem           { get; set; }
 
-    public void SetPresentHandler( string presented, string correct )
+    public void SetPresentHandler( string correct )
     {
         correctItem = correct;
     }
