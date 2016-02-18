@@ -26,14 +26,69 @@ public class StringParser : MonoBehaviour
     }
     public void RunParse(string _mainString)
     {
+        bool testimony = false;
         char[] delimiterChar = { '\r', '\n' };
         string[] extractedWord = _mainString.Split(delimiterChar, System.StringSplitOptions.RemoveEmptyEntries);
         Debug.Log("[RunParse] wordLength : " + extractedWord.Length);
-        for( Int16 i = 0; i < extractedWord.Length; i++ )
+        if( extractedWord[0][0] == '[' )
         {
-            ParseCommand( extractedWord[i] );
-            extractedWord[i].ToLower();
-            Debug.Log("[RunParse] Data[" + i +"] : " + extractedWord[i]);
+            testimony = true;
+        }
+        switch( testimony )
+        {
+        case true:
+            TestimonyCommand tesCmd = new TestimonyCommand();
+            for( Int16 i = 0; i < extractedWord.Length; i++ )
+            {
+                ParseTestimony( ref tesCmd, extractedWord[i] );
+                extractedWord[i].ToLower();
+                Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
+            }
+        break;
+        case false:
+            for( Int16 i = 0; i < extractedWord.Length; i++ )
+            {
+                ParseCommand( extractedWord[i] );
+                extractedWord[i].ToLower();
+                Debug.Log("[RunParse] Data[" + i +"] : " + extractedWord[i]);
+            }
+        break;
+        }
+    }
+    void ParseTestimony( ref TestimonyCommand tes ,string str)
+    {
+        string[] extracted;
+        if( str[0] == 't' )
+        {
+            extracted = str.Split(' ');
+            tes.SetItem(int.Parse( extracted[1] ), extracted[2] );
+        }
+        else
+        {
+            char[] delimiter = { '+', '$' ,'"'};
+            switch( str[0] )
+            {
+            case '+':
+                extracted = str.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
+                tes.AddMainStatement(extracted[0], extracted[1]);
+                break;
+            case '-':
+                delimiter[0] = '-';
+                extracted = str.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
+                tes.AddPushStatement( extracted[0], extracted[1] );
+                break;
+            default:
+                extracted = str.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
+                if( extracted.Length == 2 )
+                {
+                    tes.AddEndStatement( extracted[0], extracted[1] );
+                }
+                else if( extracted.Length == 3 )
+                {
+                    tes.AddEndStatement( extracted[0], extracted[1] );
+                }
+                break;
+            }
         }
     }
     void ParseCommand(string command)

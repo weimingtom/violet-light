@@ -4,8 +4,11 @@ using System.Collections.Generic;
 public class StatementMode
 {
     //use set display command
+    List<string> nameTag = new List<string>();
+    List<string> endNameTag = new List<string>();
     List<string> mainStatements = new List<string>();
     Dictionary<int, List<string>> pushStatements = new Dictionary<int, List<string>>();
+    Dictionary<int, List<string>> pushStatementsNameTag = new Dictionary<int, List<string>>();
     List<string> endText;
 
     int mainIndex = 0;
@@ -15,12 +18,13 @@ public class StatementMode
     public bool push { get; set; }
     public bool end { get; set; }
 
-    public void AddMainStatement(string str)
+    public void AddMainStatement( string nmTag ,string str)
     {
+        nameTag.Add( nmTag );
         mainStatements.Add( str );
     }
 
-    public void AddPushStatement(string str)
+    public void AddPushStatement( string nmTag, string str)
     {
         //Rule ! push need to folowed by main
         if( mainStatements.Count == 0 )
@@ -30,12 +34,21 @@ public class StatementMode
         }
         else
         {
-            pushStatements[mainStatements.Count - 1].Add( str );
+            try
+            {
+                pushStatements[mainStatements.Count - 1].Add( nmTag );
+            }
+            catch( System.Collections.Generic.KeyNotFoundException )
+            {
+                pushStatements[mainStatements.Count - 1] = new List<string>();
+                pushStatements[mainStatements.Count - 1].Add( nmTag );
+            }
         }
     }
 
-    public void AddEndText( string str )
+    public void AddEndText(string nm, string str )
     {
+        endNameTag.Add( nm );
         endText.Add( str );
     }
 
@@ -90,22 +103,36 @@ public class StatementMode
         }
     }
 
-    public void AdvanceMain()
+    public void AdvanceText()
     {
-        mainIndex++;
-        if( mainIndex == mainStatements.Count )
+        if( push )
         {
-            //if reach max play end statement
-            end = true;
-            mainIndex = 0;
+            AdvancePush();
+        }
+        else if( end )
+        {
+            AdvanceEnd();
+        }
+        else
+        {
+            mainIndex++;
+            if( mainIndex == mainStatements.Count )
+            {
+                //if reach max play end statement
+                end = true;
+                mainIndex = 0;
+            }
         }
     }
 
-    public void RewindMain()
+    public void RewindText()
     {
-        if( mainIndex > 0 )
+        if( !push && !end )
         {
-            mainIndex--;
+            if( mainIndex > 0 )
+            {
+                mainIndex--;
+            }
         }
     }
 }

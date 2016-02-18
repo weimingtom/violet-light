@@ -4,39 +4,69 @@ using System.Collections;
 public class TestimonyCommand : Commands
 {
     StatementMode myStatementMode = new StatementMode();
-    public void AddMainStatement(string str)
+    string correctItem = "null";
+    int correctItemIndex = -1;
+
+    public TestimonyCommand()
     {
-        //parse text
-        myStatementMode.AddMainStatement( str );
+        commandTag = "testimonycommand";
     }
-    public void AddPushStatement(string str)
+    public void SetItem( int idx, string str )
     {
-        //parse text
-        myStatementMode.AddPushStatement(str);
+        correctItem = str;
+        correctItemIndex = idx;
     }
-    public void AddEndStatement(string str)
+    public void AddMainStatement(string nm, string str)
     {
         //parse text
-        myStatementMode.AddEndText(str);
+        myStatementMode.AddMainStatement( nm, str );
+    }
+
+    public void AddPushStatement( string nm, string str )
+    {
+        //parse text
+        myStatementMode.AddPushStatement( nm, str);
+    }
+
+    public void AddEndStatement(string nm, string str)
+    {
+        //parse text
+        myStatementMode.AddEndText( nm, str);
+    }
+
+    public void ActivatePushStatement()
+    {
+        myStatementMode.push = true;
+    }
+
+    public void Next()
+    {
+        myStatementMode.AdvanceText();
+    }
+
+    public void Back()
+    {
+        myStatementMode.RewindText();
     }
 
     public override void PrintData()
-    { 
-    
+    {
+        
     }
+
     public override void Reset()
     {
         
     }
+
     public override bool ExecuteCommand()
     {
-
+        CommandManager.Instance.SetTextHolder( myStatementMode.GetText() );
         return false;
     }
 
     public override bool Destroy()
     {
-
         return true;
     }
 
