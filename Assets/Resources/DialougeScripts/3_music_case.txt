@@ -1,13 +1,13 @@
 v puzzled
-v “Hey alex, look at this.”
+$VL$ "Hey alex, look at this.”
 
-a “Hmmm?”
+$AX$ "Hmmm?”
 
-v “An empty record case, among all the others.”
+$VL$ "An empty record case, among all the others.”
 
-a “We should keep a look out for the record, it could help us catch the killer.”
-a scribbling
+$AX$ "We should keep a look out for the record, it could help us catch the killer.”
+pose Alexander Scribbling
 
-v “Good idea!”
+$VL$ "Good idea!”
 
 “Empty Record Case Added”

@@ -1,22 +1,22 @@
 // Unimportant information
 // information about the locket. 
 
-v “oh, this looks shiny”
-a “Violet, put that down. We can't afford something like that.”
+$VL$ "oh, this looks shiny”
+$AX$ "Violet, put that down. We can't afford something like that.”
 f “that pocket watch is 18 karat gold and built by one of the finest craftsman of our time. Its sure to go splendid with your attire.”
-a “sorry but we're not in the market for jewelry right now.”
+$AX$ "sorry but we're not in the market for jewelry right now.”
 f “suit yourself, what can I do for such a handsome face?”
-v “do you know anything about the Rush sisters?”
+$VL$ "do you know anything about the Rush sisters?”
 f “They were here just a couple months ago, but I don't see how that is any of your business.”
-a “oh, uh, Melody's body was found dead earlier this week. We are investigating for harmony, anything you could tell us would really help.”
+$AX$ "oh, uh, Melody's body was found dead earlier this week. We are investigating for harmony, anything you could tell us would really help.”
 f “Oh I didn't realize. I'm sorry for being rude. [Pause] That poor girl.”
-a “It's understandable, you were protecting your clients.”
-v “Now tell us everything!”
+$AX$ "It's understandable, you were protecting your clients.”
+$VL$ "Now tell us everything!”
 F “They were having me appraise some jewelry. Melody brought in a stunningly beautiful locket that was worth a lot. Harmony had an equally beautiful ring, but it wasn't worth very much.”
-a “Do you think melody was murdered for her locket?”
-v “hmm, unlikely. Petty theft doesn't often end with bodies in rivers.”
-a “ehh, right.”
-v “better make a note of it anyway.”
+$AX$ "Do you think melody was murdered for her locket?”
+$VL$ "hmm, unlikely. Petty theft doesn't often end with bodies in rivers.”
+$AX$ "ehh, right.”
+$VL$ "better make a note of it anyway.”
 [Note get thing.]
 
 // it reveals locket information, get that added to journal

@@ -1,37 +1,37 @@
 v surprised
-v “H-huh!? What’s this?”
+$VL$ "H-huh!? What’s this?”
 a curious
-a “What did you find Violet?”
+$AX$ "What did you find Violet?”
 
-v thinking
-v “Doesn’t the back of her neck look... a littttle strange to you?”
+pose Violet Thinking
+$VL$ "Doesn’t the back of her neck look... a littttle strange to you?”
 
-a thinking
-a “Uhm- I mean she’s kinda pale...”
+pose Alexander Thinking
+$AX$ "Uhm- I mean she’s kinda pale...”
 
-v upset
+pose Violet Upset
 
-a unimpressed
+pose Alexander Unimpressed
 
-v “ALEX! NO NOT THAT!”
-v happy
-v “You dork!”
+$VL$ "ALEX! NO NOT THAT!”
+pose Violet Happy
+$VL$ "You dork!”
 
-a “...”
+$AX$ "...”
 
-a neutral
-v thinking
+pose Alexander Neutral
+pose Violet Thinking
 
-v “She appears to have some sort of mark... as if something injured her neck”
+$VL$ "She appears to have some sort of mark... as if something injured her neck”
 
-a thinking
-a “Hmmm, you’re right...”
-a “It’s not post mortem, you can tell by the color of the mark.”
+pose Alexander Thinking
+$AX$ "Hmmm, you’re right...”
+$AX$ "It’s not post mortem, you can tell by the color of the mark.”
 
-v “Could it have been some kind of rope or... jewelry?”
+$VL$ "Could it have been some kind of rope or... jewelry?”
 
 a scribble
-a “I’ll write it down, maybe someone else might know more.”
+$AX$ "I’ll write it down, maybe someone else might know more.”
 
 // It’s a necklace that had been torn off her neck
 

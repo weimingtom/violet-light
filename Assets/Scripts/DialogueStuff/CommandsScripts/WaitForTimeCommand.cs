@@ -40,7 +40,7 @@ public class WaitForTimeCommand : Commands
             return totalTime >= waitingTime;
         }
     }
-    public override void Reset()
+    void Reset()
     {
         totalTime = 0;
         waitingTime = 0;

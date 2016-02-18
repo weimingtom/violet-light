@@ -1,13 +1,13 @@
 // Find Subtle ref to Forever machine, on second visit
 // On first visit find matching stationary
 
-a “Hey Violet, doesn’t this stationary look familiar?”
+$AX$ "Hey Violet, doesn’t this stationary look familiar?”
 
-v “Good catch Alex!”
-v “It looks exactly like the staionary that the note we found was written on!”
+$VL$ "Good catch Alex!”
+$VL$ "It looks exactly like the staionary that the note we found was written on!”
 
-a scribbling
-a “There's definitely something up with this guy.”
+pose Alexander Scribbling
+$AX$ "There's definitely something up with this guy.”
 
 “Note updated in journal”
 

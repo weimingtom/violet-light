@@ -18,10 +18,6 @@ public class SpawnPuzzleCommand : Commands
     {
 
     }
-    public override void Reset()
-    {
-        
-    }
     public override bool Destroy()
     {
         //throw new System.NotImplementedException();

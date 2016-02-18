@@ -1,14 +1,14 @@
-fade in
+//fade in
 
-show Alex Left
-show Violet Right
-Alex Thinking
-Violet Neutral
-<AX> “So where’s the [eff clue][red]sharp[/red] guy?”
-<VL> “We’ll have to take a look around, love.”
-Violet Happy
+show Alex Left1
+show Violet Right1
+pose Alexander Thinking
+pose Violet Neutral
+$AX$ “So where’s the [eff clue][red]sharp[/red] guy?”
+$VL$ “We’ll have to take a look around, love.”
+pose Violet Happy
 
 // This joke is absolutely awful
-<VL> “I’m sure we can find the knife guy.”
+$VL$ “I’m sure we can find the knife guy.”
 
 //begin exploration

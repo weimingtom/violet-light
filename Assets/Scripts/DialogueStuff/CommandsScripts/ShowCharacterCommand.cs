@@ -6,16 +6,10 @@ public class ShowCharacterCommand : Commands
 {
     string CharacterName;
     string SpawnLocation;
-    //bool loop = false;
-    public ShowCharacterCommand()
-    {
-        commandTag = "showcharactercommand";
-    }
     public override bool ExecuteCommand()
     {
         Debug.Log("character spawned");
         CharacterManager.Positions myPos = CharacterManager.Positions.Offscreen;
-        CharacterManager.Instance.ChangePosition( CharacterName, myPos );
         switch( SpawnLocation )
         {
         case "offscreen":
@@ -44,11 +38,6 @@ public class ShowCharacterCommand : Commands
         CharacterManager.Instance.ChangePosition( CharacterName, myPos );
         return true;
     }
-    public override void Reset()
-    {
-        CharacterManager.Instance.ChangePosition( CharacterName, CharacterManager.Positions.Offscreen );
-        //loop = true;
-    }
     public override void PrintData()
     {
         Debug.Log( "Show Character Command\nCharacter Name : " + CharacterName.ToString() + " ::Spawn Location : " + SpawnLocation.ToString() );
@@ -71,6 +60,7 @@ public class ShowCharacterCommand : Commands
     }
 	public override bool Destroy()
 	{
+        //if(something)
         CharacterManager.Instance.ChangePosition( CharacterName, CharacterManager.Positions.Offscreen );
         return true;
 	}

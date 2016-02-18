@@ -1,18 +1,18 @@
 v puzzled
-v “Hmm? There’s some sort of note under here.”
+$VL$ "Hmm? There’s some sort of note under here.”
 
-a “What does it say?”
+$AX$ "What does it say?”
 
-v “‘We’ll have a birthday bash, bring your music. -s’”
+$VL$ "‘We’ll have a birthday bash, bring your music. -s’”
 
-a shocked
-a “Could this be addressed to melody?”
-a neutral
+pose Alexander Shocked
+$AX$ "Could this be addressed to melody?”
+pose Alexander Neutral
 
 v shrug
-v “Maybe, I don’t know when her birthday is though..."
+$VL$ "Maybe, I don’t know when her birthday is though..."
 
-a scribbling
-a “Hmmm.. we’ll have to ask her later.”
+pose Alexander Scribbling
+$AX$ "Hmmm.. we’ll have to ask her later.”
 
 “Note added to evidence locker”

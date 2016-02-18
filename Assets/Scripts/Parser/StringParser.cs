@@ -26,69 +26,14 @@ public class StringParser : MonoBehaviour
     }
     public void RunParse(string _mainString)
     {
-        bool testimony = false;
         char[] delimiterChar = { '\r', '\n' };
         string[] extractedWord = _mainString.Split(delimiterChar, System.StringSplitOptions.RemoveEmptyEntries);
         Debug.Log("[RunParse] wordLength : " + extractedWord.Length);
-        if( extractedWord[0][0] == '[' )
+        for( Int16 i = 0; i < extractedWord.Length; i++ )
         {
-            testimony = true;
-        }
-        switch( testimony )
-        {
-        case true:
-            TestimonyCommand tesCmd = new TestimonyCommand();
-            for( Int16 i = 0; i < extractedWord.Length; i++ )
-            {
-                ParseTestimony( ref tesCmd, extractedWord[i] );
-                extractedWord[i].ToLower();
-                Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
-            }
-        break;
-        case false:
-            for( Int16 i = 0; i < extractedWord.Length; i++ )
-            {
-                ParseCommand( extractedWord[i] );
-                extractedWord[i].ToLower();
-                Debug.Log("[RunParse] Data[" + i +"] : " + extractedWord[i]);
-            }
-        break;
-        }
-    }
-    void ParseTestimony( ref TestimonyCommand tes ,string str)
-    {
-        string[] extracted;
-        if( str[0] == 't' )
-        {
-            extracted = str.Split(' ');
-            tes.SetItem(int.Parse( extracted[1] ), extracted[2] );
-        }
-        else
-        {
-            char[] delimiter = { '+', '$' ,'"'};
-            switch( str[0] )
-            {
-            case '+':
-                extracted = str.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
-                tes.AddMainStatement(extracted[0], extracted[1]);
-                break;
-            case '-':
-                delimiter[0] = '-';
-                extracted = str.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
-                tes.AddPushStatement( extracted[0], extracted[1] );
-                break;
-            default:
-                extracted = str.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
-                if( extracted.Length == 2 )
-                {
-                    tes.AddEndStatement( extracted[0], extracted[1] );
-                }
-                else if( extracted.Length == 3 )
-                {
-                    tes.AddEndStatement( extracted[0], extracted[1] );
-                }
-                break;
-            }
+            ParseCommand( extractedWord[i] );
+            extractedWord[i].ToLower();
+            Debug.Log("[RunParse] Data[" + i +"] : " + extractedWord[i]);
         }
     }
     void ParseCommand(string command)
@@ -102,9 +47,10 @@ public class StringParser : MonoBehaviour
             switch( command[0] )
             {
             case '$':
-                delimiter = new char[2];
+                delimiter = new char[3];
                 delimiter[0] = '$';
-                delimiter[1] = '"';
+                delimiter[1] = '$';
+                delimiter[2] = '"';
                 parsedCommand = command.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
                 if( parsedCommand.Length == 3 )
                 {
@@ -156,11 +102,10 @@ public class StringParser : MonoBehaviour
                     CommandManager.Instance.AddCommand(newEffect);
                     break;
 				case "item":
+					//NOTE(Hendry): Temporary stuff, add item to inventory
+					//TODO(Hendry): add item command to handle this, may countain sound etc
 					ItemManager.Instance.AddItem(parsedCommand[1].ToLower());
 					break;
-                case "decisions":
-                    
-                    break;
                 case "advquest":
                     SceneManager.Instance.AdvQuest();
                     break;
@@ -298,6 +243,37 @@ public class StringParser : MonoBehaviour
         CM.SetAllToNeutral();
     }
 
+    public void ParseBackgrounds(string mainString)
+    {
+        /*          EXAMPLE STRING
+         * alleyway "Textures/Backgrounds/case1_alley"
+         * test2 "Textures/Backgrounds/backstreet_test2"
+         */
+        int i = 0;
+        while (i < mainString.Length)
+        {
+            string name = "";
+            string filepath = "";
+
+
+            while (mainString[i] != ' ')
+            {
+                name += mainString[i].ToString();
+                i++;
+            }
+            i += 2;
+            while (mainString[i] != '"')
+            {
+                filepath += mainString[i].ToString();
+                i++;
+            }
+            SceneManager.Instance.backgroundLookup.Add(name.ToLower(), filepath);
+            i += 3;
+        }
+
+
+    }
+
     public void ParseScene(string mainString)
     {
         /*      EXAMPLE STRING
@@ -309,10 +285,12 @@ public class StringParser : MonoBehaviour
          *  DONE
          */
 
+        string bg = "", name = "", prefab = "";
+         uint id = 0, time = 0;
+ 
+
         for( int i = 0; i < mainString.Length; ++i )
         {
-            string bg = "", name = "", prefab = "";
-            uint id = 0, time = 0;
 
             while( mainString[i] != ' ' && mainString[i] != '\r' && mainString[i] != '\n')
             {
@@ -349,6 +327,7 @@ public class StringParser : MonoBehaviour
                             Debug.Log( "ERROR: Could Not Parse time(TM) from string to uint [StringParser.cs]" );
                         break;
 
+
                     case 'P':
                         prefab = dogma;
                         break;
@@ -357,6 +336,11 @@ public class StringParser : MonoBehaviour
                         if( bg == null || name == null || prefab == null || id == 0 || time == 0 )
                             Debug.Log( "WARNING: Some scenes contain undefined data. [StringParser.cs]" );
                         SceneManager.Instance.NewScene( bg, id, name, time, prefab );
+                        bg = "";
+                        name = "";
+                        prefab = "";
+                        id = 0;
+                        time = 0;;
                         break;
 
                     default:
@@ -370,37 +354,6 @@ public class StringParser : MonoBehaviour
         }
 
 
-
-
-    }
-
-    public void ParseBackgrounds(string mainString)
-    {
-        /*          EXAMPLE STRING
-         * alleyway "Textures/Backgrounds/case1_alley"
-         * test2 "Textures/Backgrounds/backstreet_test2"
-         */
-        int i = 0;
-        while (i < mainString.Length)
-        {
-            string name = "";
-            string filepath = "";
-
-
-            while (mainString[i] != ' ')
-            {
-                name += mainString[i].ToString();
-                i++;
-            }
-            i += 2;
-            while (mainString[i] != '"')
-            {
-                filepath += mainString[i].ToString();
-                i++;
-            }
-            SceneManager.Instance.backgroundLookup.Add(name.ToLower(), filepath);
-            i += 3;
-        }
 
 
     }

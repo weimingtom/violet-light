@@ -10,7 +10,7 @@ public class ShowTextCommand : Commands
     float speed = 0.015f;
     //0.035f
     string conversationTag = "";
-    //string conversation = "";
+    string conversation = "";
 	char passedChar = '\0';
     bool isMale = false;
 
@@ -23,24 +23,6 @@ public class ShowTextCommand : Commands
     bool waitForTime = false;
     bool pause = false;
     bool skipCheck = false;
-    bool loopMode = false;
-    public ShowTextCommand()
-    {
-        commandTag = "showtextcommand";
-    }
-    public override void Reset()
-    {
-        htmlFront.Clear();
-        htmlBack.Clear();
-        time = 0;
-        totalTime = 0;
-        waitForTime = false;
-        pause = false;
-        indexPassed = 0;
-        timeTracker = 0;
-        InitialSetup = true;
-        loopMode = true;
-    }
     public override bool ExecuteCommand()
     {
         if( InitialSetup == true )
@@ -55,97 +37,96 @@ public class ShowTextCommand : Commands
         // NOTE(jesse): This is so you can't go to next dialogue when menu is open
         if( !MenuManager.instance.GetMenuActive() )
         {
-            if ((indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true)) 
-		    {
-                if( waitForTime == true )
-                {
-                    UpdateTime();
-                }
-                else if( pause == true  )
-                {
-                    if( Input.GetMouseButtonUp( 0 ) )
-                    {
-                            pause = false;
-                    }
-                }
-                else if(SceneManager.Instance.GetCanSkip())
-                {
-                    if( Input.GetMouseButtonDown( 0 ) )
-                    { 
-                        string passedString = "";
-                        bool checkSpecial = false;
-                        skipCheck = true;
-                        for( int i = 0; i < DialogueHolder.Instance.GetDialogue( conversationTag ).Length; i++ )
-                        {
-                            if(DialogueHolder.Instance.GetDialogue( conversationTag )[i] == '['
-                                ||DialogueHolder.Instance.GetDialogue( conversationTag )[i] == ']')
-                            {
-                                checkSpecial = !checkSpecial;
-                            }
-                            else if(checkSpecial == false)
-                            {
-                                passedString += DialogueHolder.Instance.GetDialogue( conversationTag )[i];
-                            }
-                        }
-                        CommandManager.Instance.SetTextHolder( passedString );
-                        indexPassed = DialogueHolder.Instance.GetDialogue( conversationTag ).Length;
-                    }
-                }
-            }
-            if(indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length)
+
+        
+        if ((indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true)) 
+		{
+            if( waitForTime == true )
             {
-			    if(timeTracker >= speed)
-			    {
-                    if( indexPassed >= DialogueHolder.Instance.GetDialogue( conversationTag ).Length )
-                    {
-                        Debug.Log( "index length : " + indexPassed + " conversation length : " + DialogueHolder.Instance.GetDialogue( conversationTag ).Length );
-                        Debug.Break();
-                    }
-                    passedChar = DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
-                    //check if it is html or not
-                    if( passedChar == '<'
-                        && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] != '/' )
-                    {
-                        //Add command
-                        RegisterHtmlCommand();
-                    }
-                    else if( passedChar == '<'
-                        && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] == '/' )
-                    {
-                        //delete command
-                        UnRegisterHtmlCommand();
-                    }
-                    else if(passedChar == '[')
-                    {
-                        //register custom command
-                        ParseCustomTextCommand();
-                    }
-                    else
-                    {
-                        PassTextToCommandManager();
-                    }
-                }
-			    else
-			    {
-				    timeTracker += Time.deltaTime;
-			    }
-			    return false;
+                UpdateTime();
             }
-		    else
-		    {
-                if( loopMode == false )
+            else if( pause == true  )
+            {
+                if( Input.GetMouseButtonUp( 0 ) )
                 {
-                    if( Input.GetMouseButtonDown( 0 ) && skipCheck == false )
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        skipCheck = false;
-                        return false;
-                    }
+                        pause = false;
                 }
-		    }
+            }
+            else if(SceneManager.Instance.GetCanSkip())
+            {
+                if( Input.GetMouseButtonDown( 0 ) )
+                { 
+                    string passedString = "";
+                    bool checkSpecial = false;
+                    skipCheck = true;
+                    for( int i = 0; i < DialogueHolder.Instance.GetDialogue( conversationTag ).Length; i++ )
+                    {
+                        if(DialogueHolder.Instance.GetDialogue( conversationTag )[i] == '['
+                            ||DialogueHolder.Instance.GetDialogue( conversationTag )[i] == ']')
+                        {
+                            checkSpecial = !checkSpecial;
+                        }
+                        else if(checkSpecial == false)
+                        {
+                            passedString += DialogueHolder.Instance.GetDialogue( conversationTag )[i];
+                        }
+                    }
+                    CommandManager.Instance.SetTextHolder( passedString );
+                    indexPassed = DialogueHolder.Instance.GetDialogue( conversationTag ).Length;
+                }
+            }
+        }
+        if(indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length)
+        {
+			if(timeTracker >= speed)
+			{
+                if( indexPassed >= DialogueHolder.Instance.GetDialogue( conversationTag ).Length )
+                {
+                    Debug.Log( "index length : " + indexPassed + " conversation length : " + DialogueHolder.Instance.GetDialogue( conversationTag ).Length );
+                    Debug.Break();
+                }
+                passedChar = DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
+                //check if it is html or not
+                if( passedChar == '<'
+                    && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] != '/' )
+                {
+                    //Add command
+                    RegisterHtmlCommand();
+                }
+                else if( passedChar == '<'
+                    && DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed + 1] == '/' )
+                {
+                    //delete command
+                    UnRegisterHtmlCommand();
+                }
+                else if(passedChar == '[')
+                {
+                    //register custom command
+                    ParseCustomTextCommand();
+                }
+                else
+                {
+                    PassTextToCommandManager();
+                }
+            }
+			else
+			{
+				timeTracker += Time.deltaTime;
+			}
+			return false;
+        }
+		else
+		{
+            if( Input.GetMouseButtonDown( 0 ) && skipCheck == false)
+            {
+                    return true;
+            }
+            else
+            {
+                skipCheck = false;
+                return false;
+            }
+		}
         }
         return false;
     }

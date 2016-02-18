@@ -1,33 +1,33 @@
 //Short scene, forces you to go to police station after
 
 a tired
-v happy
-v “hehehe, alex why so gloom?”
+pose Violet Happy
+$VL$ "hehehe, alex why so gloom?”
 
-a “It’s earrrly!”
+$AX$ "It’s earrrly!”
 
-v “Don’t whine, love!”
-v cocky
-v “It’s childish.”
+$VL$ "Don’t whine, love!”
+pose Violet Cocky
+$VL$ "It’s childish.”
 
-a “COMING FROM YOU!”
+$AX$ "COMING FROM YOU!”
 
-v “Hahaha”
+$VL$ "Hahaha”
 
-a “You got to sleep right away, AND slept in.”
+$AX$ "You got to sleep right away, AND slept in.”
 
-v “Mmmhmm...”
+$VL$ "Mmmhmm...”
 
-a “I had to wait an extra hour before you would finally get out of bed.”
+$AX$ "I had to wait an extra hour before you would finally get out of bed.”
 
-v “Hehehe”
+$VL$ "Hehehe”
 
-a “Look, we need to head to the police station. We can finally ask harmony questions now.”
+$AX$ "Look, we need to head to the police station. We can finally ask harmony questions now.”
 
-v neutral
-v “Of course.”
-v “I’m just waitin on youuu~”
+pose Violet Neutral
+$VL$ "Of course.”
+$VL$ "I’m just waitin on youuu~”
 
-a “... right...”
+$AX$ "... right...”
 
 // end fade out, go to police station

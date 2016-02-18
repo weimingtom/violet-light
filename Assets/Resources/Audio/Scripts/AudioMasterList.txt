@@ -3,7 +3,11 @@ v1 Audio/Music/24_-_London_Variation_(Live_Version)
 drama_theme Audio/Music/Alt_Theme_Drama
 theme Audio/Music/Theme
 violetstheme Audio/Music/Violet_Theme
-waltz Audio/Music/Waltz
-soul Audio/Music/Soul
-crime Audio/Music/Crime_Scene_Drama
-idea Audio/Music/Idea
+Crime Audio/Music/Crime
+Fisherman Audio/Music/Fisherman
+Market Audio/Music/Market
+Mountain Audio/Music/Mountain
+Music Audio/Music/Music
+Police Audio/Music/Police
+Sax Audio/Music/Sax
+Waltz Audio/Music/Waltz

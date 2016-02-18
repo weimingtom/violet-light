@@ -24,8 +24,4 @@ public class LocationCommand : Commands {
 	{
         return true;
 	}
-    public override void Reset()
-    {
-        
-    }
 }

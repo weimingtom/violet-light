@@ -1,42 +1,42 @@
-a “Harmony, whens your sister’s birthday?”
-a “Because we found a note in your shop addressing someone’s birthday.”
+$AX$ "Harmony, whens your sister’s birthday?”
+$AX$ "Because we found a note in your shop addressing someone’s birthday.”
 
-h confused
-h “...?”
-h scribble
-h “.........”
+pose Harmonyconfused
+<HR> “...?”
+pose Harmonyscribble
+<HR> “.........”
 
-v neutral
-v “She wrote ‘Just the other day, but she doesn’t like to celebrate it.’”
+pose Violet Neutral
+$VL$ "She wrote ‘Just the other day, but she doesn’t like to celebrate it.’”
 
-v srs
-v “Wait this means…”
+pose Violet Serious
+$VL$ "Wait this means…”
 
-a thinking
-a “That this card was addressed to Melody then, right?”
-a “Maybe this “S” guy has something to do with the murder.”
-a “I wonder if he’s the guy we saw yesterday...”
+pose Alexander Thinking
+$AX$ "That this card was addressed to Melody then, right?”
+$AX$ "Maybe thi$SP$ "S” guy has something to do with the murder.”
+$AX$ "I wonder if he’s the guy we saw yesterday...”
 // que flashback
 
 v explaining
-v “Well, there’s really only one way to find out. We must deduce an answer!”
-v “Harmony do you know anything about this guy?”
+$VL$ "Well, there’s really only one way to find out. We must deduce an answer!”
+$VL$ "Harmony do you know anything about this guy?”
 
-a neutral
-v neutral
+pose Alexander Neutral
+pose Violet Neutral
 
-h “...........”
+<HR> “...........”
 
-v “’No, sorry. I’ve never seen that stationary or logo before. But the man you saw yesterday might have been our investor, Mr.George.’”
+$VL$ "’No, sorry. I’ve never seen that stationary or logo before. But the man you saw yesterday might have been our investor, Mr.George.’”
 
-a shock
-a “Mr.George?”
-a scribbling
-a “Huh...”
+pose Alexander Shock
+$AX$ "Mr.George?”
+pose Alexander Scribbling
+$AX$ "Huh...”
 
 “Profile updated in case log”
 
-v srs
-v “Well it looks like we still have a lot of work to do.”
-a srs
-a “Right.”
+pose Violet Serious
+$VL$ "Well it looks like we still have a lot of work to do.”
+pose Alexander Serious
+$AX$ "Right.”
