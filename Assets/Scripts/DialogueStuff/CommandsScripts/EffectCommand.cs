@@ -4,6 +4,10 @@ public class EffectCommand : Commands
 {
     ScreenShake screenShake;
     string effect;
+    public EffectCommand()
+    {
+        commandTag = "effectcommand";
+    }
     public void SetEffect(string _effect)
     {
         effect = _effect;

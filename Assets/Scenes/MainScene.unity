@@ -4513,6 +4513,14 @@ Prefab:
       propertyPath: myBannerBox
       value: 
       objectReference: {fileID: 927234558}
+    - target: {fileID: 11445846, guid: 3007e6e1ab5808242b34a29fbdcae2ec, type: 2}
+      propertyPath: leftButton
+      value: 
+      objectReference: {fileID: 277794606}
+    - target: {fileID: 11445846, guid: 3007e6e1ab5808242b34a29fbdcae2ec, type: 2}
+      propertyPath: rightButton
+      value: 
+      objectReference: {fileID: 1068685090}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3007e6e1ab5808242b34a29fbdcae2ec, type: 2}
   m_IsPrefabParent: 0

@@ -6,7 +6,11 @@ public class ShowCharacterCommand : Commands
 {
     string CharacterName;
     string SpawnLocation;
-    bool loop = false;
+    //bool loop = false;
+    public ShowCharacterCommand()
+    {
+        commandTag = "showcharactercommand";
+    }
     public override bool ExecuteCommand()
     {
         Debug.Log("character spawned");
@@ -38,12 +42,12 @@ public class ShowCharacterCommand : Commands
         break;
         }
         CharacterManager.Instance.ChangePosition( CharacterName, myPos );
-        return !loop;
+        return true;
     }
     public override void Reset()
     {
         CharacterManager.Instance.ChangePosition( CharacterName, CharacterManager.Positions.Offscreen );
-        loop = true;
+        //loop = true;
     }
     public override void PrintData()
     {

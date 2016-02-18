@@ -24,6 +24,10 @@ public class ShowTextCommand : Commands
     bool pause = false;
     bool skipCheck = false;
     bool loopMode = false;
+    public ShowTextCommand()
+    {
+        commandTag = "showtextcommand";
+    }
     public override void Reset()
     {
         htmlFront.Clear();

@@ -68,13 +68,6 @@ public class StringParser : MonoBehaviour
                 showText.SetConversation( parsedCommand[0].ToLower() );
                 CommandManager.Instance.AddCommand(showText);
                 break;
-            case '~':
-                delimiter = new char[4];
-                delimiter[0] = '$';
-                delimiter[1] = '~';
-                delimiter[2] = '"';
-                //parsedCommand = ;
-                break;
             default:
                 delimiter = new char[1];
                 delimiter[0] = ' ';
