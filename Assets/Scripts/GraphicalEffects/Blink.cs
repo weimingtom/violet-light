@@ -6,64 +6,74 @@ using System.Collections.Generic;
 
 public class Blink : MonoBehaviour {
 
-  
-    public void Initialize( GameObject obj, float duration = 1.0f, float life = -1.0f, float dead = -1.0f )
+    //will implement the unused variables if need!!!
+
+    private float alivetime; //time between blinks, if deadtime is < 0.0f: deadtime is equal to alivetime
+    private float deadtime;  //used only if the duration it is visible is inequivelent to the duration the item is invisible
+    private float lifetime;  //item will stop blinking after this time (< 0.0f is unlimited time)
+
+    private float lastBlink; //the time when the object reached full or no alpha.
+    private float timeCreated;
+
+    private bool alive;
+    private SpriteRenderer myRenderer;
+
+    private bool run = false; //only run after initialize has been called. 
+
+
+    public void Initialize( bool fade = true, float duration = 5.0f, float life = -1.0f, float dead = -1.0f)
     {
-        myObject = obj;
         alivetime = duration;
         lifetime = life;
         if( dead < 0.0f )
             deadtime = duration;
         else
             deadtime = dead;
-        timeSinceLastBlink = Time.time;
+        lastBlink = Time.time;
         timeCreated = Time.time;
 
         alive = true;
-        myObject.SetActive( true );
+        myRenderer = gameObject.GetComponent<SpriteRenderer>();
+        myRenderer.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+        run = true;
     }
 
-    public void Update() //redo this. this is realy bad. 
+    public void pause()
     {
+        run = false;
+    }
+    public void restart()
+    {
+        run = true;
+        alive = true;
+        myRenderer.color = new Color( 1.0f, 1.0f, 1.0f, 1.0f );
+        lastBlink = Time.time;
+    }
 
-        if( !(lifetime >= 0.0f && timeCreated + lifetime < Time.time) )
+    public void UpdateThis()  //for some reason update didn't want to run so I am calling it in title manager's update.
+    {
+        if( run )
         {
-            if( alive )
-            {
-                if( timeSinceLastBlink + alivetime > Time.time )
-                {
-                    myObject.SetActive( false );
-                    alive = !alive;
-                }
-            }
+            float newAlpha; 
+            if(alive)
+                newAlpha = (float)Mathf.Lerp( 0.0f, 1.0f, (float)((float)(Time.time - lastBlink) / alivetime) );
             else
+                newAlpha = (float)Mathf.Lerp( 1.0f, 0.0f, (float)((float)(Time.time - lastBlink) / alivetime) );
+
+
+            myRenderer.color = new Color( 1.0f, 1.0f, 1.0f, newAlpha );
+
+            if( alive && newAlpha >= 1.0f || !alive && newAlpha <= 0.0f )
             {
-                if( timeSinceLastBlink + deadtime > Time.time )
-                {
-                    myObject.SetActive( true );
-                    alive = !alive;
-                }
+                alive = !alive;
+                lastBlink = Time.time;
             }
         }
-        else
-        {
-            if(!alive)
-            {
-                myObject.SetActive(true);
-                alive = true;
-            }
-        }
+
     }
 
 
-    private GameObject myObject;
-    private float alivetime; //time between blinks, if deadtime is < 0.0f: deadtime is equal to alivetime
-    private float deadtime;  //used only if the duration it is visible is inequivelent to the duration the item is invisible
-    private float lifetime;  //item will stop blinking after this time (< 0.0f is unlimited time)
-
-    private float timeSinceLastBlink;
-    private float timeCreated;
-
-    private bool alive;
+    
 
 }
