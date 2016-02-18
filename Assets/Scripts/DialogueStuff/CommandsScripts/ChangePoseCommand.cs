@@ -5,7 +5,7 @@ public class ChangePoseCommand : Commands
 {
 	string characaterName;
 	string newPose;
-
+    bool loop = false;
 	public void SetNewPose(string character, string pos)
 	{
 		characaterName = character;
@@ -13,6 +13,7 @@ public class ChangePoseCommand : Commands
 	}
     public override void Reset()
     {
+        loop = true;
     }
 	public override void PrintData()
 	{
@@ -20,7 +21,7 @@ public class ChangePoseCommand : Commands
 	public override bool ExecuteCommand()
 	{
         CharacterManager.Instance.ChangeCharacterPose( characaterName, newPose );
-		return true;
+		return !loop;
 	}
 	public override bool Destroy()
 	{
