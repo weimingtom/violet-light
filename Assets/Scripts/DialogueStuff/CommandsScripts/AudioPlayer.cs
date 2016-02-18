@@ -8,7 +8,6 @@ public class AudioPlayer : MonoBehaviour
     public AudioClip femaleBlip;
     private AudioSource audioSource;
 
-	// Use this for initialization
 	void Awake () 
     {
 		instance = this;

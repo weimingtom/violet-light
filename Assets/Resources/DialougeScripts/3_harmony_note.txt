@@ -1,42 +1,42 @@
-$AX$ "Harmony, whens your sister’s birthday?”
-$AX$ "Because we found a note in your shop addressing someone’s birthday.”
+a “Harmony, whens your sister’s birthday?”
+a “Because we found a note in your shop addressing someone’s birthday.”
 
-pose Harmonyconfused
-<HR> “...?”
-pose Harmonyscribble
-<HR> “.........”
+h confused
+h “...?”
+h scribble
+h “.........”
 
-pose Violet Neutral
-$VL$ "She wrote ‘Just the other day, but she doesn’t like to celebrate it.’”
+v neutral
+v “She wrote ‘Just the other day, but she doesn’t like to celebrate it.’”
 
-pose Violet Serious
-$VL$ "Wait this means…”
+v srs
+v “Wait this means…”
 
-pose Alexander Thinking
-$AX$ "That this card was addressed to Melody then, right?”
-$AX$ "Maybe thi$SP$ "S” guy has something to do with the murder.”
-$AX$ "I wonder if he’s the guy we saw yesterday...”
+a thinking
+a “That this card was addressed to Melody then, right?”
+a “Maybe this “S” guy has something to do with the murder.”
+a “I wonder if he’s the guy we saw yesterday...”
 // que flashback
 
 v explaining
-$VL$ "Well, there’s really only one way to find out. We must deduce an answer!”
-$VL$ "Harmony do you know anything about this guy?”
+v “Well, there’s really only one way to find out. We must deduce an answer!”
+v “Harmony do you know anything about this guy?”
 
-pose Alexander Neutral
-pose Violet Neutral
+a neutral
+v neutral
 
-<HR> “...........”
+h “...........”
 
-$VL$ "’No, sorry. I’ve never seen that stationary or logo before. But the man you saw yesterday might have been our investor, Mr.George.’”
+v “’No, sorry. I’ve never seen that stationary or logo before. But the man you saw yesterday might have been our investor, Mr.George.’”
 
-pose Alexander Shock
-$AX$ "Mr.George?”
-pose Alexander Scribbling
-$AX$ "Huh...”
+a shock
+a “Mr.George?”
+a scribbling
+a “Huh...”
 
 “Profile updated in case log”
 
-pose Violet Serious
-$VL$ "Well it looks like we still have a lot of work to do.”
-pose Alexander Serious
-$AX$ "Right.”
+v srs
+v “Well it looks like we still have a lot of work to do.”
+a srs
+a “Right.”

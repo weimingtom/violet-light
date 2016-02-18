@@ -1,33 +1,33 @@
 // Gathered enough info to know to come here. He is not home (BC he is with forever machine business, this Is foreshadowing/hint not revealed yet) but door is unlocked so Violet and Alexander trespass to see what they can find
 // Find evidence of a social gathering
 
-$VL$ "Hmmm?”
-$VL$ "Seems no one’s home...”
-$VL$ "Oh! The door’s unlocked... How enlightening.”
+v “Hmmm?”
+v “Seems no one’s home...”
+v “Oh! The door’s unlocked... How enlightening.”
 
-$AX$ "Wait, no this isn’t good.”
+a “Wait, no this isn’t good.”
 
-$VL$ "Why not Alex?”
+v “Why not Alex?”
 
-pose Alexander Unimpressed
-$AX$ "Violet.. we can’t go in... that’s trespassing.”
+a unimpressed
+a “Violet.. we can’t go in... that’s trespassing.”
 
-$VL$ "But we’re detectives now, love.”
+v “But we’re detectives now, love.”
 
-$AX$ "That’s not how it works...”
-pose Alexander Shock
-$AX$ "Violet, h-hey! Let go of me! Don’t drag me into this too!”
+a “That’s not how it works...”
+a shock
+a “Violet, h-hey! Let go of me! Don’t drag me into this too!”
 
 // fade in sax guy’s house
 
-pose Violet Happy
-$VL$ "Alex! you’re tresspassing now!”
+v happy
+v “Alex! you’re tresspassing now!”
 
-pose Alexander Unimpressed
-$AX$ "Violet...”
+a unimpressed
+a “Violet...”
 
-$VL$ "C’mon, we’re already in herrre, might as well take a look around before he get’s back.”
+v “C’mon, we’re already in herrre, might as well take a look around before he get’s back.”
 
-$AX$ "sigh”
-pose Alexander Thinking
-$AX$ "Alright.”
+a “sigh”
+a thinking
+a “Alright.”

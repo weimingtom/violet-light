@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-public class SelectOptionCommand : Commands {
+public class SelectOptionCommand : Commands
+{
 
 	private List<string> mOption;
 	private List<Button> mButton;
@@ -14,6 +15,9 @@ public class SelectOptionCommand : Commands {
 	{
 
 	}
+    public override void Reset()
+    {
+    }
 	public override bool ExecuteCommand()
 	{
 		return true;

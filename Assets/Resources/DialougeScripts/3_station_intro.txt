@@ -2,67 +2,67 @@
 
 
 
-<HR> “.....”
+h “.....”
 
-pose Alexander Happy
-$AX$ "Good morning, Harmony!”
-pose Violet Happy
-$VL$ "Always shinin’, eh love?”
-
-
-
-<HR> “YAAWWWWWWWWWWWNWWNNWNWNWNWNWNNWNW”
-pose Alexander Shock
-pose Violet Shock
-
-$AX$ "Uhm...”
+a happy
+a “Good morning, Harmony!”
+v happy
+v “Always shinin’, eh love?”
 
 
 
-pose Alexander Neutral
-pose Violet Neutral
-pose Harmonyembarrassed
-<HR> “.....”
+h “YAAWWWWWWWWWWWNWWNNWNWNWNWNWNNWNW”
+a shock
+v shock
 
-$VL$ "Here love, take a pen and paper.”
-$VL$ "I don’t think sharp’ll stop us this time.” 
-
-pose Harmonyhappy
-<HR> “.............”
-
-pose Harmonyscribble
-<HR> “....”
-
-$VL$ "It says ‘Sorry! And good morning!”
-
-pose Alexander Nervousous
-$AX$ "Uhm-, it’s alright!”
-pose Violet Happy
-$VL$ "Yeah no need to apologize!”
-
-pose Harmonyashamed
-<HR> “......................”
-
-$VL$ "Hey, Harmony.”
-
-pose Harmonyshock
-<HR> “....”
+a “Uhm...”
 
 
 
-$VL$ "It’ll be okay, Violet’s got your back!”
+a neutral
+v neutral
+h embarrassed
+h “.....”
 
-pose Harmonysmile
+v “Here love, take a pen and paper.”
+v “I don’t think sharp’ll stop us this time.” 
 
-pose Alexander Serious
-$AX$ "H-hey, how about we clear up some stuff.”
+h happy
+h “.............”
 
-pose Violet Neutral
-$VL$ "Yeah, now’s the time to tell us everything, er- write us everything.”
+h scribble
+h “....”
 
-<HR> “....”
+v “It says ‘Sorry! And good morning!”
 
-pose Harmonyscribble
+a nervous
+a “Uhm-, it’s alright!”
+v happy
+v “Yeah no need to apologize!”
+
+h ashamed
+h “......................”
+
+v “Hey, Harmony.”
+
+h shock
+h “....”
+
+
+
+v “It’ll be okay, Violet’s got your back!”
+
+h smile
+
+a srs
+a “H-hey, how about we clear up some stuff.”
+
+v neutral
+v “Yeah, now’s the time to tell us everything, er- write us everything.”
+
+h “....”
+
+h scribble
 
 // fade out
 
@@ -70,78 +70,78 @@ pose Harmonyscribble
 
 // fade back in 
 
-pose Harmonytired
-pose Alexander Shock
-pose Violet Neutral
+h tired
+a shock
+v neutral
 
-$AX$ "W-wow you wrote a lot.”
+a “W-wow you wrote a lot.”
 
-$VL$ "Let’s take a look shall we?”
+v “Let’s take a look shall we?”
 
-<HR> “.....”
+h “.....”
 
-$AX$ "Yeah.”
+a “Yeah.”
 
 // fade out and in
 
-$VL$ "’I hadn't seen my sister since the night before, she went out on some awesome adventure as usual. I didn’t worry though, as sometimes she goes and sings for the less fortunate at night. So I went to bed assuming as such.”
-$VL$ "’I left the next morning for the fabric store, as I needed supplies for one of my sister’s clothing pieces. I wake up earlier than Melody usually, so I assumed she made it home safely. I arrived home later, and began my duties tending to the instruments. She hadn’t come down yet so I decided to check on her. I went up and she wasn’t home, I put the ribbon down and went downstairs to find the police at my door. That’s why there was the ribbon in her room.’”
-$VL$ "’They arrested me and began searching through my stuff, I tried to ask for help but they kept trying to get me to talk. That didn’t really work though.’”
+v “’I hadn't seen my sister since the night before, she went out on some awesome adventure as usual. I didn’t worry though, as sometimes she goes and sings for the less fortunate at night. So I went to bed assuming as such.”
+v “’I left the next morning for the fabric store, as I needed supplies for one of my sister’s clothing pieces. I wake up earlier than Melody usually, so I assumed she made it home safely. I arrived home later, and began my duties tending to the instruments. She hadn’t come down yet so I decided to check on her. I went up and she wasn’t home, I put the ribbon down and went downstairs to find the police at my door. That’s why there was the ribbon in her room.’”
+v “’They arrested me and began searching through my stuff, I tried to ask for help but they kept trying to get me to talk. That didn’t really work though.’”
 
 // fade out in
 
-pose Alexander Thinking
-pose Violet Serious
-$AX$ "Huh..”
+a thinking
+v srs
+a “Huh..”
 
-$VL$ "W-wait they just came in and started rummaging through your stuff?”
-pose Violet Upset
+v “W-wait they just came in and started rummaging through your stuff?”
+v upset
 
-pose Harmonynervous
-<HR> “...........”
+h nervous
+h “...........”
 
-$VL$ "I- I can’t believe them!”
-pose Violet Sad
-$VL$ "I’m so sorry harmony...”
-pose Violet Cocky
-$VL$ "But we’ll find em’, love! The real killer that is! Don’tchu worry!”
-pose Harmonyhappy
-<HR> “..!!!..”
-$VL$ "Cheers!”
+v “I- I can’t believe them!”
+v sad
+v “I’m so sorry harmony...”
+v cocky
+v “But we’ll find em’, love! The real killer that is! Don’tchu worry!”
+h happy
+h “..!!!..”
+v “Cheers!”
 
-$AX$ "Wait so, the missing ribbon, you only had it to repair her clothes?”
+a “Wait so, the missing ribbon, you only had it to repair her clothes?”
 
-pose Harmonyscribble
-<HR> “.......”
+h scribble
+h “.......”
 
-$VL$ "She wrote ‘Yes, it had fallen off previously and I usually tend to her clothing when it is in need of repair. Unfortunately the ribbon was kindof unusable so I had to go buy more.’”
+v “She wrote ‘Yes, it had fallen off previously and I usually tend to her clothing when it is in need of repair. Unfortunately the ribbon was kindof unusable so I had to go buy more.’”
 
-pose Alexander Serious
-$AX$ "And you were sleeping during the time she was murdered? Can anyone confirm that?”
+a srs
+a “And you were sleeping during the time she was murdered? Can anyone confirm that?”
 
-pose Harmonynerv
-<HR> “........”
-pose Harmonyscribble
-<HR> “................”
+h nerv
+h “........”
+h scribble
+h “................”
 
-$VL$ "Uhm, so ‘Yes, I was. But no one but me was at the shop then.’”
+v “Uhm, so ‘Yes, I was. But no one but me was at the shop then.’”
 
-pose Alexander Nervous
-$AX$ "...”
-pose Alexander Thinking
-$AX$ "Well…”
+a nerv
+a “...”
+a thinking
+a “Well…”
 
-pose Violet Happy
-$VL$ "That’s okay!”
+v happy
+v “That’s okay!”
 
-pose Alexander Shock
-$AX$ "Wh-what?
+a shock
+a “Wh-what?
 
-$VL$ "Thanks for everything Harmony!”
-$VL$ "We gotta go catch that killer now!”
-pose Alexander Serious
-$AX$ "Uhm-”
+v “Thanks for everything Harmony!”
+v “We gotta go catch that killer now!”
+a srs
+a “Uhm-”
 
-$VL$ "Let’s go Alexander!”
+v “Let’s go Alexander!”
 
-$AX$ "O-okay!”
+a “O-okay!”

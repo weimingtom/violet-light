@@ -1,14 +1,14 @@
 // After explored enough, you have to leave because violet thinks he’s coming back
 
-$VL$ "Oh, oh!”
-$VL$ "Aleeeex!”
-$VL$ "I hear our friend down the hall.”
+v “Oh, oh!”
+v “Aleeeex!”
+v “I hear our friend down the hall.”
 
-$AX$ "H-huh, how do you know it’s him?”
+a “H-huh, how do you know it’s him?”
 
 ??? “...the poor dame looked up to me, quite a shame really...”
 
-$VL$ "Oh I know.”
-$AX$ "Right, okay, let’s get out of here quick!”
+v “Oh I know.”
+a “Right, okay, let’s get out of here quick!”
  
 // forced to leave the area

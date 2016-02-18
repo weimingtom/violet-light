@@ -1,13 +1,13 @@
 
-pose Alexander Neutral
-$AX$ "Well the sand/rocks is/are dry.”
-$AX$ "So I guess we can deduce that she’s been here for awhile.”
+a neutral
+a “Well the sand/rocks is/are dry.”
+a “So I guess we can deduce that she’s been here for awhile.”
 
-pose Violet Cocky
-$VL$ "Nice work dummy.”
+v cocky
+v “Nice work dummy.”
 
 a surprised
-$AX$ "Wh-why are you calling me a dummy?”
+a “Wh-why are you calling me a dummy?”
 
-pose Violet Happy
-$AX$ "You’re adorable, love.”
+v happy
+a “You’re adorable, love.”

@@ -1,17 +1,17 @@
-$VL$ "Seems like the cash register is pretty well stocked.”
+v “Seems like the cash register is pretty well stocked.”
 
 puzzled
-$AX$ "You seem a little too interested in that cash.”
+a “You seem a little too interested in that cash.”
 
-pose Violet Upset
-$VL$ "H-huh...”
-$VL$ "ALEX!”
-$VL$ "you think I would steal from my beloved friend?”
+v upset
+v “H-huh...”
+v “ALEX!”
+v “you think I would steal from my beloved friend?”
 
-pose Violet Happy
-pose Alexander Unimpressed
-$AX$ "Uhm- N-no Of course not!”
+v happy
+a unimpressed
+a “Uhm- N-no Of course not!”
 
-$VL$ "Good, now look the other way.”
+v “Good, now look the other way.”
 
-$AX$ "W-wait.”
+a “W-wait.”

@@ -6,18 +6,27 @@ using System.Collections.Generic;
 
 public class CommandManager : MonoBehaviour 
 {
+
     int destroyCount;
     bool done;
     public Text myTextHolder;
     public Text myNameHolder;
     public GameObject myBannerBox;
+    public GameObject leftButton;
+    public GameObject rightButton;
     static public CommandManager Instance;
+
     //counter for CommandId
 	List<string> SceneId;
     //counter for command
     int commandTracker;
-    
+    public bool loop { get; set; }
     List<Commands> myCommand;
+    void UpdateButton()
+    {
+        leftButton.SetActive(loop);
+        rightButton.SetActive(loop);
+    }
 	public void AddCharIntoTextHolder(char c)
 	{
 		myTextHolder.text += c;
@@ -46,6 +55,7 @@ public class CommandManager : MonoBehaviour
 
     void Start()
     {
+        //loop = true;
         myTextHolder.supportRichText = true;
         destroyCount = 0;
         done = false;
@@ -71,8 +81,39 @@ public class CommandManager : MonoBehaviour
             myCommand[i].PrintData();
         }
     }
+    public void AdvanceCommand()
+    {
+        bool check = true;
+        while(check)
+        {
+            commandTracker++;
+            if( commandTracker >= myCommand.Count )
+            {
+                commandTracker = 0;
+            }
+            myCommand[commandTracker].Reset();
+            myCommand[commandTracker].ExecuteCommand();
+            if( myCommand[commandTracker].commandTag == "showtextcommand" )
+            {
+                check = false;
+            }
+        }
+    }
+    public void RewindCommand()
+    {
+        if( commandTracker > 0 )
+        {
+            do
+            {
+                commandTracker--;
+                myCommand[commandTracker].Reset();
+            } while( myCommand[commandTracker].commandTag != "showtextcommand"
+                    && commandTracker != 0 );
+        }
+    }
     public void Reinitialize()
     {
+        loop = false;
         destroyCount = 0;
         done = false;
         commandTracker = 0;
@@ -81,12 +122,13 @@ public class CommandManager : MonoBehaviour
     }
     void Update()
     {
+        UpdateButton();
         switch( done )
         {
         case false:
 		    if(commandTracker < myCommand.Count)
 		    {
-			    if (myCommand [commandTracker].ExecuteCommand ()) 
+			    if ( myCommand[commandTracker].ExecuteCommand() ) 
 			    {
 				    commandTracker++;
                     Debug.Log("Run command no  : " + commandTracker);
@@ -94,20 +136,22 @@ public class CommandManager : MonoBehaviour
 		    }
 		    else if (commandTracker == myCommand.Count)
 		    {
-
 			    /*
 			     * Destroy everything
                  * Added destroy count, to reversed back to 
 			     */
-                if( destroyCount < myCommand.Count
-                    && myCommand[destroyCount].Destroy())
+                if( loop == false )
                 {
-                    destroyCount++;
-                }
-                else if(destroyCount == myCommand.Count)
-                {
-                    SceneManager.Instance.SetInputBlocker( false );
-                    done = true;
+                    if( destroyCount < myCommand.Count
+                        && myCommand[destroyCount].Destroy())
+                    {
+                        destroyCount++;
+                    }
+                    else if(destroyCount == myCommand.Count)
+                    {
+                        SceneManager.Instance.SetInputBlocker( false );
+                        done = true;
+                    }
                 }
 		    } 
             break;

@@ -1,73 +1,73 @@
 
 s neutral
-$AX$ "Sharp do you know anything about this man?”
+a “Sharp do you know anything about this man?”
 
 s cocky
-$SP$ "Of course I do!”
+s “Of course I do!”
 
-$VL$ "Riiiight, of course you do.”
+v “Riiiight, of course you do.”
 
 s upset
-$SP$ "Well it is MY job!”
+s “Well it is MY job!”
 
-pose Violet Cocky
-$VL$ "It’s also your job to keep the innocent safe, but you’re not very good at that either.”
+v cocky
+v “It’s also your job to keep the innocent safe, but you’re not very good at that either.”
 
-$AX$ "C-c’mon guys! Cut it out!”
+a “C-c’mon guys! Cut it out!”
 
 s cocky
-$SP$ "Heheheh, it’s okay, Alex.”
+s “Heheheh, it’s okay, Alex.”
 
 s srs
-$SP$ "Look, this man is part of a really wealthy estate in this city. His family has quite a bit of power, if you think he had something to do with this... well going after him might be a little risky.”
+s “Look, this man is part of a really wealthy estate in this city. His family has quite a bit of power, if you think he had something to do with this... well going after him might be a little risky.”
 
-pose Alexander Shock
-$AX$ "Ack-“
-pose Alexander Serious
-$AX$ "What do you mean?”
+a shock
+a “Ack-“
+a srs
+a “What do you mean?”
 
 
-$SP$ "He himself doesn’t have that much power within the estate, but the estate itself does. If you really think he’s the one responsible and you do bring him down, I don’t know how long we could even keep him imprisoned for.”
+s “He himself doesn’t have that much power within the estate, but the estate itself does. If you really think he’s the one responsible and you do bring him down, I don’t know how long we could even keep him imprisoned for.”
 
-pose Alexander Thinking
-$AX$ "Hmmm... do you know where he lives?”
+a thinking
+a “Hmmm... do you know where he lives?”
 
-$SP$ "Yeah, I think everyone does. It’s hard to miss the place. Here I’ll give you the location.”
+s “Yeah, I think everyone does. It’s hard to miss the place. Here I’ll give you the location.”
 
-pose Alexander Scribbling
+a scribbling
 
-$AX$ "Ah, thanks!”
+a “Ah, thanks!”
 
-$SP$ "Don’t mention it, kid.”
+s “Don’t mention it, kid.”
 
 “New location added!” 
 
-pose Violet Cocky
-$VL$ "Heh- I’ve never been one for an easy case.”
+v cocky
+v “Heh- I’ve never been one for an easy case.”
 
-pose Alexander Unimpressed
-$AX$ "You never take cases in the first place, you’re not even a law-“
+a unimpressed
+a “You never take cases in the first place, you’re not even a law-“
 
-$VL$ "We’ll catch him! And expose the shocking truth!”
+v “We’ll catch him! And expose the shocking truth!”
 
 s cocky
-$SP$ "That’s the spirit, kiddo.”
-$SP$ "Now come back to me once you’ve given up aaand then we’ll negotiate a plea for your client.”
+s “That’s the spirit, kiddo.”
+s “Now come back to me once you’ve given up aaand then we’ll negotiate a plea for your client.”
 
-pose Violet Upset
+v upset
 
-$SP$ "Maybe 50 years IF she admits to the crime?”
+s “Maybe 50 years IF she admits to the crime?”
 
-pose Alexander Scribbling
-$AX$ "I think we’ve got all we need...”
-
-
-$VL$ "You dull-headed-“
-
-$AX$ "Le-Let’s go Violet!”
+a scribbling
+a “I think we’ve got all we need...”
 
 
-pose Violet Serious
-$VL$ "Right.”
+v “You dull-headed-“
 
-$AX$ "Bye Mr.Sharp!”
+a “Le-Let’s go Violet!”
+
+
+v srs
+v “Right.”
+
+a “Bye Mr.Sharp!”

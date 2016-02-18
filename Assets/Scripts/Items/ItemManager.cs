@@ -12,25 +12,36 @@ public class ItemManager : MonoBehaviour
     List<Item> playerItems = new List<Item>();
     int currentNumberOfItems = 0;
     bool loadInventory = false;
-    
+
     void Awake()
     {
         Instance = this;
-       
     }
+
     void Start()
     {
         ParseItem( "ItemScript/scene1" );
     }
+
     void Update()
     {
 		//NOTE(Hendry):Use this for diplaying purposes, use load Inventory to load actual item
 		LoadInventory();
     }
+    //NOTE(Hendry): adam call this
+    public void GetHeldItem( ref List<string> itemHolder )
+    {
+        foreach( Item itm in playerItems )
+        {
+            itemHolder.Add( itm.GetItemName() );
+        }
+    }
+
     public void SetLoadInventory( bool load )
     {
         loadInventory = load;
     }
+
 	void LoadInventory()
 	{
         if( loadInventory )
@@ -53,10 +64,12 @@ public class ItemManager : MonoBehaviour
         }
 		//TODO(Hendry): add support for multiple page
 	}
+
 	void ResetInventory()
 	{
 
 	}
+
 	void TemporaryLoad()
 	{
 		int index = 0;
@@ -73,6 +86,7 @@ public class ItemManager : MonoBehaviour
 			}
         }
 	}
+
     public string GetDescriptions(string name)
     {
         string description = "";
@@ -85,6 +99,7 @@ public class ItemManager : MonoBehaviour
         }
         return description;
     }
+
     public void ParseItem(string itemAddress)
     {
         char[] delimiterChar = { '\r', '\n' };
@@ -122,13 +137,12 @@ public class ItemManager : MonoBehaviour
                     }
                 }
             }
-            GameObject nItem = new GameObject();
-            Item newItem = nItem.AddComponent<Item>();
-            //Item newItem =  new Item();
+            Item newItem =  new Item();
             newItem.InitializeItem(name, textureAddress, description);
             allItems.Add(newItem);
         }
     }
+
     public void AddItem(string item_name)
     {
         bool addItem = false;
@@ -151,6 +165,7 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
+
     public void RemoveItem(string item_name)
     {
 		foreach(Item item in playerItems)

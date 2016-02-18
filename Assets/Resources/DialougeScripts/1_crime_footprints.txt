@@ -1,6 +1,6 @@
-$AX$ "it looks like the police officers left these footprints here”
-$VL$ "Or maybe it was the murderer disguised as a policeman!”
-pose Alexander Unimpressed
-$AX$ "why would the killer go to where the body washed up?”
+a “it looks like the police officers left these footprints here”
+v “Or maybe it was the murderer disguised as a policeman!”
+a unimpressed
+a “why would the killer go to where the body washed up?”
 v cockey
-$VL$ "Elementary my dear Alex.”
+v “Elementary my dear Alex.”

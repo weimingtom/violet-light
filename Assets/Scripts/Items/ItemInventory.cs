@@ -2,9 +2,12 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-public class ItemInventory : MonoBehaviour {
+
+public class ItemInventory : MonoBehaviour
+{
     public static ItemInventory Instance;
-    private int size = 0;
+
+    int presentButtonLocation = -1;
     Image mainImageHolder;
     Text[] mainTextHolder = new Text[2];
     Button[] buttons;
@@ -13,13 +16,14 @@ public class ItemInventory : MonoBehaviour {
 	{
 		Instance = this;
         ItemManager.Instance.SetLoadInventory(true);
-        
         Initialize();
 	}
+
     void Start()
     {
         TogglePresentButton(false);
     }
+
     void Initialize()
     {
 		int index = 0;
@@ -45,46 +49,27 @@ public class ItemInventory : MonoBehaviour {
             }
         }
 		buttons = this.GetComponentsInChildren<Button>();
-        buttons[0].onClick.AddListener( () => ClickedButton_0() );
-        buttons[1].onClick.AddListener( () => ClickedButton_1() );
-        buttons[2].onClick.AddListener( () => ClickedButton_2() );
-        buttons[3].onClick.AddListener( () => ClickedButton_3() );
-        buttons[4].onClick.AddListener( () => ClickedButton_4() );
-        buttons[5].onClick.AddListener( () => ClickedButton_5() );
-        buttons[6].onClick.AddListener( () => ClickedButton_6() );
-        buttons[7].onClick.AddListener( () => PresentButton()   );
+        for( int i = 0; i < buttons.Length; i++ )
+        {
+            if( buttons[i].tag == "PresentButton" )
+            {
+                presentButtonLocation = i;
+                buttons[i].onClick.AddListener( () => ClickPresent() );
+            }
+        }
     }
-    void ClickedButton_0()
+    public void ClickButton(int btn_id)
     {
-		SetMainImage (0);
+        SetMainImage( btn_id );
     }
-    void ClickedButton_1()
+    void ClickPresent()
     {
-		SetMainImage (1);
+        
     }
-    void ClickedButton_2()
-    {
-		SetMainImage (2);
-    }
-    void ClickedButton_3()
-    {
-		SetMainImage (3);
-    }
-    void ClickedButton_4()
-    {
-		SetMainImage (4);
-    }
-    void ClickedButton_5()
-    {
-		SetMainImage (5);
-    }
-    void ClickedButton_6()
-    {
-		SetMainImage (6);
-    }
+
     public void TogglePresentButton( bool toggle )
     {
-        buttons[7].gameObject.SetActive(toggle);
+        buttons[presentButtonLocation].gameObject.SetActive(toggle);
     }
     public void PresentButton()
     {

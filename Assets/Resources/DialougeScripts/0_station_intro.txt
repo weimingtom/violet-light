@@ -2,37 +2,37 @@ bgm theme
 
 eff FadeIn
 
-$PL$ “WA-WAIT- [eff flash] You can’t go in there!”
+<PL> “WA-WAIT- [eff flash] You can’t go in there!”
 
 show Policeman right
 
 show AlexPuzzled left1
 show VioletSerious Left2
 
-$AX$ “We’re here f-for [eff smash]... [pause] Uh! Harmony! [eff crash] Y-You have to let us through!”
+<AX> “We’re here f-for [eff smash]... [pause] Uh! Harmony! [eff crash] Y-You have to let us through!”
 
-$PL$ “Sorry, no one sees Ms.Harmony without proper permission”
+<PL> “Sorry, no one sees Ms.Harmony without proper permission”
 
-$AX$ “Violet, If we show the guard the letter we received he might let us see your friend, Open your journal(esc) and [color]present[color] it to him.”
+<AX> “Violet, If we show the guard the letter we received he might let us see your friend, Open your journal(esc) and [color]present[color] it to him.”
 
 // Option to present
 Switch (Present)
 Harmony’s Letter
 Violet Explaining
-$VL$ “Look we have written permission. Let us through.”
-$PL$ “H-huh [eff ding] oh I see!”
+<VL> “Look we have written permission. Let us through.”
+<PL> “H-huh [eff ding] oh I see!”
 continue
 Other
-$PL$ “What are you showing me that for? That’s not getting you anywhere”
+<PL> “What are you showing me that for? That’s not getting you anywhere”
 Alex Nervous
-$VL$ “C’mon Alex think, we have [red]something[/red] that’ll help us get through!”
-$AX$ “R-Right![eff flash/shake]”
+<VL> “C’mon Alex think, we have [red]something[/red] that’ll help us get through!”
+<AX> “R-Right![eff flash/shake]”
 loop
 
-$PL$ “I-I’m terribly sorry! I’ll let you through right now!”
+<PL> “I-I’m terribly sorry! I’ll let you through right now!”
 
 Violet Smirk
-$VL$ “Thanks, love.”
+<VL> “Thanks, love.”
 Alex Determined
 
 show Policeman Offscreen
@@ -40,19 +40,19 @@ show Policeman Offscreen
 show Harmony Ashamed right slow
 
 Violet shock
-$VL$ “H-Harmony, are you okay? [eff crash]”
-$VL$ “Did they do anything to you? [eff smash] hurt you in any way, omygod that must have been a terrible experience! [eff crash] I’ll find the guy who did this, I can’t believe it, I’m so sorry about your sister, ahh omygod-“ //Run on sentence Alex Cuts her off
+<VL> “H-Harmony, are you okay? [eff crash]”
+<VL> “Did they do anything to you? [eff smash] hurt you in any way, omygod that must have been a terrible experience! [eff crash] I’ll find the guy who did this, I can’t believe it, I’m so sorry about your sister, ahh omygod-“ //Run on sentence Alex Cuts her off
 
 Alex Unimpressed
-$AX$ “Violet calm down...”
+<AX> “Violet calm down...”
 
 eff ding
 Violet Shock
-$VL$ “R-right!”
+<VL> “R-right!”
 Violet Neutral
 
 Alex Scribbling
-$AX$ “Now what can you tell us, Miss Rush?”
+<AX> “Now what can you tell us, Miss Rush?”
 Alex Determined
 
 harmony Nervous
@@ -63,15 +63,15 @@ harmony Nervous
 
 Alex Puzzled
 Violet Upset
-$AX$ “Uhm...”
+<AX> “Uhm...”
 
 harmony sad
 // \ _ /
-$VL$ “ALEX! [eff crash]”
+<VL> “ALEX! [eff crash]”
 
 Alex Shock
 // o__o
-$AX$ “WH- WHAT?”
+<AX> “WH- WHAT?”
 
 
 Alex Puzzled
@@ -80,12 +80,12 @@ harmony determined
 <HR> “....... ...  ...... ...”
 
 // To the side
-$VL$ “She has no voice...”
+<VL> “She has no voice...”
 
 Alex unimpressed
-$AX$ “O-Oh...”
+<AX> “O-Oh...”
 Violet shrug
-$VL$ “Yeah.”
+<VL> “Yeah.”
 
 //Alex Looks at harmony and turns back
 <HR> “......”
@@ -93,58 +93,58 @@ $VL$ “Yeah.”
 //
 
 Alex serious
-$AX$ “So... how is she going to communicate with us?”
+<AX> “So... how is she going to communicate with us?”
 
 Violet Smirk
-$VL$ “Alex, don’t worry she can still [eff clue] write.”
+<VL> “Alex, don’t worry she can still [eff clue] write.”
 
-$AX$ “A-ah right...”
+<AX> “A-ah right...”
 
 // Both turn back to hr
 Violet Normal
-$VL$ “But it seems like they didn’t give her anything to write with...”
+<VL> “But it seems like they didn’t give her anything to write with...”
 
-$VL$ “H-HEY! POLICEGUY [eff yell/crash]! COME HERE!”
+<VL> “H-HEY! POLICEGUY [eff yell/crash]! COME HERE!”
 
 show Policeman Center
-$PL$ “Y-YES [slow]SIR-“ //cut off
-$VL$ “What did you just call me, love?”
+<PL> “Y-YES [slow]SIR-“ //cut off
+<VL> “What did you just call me, love?”
 
-$PL$ “[eff crash] I MEAN MA’AM!”
+<PL> “[eff crash] I MEAN MA’AM!”
 
-$VL$ “Why doesn’t the fine young woman here have anything to write with?”
+<VL> “Why doesn’t the fine young woman here have anything to write with?”
 
-$PL$ “I’m under direct orders from Detective Sharp to not let her have any objects that could aid in her escape!”
+<PL> “I’m under direct orders from Detective Sharp to not let her have any objects that could aid in her escape!”
 
 Violet smirk
 
-$VL$ “A pen and paper? This Detective may be sharp but he’s not too bright![pause] Fine, I’ll just give her Alex’s notebook then...” [show notebook icon]
+<VL> “A pen and paper? This Detective may be sharp but he’s not too bright![pause] Fine, I’ll just give her Alex’s notebook then...” [show notebook icon]
 [hide icon]
 
-$PL$ “I can’t let you do that! S-SORRY! [eff crash/flash]”
+<PL> “I can’t let you do that! S-SORRY! [eff crash/flash]”
 
 Violet serious
-$VL$ “What really?”
-$AX$ “Seems a little silly...”
+<VL> “What really?”
+<AX> “Seems a little silly...”
 
-$PL$ “I’m under direct orders from the Detective! You’ll have to talk to him!”
+<PL> “I’m under direct orders from the Detective! You’ll have to talk to him!”
 
 Alex puzzled
-$AX$ “And where can we find him?”
+<AX> “And where can we find him?”
 
-$PL$ “He’s at the scene of the crime at the moment! I-I can mark it on your map!”
+<PL> “He’s at the scene of the crime at the moment! I-I can mark it on your map!”
 
 // Violet moves off screen
 Alex Scribble
-$AX$ “Ah- thank you.”
+<AX> “Ah- thank you.”
 
 //Alex turns to violet
 Alex Shocked
-$AX$ “W-Wait for me!”
+<AX> “W-Wait for me!”
 //Alex turns to harmony
 Alex Smirk
-$AX$ “Don’t worry, Violet and I are on the case! We’ll be back soon!”
-<HR> “....”
+<AX> “Don’t worry, Violet and I are on the case! We’ll be back soon!”
+<HR> “. . . . ”
 //Alex leaves
 //fade out
 //end scene

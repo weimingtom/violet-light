@@ -17,11 +17,8 @@ public class SceneManager : MonoBehaviour
     }
     static public SceneManager Instance;
 
-    private string CurrentCaseFile = null;
 //    private uint Case = 0;
     List<Scene> Scenes = new List<Scene>();
-
-    private int currentScene;
 
     public Dictionary<string, string> backgroundLookup = new Dictionary<string, string>();
     private GameObject currBackground;
@@ -38,7 +35,14 @@ public class SceneManager : MonoBehaviour
     private bool CanSkip;
     private string CurrentChar = "";
 
+    private string CurrentCaseFile = null;
+    private int currentScene;
     private int QuestStage = 0;
+
+    public string GetCaseFile()
+    {
+        return CurrentCaseFile;
+    }
 
     
     public void AdvQuest()
@@ -143,9 +147,7 @@ public class SceneManager : MonoBehaviour
             ChangeBackground( Scenes[SceneID].Background , 0.7f);
             InteractableManager.Instance.Clear();
             InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab ,Vector3.zero);
-            MusicManager.instance.ChangeSong( Scenes[SceneID].Name );
             Debug.Log( "[scene manager] Changed Scene to number "+SceneID );
-            FileReader.Instance.LoadScene( QuestStage.ToString() + "_" + Scenes[SceneID].Prefab + "_" + "intro" );
         }
         else Debug.Log( "[scene manager] No case loaded!" );
     }
@@ -180,16 +182,68 @@ public class SceneManager : MonoBehaviour
             Scenes.Clear();
             /********* LOADING CHARACTERS FROM FILE ***********/
             //Load in the characters specific to the case. 
-            string filepath = "DialougeScripts/characters_scene_";
+            string filepath = "DialougeScripts/Characters_Scene";
             filepath += NewCase.ToString();
             FileReader.Instance.ReadCharacter(filepath);
 
             /************** LOAD THE BACKGROUNDS FROM A FILE *******************/
             //Load in the backgrounds that are specific to the case. 
-            filepath = "backgrounds_scene_";
+            filepath = "Backgrounds_Scene";
             filepath += NewCase.ToString();
             FileReader.Instance.ReadBackgrounds(filepath);
-            FileReader.Instance.ReadScenes( "scenes_scene_" + NewCase.ToString() );
+
+            // TODO(adam): Load this in from a file
+            //FileReader.Instance.ReadScenes("SceneLoad");
+            Scene NewScene = new Scene();
+            NewScene.Background = "alleyway";
+            NewScene.ID = 0;
+            NewScene.Name = "Alley Way";
+            NewScene.Time = 1005;
+            NewScene.Prefab = "TestArea1";
+            Scenes.Add( NewScene );
+
+            NewScene.Background = "bridge";
+            NewScene.ID = 1;
+            NewScene.Name = "Bridge";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "TestArea2";
+            Scenes.Add( NewScene );
+
+            NewScene.Background = "market";
+            NewScene.ID = 2;
+            NewScene.Name = "Market";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "TestArea3";
+            Scenes.Add( NewScene );
+
+            NewScene.Background = "crimescene";
+            NewScene.ID = 3;
+            NewScene.Name = "Crime Scene";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_crimescene";
+            Scenes.Add( NewScene );
+
+            NewScene.Background = "police_station";
+            NewScene.ID = 4;
+            NewScene.Name = "Police Station";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_policestation";
+            Scenes.Add( NewScene );
+
+            NewScene.Background = "music_shop";
+            NewScene.ID = 5;
+            NewScene.Name = "Rush's Music Shop";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_music";
+            Scenes.Add( NewScene );
+
+            NewScene.Background = "docks";
+            NewScene.ID = 6;
+            NewScene.Name = "Fisherman's Wharf";
+            NewScene.Time = 0605;
+            NewScene.Prefab = "demo_warf";
+            Scenes.Add( NewScene );
+
            
         }
         else Debug.Log( "[scene manager] Failed to load case" );

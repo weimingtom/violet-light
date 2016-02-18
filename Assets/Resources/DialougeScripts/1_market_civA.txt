@@ -1,13 +1,13 @@
 // Get Sax Man’s Bio added to journal
 
-$VL$ "good evening sir.”
-<MG> "Evening ma’am, what can I do you for?”
-$VL$ "I was hoping you could tell us if you have noticed anything weird with the music shop recently?”
-<MG> "By ‘strange’ do you mean something like frequent visits from a certain city rich kid?”
-$AX$ "what city rich kid?”
-<MG> "You haven't had the pleasure of meeting the famed Michael George? He's a real piece of work that one. He walks around like his family owns half the city. I mean like they do, but that's beside the point! He's a real suave guy and has all the ladies swooning over him. They can't see that under his fancy car and inviting smile he is a real nasty fella. I ought to show him what a real man looks like.”
-$AX$ "so you saw him entering the shop a lot?”
-<MG> "well no. But I see his car outside the shop a lot. He has the fanciest car in the whole city ya’ know.”
-$VL$ "Okay, we had better make a note on this ‘Michael George’ guy.”
-$AX$ "Got it!”
+v “good evening sir.”
+m “Evening ma’am, what can I do you for?”
+v “I was hoping you could tell us if you have noticed anything weird with the music shop recently?”
+m “By ‘strange’ do you mean something like frequent visits from a certain city rich kid?”
+a “what city rich kid?”
+m “You haven't had the pleasure of meeting the famed Michael George? He's a real piece of work that one. He walks around like his family owns half the city. I mean like they do, but that's beside the point! He's a real suave guy and has all the ladies swooning over him. They can't see that under his fancy car and inviting smile he is a real nasty fella. I ought to show him what a real man looks like.”
+a “so you saw him entering the shop a lot?”
+m “well no. But I see his car outside the shop a lot. He has the fanciest car in the whole city ya’ know.”
+v “Okay, we had better make a note on this ‘Michael George’ guy.”
+a “Got it!”
 [Note thing]

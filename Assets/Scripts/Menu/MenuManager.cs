@@ -2,40 +2,38 @@
 using System.Collections;
 
 
-public class MenuManager : MonoBehaviour {
+public class MenuManager : MonoBehaviour
+{
 
-   
-
-	private enum state
+	public enum state
 	{
-		Main,
-		Evience,
-		Notes,
-		Travel,
-		Suspects,
-		Puzzles,
-		Options
+        SaveLoad,
+        Evidence,
+        Note,
+        Location,
+        Suspect,
+        Puzzle,
+        Setting,
+        end
 	}
 
+    public static MenuManager instance;
 	public GameObject menu;
 	private bool active;
 	private state myState;
-    public GameObject[] States;
-
-    public static MenuManager instance;
-
+    //animation purposes
+    //public GameObject[] States;
+    public float speed = 1.0f;
     void Awake()
     {
         instance = this;
     }
-
 	void Start () 
     {
         menu.SetActive(false);
         active = false;
-		myState = state.Main;
+        myState = state.SaveLoad;
     }
-	
 
 	void Update () 
     {
@@ -53,9 +51,9 @@ public class MenuManager : MonoBehaviour {
 
 	public void toggleMenu()
 	{
-		if(active && myState != state.Main)
+        if( active && myState != state.SaveLoad )
         {
-            ChangeState(state.Main);
+            ChangeState( state.SaveLoad );
         }
         else if (!active)
         {
@@ -72,34 +70,38 @@ public class MenuManager : MonoBehaviour {
     //Get When a Tab button is pressed
     public void TabPressed( string btn )
     {
+       
         // TODO(jesse): THis is a quick hack to ensure that you don't travel during dialogue
         if (!CommandManager.Instance.myBannerBox.activeInHierarchy)
         {
-            switch (btn)
+            //animateMenu = true;
+            switch (btn.ToLower())
             {
-                case "btnEvidence":
-                    ChangeState(state.Evience);
+                case "btn_save_load":
+                    ChangeState(state.SaveLoad);
                     break;
-                case "btnNotes":
-                    ChangeState(state.Notes);
+                case "btn_evidence":
+                    ChangeState(state.Evidence);
                     break;
-                case "btnOptions":
-                    ChangeState(state.Options);
+                case "btn_note":
+                    ChangeState( state.Note );
                     break;
-                case "btnPuzzles":
-                    ChangeState(state.Puzzles);
+                case "btn_location":
+                    ChangeState( state.Location );
                     break;
-                case "btnSuspects":
-                    ChangeState(state.Suspects);
+                case "btn_suspect":
+                    ChangeState( state.Suspect );
                     break;
-                case "btnTravel":
-                    ChangeState(state.Travel);
+                case "btn_puzzle":
+                    ChangeState( state.Puzzle );
+                    break;
+                case "btn_setting":
+                    ChangeState( state.Setting );
                     break;
                 default:
                     Debug.Log("ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn);
                     break;
             }
-    
         }
          
     }
@@ -134,14 +136,13 @@ public class MenuManager : MonoBehaviour {
 
 	private void ChangeState(state newState)
 	{
-		//do fancy transistion animation between states
-        States[(int)myState].SetActive( false );
-		//set our new state
-        States[(int)newState].SetActive( true );
-		myState = newState;
-
+        if( myState != newState )
+        {
+            //Refactor!
+            UIAnimation.Instance.StartAnimate(newState);
+		    myState = newState;
+        }
 	}
-
     private void OpenMenu()
     {
 		//Do fancy transition animation
@@ -155,18 +156,17 @@ public class MenuManager : MonoBehaviour {
 		//do fancy transition in reverse
 
         //set menu back to default state
-        ChangeState(state.Main);
+        ChangeState( state.SaveLoad );
+		//reset menu hierarchy
         menu.SetActive(false);
-		//delte input eater
-
+        //delte input eater
+        
         // TODO(jesse): Hacky fix to input blocker disappearing while still in dialogue
         // so we need to make a better one
         if (!CommandManager.Instance.myBannerBox.activeInHierarchy)
         {
             SceneManager.Instance.SetInputBlocker(false);
         }
-		
-		
     }
 
     public void VolumeSlider( float multiplier )

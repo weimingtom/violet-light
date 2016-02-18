@@ -1,15 +1,15 @@
-$AX$ "Phew that was a close one!”
+a “Phew that was a close one!”
 
-pose Violet Happy
-$VL$ "I know right!? We could of gone to jail!”
+v happy
+v “I know right!? We could of gone to jail!”
 
-$AX$ "You’re too nonchalant about these things Violet.”
+a “You’re too nonchalant about these things Violet.”
 
-$VL$ "Hehehe, let’s take a minute to plan our next move.”
+v “Hehehe, let’s take a minute to plan our next move.”
 
-pose Alexander Thinking
-$AX$ "Right, we should probably make sure we’ve gathered all the evidence we need...”
+a thinking
+a “Right, we should probably make sure we’ve gathered all the evidence we need...”
 
-$AX$ "Then get Sharp and prove Michael George was the real killer!”
+a “Then get Sharp and prove Michael George was the real killer!”
 
-$VL$ "Sounds like a plan~”
+v “Sounds like a plan~”

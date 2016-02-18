@@ -12,5 +12,14 @@ public class AdamTest : MonoBehaviour {
             PuzzleManager.Instance.StartPuzzle( 2 );
         }
 
+        if( Input.GetKeyDown( KeyCode.O ) )
+        {
+            SaveLoad.Save();
+        }
+        if( Input.GetKeyDown( KeyCode.P ) )
+        {
+            SaveLoad.Load();
+        }
+
 	}
 }
