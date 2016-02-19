@@ -6,7 +6,7 @@ violetstheme Audio/Music/Violet_Theme
 Crime Audio/Music/Crime
 Fisherman Audio/Music/Fisherman
 Market Audio/Music/Market
-Mountain Audio/Music/Mountain
+Mountain Audio/Music/Violet_Theme
 Music Audio/Music/Music
 Police Audio/Music/Police
 Sax Audio/Music/Sax

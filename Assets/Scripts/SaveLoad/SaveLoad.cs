@@ -33,7 +33,7 @@ public class Game
 
         questStage = SceneManager.Instance.GetQuestStage();
         currentScene = SceneManager.Instance.GetScene();
-        currentCaseFile = SceneManager.Instance.GetCaseFile();
+        //currentCaseFile = SceneManager.Instance.GetCaseFile();
 
         //this will change to GetHeldItems( ref inventory ) in the next update
         ItemManager.Instance.GetHeldItem( ref inventory );

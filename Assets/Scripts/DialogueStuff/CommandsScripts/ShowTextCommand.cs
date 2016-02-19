@@ -99,7 +99,7 @@ public class ShowTextCommand : Commands
                     if( indexPassed >= DialogueHolder.Instance.GetDialogue( conversationTag ).Length )
                     {
                         Debug.Log( "index length : " + indexPassed + " conversation length : " + DialogueHolder.Instance.GetDialogue( conversationTag ).Length );
-                        Debug.Break();
+                        //Debug.Break();
                     }
                     passedChar = DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
                     //check if it is html or not

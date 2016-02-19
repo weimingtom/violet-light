@@ -89,7 +89,7 @@ public class CharacterManager : MonoBehaviour {
             else
             {
                 Debug.Log("Failed to get key [" + name + "]" + " pose : " + pose);
-                Debug.Break();
+                //Debug.Break();
             }
         }
     }

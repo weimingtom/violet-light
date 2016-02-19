@@ -116,7 +116,7 @@ public class StringParser : MonoBehaviour
             else
             {
                 Debug.Log( "[Parse Command]Unexpected number of character" );
-                Debug.Break();
+                //Debug.Break();
             }
             ShowTextCommand showText = new ShowTextCommand();
             showText.SetConversation( parsedCommand[0].ToLower() );

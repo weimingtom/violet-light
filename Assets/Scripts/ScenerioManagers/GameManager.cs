@@ -12,9 +12,5 @@ public class GameManager : MonoBehaviour {
         if (newGame)
             SceneManager.Instance.ChangeScene( 0 );
 	}
-	
-	void Update () 
-    {
-	
-	}
+
 }

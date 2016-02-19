@@ -22,7 +22,7 @@ public class PresentHandler
             return true;
         }
         Debug.Log( "[Present Handler]Wrong Item, item presented is :" + itemPresented + " corretItem : " + correctItem );
-        Debug.Break();
+        //Debug.Break();
         return false;
     }
 
