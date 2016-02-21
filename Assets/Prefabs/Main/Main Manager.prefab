@@ -15,8 +15,11 @@ GameObject:
   - 114: {fileID: 11489336}
   - 114: {fileID: 11473076}
   - 114: {fileID: 11489256}
-  - 114: {fileID: 11486840}
   - 114: {fileID: 11485330}
+  - 114: {fileID: 11485844}
+  - 114: {fileID: 11407790}
+  - 114: {fileID: 11415000}
+  - 114: {fileID: 11433232}
   m_Layer: 0
   m_Name: Main Manager
   m_TagString: Untagged
@@ -36,6 +39,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11407790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194934}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9545e51800e00b40a4f2b7db143bab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11415000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d6a5169e9ea304fa03d77b62205f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11433232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc9b33ebc2ee964d94832a2403a31a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11434496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73dd922d0393c3c46bf01431ec070031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11486840
+--- !u!114 &11485844
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -111,9 +147,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 194934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a81af0702d031498fdf60fe2daa190, type: 3}
+  m_Script: {fileID: 11500000, guid: f23eb5bb456ced044a8c535ac9ea2a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiElements:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  uiElementButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  uiDestination: {fileID: 0}
+  speed: 1000
 --- !u!114 &11489256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,14 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 0}
-  States:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  speed: 100
 --- !u!114 &11489854
 MonoBehaviour:
   m_ObjectHideFlags: 1

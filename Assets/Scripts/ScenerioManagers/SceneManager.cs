@@ -87,6 +87,14 @@ public class SceneManager : MonoBehaviour
         DoFade();
     }
 
+    public void LoadGame(Game loadedGame)
+    {
+        currentScene = loadedGame.currentScene;
+        QuestStage = loadedGame.questStage;
+        foreach (string item in loadedGame.inventory)
+            ItemManager.Instance.AddItem(item);
+    }
+
     public void SetInputBlocker(bool Enabled)
     {
         if(!Enabled)

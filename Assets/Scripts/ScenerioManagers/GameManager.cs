@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour {
     {
         SceneManager.Instance.LoadCase( 1 );
         if (newGame)
-            SceneManager.Instance.ChangeScene( 0 );
+            SceneManager.Instance.ChangeScene(0);
+        else
+            SceneManager.Instance.ChangeScene(SaveLoad.savedGames[0].currentScene());
 	}
 
 }

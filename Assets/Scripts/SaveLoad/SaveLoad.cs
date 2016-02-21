@@ -17,14 +17,12 @@ using System.Net;
 [System.Serializable]
 public class Game
 {
-    private string date;
-    private string time;
-    
-    private int questStage;
-    private int currentScene;
-    private string currentCaseFile;
-    
-    private List<string> inventory;
+    public string date;
+    public string time;
+    public int questStage;
+    public int currentScene;
+    public string currentCaseFile;
+    public List<string> inventory;
 
     public Game()
     {
