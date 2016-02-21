@@ -17,6 +17,8 @@ public class SceneManager : MonoBehaviour
     }
     static public SceneManager Instance;
 
+    private Dictionary<string, bool> ScenesPlayed = new Dictionary<string, bool>();
+
     private string CurrentCaseFile = null;
 //    private uint Case = 0;
     List<Scene> Scenes = new List<Scene>();
@@ -37,6 +39,8 @@ public class SceneManager : MonoBehaviour
 
     private bool CanSkip;
     private string CurrentChar = "";
+
+    private bool enteredNewScene = false;
 
     private int QuestStage = 0;
 
@@ -79,8 +83,8 @@ public class SceneManager : MonoBehaviour
 
     void Update()
     {
-        if( newBackgroundRend.sprite != null )
-            DoFade();
+        SceneStart();
+        DoFade();
     }
 
     public void SetInputBlocker(bool Enabled)
@@ -93,6 +97,11 @@ public class SceneManager : MonoBehaviour
             }
         }
         ScreenBlocker.SetActive( Enabled );
+    }
+
+    public bool GetInputBlocker()
+    {
+        return ScreenBlocker.activeInHierarchy;
     }
 
     private bool checkExists( string bgName )
@@ -120,19 +129,21 @@ public class SceneManager : MonoBehaviour
 
     void DoFade()
     {
-        float alpha = newBackgroundRend.color.a;
+        if( newBackgroundRend.sprite != null )
+        { 
+            float alpha = newBackgroundRend.color.a;
 
-        if( alpha < 1.0 ) //Still doing Fade
-        {
-            newBackgroundRend.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime) );
+            if( alpha < 1.0 ) //Still doing Fade
+            {
+                newBackgroundRend.color = new Color( 1f, 1f, 1f, alpha + (deltaAlpha * Time.deltaTime) );
+            }
+            else //Fade done: Set old to new and new to null.
+            {
+                currBackgroundRend.sprite = newBackgroundRend.sprite;
+                newBackgroundRend.sprite = null;
+                SetInputBlocker( false );
+            }
         }
-        else //Fade done: Set old to new and new to null.
-        {
-            currBackgroundRend.sprite = newBackgroundRend.sprite;
-            newBackgroundRend.sprite = null;
-            SceneManager.Instance.SetInputBlocker( false );
-        }
-
     }
 	
     public void ChangeScene(int SceneID)
@@ -145,9 +156,39 @@ public class SceneManager : MonoBehaviour
             InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab ,Vector3.zero);
             MusicManager.instance.ChangeSong( Scenes[SceneID].Name );
             Debug.Log( "[scene manager] Changed Scene to number "+SceneID );
-            FileReader.Instance.LoadScene( QuestStage.ToString() + "_" + Scenes[SceneID].Prefab + "_" + "intro" );
+            enteredNewScene = true;
         }
         else Debug.Log( "[scene manager] No case loaded!" );
+    }
+
+    public void SetScenePlayed(string scene, bool played = true)
+    {
+        ScenesPlayed.Add(scene, true);
+    }
+
+    public bool GetScenePlayed(string scene)
+    {
+        // NOTE(jesse): This might be an expensive look up
+        if (ScenesPlayed.ContainsKey(scene))
+        return ScenesPlayed[scene];
+        return false;
+    }
+
+    // NOTE(jesse): Function to run the intro script after the fade into a new scene has finished.
+    private void SceneStart()
+    {
+        if(enteredNewScene)
+        {
+            if (!SceneManager.Instance.GetInputBlocker())
+            {
+                string introScene = QuestStage.ToString() + "_" + Scenes[currentScene].Prefab + "_" + "intro";
+                if (FileReader.Instance.IsScene(introScene) && !GetScenePlayed(introScene))
+                {
+                    FileReader.Instance.LoadScene(introScene);
+                }
+                enteredNewScene = false;
+            }
+        }
     }
 
     public int GetScene()

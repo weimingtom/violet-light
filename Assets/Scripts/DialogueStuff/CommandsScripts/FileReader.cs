@@ -95,7 +95,18 @@ public class FileReader : MonoBehaviour
 
         //NOTE(HENDRY) : ParseCommand and ParseDialogue will be combined in RunParse
         StringParser.Instance.RunParse(command.ToString());
+        SceneManager.Instance.SetScenePlayed(_scene);
 	}
+
+    // NOTE(jesse): Check if the scene exists
+    public bool IsScene(string _scene)
+    {
+        Debug.Log("[File Reader] Checking if scene exists: " + _scene);
+        if (Resources.Load(scriptFolder + _scene)!=null)
+        { return true; }
+        return false;
+    }
+
     public string ReadCommandText(string commandAddress)
     {
         return (Resources.Load(commandAddress) as TextAsset).ToString();

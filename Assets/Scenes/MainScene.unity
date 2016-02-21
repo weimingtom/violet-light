@@ -1029,6 +1029,10 @@ Prefab:
       propertyPath: speed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 11434496, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: ScreenBlocker
+      value: 
+      objectReference: {fileID: 129076, guid: bc795d6f307a64a40a1077f219c46d07, type: 2}
     m_RemovedComponents:
     - {fileID: 11486840, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
