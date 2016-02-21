@@ -169,6 +169,30 @@ public class SceneManager : MonoBehaviour
         else Debug.Log( "[scene manager] No case loaded!" );
     }
 
+    public void ChangeScene(string SceneID)
+    {
+        if (CurrentCaseFile != null)
+        {
+            Debug.Log("[scene manager] Attempting to change scene to " + SceneID);
+            foreach(Scene cs in Scenes)
+            {
+                if (cs.Name == SceneID || cs.Prefab == SceneID)
+                {
+                    currentScene = (int)cs.ID;
+                    ChangeBackground(Scenes[currentScene].Background, 0.7f);
+                    InteractableManager.Instance.Clear();
+                    InteractableManager.Instance.Spawn(Scenes[currentScene].Prefab, Vector3.zero);
+                    MusicManager.instance.ChangeSong(Scenes[currentScene].Name);
+                    Debug.Log("[scene manager] Changed Scene to number " + cs.ID);
+                    enteredNewScene = true;
+                    break;
+                }
+            }
+            
+        }
+        else Debug.Log("[scene manager] No case loaded!");
+    }
+
     public void SetScenePlayed(string scene, bool played = true)
     {
         ScenesPlayed.Add(scene, true);
