@@ -1,5 +1,5 @@
 //fade in
-
+[testimony] 1 potato
 show Alex Left1
 show Violet Right1
 pose Alexander Thinking

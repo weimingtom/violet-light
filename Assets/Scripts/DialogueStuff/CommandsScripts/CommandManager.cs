@@ -9,16 +9,16 @@ public class CommandManager : MonoBehaviour
 
     int destroyCount;
     bool done;
+
     public Text myTextHolder;
     public Text myNameHolder;
+
     public GameObject myBannerBox;
     public GameObject leftButton;
     public GameObject rightButton;
+
     static public CommandManager Instance;
 
-    //counter for CommandId
-	List<string> SceneId;
-    //counter for command
     int commandTracker;
     List<Commands> myCommand;
 
@@ -72,27 +72,14 @@ public class CommandManager : MonoBehaviour
         done = false;
         commandTracker = 0;
         Instance = this;
-		SceneId = new List<string>();
         myCommand = new List<Commands>();
     }
 
-    public void RegisterID(string id)
-    {
-        SceneId.Add( id );
-	}
+
 
     public void AddCommand(Commands command)
     {
         myCommand.Add(command);
-    }
-    
-    public void PrintData()
-    {
-		print("Coversation : " + SceneId[0]);
-        for( int i = 0; i < myCommand.Count; i++ )
-        {
-            myCommand[i].PrintData();
-        }
     }
 
     public void AdvanceCommand()
@@ -133,7 +120,6 @@ public class CommandManager : MonoBehaviour
         destroyCount = 0;
         done = false;
         commandTracker = 0;
-        SceneId.Clear();
         myCommand.Clear();
     }
 
@@ -153,11 +139,6 @@ public class CommandManager : MonoBehaviour
 		    }
 		    else if (commandTracker == myCommand.Count)
 		    {
-			    /*
-			     * Destroy everything
-                 * Added destroy count, to reversed back to 
-			     */
-
                 if( destroyCount < myCommand.Count
                     && myCommand[destroyCount].Destroy())
                 {
@@ -168,7 +149,6 @@ public class CommandManager : MonoBehaviour
                     SceneManager.Instance.SetInputBlocker( false );
                     done = true;
                 }
-                
 		    } 
             break;
 

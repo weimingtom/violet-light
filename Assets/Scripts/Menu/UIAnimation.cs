@@ -19,6 +19,7 @@ public class UIAnimation : MonoBehaviour
     public bool animateForward { get; set; }
     public bool animateBackward { get; set; }
     private bool animateBtn;
+
     void Start()
     {
         animateBtn = false;
@@ -32,6 +33,7 @@ public class UIAnimation : MonoBehaviour
             uiButtonOriginalPos[i] = uiElementButtons[i].transform.position;
         }
     }
+
     public void StartAnimate(MenuManager.state dest)
     {
         animateBtn = true;
@@ -45,6 +47,7 @@ public class UIAnimation : MonoBehaviour
             animateBackward = true;
         }
     }
+
     public void ResetPosition()
     {
         foreach( GameObject go in uiElements )
@@ -58,6 +61,7 @@ public class UIAnimation : MonoBehaviour
             index++;
         }
     }
+
     bool AnimateElementBackward()
     {
         float step = speed * Time.deltaTime * Screen.width / 100;
@@ -78,12 +82,10 @@ public class UIAnimation : MonoBehaviour
 		}
         return false;
     }
-    //Screen.width / 100
+
     bool AnimateElementFroward()
     {
         float step = speed * Time.deltaTime * Screen.width / 100;
-//        Vector3 posBtn = uiButtonOriginalPos[(int)myState];
-//        posBtn.x += uiDestination.transform.position.x;
 
         Vector3 pos = originalPosition;
         pos.x += uiDestination.transform.position.x;

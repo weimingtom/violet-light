@@ -59,9 +59,10 @@ public class StringParser : MonoBehaviour
     void ParseTestimony( ref TestimonyCommand tes, string str )
     {
         string[] extracted;
-        if( str[0] == 't' )
+        if( Char.ToLower(str[0]) == 't' )
         {
-            extracted = str.Split( ' ' );
+            char[] delimiter = { ' ', ']' , '['};
+            extracted = str.Split( delimiter );
             tes.SetItem( int.Parse( extracted[1] ), extracted[2] );
         }
         else
@@ -73,12 +74,14 @@ public class StringParser : MonoBehaviour
             extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
             tes.AddMainStatement( extracted[0], extracted[1] );
             break;
+
             case '-':
             delimiter[0] = '-';
             extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
             tes.AddPushStatement( extracted[0], extracted[1] );
             break;
-            default:
+
+            case '$':
             extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
             if( extracted.Length == 2 )
             {
@@ -89,6 +92,9 @@ public class StringParser : MonoBehaviour
                 tes.AddEndStatement( extracted[0], extracted[1] );
             }
             break;
+            default:
+            CustomCommand( str );
+            break;
             }
         }
     }
@@ -97,82 +103,86 @@ public class StringParser : MonoBehaviour
     {
         // NOTE(Hendry): Make sure it is not a comment
         // talk to the maker of sceneProp to work with new script
-        char[] delimiter;
-        string[] parsedCommand;
         if( command[0] != '/' && command[0] != ' ' )
         {
-            switch( command[0] )
+            if( command[0] == '$' )
             {
-            case '$':
-            delimiter = new char[2];
-            delimiter[0] = '$';
-            delimiter[1] = '"';
-            parsedCommand = command.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
-            if( parsedCommand.Length == 3 )
-            {
-                DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[2] );
-            }
-            else if( parsedCommand.Length == 2 )
-            {
-                DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[1] );
+                char[] delimiter;
+                string[] parsedCommand;
+                delimiter = new char[2];
+                delimiter[0] = '$';
+                delimiter[1] = '"';
+                parsedCommand = command.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
+                if( parsedCommand.Length == 3 )
+                {
+                    DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[2] );
+                }
+                else if( parsedCommand.Length == 2 )
+                {
+                    DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[1] );
+                }
+                else
+                {
+                    Debug.Log( "[Parse Command]Unexpected number of character" );
+                }
+                ShowTextCommand showText = new ShowTextCommand();
+                showText.SetConversation( parsedCommand[0].ToLower() );
+                CommandManager.Instance.AddCommand( showText );
             }
             else
             {
-                Debug.Log( "[Parse Command]Unexpected number of character" );
-                //Debug.Break();
-            }
-            ShowTextCommand showText = new ShowTextCommand();
-            showText.SetConversation( parsedCommand[0].ToLower() );
-            CommandManager.Instance.AddCommand( showText );
-            break;
-            default:
-            delimiter = new char[1];
-            delimiter[0] = ' ';
-            parsedCommand = command.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
-            switch( parsedCommand[0].ToLower() )
-            {
-            //NOTE(Hendry)::Add command here
-            case "bg":
-
-            break;
-            case "bgm":
-
-            break;
-            case "show":
-            ShowCharacterCommand character = new ShowCharacterCommand();
-            if( parsedCommand.Length == 3 )
-            {
-                character.SetCharacterName( parsedCommand[1].ToLower() );
-                character.SetSpawnLocation( parsedCommand[2].ToLower() );
-                CommandManager.Instance.AddCommand( character );
-            }
-            break;
-            case "pose":
-            ChangePoseCommand newPoseCommand = new ChangePoseCommand();
-            newPoseCommand.SetNewPose( parsedCommand[1].ToLower(), parsedCommand[2].ToLower() );
-            CommandManager.Instance.AddCommand( newPoseCommand );
-            break;
-            case "eff":
-            EffectCommand newEffect = new EffectCommand();
-            newEffect.SetEffect( parsedCommand[1] );
-            CommandManager.Instance.AddCommand( newEffect );
-            break;
-            case "item":
-            ItemManager.Instance.AddItem( parsedCommand[1].ToLower() );
-            break;
-            case "decisions":
-
-            break;
-            case "advquest":
-            SceneManager.Instance.AdvQuest();
-            break;
-            }
-            break;
+                CustomCommand( command );
             }
         }
     }
+    void CustomCommand(string command)
+    {
+        char[] delimiter = new char[1];
+        delimiter[0] = ' ';
+        string[] parsedCommand = command.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
+        switch( parsedCommand[0].ToLower() )
+        {
+        //NOTE(Hendry)::Add command here
+        case "bg":
+        break;
 
+        case "bgm":
+        break;
 
+        case "show":
+        ShowCharacterCommand character = new ShowCharacterCommand();
+        if( parsedCommand.Length == 3 )
+        {
+            character.SetCharacterName( parsedCommand[1].ToLower() );
+            character.SetSpawnLocation( parsedCommand[2].ToLower() );
+            CommandManager.Instance.AddCommand( character );
+        }
+        break;
+
+        case "pose":
+        ChangePoseCommand newPoseCommand = new ChangePoseCommand();
+        newPoseCommand.SetNewPose( parsedCommand[1].ToLower(), parsedCommand[2].ToLower() );
+        CommandManager.Instance.AddCommand( newPoseCommand );
+        break;
+
+        case "eff":
+        EffectCommand newEffect = new EffectCommand();
+        newEffect.SetEffect( parsedCommand[1] );
+        CommandManager.Instance.AddCommand( newEffect );
+        break;
+
+        case "item":
+        ItemManager.Instance.AddItem( parsedCommand[1].ToLower() );
+        break;
+
+        case "decisions":
+        break;
+
+        case "advquest":
+        SceneManager.Instance.AdvQuest();
+        break;
+        }
+    }
     public void BackgroundReader( string mainString, ref Dictionary<string, string> _background)
     {
         int locationCheck = 0;
@@ -208,6 +218,8 @@ public class StringParser : MonoBehaviour
             _background.Add( header, content );
         }
     }
+
+
 
     /************************* ADAM'S FILE READING ********************************/
     /******************** FOR READING THE CHARACTERS IN ***************************/

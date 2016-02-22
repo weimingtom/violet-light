@@ -13,13 +13,17 @@ public class StatementMode
     Dictionary<int, List<string>> pushStatementsNameTag = new Dictionary<int, List<string>>();
     List<string> endText;
 
+	string item = "not set";
     int mainIndex = 0;
     int pushIndex = 0;
     int endTextIndex = 0;
 
     public bool push { get; set; }
     public bool end { get; set; }
-
+	public void SetItem(string str)
+	{
+		item = str;
+	}
     public void AddMainStatement( string nmTag ,string str)
     {
         nameTag.Add( nmTag );
@@ -147,4 +151,5 @@ public class StatementMode
             }
         }
     }
+
 }
