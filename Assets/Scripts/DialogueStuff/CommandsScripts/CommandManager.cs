@@ -20,39 +20,46 @@ public class CommandManager : MonoBehaviour
 	List<string> SceneId;
     //counter for command
     int commandTracker;
-    public bool loop { get; set; }
     List<Commands> myCommand;
+
     void UpdateButton()
     {
-        leftButton.SetActive(loop);
-        rightButton.SetActive(loop);
+        leftButton.SetActive(false);
+        rightButton.SetActive(false);
     }
-    public void TerminateCommandManager()
+
+    public void Terminate()
     {
         commandTracker = myCommand.Count;
 
     }
+
 	public void AddCharIntoTextHolder(char c)
 	{
 		myTextHolder.text += c;
 	}
+
     public void AddStringIntoTextHolder( string str )
     {
         myTextHolder.text += str;
     }
+
     public void SetNameIntoNameBox( string name )
     {
         myNameHolder.text = name;
     }
+
     public void SetTextHolder(string content)
     {
 		myTextHolder.text = content;
 	}
+
 	public void TextSwitch(bool status)
 	{
         myTextHolder.gameObject.SetActive( status );
         myNameHolder.gameObject.SetActive( status );
 	}
+
 	public void TextBoxSwitch(bool status)
 	{
 		myBannerBox.gameObject.SetActive (status);
@@ -69,8 +76,9 @@ public class CommandManager : MonoBehaviour
 		SceneId = new List<string>();
         myCommand = new List<Commands>();
     }
+
     public void RegisterID(string id)
-	{
+    {
         SceneId.Add( id );
 	}
 
@@ -78,6 +86,7 @@ public class CommandManager : MonoBehaviour
     {
         myCommand.Add(command);
     }
+    
     public void PrintData()
     {
 		print("Coversation : " + SceneId[0]);
@@ -118,7 +127,7 @@ public class CommandManager : MonoBehaviour
     }
     public void Reinitialize()
     {
-        loop = false;
+
         destroyCount = 0;
         done = false;
         commandTracker = 0;
@@ -145,19 +154,18 @@ public class CommandManager : MonoBehaviour
 			     * Destroy everything
                  * Added destroy count, to reversed back to 
 			     */
-                if( loop == false )
+
+                if( destroyCount < myCommand.Count
+                    && myCommand[destroyCount].Destroy())
                 {
-                    if( destroyCount < myCommand.Count
-                        && myCommand[destroyCount].Destroy())
-                    {
-                        destroyCount++;
-                    }
-                    else if(destroyCount == myCommand.Count)
-                    {
-                        SceneManager.Instance.SetInputBlocker( false );
-                        done = true;
-                    }
+                    destroyCount++;
                 }
+                else if(destroyCount == myCommand.Count)
+                {
+                    SceneManager.Instance.SetInputBlocker( false );
+                    done = true;
+                }
+                
 		    } 
             break;
 
