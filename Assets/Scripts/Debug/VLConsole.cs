@@ -45,6 +45,7 @@ public class VLConsole : MonoBehaviour
         char[] delimiterChar = { '\r', '\n', ' ' };
         string[] commandSeg = command.Split(delimiterChar, System.StringSplitOptions.RemoveEmptyEntries);
 
+        if(commandSeg.Length >0)
         Debug.Log("[VLConsole] Command Split into '" + commandSeg[0] + "' + '" + commandSeg[1] + "' ");
 
         switch(commandSeg[0].ToLower())
@@ -57,6 +58,11 @@ public class VLConsole : MonoBehaviour
             case ("ld"):
             {
                 FileReader.Instance.LoadScene(commandSeg[1]);
+            }
+            break;
+            case ("break"):
+            {
+                CommandManager.Instance.Terminate();
             }
             break;
         }
