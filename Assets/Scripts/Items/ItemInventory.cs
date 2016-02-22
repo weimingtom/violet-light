@@ -64,10 +64,12 @@ public class ItemInventory : MonoBehaviour
 			}
         }
     }
+
     public void ClickButton(int btn_id)
     {
         SetMainImage( btn_id );
     }
+
     void ClickPresent()
     {
         
@@ -77,10 +79,12 @@ public class ItemInventory : MonoBehaviour
     {
         buttons[presentButtonLocation].gameObject.SetActive(toggle);
     }
+
     public void PresentButton()
     {
         Prop.Instance.SetCheckedItem( mainTextHolder[0].text.ToString() );
     }
+
 	void SetMainImage(int buttonIndex)
     {
         if( buttons[buttonIndex].image.sprite.texture.name != "UISprite"
@@ -92,6 +96,7 @@ public class ItemInventory : MonoBehaviour
             mainTextHolder[1].text = ItemManager.Instance.GetDescriptions( buttons[buttonIndex].GetComponentInChildren<Text>().text );
         }
     }
+
 	public void ResetButton()
 	{
 		foreach (Button button in buttons) 
@@ -103,24 +108,29 @@ public class ItemInventory : MonoBehaviour
             }
 		}
 	}
-	public int GetInventorySize()
+	
+    public int GetInventorySize()
 	{
 		return buttons.Length;
 	}
+    
     public void SetItemToInventory( Sprite texture, string name, int index )
     {
         buttons[index].image.enabled = true;
         buttons[index].image.sprite = texture;
         buttons[index].GetComponentInChildren<Text>().text = name;
     }
+    
     public void DeleteFromInventory(int index)
     {
         buttons[index].enabled = false;
         buttons[index].image.sprite = null;
         buttons[index].GetComponentInChildren<Text>().text = "";
     }
+    
     void OnDisable()
     {
         ItemManager.Instance.SetLoadInventory( false );
     }
+
 }

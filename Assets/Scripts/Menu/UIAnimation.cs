@@ -11,14 +11,17 @@ public class UIAnimation : MonoBehaviour
     public GameObject uiDestination;
 
     private Vector3[] uiButtonOriginalPos;
+    public Transform[] uiButtonDestination;
     private Vector3 originalPosition;
     MenuManager.state myState = MenuManager.state.SaveLoad;
     MenuManager.state destinationState = MenuManager.state.SaveLoad;
     public float speed = 1.0f;
     public bool animateForward { get; set; }
     public bool animateBackward { get; set; }
+    private bool animateBtn;
     void Start()
     {
+        animateBtn = false;
         animateForward = false;
         Instance = this;
 
@@ -31,6 +34,7 @@ public class UIAnimation : MonoBehaviour
     }
     public void StartAnimate(MenuManager.state dest)
     {
+        animateBtn = true;
         destinationState = dest;
         if( dest > myState )
         {
@@ -57,16 +61,19 @@ public class UIAnimation : MonoBehaviour
     bool AnimateElementBackward()
     {
         float step = speed * Time.deltaTime * Screen.width / 100;
-
-        if( Mathf.Abs(uiElements[(int)myState].transform.position.magnitude - originalPosition.magnitude) < 0.1f 
-            && Mathf.Abs( uiElementButtons[(int)myState].transform.position.magnitude - uiButtonOriginalPos[(int)myState].magnitude ) < 0.1f )
+        if( animateBtn == true )
         {
+            uiElementButtons[(int)myState].transform.position = uiButtonOriginalPos[(int)myState];
+            animateBtn = false;
+        }
+        if( Mathf.Abs(uiElements[(int)myState].transform.position.magnitude - originalPosition.magnitude) < 0.1f )
+        {
+			animateBtn = true;
             return true;
         }
 		else
 		{
             uiElements[(int)myState].transform.position = Vector3.MoveTowards( uiElements[(int)myState].transform.position, originalPosition, step );
-            uiElementButtons[(int)myState].transform.position = Vector3.MoveTowards( uiElementButtons[(int)myState].transform.position, uiButtonOriginalPos[(int)myState], step );
 			
 		}
         return false;
@@ -75,20 +82,24 @@ public class UIAnimation : MonoBehaviour
     bool AnimateElementFroward()
     {
         float step = speed * Time.deltaTime * Screen.width / 100;
-        Vector3 posBtn = uiButtonOriginalPos[(int)myState];
-        posBtn.x += uiDestination.transform.position.x;
+//        Vector3 posBtn = uiButtonOriginalPos[(int)myState];
+//        posBtn.x += uiDestination.transform.position.x;
 
         Vector3 pos = originalPosition;
         pos.x += uiDestination.transform.position.x;
-        if( Mathf.Abs(uiElements[(int)myState].transform.position.magnitude - pos.magnitude) < 0.1f
-            && Mathf.Abs(uiElementButtons[(int)myState].transform.position.magnitude - posBtn.magnitude) < 0.1f )
+        if( animateBtn == true )
         {
+            uiElementButtons[(int)myState].transform.position = uiButtonDestination[(int)myState].position;
+            animateBtn = false;
+        }
+        if( Mathf.Abs(uiElements[(int)myState].transform.position.magnitude - pos.magnitude) < 0.1f )
+        {
+			animateBtn = true;
             return true;
         }
 		else
 		{
             uiElements[(int)myState].transform.position = Vector3.MoveTowards( uiElements[(int)myState].transform.position, pos, step );
-            uiElementButtons[(int)myState].transform.position = Vector3.MoveTowards( uiElementButtons[(int)myState].transform.position, posBtn, step);
 		}
         return false;
     }
