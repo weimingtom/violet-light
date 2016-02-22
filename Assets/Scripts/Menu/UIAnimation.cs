@@ -17,7 +17,7 @@ public class UIAnimation : MonoBehaviour
     public float speed = 1.0f;
     public bool animateForward { get; set; }
     public bool animateBackward { get; set; }
-    void Awake()
+    void Start()
     {
         animateForward = false;
         Instance = this;
@@ -58,19 +58,17 @@ public class UIAnimation : MonoBehaviour
     {
         float step = speed * Time.deltaTime * Screen.width / 100;
 
-        if( uiElements[(int)myState].transform.position != originalPosition )
-        {
-            uiElements[(int)myState].transform.position = Vector3.MoveTowards( uiElements[(int)myState].transform.position, originalPosition, step );
-        }
-        if( uiElementButtons[(int)myState].transform.position != uiButtonOriginalPos[(int)myState] )
-        {
-            uiElementButtons[(int)myState].transform.position = Vector3.MoveTowards( uiElementButtons[(int)myState].transform.position, uiButtonOriginalPos[(int)myState], step );
-        }
         if( Mathf.Abs(uiElements[(int)myState].transform.position.magnitude - originalPosition.magnitude) < 0.1f 
             && Mathf.Abs( uiElementButtons[(int)myState].transform.position.magnitude - uiButtonOriginalPos[(int)myState].magnitude ) < 0.1f )
         {
             return true;
         }
+		else
+		{
+            uiElements[(int)myState].transform.position = Vector3.MoveTowards( uiElements[(int)myState].transform.position, originalPosition, step );
+            uiElementButtons[(int)myState].transform.position = Vector3.MoveTowards( uiElementButtons[(int)myState].transform.position, uiButtonOriginalPos[(int)myState], step );
+			
+		}
         return false;
     }
     //Screen.width / 100
@@ -82,21 +80,19 @@ public class UIAnimation : MonoBehaviour
 
         Vector3 pos = originalPosition;
         pos.x += uiDestination.transform.position.x;
-        if( uiElements[(int)myState].transform.position != pos )
-        {
-            uiElements[(int)myState].transform.position = Vector3.MoveTowards( uiElements[(int)myState].transform.position, pos, step );
-        }
-        if( uiElementButtons[(int)myState].transform.position != posBtn )
-        {
-            uiElementButtons[(int)myState].transform.position = Vector3.MoveTowards( uiElementButtons[(int)myState].transform.position, posBtn, step);
-        }
         if( Mathf.Abs(uiElements[(int)myState].transform.position.magnitude - pos.magnitude) < 0.1f
             && Mathf.Abs(uiElementButtons[(int)myState].transform.position.magnitude - posBtn.magnitude) < 0.1f )
         {
             return true;
         }
+		else
+		{
+            uiElements[(int)myState].transform.position = Vector3.MoveTowards( uiElements[(int)myState].transform.position, pos, step );
+            uiElementButtons[(int)myState].transform.position = Vector3.MoveTowards( uiElementButtons[(int)myState].transform.position, posBtn, step);
+		}
         return false;
     }
+
     void FixedUpdate()
     {
         if( animateForward )

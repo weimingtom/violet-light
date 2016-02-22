@@ -15,12 +15,13 @@ public class ItemInventory : MonoBehaviour
     void Awake()
 	{
 		Instance = this;
-        ItemManager.Instance.SetLoadInventory(true);
-        Initialize();
+        
 	}
 
     void Start()
     {
+        ItemManager.Instance.SetLoadInventory( true );
+        Initialize();
         TogglePresentButton(false);
     }
 
