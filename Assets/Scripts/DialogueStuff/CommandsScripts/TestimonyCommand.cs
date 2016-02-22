@@ -11,11 +11,13 @@ public class TestimonyCommand : Commands
     {
         commandTag = "testimonycommand";
     }
+
     public void SetItem( int idx, string str )
     {
         correctItem = str;
         correctItemIndex = idx;
     }
+
     public void AddMainStatement(string nm, string str)
     {
         //parse text
@@ -61,6 +63,7 @@ public class TestimonyCommand : Commands
 
     public override bool ExecuteCommand()
     {
+
         CommandManager.Instance.SetTextHolder( myStatementMode.GetText() );
         return false;
     }

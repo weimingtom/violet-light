@@ -23,6 +23,7 @@ public class StringParser : MonoBehaviour
             _characterDict.Add( passedChar[0].ToLower(), passedChar[1] );
         }
     }
+
     public void RunParse( string _mainString )
     {
         bool testimony = false;
@@ -54,6 +55,7 @@ public class StringParser : MonoBehaviour
         break;
         }
     }
+
     void ParseTestimony( ref TestimonyCommand tes, string str )
     {
         string[] extracted;
@@ -90,6 +92,7 @@ public class StringParser : MonoBehaviour
             }
         }
     }
+
     void ParseCommand( string command )
     {
         // NOTE(Hendry): Make sure it is not a comment
@@ -248,6 +251,7 @@ public class StringParser : MonoBehaviour
                 who += mainString[i].ToString();
                 i++;
             }
+            Debug.Log( "[character manager] Adding Char: " + who + " | what: " + what);
 
             string name = "";
 
@@ -260,7 +264,6 @@ public class StringParser : MonoBehaviour
                     i++;
                 }
                 CM.addCharacter( who.ToLower(), name.ToLower() );
-                
             }
             else
             {

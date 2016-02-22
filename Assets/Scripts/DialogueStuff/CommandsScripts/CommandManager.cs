@@ -31,7 +31,6 @@ public class CommandManager : MonoBehaviour
     public void Terminate()
     {
         commandTracker = myCommand.Count;
-
     }
 
 	public void AddCharIntoTextHolder(char c)
@@ -95,6 +94,7 @@ public class CommandManager : MonoBehaviour
             myCommand[i].PrintData();
         }
     }
+
     public void AdvanceCommand()
     {
         bool check = true;
@@ -113,6 +113,7 @@ public class CommandManager : MonoBehaviour
             }
         }
     }
+
     public void RewindCommand()
     {
         if( commandTracker > 0 )
@@ -125,6 +126,7 @@ public class CommandManager : MonoBehaviour
                     && commandTracker != 0 );
         }
     }
+
     public void Reinitialize()
     {
 
@@ -134,6 +136,7 @@ public class CommandManager : MonoBehaviour
         SceneId.Clear();
         myCommand.Clear();
     }
+
     void Update()
     {
         UpdateButton();
@@ -173,4 +176,5 @@ public class CommandManager : MonoBehaviour
             break;
         }
     }
+
 }
