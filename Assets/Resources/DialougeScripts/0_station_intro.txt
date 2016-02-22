@@ -1,39 +1,41 @@
-bgm theme
+//bgm theme
 
-eff FadeIn
+//eff FadeIn
 
-$PL$ “WA-WAIT- [eff flash] You can’t go in there!”
+$PL$ “WA-WAIT- [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] You can’t go in there!”
 
-show Policeman right
+show Policeman Right1
 
-show AlexPuzzled left1
-show VioletSerious Left2
+show Alexander Left1
+pose Alexander Puzzled 
+show Violet Left2
+pose Violet Serious 
 
-$AX$ “We’re here f-for [eff smash]... [pause] Uh! Harmony! [eff crash] Y-You have to let us through!”
+$AX$ “We’re here f-for [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] ... Uh! Harmony! [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] Y-You have to let us through!”
 
 $PL$ “Sorry, no one sees Ms.Harmony without proper permission”
 
 $AX$ “Violet, If we show the guard the letter we received he might let us see your friend, Open your journal(esc) and [color]present[color] it to him.”
 
 // Option to present
-Switch (Present)
-Harmony’s Letter
-Violet Explaining
+//Switch (Present)
+//Harmony’s Letter
+//Violet Explaining
 $VL$ “Look we have written permission. Let us through.”
-$PL$ “H-huh [eff ding] oh I see!”
-continue
-Other
-$PL$ “What are you showing me that for? That’s not getting you anywhere”
-Alex Nervous
-$VL$ “C’mon Alex think, we have [red]something[/red] that’ll help us get through!”
-$AX$ “R-Right![eff flash/shake]”
-loop
+$PL$ “H-huh oh I see!”
+//continue
+//Other
+//$PL$ “What are you showing me that for? That’s not getting you anywhere”
+//Alex Nervous
+//$VL$ “C’mon Alex think, we have [red]something[/red] that’ll help us get through!”
+//$AX$ “R-Right! [eff FlashScreen] [eff ScreenShake] [eff SoundEffect]”
+//loop
 
 $PL$ “I-I’m terribly sorry! I’ll let you through right now!”
 
-Violet Smirk
+pose Violet Smirk
 $VL$ “Thanks, love.”
-Alex Determined
+pose Alexander Determined
 
 show Policeman Offscreen
 

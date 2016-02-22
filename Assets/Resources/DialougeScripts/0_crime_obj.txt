@@ -3,7 +3,7 @@ show Alex Right2
 
 $VL$ “I wonder what this is?”
 
-$PL$ “HEY! YOU CAN’T TOUCpose Harmony THAT!”
+$PL$ “HEY! YOU CAN’T TOUCH THAT!”
 
 $VL$ “Ugh- no fun...”
 $VL$ “Alex, try and find the guy in charge.”
