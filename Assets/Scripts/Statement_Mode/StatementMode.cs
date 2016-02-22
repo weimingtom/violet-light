@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
 public class StatementMode
 {
     //use set display command
     List<string> nameTag = new List<string>();
     List<string> endNameTag = new List<string>();
     List<string> mainStatements = new List<string>();
+
     Dictionary<int, List<string>> pushStatements = new Dictionary<int, List<string>>();
     Dictionary<int, List<string>> pushStatementsNameTag = new Dictionary<int, List<string>>();
     List<string> endText;
@@ -34,6 +36,16 @@ public class StatementMode
         }
         else
         {
+            try
+            {
+                pushStatementsNameTag[mainStatements.Count - 1].Add(nmTag);
+            }
+            catch( System.Collections.Generic.KeyNotFoundException )
+            {
+                pushStatementsNameTag[mainStatements.Count - 1] = new List<string>();
+                pushStatements[mainStatements.Count - 1].Add( nmTag );
+            }
+
             try
             {
                 pushStatements[mainStatements.Count - 1].Add( nmTag );

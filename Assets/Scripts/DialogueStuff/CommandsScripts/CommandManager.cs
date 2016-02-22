@@ -31,7 +31,6 @@ public class CommandManager : MonoBehaviour
     public void Terminate()
     {
         commandTracker = myCommand.Count;
-
     }
 
 	public void AddCharIntoTextHolder(char c)

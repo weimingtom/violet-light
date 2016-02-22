@@ -56,6 +56,11 @@ public class ItemInventory : MonoBehaviour
                 presentButtonLocation = i;
                 buttons[i].onClick.AddListener( () => ClickPresent() );
             }
+			else
+			{
+				buttons[i].GetComponentInChildren<Text>().text = "no item";
+				buttons[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/Item/no_item");
+			}
         }
     }
     public void ClickButton(int btn_id)
