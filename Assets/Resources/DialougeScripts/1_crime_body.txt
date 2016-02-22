@@ -9,14 +9,16 @@ $AX$ "She looks kinda peaceful! Ah, uhm-“
 
 $VL$ "...”
 
-a embarrassed
+pose Alexander embarrassed
 $AX$ "S- sorry”
 $AX$ "...”
 
-a surprised
+
+pose Alexander surprised
 pose Violet Happy
 $VL$ "It’s okay Alex! We can be grim after the case, but right now we need to find out who did this...”
-v grim
+
+pose Violet grim
 pose Alexander Neutral
 $AX$ "Of course!”
 

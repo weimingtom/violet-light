@@ -25,4 +25,4 @@ $VL$ “The roads are salted for the winter, love.”
 pose Alexander scribbling
 $AX$ “Hmm... I’ll jot that down.”
 
-“Icy Streets added to your Evidence Journal”
+$/$ “Icy Streets added to your Evidence Journal”

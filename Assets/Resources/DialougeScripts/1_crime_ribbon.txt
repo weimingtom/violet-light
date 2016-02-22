@@ -1,4 +1,7 @@
-pose Violet Thinking
+pose Violet Thinking 
+Alexander Right1
+show Violet Right2
+pose Alexander Neutral
 $VL$ "look at this.”
 
 pose Alexander Neutral

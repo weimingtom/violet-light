@@ -1,6 +1,6 @@
 //fade in
 
-show Alex Left1
+show Alexander Left1
 show Violet Right1
 pose Alexander Thinking
 pose Violet Neutral

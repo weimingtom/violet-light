@@ -3,14 +3,15 @@ show Violet Right2
 pose Alexander Neutral
 pose Violet Neutral
 
-show Sharp left //facing wrong way
+show Sharp left1 
+//facing wrong way
 pose Sharp Cocky
 $SP$ “Well... yeah? Of course I was right!”
 pose Sharp Thinking
-$SP$ “H-huh?[pause] Behind me?[eff discovery]”
+$SP$ “H-huh?[time 1] Behind me?
 // Sharp Turns around
 pose Sharp Neutral
-$SP$ “Woah, woah, woah. HOLD IT![eff yell]”
+$SP$ “Woah, woah, woah. HOLD IT!
 $SP$ “This... This, is a Crime Scene.”
 $SP$ “Common folk like yourselves can’t be here.
 $SP$ “Especially you sweetheart.”
@@ -30,13 +31,11 @@ pose Sharp Surprised
 pose Violet Cocky
 $VL$ “We’re Miss Rush’s lawyers, on official business.”
 
-
-
-
 pose Alexander Surprised
-$AX$ “Wait, We are-?” // Gets cut off
+$AX$ “Wait, We are-?” 
+// Gets cut off
 
-$VL$ “As you can see by my official papers, [Show Icon Notebook very quickly then hide] so please step aside, we’re looking for someone with a knife.”
+$VL$ “As you can see by my official papers, so please step aside, we’re looking for someone with a knife.”
 
 pose Sharp Nervous
 $SP$ “U-uh right!”
@@ -46,7 +45,8 @@ $SP$ “Of course, Miss...?”
 $VL$ “Light, Violet Light. And this Is my assistant Alexander Strong.”
 
 pose Alexander Unimpressed
-$AX$ “[small text] W-wow that worked. I think this is illegal...” //cut off
+$AX$ “W-wow that worked. I think this is illegal...” 
+//cut off
 
 $SP$ “I’m Detective Sharp, but there really isn’t much to investigate here. It’s a pretty open and shut case, if I do say so myself.”
 
@@ -108,7 +108,7 @@ $SP$ “I’ve got some important detective business to attend to, so I’ll catch you
 
 // Sharp leaves
 
-$AX$ “W-wait, [small text]I’m not a lady...”
+$AX$ “W-wait, I’m not a lady...”
 
 pose Violet Neutral
 

@@ -1,84 +1,85 @@
 // Meet Sax Man
-show Alex left
+show Alexander left
 show Violet right
 
-alex scribbling
-violet thinking
+pose Alexander scribbling
+pose Violet thinking
 
 $AX$ “So this is the Rush Sisters’ Music Shop?”
 $VL$ “Uh-huh, but I fancied it more without all the police tape.”
 
 //shift camera to right?
 
-show Policeman right // facing right
-$PL$ “P-please [eff crash] S-sir! I can’t let you through!”
-move Policeman left
+show Policeman right1 
+// facing right
+$PL$ “P-please! S-sir! I can’t let you through!”
+show Policeman left1
 
-music SaxTheme
-slide Saxman left //slow
-Saxman Saxphoning
+//music SaxTheme+-
+//slide Saxman left //slow
+//Saxman Saxphoning
 
 // finish animation
 
 // this scene needs to be refined and thought out
 
-saxman smirk
+//saxman smirk
 
-<sx> “Quite the scene you’ve got set up here!”
+$SX$ “Quite the scene you’ve got set up here!”
 
 $PL$ “S-sir! I-I Can’t let you go any further!”
 
-<sx> “Ah and you must be the detective in charge of the situation here, or at least you should be.”
+$SX$ “Ah and you must be the detective in charge of the situation here, or at least you should be.”
 
 $PL$ “W-well! N-no! B-No Sirbut thank you! And sorry but I can’t let you on to the crime scene.”
 
-<sx> “Crimescene? This looks much like a humble music shop to me.”
+$SX$ “Crimescene? This looks much like a humble music shop to me.”
 
 $PL$ “W-well yes it does look like that,Anywhere can be a crime scene sir, but  there are extenuating circumstances.!”
 
-<sx> “It’s okay, no need to force me out, I’ll be on my way. Thank you for your time officer...[pause] or should I say soon-to-be-detective?”
-show saxman offscreen
+$SX$ “It’s okay, no need to force me out, I’ll be on my way. Thank you for your time officer...[pause] or should I say soon-to-be-detective?”
+//`vshow saxman offscreen
 
 $PL$ “A-ah Thank You! A-and sorry! Yes sir, and sorry sir.”
 
 // pan back to alex and violet
 
-alex unimpressed
-violet puzzled
+pose Alexander unimpressed
+pose violet puzzled
 
 $AX$ “W-wow, he managed to trespass and get the officer to apologize for it.”
 
 $VL$ “Huh, wonder why I can never get away with that.”
 
-alex smirk
+pose Alexander smirk
 $AX$ “Welll... you’re a bit different.”
-violet mad
+pose Violet mad
 
-show policeman center
+show Policeman center
 
 $PL$ “Excuse me! You two can’t be here!”
 
-alex scribbling
-violet neutral
+pose Alexander scribbling
+pose Violet neutral
 
 $AX$ “Detective Sharp gave us permission.”
 
 $PL$ “Do you have it in writing?”
 
-alex unimpressed
+pose Alexander unimpressed
 $AX$ “U-uh well...”
 
 $PL$ “Then you can look, but don’t cross the tape!”
 
-show policeman offscreen
+show Policeman offscreen
 
-alex serious
-violet thinking
+pose Alexander serious
+pose Violet thinking
 
 $VL$ “Hmm, you really messed that one up Alex!”
 
-alex shocked
+pose Alexander shocked
 $AX$ “Wh-WHAT?”
-alex serious
+pose Alexander serious
 
-$VL$ “”
+$VL$ “Let's see if we can find something while they're busy with the tall man.”
