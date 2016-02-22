@@ -27,6 +27,11 @@ public class CommandManager : MonoBehaviour
         leftButton.SetActive(loop);
         rightButton.SetActive(loop);
     }
+    public void TerminateCommandManager()
+    {
+        commandTracker = myCommand.Count;
+
+    }
 	public void AddCharIntoTextHolder(char c)
 	{
 		myTextHolder.text += c;
