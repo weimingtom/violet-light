@@ -109,6 +109,5 @@ public class TitleManager : MonoBehaviour
 
     public void StartGame()
     {
-        GetComponent<TitleDebug>().StartGame();
     }
 }
