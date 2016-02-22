@@ -1,5 +1,5 @@
 show Violet Right1
-show Alex Right2
+show Alexander Right2
 
 $VL$ “I wonder what this is?”
 

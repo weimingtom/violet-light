@@ -1,3 +1,8 @@
+show Alexander Right1
+show Violet Right2
+pose Alexander Neutral
+pose Violet Neutral
+
 $AX$ "it looks like the police officers left these footprints here”
 $VL$ "Or maybe it was the murderer disguised as a policeman!”
 pose Alexander Unimpressed

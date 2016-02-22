@@ -1,33 +1,38 @@
+show Fisher Right1
+
 pose Violet Happy
 $VL$ "Hey Ho! All aboaarrrd!”
 
-a embarrassed
+show Alexander Left1
+show Violet Left2
+
+pose Alexander embarrassed
 $AX$ "Uhm... what are you doing violet?”
 
 pose Violet Neutral
 $VL$ "Fisherman folk talk.”
 
-f “Why, Uhm... EHello derethere!”
+$FM$ "Why, Uhm... EHello derethere!”
 
 pose Violet Neutral
 $VL$ "Fisherman folk talk.”
 
-pose Alexander Nervousous
+pose Alexander Nervous
 $AX$ "R-right.”
 pose Alexander Neutral
 $AX$ "Hello, my name is Alexander, and this is my partner Violet.”
 
-f “Nice to meet you, I’m Dale!”
+$FM$ "Nice to meet you, I’m Dale!”
 
 $VL$ "The pleasure is ours”
 
 $AX$ "Do you mind if we ask you some questions?”
 
-f “Well, I’m awfully busy at the moment.”
+$FM$ "Well, I’m awfully busy at the moment.”
 
 // Buuuut if you help with the puzzle? Jk puzzles removed
 
-f “Awh, well I suppose I could spare a couple of seconds for some fine young chaps like yourselves.”
+$FM$ "Awh, well I suppose I could spare a couple of seconds for some fine young chaps like yourselves.”
 
 pose Violet Happy
 $VL$ "Awww, thanks love!”
@@ -36,50 +41,50 @@ pose Violet Neutral
 $AX$ "Perfect.”
 $AX$ "Do you happen to know of anyone around here who discovered a body last morning?”
 
-f “Awh! That I do!”
-f “You be lookin at em’!”
+$FM$ "Awh! That I do!”
+$FM$ "You be lookin at em’!”
 
 pose Alexander Neutral
 $AX$ "Huh?”
 
 $VL$ "He means himself, you dummy.”
 
-f “in the flesh!”
+$FM$ "in the flesh!”
 
 $AX$ "Ri-right!”
 
-f “So what is it you want to know?”
+$FM$ "So what is it you want to know?”
 
 $AX$ "What can you tell us about the account?”
 pose Alexander Cocky
 
-f “Well i mean, I was just out ere’ sailing about, getin me’ mornin’ dues in.”
-f “When all of a sudden I spots me a floatin girl out by younder river.”
+$FM$ "Well i mean, I was just out ere’ sailing about, getin me’ mornin’ dues in.”
+$FM$ "When all of a sudden I spots me a floatin girl out by younder river.”
 
 pose Alexander Neutral
 
-f “An’ that’s when I saild’o’er er’ and found ‘er floatin’ ashore by y’old’river”
+$FM$ "An’ that’s when I saild’o’er er’ and found ‘er floatin’ ashore by y’old’river”
 
 $AX$ "uhm...”
 
-f “An’ then I be quip’n a bout, callin about, try’n to get er attention!”
-f “Then I noticed, young lass be dead!”
+$FM$ "An’ then I be quip’n a bout, callin about, try’n to get er attention!”
+$FM$ "Then I noticed, young lass be dead!”
 
 pose Alexander Nervousous
 
-f “An I be callin the police as I pull ashore, laying me hat on the box.”
+$FM$ "An I be callin the police as I pull ashore, laying me hat on the box.”
 
 pose Alexander Unimpressed
 
-f “An’ then they show up and question me an be off!”
+$FM$ "An’ then they show up and question me an be off!”
 
 $AX$ "Uhm... thank you... for that...”
 
 pose Violet Cocky
 $VL$ "Hmm... so you’re saying she washed ashore as you saw her this morning?”
-a surprised
+pose Alexander surprised
 
-f “Exactly!”
+$FM$ "Exactly!”
 
 pose Alexander Scribbling
 $AX$ "W-wow Violet.”
@@ -88,7 +93,7 @@ $VL$ "That’s why I’m the expert”
 
 $VL$ "Anyways thank you for your time, we won’t keep you any longer.”
 
-f “New proben!”
+$FM$ "New proben!”
 
-“Report update in journal”
+$/$ “Report update in journal”
 // add that she had just floated ashore that morning
