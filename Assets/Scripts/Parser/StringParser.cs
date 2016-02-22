@@ -251,6 +251,7 @@ public class StringParser : MonoBehaviour
                 who += mainString[i].ToString();
                 i++;
             }
+            Debug.Log( "[character manager] Adding Char: " + who + " | what: " + what);
 
             string name = "";
 
@@ -263,7 +264,6 @@ public class StringParser : MonoBehaviour
                     i++;
                 }
                 CM.addCharacter( who.ToLower(), name.ToLower() );
-                
             }
             else
             {

@@ -4,5 +4,7 @@ SP-Sharp
 HM-Harmony
 SX-Michael
 FM-Fisherman
+PL-Policeman
+HR-Harmony
 /- 
 ??-???
