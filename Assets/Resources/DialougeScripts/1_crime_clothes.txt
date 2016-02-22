@@ -1,3 +1,8 @@
+show Alexander Right1
+show Violet Right2
+pose Alexander Neutral
+pose Violet Neutral
+
 pose Violet Happy
 $VL$ "Her clothes look absolutely adorable! As always!”
 

@@ -40,6 +40,20 @@ public class LinearInterpolation : MonoBehaviour
             
         }
 
+        public GameObject GetObject()
+        {
+            return myObject;
+        }
+
+        public void ChangeDestination(GameObject obj, Vector3 pos, float ease, int type)
+        {
+            originalPos = obj.transform.position;
+            finalPos = pos;
+            easeDuration = ease;
+            lerpType = type;
+            count = 0.0f;
+        }
+
         private float count = 0.0f;
         private Vector3 originalPos;
         private GameObject myObject;
@@ -54,7 +68,15 @@ public class LinearInterpolation : MonoBehaviour
     //LerpType 0 for ease out, LerpType 1 for ease in and out
     public void Interpolate(GameObject item, Vector3 newPos, float easeDuration = 2.0f, int LerpType = 0)
     {
-        interpolateList.Add( new ItemToInterpolate( item, newPos, easeDuration, LerpType ) );
+        for(int i = 0; i < interpolateList.Count; ++i)
+        {
+            if(interpolateList[i].GetObject() == item)
+            {
+                interpolateList[i].ChangeDestination(item, newPos, easeDuration, LerpType);
+                return;
+            }
+        }
+        interpolateList.Add(new ItemToInterpolate( item, newPos, easeDuration, LerpType ));
     }
 	
 	// Update is called once per frame

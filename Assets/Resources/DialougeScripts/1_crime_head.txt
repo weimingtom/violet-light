@@ -1,4 +1,6 @@
-
+show Alexander Right1
+show Violet Right2
+pose Alexander Neutral
 pose Violet Neutral
 $VL$ "Well that looks... uh... painful...”
 

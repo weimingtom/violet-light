@@ -1,6 +1,11 @@
-v surprised
+show Alexander Right1
+show Violet Right2
+pose Alexander Neutral
+pose Violet Neutral
+
+pose Violet surprised
 $VL$ "H-huh!? What’s this?”
-a curious
+pose Alexander curious
 $AX$ "What did you find Violet?”
 
 pose Violet Thinking
@@ -30,12 +35,12 @@ $AX$ "It’s not post mortem, you can tell by the color of the mark.”
 
 $VL$ "Could it have been some kind of rope or... jewelry?”
 
-a scribble
+pose Alexander scribble
 $AX$ "I’ll write it down, maybe someone else might know more.”
 
 // It’s a necklace that had been torn off her neck
 
-“Neck wound added to journal!”
+$/$ “Neck wound added to journal!”
 // Add to journal
 
 // scene end

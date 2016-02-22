@@ -42,12 +42,13 @@ public class SceneManager : MonoBehaviour
 
     private bool enteredNewScene = false;
 
-    private int QuestStage = 0;
+    private int QuestStage;
 
     
     public void AdvQuest()
     {
         ++QuestStage;
+        Debug.Log( "[Scene Manager] Current Quest Stage Advanced to " + QuestStage );
     }
 
     public int GetQuestStage()
@@ -56,7 +57,7 @@ public class SceneManager : MonoBehaviour
     }
 
     public string GetChar()
-    {
+    {   
         return CurrentChar;
     }
 

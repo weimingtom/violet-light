@@ -1,7 +1,7 @@
 // NOTE: The Thames contains both seawater and freshwater, thus providing support for seawater and freshwater fish
-show Alex Right1
+show Alexander Right1
 show Violet Left1
-pose Alex Thinking
+pose Alexander Thinking
 pose Violet Neutral
 
 $VL$ “River Thames! Good fish, not so great for swimming or body dumping...” 
@@ -9,11 +9,11 @@ $AX$ “There’s a multitude of seashells and trash that line the river bed...”
 
 $VL$ “Well… y’know river Thames is both a freshwater and saltwater river.”
 
-pose Alex neutral 
+pose Alexander neutral 
 $AX$ “Ah! I see! So that explains the bustling fishing life.”
 
 pose Violet happy
 $VL$ “Mhmm! The variety of fresh and saltwater fish in this city is really great! I’m getting hungry just thinking about it.”
 
-pose Alex Unimpressed
+pose Alexander Unimpressed
 $VL$ “Maybe we should focus on the case...”

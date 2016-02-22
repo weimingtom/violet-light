@@ -65,6 +65,12 @@ public class VLConsole : MonoBehaviour
                 CommandManager.Instance.Terminate();
             }
             break;
+            case ("advq"):
+            {
+                SceneManager.Instance.AdvQuest();   
+            }
+            break;
+
         }
 
         commandInput.text = "";
