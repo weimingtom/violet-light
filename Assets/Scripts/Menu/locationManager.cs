@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 
-public class LocationManager : MonoBehaviour
+public class locationManager : MonoBehaviour
 {
     public GameObject[] myButtons;
     public Dictionary<int, List<string>> mData;
@@ -11,8 +11,10 @@ public class LocationManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        mData = StringParser.Instance.ReadLocationData("Dialogue/locations_scene_" + SceneManager.Instance.GetScene().ToString());
+        mData = StringParser.Instance.ReadLocationData("Dialogue/locations_scene_1");// + SceneManager.Instance.GetScene().ToString());
         initialize = true;
+        UpdateButton();
+
 	}
 
     void UpdateButton()
@@ -50,10 +52,11 @@ public class LocationManager : MonoBehaviour
     {
         //note to jesse
         SceneManager.Instance.ChangeScene( location );
+        MenuManager.instance.CloseMenu();
     }
 
 	// Update is called once per frame
-	void Update ()
+    void OnEnable()
     {
         UpdateButton();
 	}

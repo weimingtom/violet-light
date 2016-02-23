@@ -1,4 +1,0 @@
-a “The roads are still salted... at least we got that going for us.”
-v happy
-v “Hey, it’ll be alright!”
-a “O-of course!”

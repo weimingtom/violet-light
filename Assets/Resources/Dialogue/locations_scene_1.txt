@@ -1,8 +1,58 @@
 id 0
-police_station
-Wharf
-music_shop
+station
 id 1
-crime_scene
+station
+crime
+id 2
+station
+crime
 market
+music
+wharf
+id 3
+station
+crime
+market
+music
+wharf
+id 4
+station
+crime
+market
+music
+wharf
+id 5
+station
+crime
+market
+music
+wharf
+estate
+id 6
+station
+crime
+market
+music
+wharf
+estate
+id 7
+station
+crime
+market
+music
+wharf
+estate
+id 8
+station
+crime
+market
+music
+wharf
+estate
+id 9
+station
+crime
+market
+music
+wharf
 estate

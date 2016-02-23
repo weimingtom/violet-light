@@ -1,8 +1,0 @@
-show Alexander Right1
-show Violet Left1
-pose Alexander neutral
-pose Violet neutral
-
-$AX$ “So this is the body...”
-
-$VL$ “Puzzle time!”

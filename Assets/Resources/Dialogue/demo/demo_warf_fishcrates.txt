@@ -1,8 +1,0 @@
-show Alexander Right1
-show Violet Left1
-pose Alexander neutral
-pose Violet neutral
-
-$AX$ “Crates!”
-
-$VL$ “Very shocking Alexander...”

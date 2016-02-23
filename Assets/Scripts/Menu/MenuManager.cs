@@ -151,9 +151,10 @@ public class MenuManager : MonoBehaviour
 		SceneManager.Instance.SetInputBlocker(true);
     }
 
-    private void CloseMenu()
+    public void CloseMenu()
     {
 		//do fancy transition in reverse
+        active = false;
 
         //set menu back to default state
         ChangeState( state.SaveLoad );

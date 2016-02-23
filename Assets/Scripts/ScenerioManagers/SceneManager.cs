@@ -263,7 +263,7 @@ public class SceneManager : MonoBehaviour
             //Load in the backgrounds that are specific to the case. 
             FileReader.Instance.ReadBackgrounds("backgrounds_scene_" + NewCase.ToString());
             FileReader.Instance.ReadScenes( "scenes_scene_" + NewCase.ToString() );
-           
+            currentScene = 0;
         }
         else Debug.Log( "[scene manager] Failed to load case" );
     }
