@@ -62,6 +62,7 @@ public class MenuManager : MonoBehaviour
         }
 		else
         {
+            locationManager.Instance.initialize = true;
             active = false;
 			CloseMenu();
         }
