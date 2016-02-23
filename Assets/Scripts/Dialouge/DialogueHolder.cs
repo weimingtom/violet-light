@@ -19,7 +19,7 @@ public class DialogueHolder : MonoBehaviour
 	}
     void Start()
     {
-        string charLoca =  "Dialogue/character_names_scene_" + SceneManager.Instance.GetScene().ToString();
+        string charLoca = "Dialogue/character_names_scene_1";// +SceneManager.Instance.GetScene().ToString();
         StringParser.Instance.RunRegisterCharacterCode( charLoca, ref characterNameDictionary );
     }
     public string GetCharacterNameFromToken(string _token)

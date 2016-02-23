@@ -254,20 +254,14 @@ public class SceneManager : MonoBehaviour
         if( CurrentCaseFile != null ) 
         {
             Debug.Log( "[scene manager] Case loaded!" ); 
-  //          Case = NewCase;
-
             Scenes.Clear();
             /********* LOADING CHARACTERS FROM FILE ***********/
             //Load in the characters specific to the case. 
-            string filepath = "Dialogue/characters_scene_";
-            filepath += NewCase.ToString();
-            FileReader.Instance.ReadCharacter(filepath);
+            FileReader.Instance.ReadCharacter("characters_scene_" + NewCase.ToString());
 
             /************** LOAD THE BACKGROUNDS FROM A FILE *******************/
             //Load in the backgrounds that are specific to the case. 
-            filepath = "backgrounds_scene_";
-            filepath += NewCase.ToString();
-            FileReader.Instance.ReadBackgrounds(filepath);
+            FileReader.Instance.ReadBackgrounds("backgrounds_scene_" + NewCase.ToString());
             FileReader.Instance.ReadScenes( "scenes_scene_" + NewCase.ToString() );
            
         }

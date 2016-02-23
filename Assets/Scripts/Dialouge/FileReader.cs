@@ -113,19 +113,20 @@ public class FileReader : MonoBehaviour
     }
     public void ReadCharacter(string fileName)
     {
-        TextAsset commandContainer = Resources.Load( fileName ) as TextAsset;
+        Debug.Log("[File Reader] Reading in characters at | " + scriptFolder + fileName);
+        TextAsset commandContainer = Resources.Load(scriptFolder + fileName) as TextAsset;
         StringParser.Instance.ParseCharacters(commandContainer.ToString());
     }
     public void ReadBackgrounds(string fileName)
     {
-        Debug.Log("Reading in backgrounds...");
+        Debug.Log("[File Reader] Reading in backgrounds at | " + scriptFolder + fileName);
         TextAsset commandContainer = Resources.Load(scriptFolder + fileName) as TextAsset;
         StringParser.Instance.ParseBackgrounds(commandContainer.ToString());
     }
 
     public void ReadScenes( string fileName )
     {
-        Debug.Log( "Reading in Scenes... " );
+        Debug.Log("[File Reader] Reading in Dialogue Scenes at | " + scriptFolder + fileName);
         TextAsset commandContainer = Resources.Load( scriptFolder + fileName ) as TextAsset;
         StringParser.Instance.ParseScene( commandContainer.ToString() );
     }

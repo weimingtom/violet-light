@@ -1778,10 +1778,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11468158, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: InteractableList.Array.size
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 470988, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1906,10 +1902,6 @@ Prefab:
       propertyPath: menu
       value: 
       objectReference: {fileID: 493282505}
-    - target: {fileID: 11468158, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: InteractableList.Array.data[6]
-      value: 
-      objectReference: {fileID: 176022, guid: 1f2db36e53c360941b4a2b8669b82f55, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_IsPrefabParent: 0
@@ -2674,13 +2666,13 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11445846, guid: 3007e6e1ab5808242b34a29fbdcae2ec, type: 2}
-      propertyPath: myNameHolder
-      value: 
-      objectReference: {fileID: 1104653074}
-    - target: {fileID: 11445846, guid: 3007e6e1ab5808242b34a29fbdcae2ec, type: 2}
       propertyPath: myTextHolder
       value: 
       objectReference: {fileID: 1759029120}
+    - target: {fileID: 11445846, guid: 3007e6e1ab5808242b34a29fbdcae2ec, type: 2}
+      propertyPath: myNameHolder
+      value: 
+      objectReference: {fileID: 1104653074}
     - target: {fileID: 11445846, guid: 3007e6e1ab5808242b34a29fbdcae2ec, type: 2}
       propertyPath: myBannerBox
       value: 

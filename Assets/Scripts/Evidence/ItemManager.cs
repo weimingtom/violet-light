@@ -20,7 +20,7 @@ public class ItemManager : MonoBehaviour
 
     void Start()
     {
-        ParseItem( "ItemScript/scene1" );
+        ParseItem( "Dialogue/items_scene_1" );
     }
 
     void Update()

@@ -90,6 +90,7 @@ MonoBehaviour:
   - {fileID: 147582, guid: 55c14b67d4639d14c8e3e84aa3394167, type: 2}
   - {fileID: 172920, guid: b422b2001a0796841b82a9d7b63498b0, type: 2}
   - {fileID: 176022, guid: daad9e4511b019c4b9b6357e978fa583, type: 2}
+  - {fileID: 176022, guid: 1f2db36e53c360941b4a2b8669b82f55, type: 2}
 --- !u!114 &11473076
 MonoBehaviour:
   m_ObjectHideFlags: 1
