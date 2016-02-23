@@ -1,6 +1,6 @@
 // Meet Sax Man
-show Alexander left
-show Violet right
+show Alexander Right1
+show Violet Right2
 
 pose Alexander scribbling
 pose Violet thinking
@@ -11,10 +11,12 @@ $VL$ “Uh-huh, but I fancied it more without all the police tape.”
 
 //shift camera to right?
 
-show Policeman right1 
+pose Policeman neutral
+show Policeman Left1 
 // facing right
 $PL$ “P-please! S-sir! I can’t let you through!”
-show Policeman left1
+pose Michael neutral
+show Michael Left2
 
 //music SaxTheme+-
 //slide Saxman left //slow
