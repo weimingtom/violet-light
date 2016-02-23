@@ -5,12 +5,14 @@ using System.Collections;
 
 public class locationManager : MonoBehaviour
 {
+    public static locationManager Instance;
     public GameObject[] myButtons;
     public Dictionary<int, List<string>> mData;
-    bool initialize = false;
+    public bool initialize { get; set; }
 	// Use this for initialization
 	void Start () 
     {
+        Instance = this;
         mData = StringParser.Instance.ReadLocationData("Dialogue/locations_scene_1");// + SceneManager.Instance.GetScene().ToString());
         initialize = true;
         UpdateButton();
