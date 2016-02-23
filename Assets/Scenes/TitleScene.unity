@@ -190,7 +190,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 6.10351562e-05, y: -969}
+  m_AnchoredPosition: {x: 6.10351562e-05, y: -887}
   m_SizeDelta: {x: 700, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &151254006
@@ -539,7 +539,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 9.15527344e-05, y: -1114}
+  m_AnchoredPosition: {x: 9.15527344e-05, y: -994}
   m_SizeDelta: {x: 700, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &768078374
@@ -575,7 +575,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 6.10351562e-05, y: -814}
+  m_AnchoredPosition: {x: 6.10351562e-05, y: -780}
   m_SizeDelta: {x: 700, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &768078376
@@ -997,7 +997,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1513337984}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e9bc2a038323ab45912ae0609d0354c, type: 3}
   m_Name: 
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   WhiteBackground: {fileID: 504266976}
   GameCompany: {fileID: 1557326018}
   CompanyShowTimerTime: 2
-  CompanyDelayTimerTime: 0
+  CompanyDelayTimerTime: .5
   clickAnything: {fileID: 1783227018}
   title: {fileID: 814354793}
   buttons:
@@ -1028,6 +1028,7 @@ MonoBehaviour:
   - {fileID: 151254004}
   - {fileID: 692121566}
   backButton: {fileID: 1631824335}
+  speed: .5
 --- !u!114 &1513337988
 MonoBehaviour:
   m_ObjectHideFlags: 0

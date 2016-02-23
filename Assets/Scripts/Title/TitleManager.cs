@@ -31,6 +31,8 @@ public class TitleManager : MonoBehaviour
 
     private List<GameObject> loadButtons = new List<GameObject>();
     public GameObject backButton;
+
+    public float speed = 5.0f;
    
     
 
@@ -51,6 +53,7 @@ public class TitleManager : MonoBehaviour
 
         CompanyDelayTimer = Time.time + CompanyDelayTimerTime;
         CompanyShowTimer = CompanyDelayTimer + CompanyShowTimerTime;
+        this.gameObject.GetComponent<FadeOutScreen>().BeginFade( -1 );
         
         
     }
@@ -90,7 +93,7 @@ public class TitleManager : MonoBehaviour
             {
                 clickAnything.GetComponent<Blink>().pause();
                 Vector3 newpos = new Vector3( clickAnything.transform.position.x, clickAnything.transform.position.y + 0.25f, clickAnything.transform.position.z );
-                gameObject.GetComponent<LinearInterpolation>().Interpolate( clickAnything, newpos );
+                gameObject.GetComponent<LinearInterpolation>().Interpolate( clickAnything, newpos, 1.0f * speed );
                 
                 clickAnything.GetComponent<SpriteRenderer>().color = new Color( 1.0f, 1.0f, 1.0f, 1.0f );
                 once = true;
@@ -99,9 +102,9 @@ public class TitleManager : MonoBehaviour
             if( Input.GetMouseButtonUp( 0 ) ) 
             {
                 Vector3 newClickPos = new Vector3( clickAnything.transform.position.x, clickAnything.transform.position.y - 10.0f, clickAnything.transform.position.z );
-                gameObject.GetComponent<LinearInterpolation>().Interpolate( clickAnything, newClickPos, 0.25f, 1 );
+                gameObject.GetComponent<LinearInterpolation>().Interpolate( clickAnything, newClickPos, 0.15f * speed, 1 );
                 Vector3 newTitlePos = new Vector3( title.transform.position.x, Screen.height * 0.75f, title.transform.position.z );
-                gameObject.GetComponent<LinearInterpolation>().Interpolate( title, newTitlePos, 1.0f, 1 );
+                gameObject.GetComponent<LinearInterpolation>().Interpolate( title, newTitlePos, 1.0f * speed, 1 );
                 menuStage = 3;
                 once = false;
             }
@@ -142,7 +145,6 @@ public class TitleManager : MonoBehaviour
             timer += Time.deltaTime;
             if( timer >= 2.0f && !once)
             {
-                this.gameObject.GetComponent<FadeOutScreen>().BeginFade( 1 );
                 once = true;
             }
             else if( timer >= 3.0f )
@@ -192,10 +194,10 @@ public class TitleManager : MonoBehaviour
                 
                 Vector3 basePos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0.0f);
                 Vector3 adjusPos = new Vector3(0.0f, Screen.height * 0.1f, 0.0f);
-                gameObject.GetComponent<LinearInterpolation>().Interpolate( backButton, new Vector3(Screen.width * 0.25f, Screen.height * 0.5f, 0), 0.12f, 1 );
+                gameObject.GetComponent<LinearInterpolation>().Interpolate( backButton, new Vector3( Screen.width * 0.25f, Screen.height * 0.5f, 0 ), 0.12f * speed, 1 );
                 for( int i = 0; i < loadButtons.Count; ++i )
                 {
-                    gameObject.GetComponent<LinearInterpolation>().Interpolate( loadButtons[i], basePos, 0.12f, 1 );
+                    gameObject.GetComponent<LinearInterpolation>().Interpolate( loadButtons[i], basePos, 0.12f * speed, 1 );
                     basePos = basePos - adjusPos;
                 }
 
@@ -222,6 +224,7 @@ public class TitleManager : MonoBehaviour
     public void NewGame()
     {
         MoveButtons( new Vector3( buttons[0].transform.position.x - (Screen.width + buttons[0].GetComponent<RectTransform>().rect.width), 0, 0 ), 0, 4);
+        this.gameObject.GetComponent<FadeOutScreen>().BeginFade( 1 );        
     }
     public void LoadGame()
     {
@@ -243,10 +246,10 @@ public class TitleManager : MonoBehaviour
 
         //interpolate whatever is on screen to off screen
         Vector3 basePos = new Vector3( Screen.width * 0.5f, Screen.height * -0.5f, 0.0f );
-        gameObject.GetComponent<LinearInterpolation>().Interpolate( backButton, new Vector3( Screen.width * 0.25f, Screen.height * -0.5f, 0 ), 0.12f, 1 );
+        gameObject.GetComponent<LinearInterpolation>().Interpolate( backButton, new Vector3( Screen.width * 0.25f, Screen.height * -0.5f, 0 ), 0.12f*speed, 1 );
         for( int i = 0; i < loadButtons.Count; ++i )
         {
-            gameObject.GetComponent<LinearInterpolation>().Interpolate( loadButtons[i], basePos, 0.12f, 1 );
+            gameObject.GetComponent<LinearInterpolation>().Interpolate( loadButtons[i], basePos, 0.12f * speed, 1 );
         }
 
     }
@@ -275,7 +278,7 @@ public class TitleManager : MonoBehaviour
             done = false;
             if( btnChosen == 0 )
                 counter++;
-            gameObject.GetComponent<LinearInterpolation>().Interpolate( buttons[counter], buttons[counter].transform.position + pos, btnDelay, 1 );
+            gameObject.GetComponent<LinearInterpolation>().Interpolate( buttons[counter], buttons[counter].transform.position + pos, btnDelay * speed, 1 );
             bOnce = !bOnce;
             counter++;
         }
@@ -291,12 +294,12 @@ public class TitleManager : MonoBehaviour
             {
                 if( counter == buttons.Length)
                 {
-                    gameObject.GetComponent<LinearInterpolation>().Interpolate( buttons[btnChosen], buttons[btnChosen].transform.position + pos, btnDelay, 1 );
+                    gameObject.GetComponent<LinearInterpolation>().Interpolate( buttons[btnChosen], buttons[btnChosen].transform.position + pos, btnDelay * speed, 1 );
                     done = true;
                 }
                 else 
                 {
-                    gameObject.GetComponent<LinearInterpolation>().Interpolate( buttons[counter], buttons[counter].transform.position + pos, btnDelay, 1 );
+                    gameObject.GetComponent<LinearInterpolation>().Interpolate( buttons[counter], buttons[counter].transform.position + pos, btnDelay * speed, 1 );
                 }
                 timer = 0.0f;
                 counter++;
