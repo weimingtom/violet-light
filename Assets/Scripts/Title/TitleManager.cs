@@ -93,7 +93,7 @@ public class TitleManager : MonoBehaviour
             {
                 clickAnything.GetComponent<Blink>().pause();
                 Vector3 newpos = new Vector3( clickAnything.transform.position.x, clickAnything.transform.position.y + 0.25f, clickAnything.transform.position.z );
-                gameObject.GetComponent<LinearInterpolation>().Interpolate( clickAnything, newpos, 1.0f * speed );
+                gameObject.GetComponent<LinearInterpolation>().Interpolate( clickAnything, newpos, 3.0f );
                 
                 clickAnything.GetComponent<SpriteRenderer>().color = new Color( 1.0f, 1.0f, 1.0f, 1.0f );
                 once = true;

@@ -1028,7 +1028,7 @@ MonoBehaviour:
   - {fileID: 151254004}
   - {fileID: 692121566}
   backButton: {fileID: 1631824335}
-  speed: .5
+  speed: .75
 --- !u!114 &1513337988
 MonoBehaviour:
   m_ObjectHideFlags: 0

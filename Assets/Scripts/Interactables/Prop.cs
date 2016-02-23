@@ -5,39 +5,39 @@ using System.Collections;
 [RequireComponent (typeof(SpriteRenderer))]
 public class Prop : MonoBehaviour {
 
-    static public Prop Instance;
     public bool IsPickUp;
-    public string[] DialougeScene;
-    public string[] items;
-    public string Character = "";
+    public bool IsCharacter;
+
     string checkedItem = "";
     bool checkItem = false;
-    void Awake()
-    {
-        Instance = this;
-    }
+
     void Start()
     {
-        if(Character != "")
+        if(IsCharacter)
         {
-            SceneManager.Instance.SetChar( Character );
+            SceneManager.Instance.SetChar( name );
         }
     }
-    public void SetCheckedItem(string item)
-    {
-        checkedItem = "defaultItem";
-        foreach( string myitem in items )
-        {
-            if( item == myitem )
-            {
-                checkedItem = item;
-            }
-        }
-        checkItem = true;
-    }
+
+    //public void SetCheckedItem(string item)
+    //{
+    //    checkedItem = "defaultItem";
+    //    foreach( string myitem in items )
+    //    {
+    //        if( item == myitem )
+    //        {
+    //            checkedItem = item;
+    //        }
+    //    }
+    //    checkItem = true;
+    //}
+
     void OnMouseDown()
     {
-        FileReader.Instance.LoadScene(DialougeScene[SceneManager.Instance.GetQuestStage()]);
+        //FileReader.Instance.LoadScene(DialougeScene[SceneManager.Instance.GetQuestStage()]);
+
+        FileReader.Instance.LoadScene( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name );
+
         /*
         if( DialougeScene[SceneManager.Instance.GetQuestStage()] != "null" )
         {

@@ -229,6 +229,11 @@ public class SceneManager : MonoBehaviour
         return currentScene;
     }
 
+    public string GetSceneName()
+    {
+        return Scenes[currentScene].Prefab;
+    }
+
     public void NewScene(string bg, uint id, string name, uint time, string prefab)
     { 
         Scene NewScene = new Scene();
