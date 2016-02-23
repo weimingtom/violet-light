@@ -36,7 +36,14 @@ public class Prop : MonoBehaviour {
     {
         //FileReader.Instance.LoadScene(DialougeScene[SceneManager.Instance.GetQuestStage()]);
 
-        FileReader.Instance.LoadScene( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name );
+        if(!FileReader.Instance.IsScene( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name ))
+        {
+            FileReader.Instance.LoadScene( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_obj" );
+        }
+        else
+            FileReader.Instance.LoadScene( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name );
+        
+
 
         /*
         if( DialougeScene[SceneManager.Instance.GetQuestStage()] != "null" )

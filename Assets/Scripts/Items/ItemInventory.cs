@@ -79,7 +79,7 @@ public class ItemInventory : MonoBehaviour
 
     public void PresentButton()
     {
-        //CommandManager.Instance.SetCheckedItem( mainTextHolder[0].text.ToString() );
+        //`CommandManager.Instance.SetCheckedItem( mainTextHolder[0].text.ToString() );
     }
 
 	void SetMainImage(int buttonIndex)

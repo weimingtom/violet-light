@@ -1,3 +1,6 @@
+show Alexander Right1
+show Violet Left1
+
 $VL$ "Looks like they’re not stopping us this time.”
 
 $AX$ "Well that’s good.”

@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .891649127, y: 1.26814926, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 5.21790314, y: 5.21790075, z: 5.21790075}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,10 +54,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df97e6453fe570b4dbc95c49e77a083e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsPickUp: 1
-  Description: Null
-  DialougeScene: null
-  DialougeString: null
+  IsPickUp: 0
+  IsCharacter: 0
 --- !u!212 &21236908
 SpriteRenderer:
   m_ObjectHideFlags: 1

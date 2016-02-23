@@ -127,10 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene:
-  - demo_music_window
-  items: []
-  Character: 
+  IsCharacter: 0
 --- !u!114 &11445098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,10 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  DialougeScene:
-  - demo_music_nope
-  items: []
-  Character: 
+  IsCharacter: 0
 --- !u!212 &21218314
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -165,9 +159,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -193,9 +185,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}

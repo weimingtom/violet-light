@@ -435,9 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  Description: Null
-  DialougeScene: nightmarket1scene
-  DialougeString: nightmarket1string
+  IsCharacter: 0
 --- !u!114 &11409674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -450,9 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  Description: Null
-  DialougeScene: windowcommentscene
-  DialougeString: windowcommentstring
+  IsCharacter: 0
 --- !u!114 &11423212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -465,9 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  Description: Null
-  DialougeScene: windowcommentscene
-  DialougeString: windowcommentstring
+  IsCharacter: 0
 --- !u!114 &11472230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -480,9 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  Description: Null
-  DialougeScene: windowcommentscene
-  DialougeString: windowcommentstring
+  IsCharacter: 0
 --- !u!114 &11479390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -508,9 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  Description: Null
-  DialougeScene: windowcommentscene
-  DialougeString: windowcommentstring
+  IsCharacter: 0
 --- !u!114 &11485042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -523,9 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  Description: Null
-  DialougeScene: demo_crimescene_sharp
-  DialougeString: windowcommentstring
+  IsCharacter: 0
 --- !u!114 &11490840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -538,9 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  Description: Null
-  DialougeScene: windowcommentscene
-  DialougeString: windowcommentstring
+  IsCharacter: 0
 --- !u!114 &11496886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -553,9 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  Description: Null
-  DialougeScene: windowcommentscene
-  DialougeString: windowcommentstring
+  IsCharacter: 0
 --- !u!212 &21217024
 SpriteRenderer:
   m_ObjectHideFlags: 1
