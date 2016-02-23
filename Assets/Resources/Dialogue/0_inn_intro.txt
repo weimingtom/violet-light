@@ -53,12 +53,12 @@ $VL$ "Huh? What's that?"
 
 $AX$ "I'll go check. We weren't expecting guests, were we?"
 
-show Alexander Offscreen
+//show Alexander Offscreen
 pose Violet Neutral
 
 $/$ "..."
 
-show Alexander Right1
+//show Alexander Right1
 pose Alexander Thinking
 
 $AX$ "It's mail? [pause] How peculiar... [pause] I mean no one even knows we’re out here, why would someone send us a package? A- [pause] A-And... [pause] no return address?"
@@ -129,8 +129,6 @@ pose Violet Shock
 $VL$ “...”
 
 $VL$ “From Harmony?”
-
-pose Alexander right
 
 $AX$ “And who might that be?”
 
