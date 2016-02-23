@@ -1,37 +1,33 @@
-// Start of the case, get LOTS of info from Harmony because she can write now, get Sax man clues and hints, still not obvs yet.
+show Alexander Right1
+show Violet Left1
+show Harmony Center
 
-
-
-<HR> “.....”
+$HR$ “.....”
 
 pose Alexander Happy
 $AX$ "Good morning, Harmony!”
 pose Violet Happy
 $VL$ "Always shinin’, eh love?”
 
-
-
-<HR> “YAAWWWWWWWWWWWNWWNNWNWNWNWNWNNWNW”
+$HR$ “YAAWWWWWWWWWWWNWWNNWNWNWNWNWNNWNW”
 pose Alexander Shock
 pose Violet Shock
 
 $AX$ "Uhm...”
 
-
-
 pose Alexander Neutral
 pose Violet Neutral
-pose Harmonyembarrassed
-<HR> “.....”
+pose Harmony embarrassed
+$HR$ “.....”
 
 $VL$ "Here love, take a pen and paper.”
 $VL$ "I don’t think sharp’ll stop us this time.” 
 
-pose Harmonyhappy
-<HR> “.............”
+pose Harmony happy
+$HR$ “.............”
 
-pose Harmonyscribble
-<HR> “....”
+pose Harmony scribble
+$HR$ “....”
 
 $VL$ "It says ‘Sorry! And good morning!”
 
@@ -40,19 +36,19 @@ $AX$ "Uhm-, it’s alright!”
 pose Violet Happy
 $VL$ "Yeah no need to apologize!”
 
-pose Harmonyashamed
-<HR> “......................”
+pose Harmony ashamed
+$HR$ “......................”
 
 $VL$ "Hey, Harmony.”
 
-pose Harmonyshock
-<HR> “....”
+pose Harmony shock
+$HR$ “....”
 
 
 
 $VL$ "It’ll be okay, Violet’s got your back!”
 
-pose Harmonysmile
+pose Harmony smile
 
 pose Alexander Serious
 $AX$ "H-hey, how about we clear up some stuff.”
@@ -60,9 +56,9 @@ $AX$ "H-hey, how about we clear up some stuff.”
 pose Violet Neutral
 $VL$ "Yeah, now’s the time to tell us everything, er- write us everything.”
 
-<HR> “....”
+$HR$ “....”
 
-pose Harmonyscribble
+pose Harmony scribble
 
 // fade out
 
@@ -78,7 +74,7 @@ $AX$ "W-wow you wrote a lot.”
 
 $VL$ "Let’s take a look shall we?”
 
-<HR> “.....”
+$HR$ “.....”
 
 $AX$ "Yeah.”
 
@@ -97,8 +93,8 @@ $AX$ "Huh..”
 $VL$ "W-wait they just came in and started rummaging through your stuff?”
 pose Violet Upset
 
-pose Harmonynervous
-<HR> “...........”
+pose Harmony nervous
+$HR$ “...........”
 
 $VL$ "I- I can’t believe them!”
 pose Violet Sad
@@ -106,23 +102,23 @@ $VL$ "I’m so sorry harmony...”
 pose Violet Cocky
 $VL$ "But we’ll find em’, love! The real killer that is! Don’tchu worry!”
 pose Harmonyhappy
-<HR> “..!!!..”
+$HR$ “..!!!..”
 $VL$ "Cheers!”
 
 $AX$ "Wait so, the missing ribbon, you only had it to repair her clothes?”
 
-pose Harmonyscribble
-<HR> “.......”
+pose Harmony scribble
+$HR$ “.......”
 
 $VL$ "She wrote ‘Yes, it had fallen off previously and I usually tend to her clothing when it is in need of repair. Unfortunately the ribbon was kindof unusable so I had to go buy more.’”
 
 pose Alexander Serious
 $AX$ "And you were sleeping during the time she was murdered? Can anyone confirm that?”
 
-pose Harmonynerv
-<HR> “........”
-pose Harmonyscribble
-<HR> “................”
+pose Harmony nervous
+$HR$ “........”
+pose Harmony scribble
+$HR$ “................”
 
 $VL$ "Uhm, so ‘Yes, I was. But no one but me was at the shop then.’”
 

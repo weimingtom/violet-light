@@ -1,4 +1,4 @@
-v puzzled
+pose Violet puzzled
 $VL$ "Hmm? There’s some sort of note under here.”
 
 $AX$ "What does it say?”
@@ -9,10 +9,10 @@ pose Alexander Shocked
 $AX$ "Could this be addressed to melody?”
 pose Alexander Neutral
 
-v shrug
+pose Violet shrug
 $VL$ "Maybe, I don’t know when her birthday is though..."
 
 pose Alexander Scribbling
 $AX$ "Hmmm.. we’ll have to ask her later.”
 
-“Note added to evidence locker”
+$/$ “Note added to evidence locker”

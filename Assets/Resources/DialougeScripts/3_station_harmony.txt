@@ -1,18 +1,21 @@
+show Alexander Right1
+show Violet Left1
+
 // Learn about some of the evidence by presenting it to Harmony
 
 $AX$ "Harmony, we’re back!”
 
-pose Harmonysad
+pose Harmony sad
 <HR> “.........”
 
 $AX$ "Uhm-”
 
 $VL$ "Ah, hey Harmony!”
 
-pose Harmonyexcited
+pose Harmony excited
 <HR> “!!!!..!”
 
-pose Harmonyhappy
+pose Harmony happy
 $AX$ "R-right, we’d like to ask you some questions..."
 pose Harmonysad
 

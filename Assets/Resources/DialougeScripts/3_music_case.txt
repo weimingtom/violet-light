@@ -1,4 +1,7 @@
-v puzzled
+show Alexander Right1
+show Violet Left1
+pose Violet puzzled
+
 $VL$ "Hey alex, look at this.”
 
 $AX$ "Hmmm?”
@@ -6,8 +9,9 @@ $AX$ "Hmmm?”
 $VL$ "An empty record case, among all the others.”
 
 $AX$ "We should keep a look out for the record, it could help us catch the killer.”
+
 pose Alexander Scribbling
 
 $VL$ "Good idea!”
 
-“Empty Record Case Added”
+$/$ “Empty Record Case Added”

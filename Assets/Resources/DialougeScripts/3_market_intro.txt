@@ -1,6 +1,10 @@
+show Alexander Right1
+show Violet Left1
+
+
 //Short scene, forces you to go to police station after
 
-a tired
+pose Alexander tired
 pose Violet Happy
 $VL$ "hehehe, alex why so gloom?”
 

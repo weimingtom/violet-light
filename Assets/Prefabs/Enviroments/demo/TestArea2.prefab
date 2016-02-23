@@ -171,9 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 0
-  Description: Null
-  DialougeScene: test2command
-  DialougeString: test2convo
+  IsCharacter: 0
 --- !u!114 &11465390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,9 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUp: 1
-  Description: Null
-  DialougeScene: null
-  DialougeString: null
+  IsCharacter: 0
 --- !u!114 &11471746
 MonoBehaviour:
   m_ObjectHideFlags: 1
