@@ -183,6 +183,33 @@ public class StringParser : MonoBehaviour
         break;
         }
     }
+    public Dictionary<int, List<string>> ReadLocationData(string loc)
+    {
+        char[] delimiter = { '\r', '\n'};
+        string[] data = (Resources.Load( loc ) as TextAsset).ToString().Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
+        Dictionary<int, List<string>> value = new Dictionary<int,List<string>>();
+        string compare = "empty";
+        int currentID = 0;
+        for( int i = 0; i < data.Length; i++ )
+        {
+            compare = "";
+            for(int j = 0; j < 2; j++)
+            {
+                compare += data[i][j];
+            }
+            if( compare == "id" )
+            {
+                string[] id = data[i].ToString().Split(' ');
+                currentID = int.Parse( id[1] );
+                value[currentID] = new List<string>();
+            }
+            else
+            {
+                value[currentID].Add(data[i]);
+            }
+        }
+        return value;
+    }
     public void BackgroundReader( string mainString, ref Dictionary<string, string> _background)
     {
         int locationCheck = 0;

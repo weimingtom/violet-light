@@ -1,0 +1,8 @@
+id 0
+PoliceStation
+Wharf
+music_shop
+id 1
+crime_scene
+market
+estate
