@@ -66,147 +66,36 @@ public class TitleManager : MonoBehaviour
         switch( menuStage )
         { 
         case 0:
-
-            if( Time.time > CompanyDelayTimer )
-            {
-                GameCompany.GetComponent<FadeSprite>().StartFade( 1 );
-                menuStage = 1;
-            }
+            DoStageZero();
             break;
 
         case 1:
-          
-            if( Time.time > CompanyShowTimer)
-            {
-                GameCompany.GetComponent<FadeSprite>().StartFade( -1 );
-                WhiteBackground.GetComponent<FadeSprite>().StartFade( -1 );
-                ScrollingBackground.SetActive( true );
-                clickAnything.GetComponent<Blink>().Initialize();
-                menuStage = 2;
-            }
+            DoStageOne();
             break;
         
         case 2:
-            clickAnything.GetComponent<Blink>().UpdateThis();
-
-            if( Input.GetMouseButton( 0 ) && !once )
-            {
-                clickAnything.GetComponent<Blink>().pause();
-                Vector3 newpos = new Vector3( clickAnything.transform.position.x, clickAnything.transform.position.y + 0.25f, clickAnything.transform.position.z );
-                gameObject.GetComponent<LinearInterpolation>().Interpolate( clickAnything, newpos, 3.0f );
-                
-                clickAnything.GetComponent<SpriteRenderer>().color = new Color( 1.0f, 1.0f, 1.0f, 1.0f );
-                once = true;
-            }
-
-            if( Input.GetMouseButtonUp( 0 ) ) 
-            {
-                Vector3 newClickPos = new Vector3( clickAnything.transform.position.x, clickAnything.transform.position.y - 10.0f, clickAnything.transform.position.z );
-                gameObject.GetComponent<LinearInterpolation>().Interpolate( clickAnything, newClickPos, 0.15f * speed, 1 );
-                Vector3 newTitlePos = new Vector3( title.transform.position.x, Screen.height * 0.75f, title.transform.position.z );
-                gameObject.GetComponent<LinearInterpolation>().Interpolate( title, newTitlePos, 1.0f * speed, 1 );
-                menuStage = 3;
-                once = false;
-            }
+            DoStageTwo();
             break;
 
         case 3:
             //bring up the menu
-            if( !once )
-            {
-                newpos = new Vector3( 0, Screen.height * 0.6f, 0 );
-                once = true;
-                stageWhenDone = 3;
-            }
-
-            if( !done )
-            {
-                MoveButtonsHelper( newpos, btn );
-            }
-            else
-            {
-                for( int i = 0; i < buttons.Length; ++i )
-                    buttons[i].GetComponent<Button>().interactable = true;
-
-                if( stageWhenDone != menuStage )
-                {
-                    once = false;
-                    menuStage = stageWhenDone;
-                }
-               
-
-            }
-        
+            DoStageThree();
             //changing state is done in the buttons. 
             break;
 
         case 4:
             //NEW GAME
-            timer += Time.deltaTime;
-            if( timer >= 2.0f && !once)
-            {
-                once = true;
-            }
-            else if( timer >= 3.0f )
-            {
-                Application.LoadLevel( "MainScene" );
-            }
+            DoNewGame();
             break;
 
         case 5:
             //LOAD GAME
-            if( !once )
-            {
-                if( loadButtons.Count == 0 )
-                {
-                    SaveLoad.Load();
-                    for( int i = 0; i < SaveLoad.savedGames.Count; ++i )
-                    {
-                        //create the object
-                        GameObject button = new GameObject("button" + i, typeof(RectTransform));
-                        button.AddComponent<Button>();
-                        button.AddComponent<CanvasRenderer>();
-                        button.AddComponent<Image>();
-                        button.AddComponent<LoadButton>();
-                        button.GetComponent<LoadButton>().id = i;
-                        button.transform.SetParent( buttons[0].gameObject.GetComponentInParent<Canvas>().transform, false ); 
-                        GameObject text = new GameObject( "Text", typeof( RectTransform ) );
-                        text.transform.SetParent( button.transform, false );
-                        text.AddComponent<Text>();
-
-
-                        //do the visual stuff
-                        button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal, 400 );
-                        text.GetComponent<RectTransform>().SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal, 370 );
-                        button.GetComponent<Image>().color = new Color( 0.1f, 0.0f, 0.4f, 0.1f );
-                        text.GetComponent<Text>().text = "Saved Game: \n" + SaveLoad.savedGames[i].date + " " + SaveLoad.savedGames[i].time;
-                        text.GetComponent<Text>().font = Resources.Load( "Fonts/type", typeof( Font ) ) as Font;
-                        text.GetComponent<Text>().fontSize = 35;
-
-                        button.transform.position = new Vector3( Screen.width * 0.5f, button.GetComponent<RectTransform>().sizeDelta.y * -1 );
-
-                        //add the button
-                        loadButtons.Add( button );
-                    }
-                }
-
-                //interpolate the buttons onto the screen
-                
-                Vector3 basePos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0.0f);
-                Vector3 adjusPos = new Vector3(0.0f, Screen.height * 0.1f, 0.0f);
-                gameObject.GetComponent<LinearInterpolation>().Interpolate( backButton, new Vector3( Screen.width * 0.25f, Screen.height * 0.5f, 0 ), 0.12f * speed, 1 );
-                for( int i = 0; i < loadButtons.Count; ++i )
-                {
-                    gameObject.GetComponent<LinearInterpolation>().Interpolate( loadButtons[i], basePos, 0.12f * speed, 1 );
-                    basePos = basePos - adjusPos;
-                }
-
-            }
-
+            DoLoadGame();
             break;
 
         case 6:
             //SETTINGS
+            DoSettings();
             break;
 
         case 7:
@@ -221,41 +110,207 @@ public class TitleManager : MonoBehaviour
 
 	}
 
+    //Switch Menu Stages Split up into functions for readability.
+    private void DoStageZero()
+    {
+        if( Time.time > CompanyDelayTimer )
+        {
+            GameCompany.GetComponent<FadeSprite>().StartFade( 1 );
+            menuStage = 1;
+        }
+    }
+    private void DoStageOne()
+    {
+        if( Time.time > CompanyShowTimer )
+        {
+            GameCompany.GetComponent<FadeSprite>().StartFade( -1 );
+            WhiteBackground.GetComponent<FadeSprite>().StartFade( -1 );
+            ScrollingBackground.SetActive( true );
+            clickAnything.GetComponent<Blink>().Initialize();
+            menuStage = 2;
+        }
+    }
+    private void DoStageTwo()
+    {
+        clickAnything.GetComponent<Blink>().UpdateThis();
+
+        if( Input.GetMouseButton( 0 ) && !once )
+        {
+            clickAnything.GetComponent<Blink>().pause();
+            Vector3 newpos = new Vector3( clickAnything.transform.position.x, clickAnything.transform.position.y + 0.25f, clickAnything.transform.position.z );
+            gameObject.GetComponent<LinearInterpolation>().Interpolate( clickAnything, newpos, 3.0f );
+
+            clickAnything.GetComponent<SpriteRenderer>().color = new Color( 1.0f, 1.0f, 1.0f, 1.0f );
+            once = true;
+        }
+
+        if( Input.GetMouseButtonUp( 0 ) )
+        {
+            Vector3 newClickPos = new Vector3( clickAnything.transform.position.x, clickAnything.transform.position.y - 10.0f, clickAnything.transform.position.z );
+            gameObject.GetComponent<LinearInterpolation>().Interpolate( clickAnything, newClickPos, 0.15f * speed, 1 );
+            Vector3 newTitlePos = new Vector3( title.transform.position.x, Screen.height * 0.75f, title.transform.position.z );
+            gameObject.GetComponent<LinearInterpolation>().Interpolate( title, newTitlePos, 1.0f * speed, 1 );
+            menuStage = 3;
+            once = false;
+        }
+    }
+    private void DoStageThree()
+    {
+        if( !once )
+        {
+            newpos = new Vector3( 0, Screen.height * 0.6f, 0 );
+            MoveButtons( newpos, -1 );
+            once = true;
+            stageWhenDone = 3;
+        }
+
+        if( !done )
+        {
+            MoveButtonsHelper( newpos, btn );
+        }
+        else
+        {
+            for( int i = 0; i < buttons.Length; ++i )
+                buttons[i].GetComponent<Button>().interactable = true;
+
+            if( stageWhenDone != menuStage )
+            {
+                once = false;
+                menuStage = stageWhenDone;
+            }
+
+
+        }
+    }
+    private void DoNewGame()
+    {
+        timer += Time.deltaTime;
+        if( timer >= 2.0f && !once )
+        {
+            once = true;
+        }
+        else if( timer >= 3.0f )
+        {
+            Application.LoadLevel( "MainScene" );
+        }
+    }
+    private void DoLoadGame()
+    {
+        if( !once )
+        {
+            if( loadButtons.Count == 0 )
+            {
+                SaveLoad.Load();
+                for( int i = 0; i < SaveLoad.savedGames.Count; ++i )
+                {
+                    //create the object
+                    GameObject button = new GameObject( "button" + i, typeof( RectTransform ) );
+                    button.AddComponent<Button>();
+                    button.AddComponent<CanvasRenderer>();
+                    button.AddComponent<Image>();
+                    button.transform.SetParent( buttons[0].gameObject.GetComponentInParent<Canvas>().transform, false );
+                    button.GetComponent<UnityEngine.UI.Button>().onClick.RemoveAllListeners();
+                    int id = i;
+                    button.GetComponent<Button>().onClick.AddListener( () => LoadButtonClicked(id) );
+                    GameObject text = new GameObject( "Text", typeof( RectTransform ) );
+                    text.transform.SetParent( button.transform, false );
+                    text.AddComponent<Text>();
+
+
+                    //do the visual stuff
+                    button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal, 400 );
+                    text.GetComponent<RectTransform>().SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal, 370 );
+                    button.GetComponent<Image>().color = new Color( 0.1f, 0.0f, 0.4f, 0.1f );
+                    text.GetComponent<Text>().text = "Saved Game: \n" + SaveLoad.savedGames[i].date + " " + SaveLoad.savedGames[i].time;
+                    text.GetComponent<Text>().font = Resources.Load( "Fonts/type", typeof( Font ) ) as Font;
+                    text.GetComponent<Text>().fontSize = 35;
+
+                    button.transform.position = new Vector3( Screen.width * 0.5f, (Screen.height + button.GetComponent<RectTransform>().rect.height) * -1.0f, 0.0f );
+
+                    //add the button
+                    loadButtons.Add( button );
+                }
+            }
+
+            //interpolate the buttons onto the screen
+
+            Vector3 basePos = new Vector3( Screen.width * 0.5f, Screen.height * 0.5f, 0.0f );
+            Vector3 adjusPos = new Vector3( 0.0f, Screen.height * 0.1f, 0.0f );
+            bringUpBackButton();
+            for( int i = 0; i < loadButtons.Count; ++i )
+            {
+                gameObject.GetComponent<LinearInterpolation>().Interpolate( loadButtons[i], basePos, 0.5f, 1 );
+                basePos = basePos - adjusPos;
+            }
+
+            once = true;
+        }
+    }
+    private void DoSettings()
+    {
+        if( !once )
+        {
+            bringUpBackButton();
+            once = true;
+        }
+    }
+
+    //Buttons
     public void NewGame()
     {
-        MoveButtons( new Vector3( buttons[0].transform.position.x - (Screen.width + buttons[0].GetComponent<RectTransform>().rect.width), 0, 0 ), 0, 4);
+        Vector3 OffscreenLeft = new Vector3( ((Screen.width * 0.5f) + buttons[0].GetComponent<RectTransform>().rect.width) * -1.0f, 0.0f, 0.0f );
+        MoveButtons( OffscreenLeft, 0, 4);
         this.gameObject.GetComponent<FadeOutScreen>().BeginFade( 1 );        
     }
     public void LoadGame()
     {
-        MoveButtons( new Vector3( buttons[0].transform.position.x - (Screen.width + buttons[0].GetComponent<RectTransform>().rect.width), 0, 0 ), 1, 5 );
+        Vector3 OffscreenLeft = new Vector3( ((Screen.width * 0.5f) + buttons[0].GetComponent<RectTransform>().rect.width) * -1.0f, 0.0f, 0.0f );
+        MoveButtons( OffscreenLeft, 1, 5 );
     }
     public void Settings()
     {
-        MoveButtons( new Vector3( buttons[0].transform.position.x - (Screen.width + buttons[0].GetComponent<RectTransform>().rect.width), 0, 0 ), 2, 6 );
+        Vector3 OffscreenLeft = new Vector3( ((Screen.width * 0.5f) + buttons[0].GetComponent<RectTransform>().rect.width) * -1.0f, 0.0f, 0.0f );
+        MoveButtons( OffscreenLeft, 2, 6 );
     }
     public void Quit()
     {
-        MoveButtons( new Vector3( buttons[0].transform.position.x - (Screen.width + buttons[0].GetComponent<RectTransform>().rect.width), 0, 0 ), 3, 7 );
+        Vector3 OffscreenLeft = new Vector3( ((Screen.width * 0.5f) + buttons[0].GetComponent<RectTransform>().rect.width) * -1.0f, 0.0f, 0.0f );
+        MoveButtons( OffscreenLeft, 3, 7 );
     }
     public void Back()
     {
-        once = false;
-        done = false;
-        menuStage = 3;
+        
+        Vector3 OffscreenLeft = new Vector3( ((Screen.width * 0.5f) + buttons[0].GetComponent<RectTransform>().rect.width)* -1.0f, 0.0f, 0.0f );
+        MoveButtons( OffscreenLeft * -1.0f, -1, 3 );
+        gameObject.GetComponent<LinearInterpolation>().Interpolate( backButton, new Vector3( Screen.width * 0.25f, Screen.height * -0.5f, 0.0f ), 0.5f, 1 );
 
         //interpolate whatever is on screen to off screen
-        Vector3 basePos = new Vector3( Screen.width * 0.5f, Screen.height * -0.5f, 0.0f );
-        gameObject.GetComponent<LinearInterpolation>().Interpolate( backButton, new Vector3( Screen.width * 0.25f, Screen.height * -0.5f, 0 ), 0.12f*speed, 1 );
-        for( int i = 0; i < loadButtons.Count; ++i )
-        {
-            gameObject.GetComponent<LinearInterpolation>().Interpolate( loadButtons[i], basePos, 0.12f * speed, 1 );
+        if( menuStage == 5 )
+        { 
+            Vector3 basePos = new Vector3( Screen.width * 0.5f, Screen.height * -0.5f, 0.0f );
+            for( int i = 0; i < loadButtons.Count; ++i )
+            {
+                gameObject.GetComponent<LinearInterpolation>().Interpolate( loadButtons[i], basePos, 0.5f, 1 );
+            }
         }
-
+        menuStage = 3;
     }
 
+    private void LoadButtonClicked(int id)
+    {
+        Debug.Log( "Loading Game " + id );
+        SaveLoad.LoadGame( id );
+    }
 
-    //this is really hackey but I can;t think of anything else. 
+    //button Movement
+    private void bringUpBackButton()
+    {
+        gameObject.GetComponent<LinearInterpolation>().Interpolate( backButton, new Vector3( Screen.width * 0.25f, Screen.height * 0.5f, 0 ), 0.5f, 1 );
+    }
+
+    //this is really spaghetti but I can't think of anything else without moving it to it's own script.
+    //TODO: change the script so it changes the destination to newpos and doesn't add it to the object's current location. 
+    //this will fix my menu inconsitency bug.
     private void MoveButtons( Vector3 pos, int btnChosen, int goToState = 3)
     {
         newpos = pos;
@@ -270,7 +325,6 @@ public class TitleManager : MonoBehaviour
         for( int i = 0; i < buttons.Length; ++i )
             buttons[i].GetComponent<Button>().interactable = false;
     }
-
     private void MoveButtonsHelper(Vector3 pos, int btnChosen)
     {
         if( !bOnce )
@@ -312,16 +366,11 @@ public class TitleManager : MonoBehaviour
                     }
                     else
                     {
-                        timer = -1.0f;
+                        timer = -0.6f;
                     }
                 }
             }
         }
-        
     }
 
-
-    public void StartGame()
-    {
-    }
 }

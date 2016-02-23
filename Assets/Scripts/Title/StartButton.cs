@@ -16,6 +16,6 @@ public class StartButton : MonoBehaviour {
     }
     void OnAClick()
     {
-        TitleManager.instance.StartGame();
+        //TitleManager.instance.StartGame();
     }
 }

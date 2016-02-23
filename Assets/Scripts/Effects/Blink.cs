@@ -9,11 +9,11 @@ public class Blink : MonoBehaviour {
     //will implement the unused variables if need!!!
 
     private float alivetime; //time between blinks, if deadtime is < 0.0f: deadtime is equal to alivetime
-    private float deadtime;  //used only if the duration it is visible is inequivelent to the duration the item is invisible
-    private float lifetime;  //item will stop blinking after this time (< 0.0f is unlimited time)
+    //private float deadtime;  //used only if the duration it is visible is inequivelent to the duration the item is invisible
+    //private float lifetime;  //item will stop blinking after this time (< 0.0f is unlimited time)
 
     private float lastBlink; //the time when the object reached full or no alpha.
-    private float timeCreated;
+    //private float timeCreated;
 
     private bool alive;
     private SpriteRenderer myRenderer;
@@ -24,13 +24,13 @@ public class Blink : MonoBehaviour {
     public void Initialize( bool fade = true, float duration = 5.0f, float life = -1.0f, float dead = -1.0f)
     {
         alivetime = duration;
-        lifetime = life;
-        if( dead < 0.0f )
-            deadtime = duration;
-        else
-            deadtime = dead;
+        //lifetime = life;
+        //if( dead < 0.0f )
+        //    deadtime = duration;
+        //else
+        //    deadtime = dead;
         lastBlink = Time.time;
-        timeCreated = Time.time;
+        //timeCreated = Time.time;
 
         alive = true;
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
