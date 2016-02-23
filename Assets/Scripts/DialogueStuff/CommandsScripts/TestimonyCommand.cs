@@ -4,18 +4,10 @@ using System.Collections;
 public class TestimonyCommand : Commands
 {
     StatementMode myStatementMode = new StatementMode();
-    string correctItem = "null";
-    int correctItemIndex = -1;
 
     public TestimonyCommand()
     {
         commandTag = "testimonycommand";
-    }
-
-    public void SetItem( int idx, string str )
-    {
-        correctItem = str;
-        correctItemIndex = idx;
     }
 
     public void AddMainStatement(string nm, string str)
@@ -63,7 +55,6 @@ public class TestimonyCommand : Commands
 
     public override bool ExecuteCommand()
     {
-
         CommandManager.Instance.SetTextHolder( myStatementMode.GetText() );
         return false;
     }

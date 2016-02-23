@@ -40,7 +40,7 @@ public class StringParser : MonoBehaviour
         TestimonyCommand tesCmd = new TestimonyCommand();
         for( Int16 i = 0; i < extractedWord.Length; i++ )
         {
-            ParseTestimony( ref tesCmd, extractedWord[i] );
+            ParseCommand( ref tesCmd, extractedWord[i] );
             extractedWord[i].ToLower();
             Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
         }
@@ -56,14 +56,16 @@ public class StringParser : MonoBehaviour
         }
     }
 
-    void ParseTestimony( ref TestimonyCommand tes, string str )
+    void ParseCommand( ref TestimonyCommand tes, string str )
     {
         string[] extracted;
-        if( Char.ToLower(str[0]) == 't' )
+        if( Char.ToLower( str[0] ) == 't' )
         {
-            char[] delimiter = { ' ', ']' , '['};
+            char[] delimiter = { ' ', ']', '[' };
             extracted = str.Split( delimiter );
-            tes.SetItem( int.Parse( extracted[1] ), extracted[2] );
+            CommandManager.Instance.correctItem = extracted[2];
+            CommandManager.Instance.presentItemIndex = int.Parse(extracted[1]);
+            //tes.SetItem( int.Parse( extracted[1] ), extracted[2] );
         }
         else
         {
@@ -80,7 +82,6 @@ public class StringParser : MonoBehaviour
             extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
             tes.AddPushStatement( extracted[0], extracted[1] );
             break;
-
             case '$':
             extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
             if( extracted.Length == 2 )
@@ -135,7 +136,7 @@ public class StringParser : MonoBehaviour
             }
         }
     }
-    void CustomCommand(string command)
+    void CustomCommand( string command )
     {
         char[] delimiter = new char[1];
         delimiter[0] = ' ';
@@ -183,34 +184,36 @@ public class StringParser : MonoBehaviour
         break;
         }
     }
-    public Dictionary<int, List<string>> ReadLocationData(string loc)
+
+    public Dictionary<int, List<string>> ReadLocationData( string loc )
     {
-        char[] delimiter = { '\r', '\n'};
-        string[] data = (Resources.Load( loc ) as TextAsset).ToString().Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
-        Dictionary<int, List<string>> value = new Dictionary<int,List<string>>();
+        char[] delimiter = { '\r', '\n' };
+        string[] data = (Resources.Load( loc ) as TextAsset).ToString().Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
+        Dictionary<int, List<string>> value = new Dictionary<int, List<string>>();
         string compare = "empty";
         int currentID = 0;
         for( int i = 0; i < data.Length; i++ )
         {
             compare = "";
-            for(int j = 0; j < 2; j++)
+            for( int j = 0; j < 2; j++ )
             {
                 compare += data[i][j];
             }
             if( compare == "id" )
             {
-                string[] id = data[i].ToString().Split(' ');
+                string[] id = data[i].ToString().Split( ' ' );
                 currentID = int.Parse( id[1] );
                 value[currentID] = new List<string>();
             }
             else
             {
-                value[currentID].Add(data[i]);
+                value[currentID].Add( data[i] );
             }
         }
         return value;
     }
-    public void BackgroundReader( string mainString, ref Dictionary<string, string> _background)
+
+    public void BackgroundReader( string mainString, ref Dictionary<string, string> _background )
     {
         int locationCheck = 0;
         string header = "";
@@ -241,7 +244,7 @@ public class StringParser : MonoBehaviour
         }
         else
         {
-            print("Stuff registered\nheader :" + header +"\ncontent :" + content);
+            print( "Stuff registered\nheader :" + header + "\ncontent :" + content );
             _background.Add( header, content );
         }
     }
@@ -251,7 +254,7 @@ public class StringParser : MonoBehaviour
     /************************* ADAM'S FILE READING ********************************/
     /******************** FOR READING THE CHARACTERS IN ***************************/
 
-    public void ParseCharacters(string mainString)
+    public void ParseCharacters( string mainString )
     {
 
         /*  EXAMPLE STRING
@@ -271,33 +274,33 @@ public class StringParser : MonoBehaviour
         CharacterManager CM;
         CM = CharacterManager.Instance;
 
-        
+
         int i = 0;
 
-        while (i < mainString.Length)
+        while( i < mainString.Length )
         {
             string what = "";
             string who = "";
 
-            while (mainString[i] != ' ')
+            while( mainString[i] != ' ' )
             {
                 what += mainString[i].ToString();
                 i++;
             }
             i++;
-            while (mainString[i] != ' ')
+            while( mainString[i] != ' ' )
             {
                 who += mainString[i].ToString();
                 i++;
             }
-            Debug.Log( "[character manager] Adding Char: " + who + " | what: " + what);
+            Debug.Log( "[character manager] Adding Char: " + who + " | what: " + what );
 
             string name = "";
 
-            if (what == "Char")
+            if( what == "Char" )
             {
                 i += 2;
-                while (mainString[i] != '"')
+                while( mainString[i] != '"' )
                 {
                     name += mainString[i].ToString();
                     i++;
@@ -307,32 +310,32 @@ public class StringParser : MonoBehaviour
             else
             {
                 i++;
-                while (mainString[i] != ' ')
+                while( mainString[i] != ' ' )
                 {
                     name += mainString[i].ToString();
                     i++;
                 }
                 string filePath = "";
                 i += 2;
-                while (mainString[i] != '"')
+                while( mainString[i] != '"' )
                 {
                     filePath += mainString[i].ToString();
                     i++;
                 }
 
-                if (what == "Pose")
+                if( what == "Pose" )
                 {
                     CM.AddCharacterPose( who.ToLower(), name.ToLower(), filePath );
                 }
-                else if (what == "Expr")
+                else if( what == "Expr" )
                 {
                     CM.AddCharacterExpression( who.ToLower(), name.ToLower(), filePath );
                 }
                 else
                 {
-                    Debug.Log("ERROR: unrecognized command in Loading Characters! StringParser -> ParseCharacters()");
+                    Debug.Log( "ERROR: unrecognized command in Loading Characters! StringParser -> ParseCharacters()" );
                 }
-                
+
             }
 
             i += 3;
@@ -340,38 +343,36 @@ public class StringParser : MonoBehaviour
         CM.SetAllToNeutral();
     }
 
-    public void ParseBackgrounds(string mainString)
+    public void ParseBackgrounds( string mainString )
     {
         /*          EXAMPLE STRING
          * alleyway "Textures/Backgrounds/case1_alley"
          * test2 "Textures/Backgrounds/backstreet_test2"
          */
         int i = 0;
-        while (i < mainString.Length)
+        while( i < mainString.Length )
         {
             string name = "";
             string filepath = "";
 
 
-            while (mainString[i] != ' ')
+            while( mainString[i] != ' ' )
             {
                 name += mainString[i].ToString();
                 i++;
             }
             i += 2;
-            while (mainString[i] != '"')
+            while( mainString[i] != '"' )
             {
                 filepath += mainString[i].ToString();
                 i++;
             }
-            SceneManager.Instance.backgroundLookup.Add(name.ToLower(), filepath);
+            SceneManager.Instance.backgroundLookup.Add( name.ToLower(), filepath );
             i += 3;
         }
-
-
     }
 
-    public void ParseScene(string mainString)
+    public void ParseScene( string mainString )
     {
         /*      EXAMPLE STRING
          *  BG=alleyway
@@ -383,67 +384,67 @@ public class StringParser : MonoBehaviour
          */
 
         string bg = "", name = "", prefab = "";
-         uint id = 0, time = 0;
- 
+        uint id = 0, time = 0;
+
 
         for( int i = 0; i < mainString.Length; ++i )
         {
 
-            while( mainString[i] != ' ' && mainString[i] != '\r' && mainString[i] != '\n')
+            while( mainString[i] != ' ' && mainString[i] != '\r' && mainString[i] != '\n' )
             {
                 char operation = ' ';
                 string dogma = "";
                 bool success;
 
                 operation = mainString[i];
-                i+=2;
+                i += 2;
                 for( int j = ++i; mainString[j] != '\r'; ++j, ++i )
                 {
                     dogma += mainString[j];
                 }
 
-                    switch( operation )
-                    {
-                    case 'B':
-                        bg = dogma;
-                        break;
+                switch( operation )
+                {
+                case 'B':
+                bg = dogma;
+                break;
 
-                    case 'I':
-                        success = uint.TryParse( dogma, out id );
-                        if( !success )
-                            Debug.Log( "ERROR: Could Not Parse ID from string to uint [StringParser.cs]" );
-                        break;
+                case 'I':
+                success = uint.TryParse( dogma, out id );
+                if( !success )
+                    Debug.Log( "ERROR: Could Not Parse ID from string to uint [StringParser.cs]" );
+                break;
 
-                    case 'N':
-                        name = dogma;
-                        break;
+                case 'N':
+                name = dogma;
+                break;
 
-                    case 'T':
-                        success = uint.TryParse( dogma, out time );
-                        if( !success )
-                            Debug.Log( "ERROR: Could Not Parse time(TM) from string to uint [StringParser.cs]" );
-                        break;
+                case 'T':
+                success = uint.TryParse( dogma, out time );
+                if( !success )
+                    Debug.Log( "ERROR: Could Not Parse time(TM) from string to uint [StringParser.cs]" );
+                break;
 
 
-                    case 'P':
-                        prefab = dogma;
-                        break;
+                case 'P':
+                prefab = dogma;
+                break;
 
-                    case 'D':
-                        if( bg == null || name == null || prefab == null || id == 0 || time == 0 )
-                            Debug.Log( "WARNING: Some scenes contain undefined data. [StringParser.cs]" );
-                        SceneManager.Instance.NewScene( bg, id, name, time, prefab );
-                        bg = "";
-                        name = "";
-                        prefab = "";
-                        id = 0;
-                        time = 0;;
-                        break;
+                case 'D':
+                if( bg == null || name == null || prefab == null || id == 0 || time == 0 )
+                    Debug.Log( "WARNING: Some scenes contain undefined data. [StringParser.cs]" );
+                SceneManager.Instance.NewScene( bg, id, name, time, prefab );
+                bg = "";
+                name = "";
+                prefab = "";
+                id = 0;
+                time = 0; ;
+                break;
 
-                    default:
-                        Debug.Log( "ERROR: Unrecognized command in Parse Scene. [String Parser.cs]" );
-                        break;
-                    }
+                default:
+                Debug.Log( "ERROR: Unrecognized command in Parse Scene. [String Parser.cs]" );
+                break;
+                }
 
 
 
