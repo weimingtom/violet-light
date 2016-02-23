@@ -26,7 +26,6 @@ public class CharacterManager : MonoBehaviour {
     public const float defaultEasingDuration = 2.0f;
     public const float defaultDeltaAlpha = 2.5f;
     private const float zValue = -3.0f;
-    
 
     static public CharacterManager Instance;
     void Awake()
@@ -146,6 +145,7 @@ public class CharacterManager : MonoBehaviour {
         private float easeDuration;
         private float deltaAlpha;
         public Positions positionToGoTo;
+        private float yValue = -0.5f;
 
 
         public Character()
@@ -231,23 +231,23 @@ public class CharacterManager : MonoBehaviour {
              switch(position)
              {
                 case Positions.Left1:
-                     startPlace = new Vector3(-10.0f, 0f, zValue);
+                     startPlace = new Vector3(-10.0f, yValue, zValue);
                 break;
 
                 case Positions.Left2:
-                startPlace = new Vector3(-6.0f, 0f, zValue);
+                startPlace = new Vector3(-6.0f, yValue, zValue);
                 break;
 
                 case Positions.Centre:
-                startPlace = new Vector3(0.0f, 0f, zValue);
+                startPlace = new Vector3(0.0f, yValue, zValue);
                 break;
 
                 case Positions.Right1:
-                startPlace = new Vector3(6.0f, 0f, zValue);
+                startPlace = new Vector3(6.0f, yValue, zValue);
                 break;
 
                 case Positions.Right2:
-                startPlace = new Vector3(10.0f, 0f, zValue);
+                startPlace = new Vector3(10.0f, yValue, zValue);
                 break;
          
                 case Positions.Offscreen:
@@ -264,23 +264,23 @@ public class CharacterManager : MonoBehaviour {
             switch( position )
             {
             case Positions.Left1:
-                    endPlace = new Vector3(-6.0f, 0f, zValue);
+                    endPlace = new Vector3(-6.0f, yValue, zValue);
             break;
 
             case Positions.Left2:
-            endPlace = new Vector3(-3.0f, 0f, zValue);
+            endPlace = new Vector3(-3.0f, yValue, zValue);
             break;
 
             case Positions.Centre:
-            endPlace = new Vector3(0.0f, 0f, zValue);
+            endPlace = new Vector3(0.0f, yValue, zValue);
             break;
 
             case Positions.Right1:
-            endPlace = new Vector3(3.0f, 0f, zValue);
+            endPlace = new Vector3(3.0f, yValue, zValue);
             break;
 
             case Positions.Right2:
-            endPlace = new Vector3(6.0f, 0f, zValue);
+            endPlace = new Vector3(6.0f, yValue, zValue);
             break;
 
             case Positions.Offscreen:
@@ -320,7 +320,7 @@ public class CharacterManager : MonoBehaviour {
             if((alpha >= 1.0f || alpha == 0.0f) && mGObject.transform.position == destination)
             {
                 if( positionToGoTo == Positions.Offscreen )
-                    mPortrait.transform.position = new Vector3( -30.0f, 0.0f, zValue );
+                    mPortrait.transform.position = new Vector3(-30.0f, yValue, zValue);
                 return true;
             }
 
