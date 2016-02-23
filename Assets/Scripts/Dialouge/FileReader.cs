@@ -15,7 +15,7 @@ public class FileReader : MonoBehaviour
     }
     static public FileReader Instance;
     public string fileLocation;
-    public string scriptFolder = "DialougeScripts/";
+    public string scriptFolder = "Dialogue/";
     //=================================================================
     //  Load file function
     //  can be used to read both text sequence and command

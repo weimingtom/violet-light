@@ -11,7 +11,7 @@ public class LocationManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        mData = StringParser.Instance.ReadLocationData( "DialougeScripts/LocationSequence" );
+        mData = StringParser.Instance.ReadLocationData("Dialogue/locations_scene_" + SceneManager.Instance.GetScene().ToString());
         initialize = true;
 	}
 

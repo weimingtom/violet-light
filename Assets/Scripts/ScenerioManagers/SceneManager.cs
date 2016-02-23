@@ -259,7 +259,7 @@ public class SceneManager : MonoBehaviour
             Scenes.Clear();
             /********* LOADING CHARACTERS FROM FILE ***********/
             //Load in the characters specific to the case. 
-            string filepath = "DialougeScripts/characters_scene_";
+            string filepath = "Dialogue/characters_scene_";
             filepath += NewCase.ToString();
             FileReader.Instance.ReadCharacter(filepath);
 
