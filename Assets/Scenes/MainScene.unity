@@ -1051,14 +1051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1f067afe9ec8749b4ca4a108727b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myButtons:
-  - {fileID: 491798211}
-  - {fileID: 329977145}
-  - {fileID: 1009216815}
-  - {fileID: 1930153174}
-  - {fileID: 2044162965}
-  - {fileID: 756808272}
-  - {fileID: 384832424}
 --- !u!1 &672695984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,8 +1778,8 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: uiButtonDestination.Array.size
+    - target: {fileID: 11468158, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: InteractableList.Array.size
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 470988, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
@@ -1822,10 +1814,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 11489336, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: menu
-      value: 
-      objectReference: {fileID: 493282505}
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiElements.Array.data[0]
       value: 
@@ -1886,10 +1874,6 @@ Prefab:
       propertyPath: uiDestination
       value: 
       objectReference: {fileID: 1371403371}
-    - target: {fileID: 11415000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiButtonDestination.Array.data[0]
       value: 
@@ -1918,9 +1902,15 @@ Prefab:
       propertyPath: uiButtonDestination.Array.data[6]
       value: 
       objectReference: {fileID: 1805807697}
-    m_RemovedComponents:
-    - {fileID: 11407790, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-    - {fileID: 11485788, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+    - target: {fileID: 11489336, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 493282505}
+    - target: {fileID: 11468158, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: InteractableList.Array.data[6]
+      value: 
+      objectReference: {fileID: 176022, guid: 1f2db36e53c360941b4a2b8669b82f55, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1096864646
