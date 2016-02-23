@@ -104,7 +104,7 @@ public class CommandManager : MonoBehaviour
                 }
                 else
                 {
-
+                    //fail
                 }
             }
             else

@@ -45,10 +45,10 @@ public class LocationManager : MonoBehaviour
         }
     }
 
-    public void ButtonPressed(int i)
+    public void ButtonPressed(string location)
     {
         //note to jesse
-        //SceneManager.Instance.ChangeScene( i );
+        SceneManager.Instance.ChangeScene( location );
     }
 
 	// Update is called once per frame

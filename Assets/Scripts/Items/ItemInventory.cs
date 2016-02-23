@@ -55,7 +55,7 @@ public class ItemInventory : MonoBehaviour
             if( buttons[i].tag == "PresentButton" )
             {
                 presentButtonLocation = i;
-                buttons[i].onClick.AddListener( () => ClickPresent() );
+                buttons[i].onClick.AddListener( () => PresentButton() );
             }
 			else
 			{
@@ -70,10 +70,7 @@ public class ItemInventory : MonoBehaviour
         SetMainImage( btn_id );
     }
 
-    void ClickPresent()
-    {
-        
-    }
+
 
     public void TogglePresentButton( bool toggle )
     {
