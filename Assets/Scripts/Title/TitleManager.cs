@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TitleManager : MonoBehaviour 
 {
-    public GameObject ScrollingBackground;
     public GameObject WhiteBackground;
     public GameObject GameCompany;
     //public GameObject StartButton;
@@ -45,7 +44,6 @@ public class TitleManager : MonoBehaviour
 
 	void Start () 
     {
-        ScrollingBackground.SetActive( false );
         WhiteBackground.SetActive( true );
         GameCompany.SetActive( true );
 
@@ -125,7 +123,6 @@ public class TitleManager : MonoBehaviour
         {
             GameCompany.GetComponent<FadeSprite>().StartFade( -1 );
             WhiteBackground.GetComponent<FadeSprite>().StartFade( -1 );
-            ScrollingBackground.SetActive( true );
             clickAnything.GetComponent<Blink>().Initialize();
             menuStage = 2;
         }
