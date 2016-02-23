@@ -19,7 +19,7 @@ public class locationManager : MonoBehaviour
 
 	}
 
-    void UpdateButton()
+    public void UpdateButton()
     {
         if( initialize == true )
         {
@@ -60,6 +60,7 @@ public class locationManager : MonoBehaviour
 	// Update is called once per frame
     void OnEnable()
     {
+        initialize = true;
         UpdateButton();
 	}
 }

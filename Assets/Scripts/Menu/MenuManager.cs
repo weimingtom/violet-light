@@ -89,6 +89,7 @@ public class MenuManager : MonoBehaviour
                     break;
                 case "btn_location":
                     ChangeState( state.Location );
+                    locationManager.Instance.UpdateButton();
                     break;
                 case "btn_suspect":
                     ChangeState( state.Suspect );
