@@ -67,5 +67,10 @@ public static class SaveLoad
             file.Close();
         }
     }
+
+    public static void LoadGame( int id )
+    {
+        Debug.Log( "Loading Game " + id );
+    }
 	
 }

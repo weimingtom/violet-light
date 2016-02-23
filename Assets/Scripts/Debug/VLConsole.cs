@@ -70,7 +70,11 @@ public class VLConsole : MonoBehaviour
                 SceneManager.Instance.AdvQuest();   
             }
             break;
-
+            case ("save"):
+            {
+                SaveLoad.Save();
+            } 
+            break;
         }
 
         commandInput.text = "";

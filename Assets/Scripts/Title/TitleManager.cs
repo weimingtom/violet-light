@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class TitleManager : MonoBehaviour 
 {
@@ -27,6 +29,9 @@ public class TitleManager : MonoBehaviour
     private int stageWhenDone = 3;
     Vector3 newpos;
 
+    private List<GameObject> loadButtons = new List<GameObject>();
+    public GameObject backButton;
+   
     
 
     static public TitleManager instance;
@@ -107,7 +112,8 @@ public class TitleManager : MonoBehaviour
             if( !once )
             {
                 newpos = new Vector3( 0, Screen.height * 0.6f, 0 );
-                once = !once;
+                once = true;
+                stageWhenDone = 3;
             }
 
             if( !done )
@@ -115,20 +121,97 @@ public class TitleManager : MonoBehaviour
                 MoveButtonsHelper( newpos, btn );
             }
             else
-                menuStage = stageWhenDone;
+            {
+                for( int i = 0; i < buttons.Length; ++i )
+                    buttons[i].GetComponent<Button>().interactable = true;
+
+                if( stageWhenDone != menuStage )
+                {
+                    once = false;
+                    menuStage = stageWhenDone;
+                }
+               
+
+            }
         
             //changing state is done in the buttons. 
             break;
 
         case 4:
+            //NEW GAME
+            timer += Time.deltaTime;
+            if( timer >= 2.0f && !once)
+            {
+                this.gameObject.GetComponent<FadeOutScreen>().BeginFade( 1 );
+                once = true;
+            }
+            else if( timer >= 3.0f )
+            {
+                Application.LoadLevel( "MainScene" );
+            }
             break;
+
         case 5:
+            //LOAD GAME
+            if( !once )
+            {
+                if( loadButtons.Count == 0 )
+                {
+                    SaveLoad.Load();
+                    for( int i = 0; i < SaveLoad.savedGames.Count; ++i )
+                    {
+                        //create the object
+                        GameObject button = new GameObject("button" + i, typeof(RectTransform));
+                        button.AddComponent<Button>();
+                        button.AddComponent<CanvasRenderer>();
+                        button.AddComponent<Image>();
+                        button.AddComponent<LoadButton>();
+                        button.GetComponent<LoadButton>().id = i;
+                        button.transform.SetParent( buttons[0].gameObject.GetComponentInParent<Canvas>().transform, false ); 
+                        GameObject text = new GameObject( "Text", typeof( RectTransform ) );
+                        text.transform.SetParent( button.transform, false );
+                        text.AddComponent<Text>();
+
+
+                        //do the visual stuff
+                        button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal, 400 );
+                        text.GetComponent<RectTransform>().SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal, 370 );
+                        button.GetComponent<Image>().color = new Color( 0.1f, 0.0f, 0.4f, 0.1f );
+                        text.GetComponent<Text>().text = "Saved Game: \n" + SaveLoad.savedGames[i].date + " " + SaveLoad.savedGames[i].time;
+                        text.GetComponent<Text>().font = Resources.Load( "Fonts/type", typeof( Font ) ) as Font;
+                        text.GetComponent<Text>().fontSize = 35;
+
+                        button.transform.position = new Vector3( Screen.width * 0.5f, button.GetComponent<RectTransform>().sizeDelta.y * -1 );
+
+                        //add the button
+                        loadButtons.Add( button );
+                    }
+                }
+
+                //interpolate the buttons onto the screen
+                
+                Vector3 basePos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0.0f);
+                Vector3 adjusPos = new Vector3(0.0f, Screen.height * 0.1f, 0.0f);
+                gameObject.GetComponent<LinearInterpolation>().Interpolate( backButton, new Vector3(Screen.width * 0.25f, Screen.height * 0.5f, 0), 0.12f, 1 );
+                for( int i = 0; i < loadButtons.Count; ++i )
+                {
+                    gameObject.GetComponent<LinearInterpolation>().Interpolate( loadButtons[i], basePos, 0.12f, 1 );
+                    basePos = basePos - adjusPos;
+                }
+
+            }
+
             break;
+
         case 6:
+            //SETTINGS
             break;
+
         case 7:
+            //QUIT
             Application.Quit();
             break;
+
         default:
             Debug.LogError( "Error: Menu Stage out of bounds. [TitleManager.cs]" );
             break;
@@ -140,20 +223,32 @@ public class TitleManager : MonoBehaviour
     {
         MoveButtons( new Vector3( buttons[0].transform.position.x - (Screen.width + buttons[0].GetComponent<RectTransform>().rect.width), 0, 0 ), 0, 4);
     }
-
     public void LoadGame()
     {
         MoveButtons( new Vector3( buttons[0].transform.position.x - (Screen.width + buttons[0].GetComponent<RectTransform>().rect.width), 0, 0 ), 1, 5 );
     }
-
     public void Settings()
     {
         MoveButtons( new Vector3( buttons[0].transform.position.x - (Screen.width + buttons[0].GetComponent<RectTransform>().rect.width), 0, 0 ), 2, 6 );
     }
-
     public void Quit()
     {
         MoveButtons( new Vector3( buttons[0].transform.position.x - (Screen.width + buttons[0].GetComponent<RectTransform>().rect.width), 0, 0 ), 3, 7 );
+    }
+    public void Back()
+    {
+        once = false;
+        done = false;
+        menuStage = 3;
+
+        //interpolate whatever is on screen to off screen
+        Vector3 basePos = new Vector3( Screen.width * 0.5f, Screen.height * -0.5f, 0.0f );
+        gameObject.GetComponent<LinearInterpolation>().Interpolate( backButton, new Vector3( Screen.width * 0.25f, Screen.height * -0.5f, 0 ), 0.12f, 1 );
+        for( int i = 0; i < loadButtons.Count; ++i )
+        {
+            gameObject.GetComponent<LinearInterpolation>().Interpolate( loadButtons[i], basePos, 0.12f, 1 );
+        }
+
     }
 
 
@@ -161,12 +256,16 @@ public class TitleManager : MonoBehaviour
     private void MoveButtons( Vector3 pos, int btnChosen, int goToState = 3)
     {
         newpos = pos;
+        if( btnChosen >= buttons.Length )
+            btnChosen = -1;
         btn = btnChosen;
         bOnce = false;
         counter = 0;
         timer = 0.0f;
         done = false;
         stageWhenDone = goToState;
+        for( int i = 0; i < buttons.Length; ++i )
+            buttons[i].GetComponent<Button>().interactable = false;
     }
 
     private void MoveButtonsHelper(Vector3 pos, int btnChosen)
@@ -201,7 +300,7 @@ public class TitleManager : MonoBehaviour
                 }
                 timer = 0.0f;
                 counter++;
-                if( counter == buttons.Length )
+                if( counter >= buttons.Length )
                 {
                     if( btnChosen == -1 )
                     {
