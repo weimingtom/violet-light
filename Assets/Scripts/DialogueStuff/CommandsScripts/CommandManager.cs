@@ -10,6 +10,11 @@ public class CommandManager : MonoBehaviour
     int destroyCount;
     bool done;
 
+    public string correctItem { get; set; }
+    public int presentItemIndex { get; set; }
+
+    public bool prompt { get; set; }
+    public int testimonyItemIndex { get; set;}
     public Text myTextHolder;
     public Text myNameHolder;
 
@@ -66,7 +71,6 @@ public class CommandManager : MonoBehaviour
 
     void Start()
     {
-        //loop = true;
         myTextHolder.supportRichText = true;
         destroyCount = 0;
         done = false;
@@ -75,48 +79,56 @@ public class CommandManager : MonoBehaviour
         myCommand = new List<Commands>();
     }
 
-
-
     public void AddCommand(Commands command)
     {
         myCommand.Add(command);
     }
 
-    public void AdvanceCommand()
+    public void CheckItem(string itemName)
     {
-        bool check = true;
-        while(check)
+        //therefore it is presenting on the scene
+        if( itemName != correctItem )
         {
-            commandTracker++;
-            if( commandTracker >= myCommand.Count )
+            //present in scene
+            if( presentItemIndex == -1 && prompt == false )
             {
-                commandTracker = 0;
-            }
-            myCommand[commandTracker].Reset();
-            myCommand[commandTracker].ExecuteCommand();
-            if( myCommand[commandTracker].commandTag == "showtextcommand" )
+                SceneManager.Instance.AdvQuest();
+            }//present in testimony
+            else if( presentItemIndex != -1 && prompt == false )
             {
-                check = false;
+                if( testimonyItemIndex == presentItemIndex )
+                {
+                    //advance when correct item is presented
+                    commandTracker++;
+                    SceneManager.Instance.AdvQuest();
+                }
+                else
+                {
+
+                }
             }
+            else
+            {
+                //do something for prompted
+                prompt = false;
+            }
+
         }
+        else
+        {
+            //do something if fail
+        }
+
     }
 
-    public void RewindCommand()
-    {
-        if( commandTracker > 0 )
-        {
-            do
-            {
-                commandTracker--;
-                myCommand[commandTracker].Reset();
-            } while( myCommand[commandTracker].commandTag != "showtextcommand"
-                    && commandTracker != 0 );
-        }
-    }
+
+
 
     public void Reinitialize()
     {
-
+        correctItem = "none";
+        presentItemIndex = -1;
+        testimonyItemIndex = -1;
         destroyCount = 0;
         done = false;
         commandTracker = 0;
@@ -129,13 +141,14 @@ public class CommandManager : MonoBehaviour
         switch( done )
         {
         case false:
+
 		    if(commandTracker < myCommand.Count)
 		    {
 			    if ( myCommand[commandTracker].ExecuteCommand() ) 
 			    {
 				    commandTracker++;
                     Debug.Log("Run command no  : " + commandTracker);
-			    } 
+			    }
 		    }
 		    else if (commandTracker == myCommand.Count)
 		    {
