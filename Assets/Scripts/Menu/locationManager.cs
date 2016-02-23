@@ -14,6 +14,7 @@ public class LocationManager : MonoBehaviour
         mData = StringParser.Instance.ReadLocationData( "DialougeScripts/LocationSequence" );
         initialize = true;
 	}
+
     void UpdateButton()
     {
         if( initialize == true )
@@ -35,7 +36,7 @@ public class LocationManager : MonoBehaviour
                         }
                     }
                 }
-
+                initialize = false;
             }
             else
             {

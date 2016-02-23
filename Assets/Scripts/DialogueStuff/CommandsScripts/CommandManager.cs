@@ -118,11 +118,7 @@ public class CommandManager : MonoBehaviour
         {
             //do something if fail
         }
-
     }
-
-
-
 
     public void Reinitialize()
     {

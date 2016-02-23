@@ -1,5 +1,5 @@
 id 0
-PoliceStation
+police_station
 Wharf
 music_shop
 id 1

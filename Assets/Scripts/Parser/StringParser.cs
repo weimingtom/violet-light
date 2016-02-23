@@ -207,7 +207,7 @@ public class StringParser : MonoBehaviour
             }
             else
             {
-                value[currentID].Add( data[i] );
+                value[currentID].Add( data[i].ToLower() );
             }
         }
         return value;
