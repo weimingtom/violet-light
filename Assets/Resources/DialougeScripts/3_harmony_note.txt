@@ -1,0 +1,61 @@
+$AX$ "Harmony, whens your sister’s birthday?”
+
+$AX$ "Because we found a note in your shop addressing someone’s birthday.”
+
+pose Harmony Confused
+
+<HR> “...?”
+
+pose Harmony Scribble
+
+<HR> “.........”
+
+pose Violet Neutral
+
+$VL$ "She wrote ‘Just the other day, but she doesn’t like to celebrate it.’”
+
+pose Violet Serious
+
+$VL$ "Wait this means…”
+
+pose Alexander Thinking
+
+$AX$ "That this card was addressed to Melody then, right?”
+
+$AX$ "Maybe thi$SP$ "S” guy has something to do with the murder.”
+
+$AX$ "I wonder if he’s the guy we saw yesterday...”
+
+// que flashback
+
+pose Violet explaining
+
+$VL$ "Well, there’s really only one way to find out. We must deduce an answer!”
+
+$VL$ "Harmony do you know anything about this guy?”
+
+pose Alexander Neutral
+
+pose Violet Neutral
+
+<HR> “...........”
+
+$VL$ "’No, sorry. I’ve never seen that stationary or logo before. But the man you saw yesterday might have been our investor, Mr.George.’”
+
+pose Alexander Shock
+
+$AX$ "Mr.George?”
+
+pose Alexander Scribbling
+
+$AX$ "Huh...”
+
+“Profile updated in case log”
+
+pose Violet Serious
+
+$VL$ "Well it looks like we still have a lot of work to do.”
+
+pose Alexander Serious
+
+$AX$ "Right.”

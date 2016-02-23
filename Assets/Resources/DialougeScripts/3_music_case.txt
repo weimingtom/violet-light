@@ -1,4 +1,7 @@
-pose Violet Puzzled
+
+show Alexander Right1
+show Violet Left1
+pose Violet puzzled
 
 $VL$ "Hey alex, look at this.”
 

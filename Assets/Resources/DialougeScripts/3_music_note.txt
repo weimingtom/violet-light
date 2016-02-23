@@ -1,4 +1,5 @@
-pose Violet Puzzled
+
+pose Violet puzzled
 
 $VL$ "Hmm? There’s some sort of note under here.”
 

@@ -1,6 +1,11 @@
+show Alexander Right1
+show Violet Left1
+
+
 //Short scene, forces you to go to police station after
 
-pose Alexander Tired
+
+pose Alexander tired
 
 pose Violet Happy
 
