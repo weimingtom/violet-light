@@ -4,10 +4,12 @@
 $AX$ "Hey Violet, doesn’t this stationary look familiar?”
 
 $VL$ "Good catch Alex!”
+
 $VL$ "It looks exactly like the staionary that the note we found was written on!”
 
 pose Alexander Scribbling
+
 $AX$ "There's definitely something up with this guy.”
 
-“Note updated in journal”
+$/$ “Note updated in journal”
 

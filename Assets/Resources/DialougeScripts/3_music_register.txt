@@ -1,15 +1,21 @@
 $VL$ "Seems like the cash register is pretty well stocked.”
 
-puzzled
+pose Alexander Puzzled
+
 $AX$ "You seem a little too interested in that cash.”
 
 pose Violet Upset
+
 $VL$ "H-huh...”
+
 $VL$ "ALEX!”
+
 $VL$ "you think I would steal from my beloved friend?”
 
 pose Violet Happy
+
 pose Alexander Unimpressed
+
 $AX$ "Uhm- N-no Of course not!”
 
 $VL$ "Good, now look the other way.”

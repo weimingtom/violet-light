@@ -35,7 +35,9 @@ $PL$ “H-huh oh I see!”
 $PL$ “I-I’m terribly sorry! I’ll let you through right now!”
 
 pose Violet Cocky
+
 $VL$ “Thanks, love.”
+
 pose Alexander Determined
 
 show Policeman Offscreen
@@ -44,29 +46,39 @@ show Harmony Right2
 pose Harmony Ashamed 
 
 pose Violet shock
+
 $VL$ “H-Harmony, are you okay?”
+
 $VL$ “Did they do anything to you? hurt you in any way, omygod that must have been a terrible experience! I’ll find the guy who did this, I can’t believe it, I’m so sorry about your sister, ahh omygod-“
 
 pose Alexander Unimpressed
+
 $AX$ “Violet calm down...”
 
 //eff ding
 pose Violet Shock
+
 $VL$ “R-right!”
+
 pose Violet Neutral
 
 pose Alexander Scribbling
+
 $AX$ “Now what can you tell us, Miss Rush?”
+
 pose Alexander Determined
 
 poes Harmony Nervous
+
 $HR$ “............  ...  ... ... ... ...”
 
 // TODO THIS EXCHANGE NEEDS WORK
 //
 
 pose Alexander Puzzled
+
 pose Violet Upset
+
 $AX$ “Uhm...”
 
 pose Harmony sad
@@ -79,39 +91,53 @@ $AX$ “WH- WHAT?”
 
 
 pose Alexander Puzzled
+
 pose Violet Shrug
+
 pose Harmony determined
+
 $HR$ “....... ...  ...... ...”
 
 // To the side
+
 $VL$ “She has no voice...”
 
 pose Alexander unimpressed
+
 $AX$ “O-Oh...”
+
 pose Violet shrug
+
 $VL$ “Yeah.”
 
 //Alex Looks at harmony and turns back
+
 $HR$ “......”
 
 //
 
 pose Alexander serious
+
 $AX$ “So... how is she going to communicate with us?”
 
 pose Violet cocky
+
 $VL$ “Alex, don’t worry she can still [eff clue] write.”
 
 $AX$ “A-ah right...”
 
-// Both turn back to hr
+// Both turn back to harmony
+
 pose Violet neutral
+
 $VL$ “But it seems like they didn’t give her anything to write with...”
 
 $VL$ “H-HEY! POLICEGUY! COME HERE!”
 
 show Policeman Center
+
 $PL$ “Y-YES SIR-“ //cut off
+
 $VL$ “What did you just call me, love?”
 
 $PL$ “I MEAN MA’AM!”
@@ -123,34 +149,47 @@ $PL$ “I’m under direct orders from Detective Sharp to not let her have any objec
 show Violet smirk
 
 $VL$ “A pen and paper? This Detective may be sharp but he’s not too bright![pause] Fine, I’ll just give her Alex’s notebook then...”
+
 // [show notebook icon]
-//[hide icon]
+// [hide icon]
 
 $PL$ “I can’t let you do that! S-SORRY! 
 //[eff crash/flash]”
 
 pose Violet serious
+
 $VL$ “What really?”
+
 $AX$ “Seems a little silly...”
 
 $PL$ “I’m under direct orders from the Detective! You’ll have to talk to him!”
 
 pose Alexander puzzled
+
 $AX$ “And where can we find him?”
 
 $PL$ “He’s at the scene of the crime at the moment! I-I can mark it on your map!”
 
 // Violet moves off screen
+
 pose Alexander Scribble
+
 $AX$ “Ah- thank you.”
 
 //Alex turns to violet
+
 pose Alexander Shocked
+
 $AX$ “W-Wait for me!”
+
 //Alex turns to harmony
+
 pose Alexander Cocky
+
 $AX$ “Don’t worry, Violet and I are on the case! We’ll be back soon!”
+
 $HR$ “....”
+
 //Alex leaves
 //fade out
 //end scene

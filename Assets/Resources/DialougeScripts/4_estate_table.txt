@@ -1,12 +1,17 @@
 // Find subtle evidence of there being THREE people at the social gathering, this is hint towards secret that Harmony is killer too
+
 pose Violet Thinking
+
 $VL$ "Hmmm... Two spots of afternoon tea.”
 
 $AX$ "So there was most likely two people here.”
+
 pose Alexander Shock
+
 $AX$ "H-hey Violet don’t stick your finger in it!”
 
 pose Violet Neutral
+
 $VL$ "Just as I thought, room temperature.”
 
 $AX$ "WAIT DON’T DRINK IT!”
@@ -16,6 +21,7 @@ $VL$ "The tea is strong, it’s definitely been sitting for more than 24 hours.”
 $AX$ "Wow, that’s uh, kinda impressive.”
 
 pose Alexander Scribbling
+
 $VL$ "I think we can deduce that there was definitely more than one person here.”
 
 $AX$ "Why would he just leave all this evidence out here though? If this guy is our killer, then you think he would clean up right?”
@@ -23,6 +29,7 @@ $AX$ "Why would he just leave all this evidence out here though? If this guy is 
 $VL$ "He’s probably just busy... or absent minded.”
 
 pose Alexander Thinking
+
 $AX$ "Hmmm... “
 
-“Tea cups added to evidence locker”
+$/$ “Tea cups added to evidence locker”

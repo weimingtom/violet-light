@@ -2,24 +2,30 @@
 
 $AX$ "Harmony, we’re back!”
 
-pose Harmonysad
+pose Harmony Sad
+
 <HR> “.........”
 
 $AX$ "Uhm-”
 
 $VL$ "Ah, hey Harmony!”
 
-pose Harmonyexcited
+pose Harmony Excited
+
 <HR> “!!!!..!”
 
-pose Harmonyhappy
+pose Harmony Happy
+
 $AX$ "R-right, we’d like to ask you some questions..."
-pose Harmonysad
+
+pose Harmony Sad
 
 pose Violet Serious
+
 $VL$ "Maybe I should do the talking..."
 
 pose Alexander Unimpressed
+
 $AX$ "Wh-what did I even do?”
 
 // This should really be presented like questions. that you can ask in any order, and present and such

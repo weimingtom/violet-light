@@ -2,28 +2,40 @@ show Alexander Right1
 show Violet Right2
 pose Alexander Neutral
 pose Violet Neutral
+
 $VL$ "Well that looks... uh... painful...”
 
 pose Alexander Unimpressed
+
 $AX$ "Uhm...”
+
 pose Alexander Scribbling
+
 $AX$ "Anyways, according to the report Sharp gave us, this appears to most likely be the cause of death.”
+
 pose Alexander Thinking
+
 $AX$ "From what I can see... it’s not post mortem, and it’s definitely possible that this caused her to black out to say the least.”
 
 // Note might have to remove this, if this info doesn’t get used
+
 $VL$ "Is it possible she could of survived the injury?”
+
 $AX$ "Yes, but we would need a real autopsy to tell how bad the damage really is.”
 
 pose Violet Thinking
+
 $VL$ "You mean like when they cut the body open and all that gross stuff?”
 
 pose Alexander Unimpressed
+
 $AX$ "You watch too much tv...”
+
 // Note was this a thing back then? Maybe a bad joke too? ah man
 
 pose Alexander Scribbling
+
 $AX$ "Anyways, I’ll make note of it”
 
-“Head wound added to journal”
+$/$ “Head wound added to journal”
 // Note maybe just update the report? Or maybe no evidence”

@@ -2,22 +2,29 @@ pose Violet Thinking
 Alexander Right1
 show Violet Right2
 pose Alexander Neutral
+
 $VL$ "look at this.”
 
 pose Alexander Neutral
+
 $AX$ "I don’t see anything...”
 
 pose Violet Cocky
+
 $VL$ "Exactly.”
 
 pose Alexander Shocked
+
 $AX$ "Oh! Part of her dress is missing on this side.”
+
 $AX$ "Some sort of ribbon?”
 
 $VL$ "Write it down alex!”
 
 pose Alexander Scribbling
+
 $AX$ "On it!”
 
-“missing ribbon added to journal”
+$/$ “missing ribbon added to journal”
+
 // add to journal

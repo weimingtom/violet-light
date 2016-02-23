@@ -7,66 +7,84 @@ Show Harmony Right
 // Intro
 
 $SP$ "Sooo... still not talkin eh?”
-s cocky
+
+pose Sharp Cocky
+
 $SP$ "Heheheh... can’t keep the act up forever.”
 
-pose Harmonyworried
+pose Harmony Worried
+
 <HR> “.....”
 
 $SP$ "If you tell me the truth, then I might be able to cut you a deal.”
+
 $SP$ "Buuuuut... if you keep stayin quiet... wellll then I can’t really do that.”
 
 <HR> “....”
 
 $SP$ "It’s okay, y’know? The guilty ones are always like this. *sigh* You never want to challenge me eh?”
+
 $SP$ "Always makin the case against ya easy. Man I can’t wait for my promotion!”
 
-pose Harmonymad
+pose Harmony Mad
+
 <HR> “........”
 
 pose Violet Serious
+
 $VL$ "HOLD IT!”
 
-s surprised
+pose Sharp Surprised
+
 $SP$ "H-huh?”
 
 pose Violet Cocky
+
 $VL$ "Just what do you think you’re doing talking to my client?”
 
 $SP$ "Uh-uhm...”
 
-v angry
+pose Violet Angry
+
 $VL$ "Of course she’s not going to tell you anything. First of all because she can’t SPEAK.”
+
 pose Violet Cocky
+
 $VL$ "But also because she can’t say anything without her lawyer here.”
+
 // this lawyer façade might confuse the player so we gotta make it clear maybe that they aren’t real lawyers?
 
-s cocky
+pose Sharp Cocky
+
 $SP$ "Hahaha, of course. Miss Pointy Hair.”
 
-v angry
+pose Violet Angry
+
 $VL$ "H-heY!”
 
 pose Violet Nervous
+
 $VL$ "it’s not that pointy...”
+
 pose Violet Serious
+
 $VL$ "Stop badgering my client.”
 
 $SP$ "Hey, unless you produce some evidence there's nothing I can do.”
 
 pose Alexander Nervousous
+
 $AX$ "Uh-oh.”
 
-s pose
+pose Sharp Cocky
+
 $SP$ "Nothing can stop the Ace Detective!”
 
-s cocky
-
 pose Alexander Unimpressed
+
 $AX$ "Oh boy...”
+
 pose Alexander Serious
-
-
 
 // Note do we need more dialogue before this?
 // Harmony is about to be kinda screwed, so that’s when you have to go against Sharp’s testimony
@@ -75,32 +93,46 @@ $VL$ "Why don’t you give us a testimony on why you think she did it.”
 
 $AX$ "Ah good thinking Violet.”
 
-pose Violet Cocky 
+pose Violet Cocky
+
 $VL$ "Then we’ll see who's the Ace here.”
 
-s nervous
+pose Sharp Nervous
+
 $SP$ "Hmmmph.”
-s cocky
+
+pose Sharp Cocky
+
 $SP$ "Fine, bring it on.”
 
 // Is this too abrupt?
 
 // Testimony 1
 
-<Sharp> “Look, your friend here is a very guilty person. And as the Ace Detective it is MY job to put her away.”
+$SP$ “Look, your friend here is a very guilty person. And as the Ace Detective it is MY job to put her away.”
 		// Press:
-Violet Cocky		
-<Violet> “Ace detective? You really call yourself that? Kinda lame don’t you think, Alex?”
-		Alex Thinking
-		<Alex> “I mean, I-I guess, but what’s this have to do with the case, Violet?”
-		<Violet> “Absolutely nothing!”
-		Alex Unimpressed
-		<Alex> “…”
-		Sharp Upset
-<Sharp> “H-hey! Don’t gang up on me!”
-<Sharp> “Anyways, as I was saying...”
+Violet Cocky
+		
+$VL$ “Ace detective? You really call yourself that? Kinda lame don’t you think, Alex?”
 
-<Sharp> “The body was found washed up in the River Thames and discovered by a passing fisherman.”
+pose Alex Thinking
+
+$AX$ “I mean, I-I guess, but what’s this have to do with the case, Violet?”
+
+$VL$ “Absolutely nothing!”
+
+pose Alex Unimpressed
+
+$AX$ “…”
+
+pose Sharp Upset
+
+$SP$ “H-hey! Don’t gang up on me!”
+
+$SP$ “Anyways, as I was saying...”
+
+$SP$ “The body was found washed up in the River Thames and discovered by a passing fisherman.”
+
 // Press:
 pose Violet Thinking
 $VL$ "So how exactly do you think my client murdered the victim...”
@@ -110,29 +142,29 @@ pose Violet Unimpressed
 $VL$ "And threw it in the river?”
 s cocky
 $SP$ "...”
-s nervous
+pose Sharp Nervous
 $SP$ "That we don’t know yet...”
-s srs
+pose Sharp Serious
 $SP$ "But we’re working on it.”
 $SP$ "What we do know is...” 
 
-<Sharp> “Once we identified the body we went to investigate the sister’s shop, and when we arrived we found our suspect’s shoes outside.”
+$SP$ “Once we identified the body we went to investigate the sister’s shop, and when we arrived we found our suspect’s shoes outside.”
 // Press:
 pose Alexander Thinking
 $AX$ "So you found her shoes outside?”
-	$SP$ "Correct.”
+$SP$ "Correct.”
 pose Alexander Cocky
 $AX$ "Well I mean wouldn’t you expect to find her shoes outside her own store?”
 pose Violet Thinking
 $VL$ "Yeah, she works there after all.”
-s cocky
+pose Sharp Cocky
 $SP$ "Of course... but...”
 	
 
-<Sharp> “Here’s the fun part, the soles of her boots, still wet and covered in salt residue. Proving she was near the river recently.”
+<$SP$ “Here’s the fun part, the soles of her boots, still wet and covered in salt residue. Proving she was near the river recently.”
 // Press:
 		$VL$ "Is there anyother way salt could of gotten on to her boots?”
-		s srs
+		pose Sharp Serious
 		$SP$ "Not possible.”
 		pose Violet Shocked
 		$VL$ "Wh-what?”
@@ -148,7 +180,7 @@ $SP$ "Of course... but...”
 		$VL$ "I don’t know where you’re going with this Alex, but I love it.”
 		pose Alexander Scribbling
 		$AX$ "So you’re saying that there is NO other way salt could of gotten on to her boots that night right?”
-		s nervous
+		pose Sharp Nervous
 		$SP$ "Right.”
 		pose Alexander Cocky
 		$AX$ "Well... I beg to differ.”
@@ -160,7 +192,7 @@ $SP$ "Of course... but...”
 		pose Alexander Cocky
 		$AX$ "Now you get it Violet.”
 		$VL$ "Hehe. Nice job finding the contradiction Alex.”
-		s shocked
+		pose Sharp Shocked
 		$SP$ "W-wait?”
 		$SP$ "WHAT?”
 		$VL$ "It’s been snowing for days, and now the roads are salted to prevent them from freezing over.”
@@ -169,14 +201,14 @@ $SP$ "Of course... but...”
 		$AX$ "There's no way to prove that the salt is really sea salt.”
 		$VL$ "Furthermore, that completely invalidates your statement.”
 		$AX$ "What do you have to say about that?”
-		s defeated
+		pose Sharp defeated
 $SP$ "...”
 		$SP$ ".....”		
-s srs
+pose sharp serious
 		
 		// Move forward
 		
-<Sharp> “There was no other reason for her to be that far from her shop that night.
+$SP$ “There was no other reason for her to be that far from her shop that night.
 // Press:
 $VL$ "I mean she could have been on a walk, or something”
 $SP$ "We already asked her if she was near the river.”
@@ -184,23 +216,30 @@ $SP$ "She shook her head saying no.”
 pose Violet Shocked
 $VL$ "Oh no...”
 $SP$ "So someone here is lying...”
-s cocky
+pose Sharp Cocky
 $SP$ "And it’s not me!”
 
 // Ending Statement
 
-Alex Nervous
-<Alex> “So Violet, what do you think?” 
-Violet Thinking
-<Violet> “Hmmm... That his case is really weak, like I’m actually kinda bored right now.”
-Violet Neutral
-<Alex> “W-ait were you even paying attention to what he said?”
-<Violet> “No, not really. This guy is kinda lame.”
+pose Alexander Nervous
 
-<Sharp> “I can hear both of you, you know?” 
+$AX$ “So Violet, what do you think?” 
 
-<Violet> “Just think, how else could salt have gotten on her boots?”
-<Alex> “H-huh...”
+pose Violet Thinking
+
+$VL$ “Hmmm... That his case is really weak, like I’m actually kinda bored right now.”
+
+pose Violet Neutral
+
+$AX$ “W-ait were you even paying attention to what he said?”
+
+$VL$ “No, not really. This guy is kinda lame.”
+
+$SP$ “I can hear both of you, you know?” 
+
+$VL$ “Just think, how else could salt have gotten on her boots?”
+
+$AX$ “H-huh...”
 
 $VL$ "And when in doubt press for more information!”
 
@@ -211,24 +250,33 @@ $AX$ "R-right...”
 $SP$ "Even if that is true, we found another piece of decisive evidence.”
 
 pose Alexander Shocked
+
 pose Violet Shocked
 
 $AX$ "Wh-what?”
+
 pose Alexander Serious
 
 $VL$ "Ack-“
+
 pose Violet Serious
 
 $SP$ "Once we obtained proper permission we searched through Harmony’s belongings.”
-s cocky
+
+pose Sharp Cocky
+
 $SP$ "Now the search is still ongoing, buuuut! We did manage to find something... Something not very good for your case.”
 
 $VL$ "Just tell us already!”
 
 $SP$ "hehehe...”
-s neutral
+
+pose Sharp Neutral
+
 $SP$ "Harmony had been seen the day before with a bag, the same bag she brings to all her concert recitals and such.”
+
 $SP$ "Well we looked through that bag.”
+
 $SP$ "Annnnd we found something.”
 
 $VL$ "Here we go again...”
@@ -263,45 +311,60 @@ $SP$ "So as Harmony was disposing of the body the ribbon fell out of her hair! A
 
 // end testimony
 
-// Talking 
+// Talking
+
 $SP$ "...”
 
 pose Violet Cocky
+
 $VL$ "Not so talkative now, eh love?”
 
 pose Alexander Happy
+
 $AX$ "I think we did it!”
 
 $AX$ "Harmony’s name is cleared right?”
 
-s smile
+pose Sharp Neutral
 
 pose Alexander Serious
+
 $AX$ "Uh-oh I don’t like that smile”
-v surprised
+
+pose Violet surprised
+
 $VL$ "What is it now?”
+
 pose Violet Cocky
+
 $VL$ "Ace dork-tective!”
 
 $SP$ "Hahaha”
-$SP$ "Even if eeeverrrythiiing you said was somehow RIIIIGHT, well I mean of course it’s not, but I’ll play your game.”
-$SP$ "Then how do you explain Harmony’s motive?”
-s cocky
 
-v surprised
+$SP$ "Even if eeeverrrythiiing you said was somehow RIIIIGHT, well I mean of course it’s not, but I’ll play your game.”
+
+$SP$ "Then how do you explain Harmony’s motive?”
+
+pose Sharp cocky
+
+pose Violet surprised
+
 $VL$ "Motive?”
 
 pose Alexander Thinking
+
 $AX$ "H-huh?
 
 $SP$ "Harmony was always jealous of her sister. Sitting back in the shadows, while her sister was in the spotlight.”
 
 pose Alexander Shocked
+
 $AX$ "I don’t think th-“
 
 $SP$ "So your client, the supposed innocent one, was always living in the shadow, while her sister got all the fame and glory. Even though, she worked so hard. I mean have you SEEN her room? It’s freakin crazy in there! It’s like some sort of music creation dungeon.”
 
 $SP$ "Annnd you’re telling me, that she’s still innocent? That she didn’t give in and decide to get rid of the problem? So she could finally be free?”
+
 $SP$ "C’mon, we both know that that’s what really matters. The motive to be free.”
 
 // OPTION: SAY YES IT MATTERS OR NO IT DOESNT
@@ -309,7 +372,8 @@ $SP$ "C’mon, we both know that that’s what really matters. The motive to be free
 pose Violet Thinking
 $VL$ "Does it really matter though?
 
-s cocky
+pose Sharp Cocky
+
 $SP$ "H-huh?”
 
 // continue
@@ -323,37 +387,51 @@ $SP$ "H-huh?”
 // You don’t win case yet, but Sharp tells you you need to find who did this
 
 pose Violet Cocky
+
 $VL$ "Your logic is a bit flawed.”
+
 pose Alexander Thinking
+
 $AX$ "Hhmm?”
 
-s shocked
+pose Sharp Shocked
+
 $SP$ "Ngh- W-what what do you mean?”
 
 pose Violet Thinking
+
 $AX$ "Ah, I get it. It doesn’t really matter if Harmony was jealous or not. That’s just probably because, not enough to keep her here much longer, let alone put her away.”
 
-s nervous
+pose Sharp Nervous
+
 $SP$ "Hmph-“
 
 $VL$ "Exactly.” 
+
 pose Violet Cocky
+
 $VL$ "Quite the shocking revelation isn’t it, Ace dork-tective?”
 
-s shocked
+pose Sharp Shocked
+
 $SP$ "...”
 
-s gloom
+pose Sharp Defeated
+
 $SP$ "...”
+
 $SP$ ".......”
-s srs
+
+pose Sharp Serious
+
 $SP$ "Fine."
-s neutral
+
+pose Sharp Neutral
+
 $SP$ "Okay, so maybe you are right.”
 
-
-
 pose Violet Happy 
+
 pose Alexander Happy
 
 $VL$ "Haha we did it Alex!”
@@ -372,13 +450,18 @@ pose Violet Shock
 $AX$ "Huh?”
 $VL$ "Agh-”
 
-s smirk
+pose Sharp Cocky
+
 $SP$ "We can still hold Miss Rush for another 24 hours without cause. Unless you find someone who admits to the crime then... well, let’s just say...”
+
 $SP$ "Things are looking a little dull for you.”
 
 pose Alexander Upset
+
 pose Violet Serious
+
 $AX$ "Looks like he’s got us cornered.”
+
 $VL$ "things were looking up but now they’ve gone from bad to worse.”
 
 fade out drama music
@@ -390,18 +473,25 @@ fade out.
 fade in
 
 pose Alexander Neutral
+
 pose Violet Neutral
-s neutral
+
+pose Sharp Neutral
 
 $AX$ "Do you know of anyone else associated with the case?”
 
 $SP$ "Hmmm... there is another person...”
+
 $SP$ "My officers said that he stopped by the Music Shop the other day.”
+
 $SP$ "Apparently he has some money in on the Sisters’ shop.”
 
-v surprised
+pose Violet Surprised
+
 $VL$ "Oh! That guy.”
+
 pose Violet Thinking
+
 $VL$ "I had a bad feeling about that guy.”
 
 $AX$ "Hmm?”
@@ -411,23 +501,26 @@ $AX$ "Hmm?”
 $AX$ "Harmony looks really tired.”
 
 $VL$ "Maaaybe we should let her get some rest.”
+
 $VL$ "We can ask her questions in the morning.”
 
 $SP$ "Well if you don’t need me, I’m going to catch some Zs.”
 
 pose Violet Cocky
+
 $VL$ "I thought an ace-detective never sleeps?”
 
-s shock
+pose Sharp Shock
+
 $SP$ "H-huh? Where’d you hear that?
 
 pose Alexander Happy
+
 $AX$ "Yeah, cause’ crime never sleeps!”
 
-s neutral
+pose Sharp Neutral
+
 $SP$ "...”
-
-
 
 /// This is more of a stack of puns to use, probs remove this from script
 $AX$ "Not the sharpest tack are you?”

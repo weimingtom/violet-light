@@ -10,19 +10,25 @@ $/$ "Zzzz....."
 
 
 //show AlexSilhouette right
+
 $??$ "..."
+
 $??$ "... ... up"
 
 $/$ "Mrmm... hrmmh..."
 
-//show AlexSilhouetteShock right
+//show Alex Silhouette Shock right
+
 $??$ "Hey! [eff Hit] It's b... ..ng ..ough, you sh... g.. up ...ready!"
 
 $/$ *mumbles* "No... No dad, I don't..."
+
 $/$ "... don't wanna grow up yet..." *yawn*
 
-//show  AlexSilhouetteShrug right
+//show  Alex Silhouette Shrug right
+
 $??$ "Geez Violet, you never cease to confound me."
+
 $??$ "If I'd know that the famous Doctor Light was such a slouch I might have never signed up for this job..."
 
 $VL$ "Huh? Oh Alex *yawn* you're not my dad..."
@@ -42,6 +48,7 @@ $VL$ “All right, all right. I’m getting up.”
 $/$ *ding dong* [sfx Doorbell]
 
 pose Violet Thinking
+
 $VL$ "Huh? What's that?"
 
 $AX$ "I'll go check. We weren't expecting guests, were we?"
@@ -60,16 +67,23 @@ $AX$ "It's mail? [pause] How peculiar... [pause] I mean no one even knows we’re 
 // TODO: There is no way to gauge Violet’s and Alexander’s relationship at the moment. Should we add a Monologue or Prologue detailing such thing at some point?
 
 pose Violet Thinking
+
 $VL$ "Mail? Is it for me? I bet it is! [pause] I mean, you’re not really the type to have many friends, or any at all.”
+
 pose Violet Cocky
 
 pose Alexander Unimpressed
+
 $AX$ "H-hey, [eff yell] [pause] there's no need to be like that! [pause] And besides, there's absolutely nothing on the back. No return address, no delivery address... [pause] No stamp..."
 
 pose Violet Puzzled
+
 $VL$ "Huh... [pause] Must have been hand delivered by a [sfx Clue] private courier..."
+
 // TODO: Make the I have friends thing show up later, otherwise this won’t have any significance.
+
 pose Alexander Sad
+
 $AX$ "[small text] I... [pause] do have friends..."
 
 sfx Paper Tear
@@ -81,60 +95,67 @@ show IconOpenLetter
 bgm None
 
 pose Violet Shock
+
 $VL$ "Huh?"
 
 bgm Mystery
 
 pose Alexander Puzzled
 pose Violet Puzzled
+
 $VL$ "The contents of the letter are... [pause] Completely in pieces?[sfx clue]"
+
 $AX$ "Is this... some sort of puzzle or something?"
-//begin puzzle 01
 
-//if FAILED retry
-
-//if PASSED
 //fade out
-
-
-//pause
-
-
+//chime sfx?
 //fade in
 
 pose Violet Happy
 pose Alexander Tired
 
 $VL$ "Not bad, love! I think we’ve pieced it together! we’ve got it!"
+
 $AX$ “Easy for you to say, you made me do all the work...”
 
 pose Violet Neutral
+
 $VL$ “It looks like a letter...”
 
 sfx clue
 
 pose Violet Shock
+
 $VL$ “...”
+
 $VL$ “From Harmony?”
 
 pose Alexander right
+
 $AX$ “And who might that be?”
 
 pose Violet Thinking 
+
 $VL$ “It says here... that she needs our help...”
+
 pose Violet serious
+
 $VL$ “Oh no.”
 
 $AX$ “Wh- [pause] [eff hit] What is it?”
 
 pose Violet Puzzled
+
 $VL$ “Looks like our research paper is going to have to wait! We’re heading to London...”
 
 $AX$ “When-“ (gets cut off)
+
 $VL$ “Now.”
 
 $AX$ “Let me just grab my journal...” [Show Notebook Icon]
+
 $AX$ “Without it I won’t be able to keep track of all our suspects, evidence, and locations of interest.” 
+
 // NOTE: I would work the tutorial for traveling into the dialogue a bit better, but I feel like the uh, context isn’t appropriate due to the whole dead friend thing. An onscreen tutorial should fit as it would only take the player three taps to get to where they want to go.
 
 $VL$ “...”
@@ -142,9 +163,11 @@ $VL$ “...”
 eff FadeOut
 
 $VL$ “A friend of mine has been murdered...”
+
 $VL$ “And they’re trying to pin it on her sister.”
 
 $AX$ "...”
+
 $AX$ “Say no more, I’ll ready us a cab.”
 
 //End scene, have a pointer point on the inventory icon, and then the travel menu.

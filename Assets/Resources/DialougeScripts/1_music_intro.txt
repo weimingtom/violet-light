@@ -6,6 +6,7 @@ pose Alexander scribbling
 pose Violet thinking
 
 $AX$ “So this is the Rush Sisters’ Music Shop?”
+
 $VL$ “Uh-huh, but I fancied it more without all the police tape.”
 
 //shift camera to right?
@@ -52,7 +53,9 @@ $AX$ “W-wow, he managed to trespass and get the officer to apologize for it.”
 $VL$ “Huh, wonder why I can never get away with that.”
 
 pose Alexander smirk
+
 $AX$ “Welll... you’re a bit different.”
+
 pose Violet mad
 
 show Policeman center
@@ -67,6 +70,7 @@ $AX$ “Detective Sharp gave us permission.”
 $PL$ “Do you have it in writing?”
 
 pose Alexander unimpressed
+
 $AX$ “U-uh well...”
 
 $PL$ “Then you can look, but don’t cross the tape!”
@@ -79,7 +83,9 @@ pose Violet thinking
 $VL$ “Hmm, you really messed that one up Alex!”
 
 pose Alexander shocked
+
 $AX$ “Wh-WHAT?”
+
 pose Alexander serious
 
 $VL$ “Let's see if we can find something while they're busy with the tall man.”

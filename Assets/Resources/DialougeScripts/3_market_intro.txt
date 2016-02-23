@@ -1,13 +1,17 @@
 //Short scene, forces you to go to police station after
 
-a tired
+pose Alexander Tired
+
 pose Violet Happy
+
 $VL$ "hehehe, alex why so gloom?”
 
 $AX$ "It’s earrrly!”
 
 $VL$ "Don’t whine, love!”
+
 pose Violet Cocky
+
 $VL$ "It’s childish.”
 
 $AX$ "COMING FROM YOU!”
@@ -25,7 +29,9 @@ $VL$ "Hehehe”
 $AX$ "Look, we need to head to the police station. We can finally ask harmony questions now.”
 
 pose Violet Neutral
+
 $VL$ "Of course.”
+
 $VL$ "I’m just waitin on youuu~”
 
 $AX$ "... right...”

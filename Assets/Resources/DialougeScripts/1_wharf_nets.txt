@@ -4,8 +4,12 @@ pose Alexander neutral
 pose Violet neutral
 
 $VL$ "Wow, look at how big these nets are! Should I stuff them in my pocket and take them with me? I could throw it on the bad guy at the very last second and then he would scream ‘AH! I would have gotten away with it too if it weren’t for this fishnet!”
+
 pose Alexander Unimpressed
+
 $AX$ "Violet… You’re embarrassing me.”
+
 $VL$ "Loosen up a little bit, don’t get all tangled over a couple of nets.”
+
 $AX$ "Ahh! Don’t touch me with that! It’s all slimy!
 

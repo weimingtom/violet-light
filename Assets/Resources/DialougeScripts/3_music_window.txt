@@ -1,4 +1,7 @@
 $AX$ "The roads are still salted... at least we got that going for us.”
+
 pose Violet Happy
+
 $VL$ "Hey, it’ll be alright!”
+
 $AX$ "O-of course!”

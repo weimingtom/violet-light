@@ -1,25 +1,32 @@
 show Fisher Right1
 
 pose Violet Happy
+
 $VL$ "Hey Ho! All aboaarrrd!”
 
 show Alexander Left1
 show Violet Left2
 
 pose Alexander embarrassed
+
 $AX$ "Uhm... what are you doing violet?”
 
 pose Violet Neutral
+
 $VL$ "Fisherman folk talk.”
 
 $FM$ "Why, Uhm... EHello derethere!”
 
 pose Violet Neutral
+
 $VL$ "Fisherman folk talk.”
 
 pose Alexander Nervous
+
 $AX$ "R-right.”
+
 pose Alexander Neutral
+
 $AX$ "Hello, my name is Alexander, and this is my partner Violet.”
 
 $FM$ "Nice to meet you, I’m Dale!”
@@ -35,16 +42,21 @@ $FM$ "Well, I’m awfully busy at the moment.”
 $FM$ "Awh, well I suppose I could spare a couple of seconds for some fine young chaps like yourselves.”
 
 pose Violet Happy
+
 $VL$ "Awww, thanks love!”
+
 pose Violet Neutral
 
 $AX$ "Perfect.”
+
 $AX$ "Do you happen to know of anyone around here who discovered a body last morning?”
 
 $FM$ "Awh! That I do!”
+
 $FM$ "You be lookin at em’!”
 
 pose Alexander Neutral
+
 $AX$ "Huh?”
 
 $VL$ "He means himself, you dummy.”
@@ -56,9 +68,11 @@ $AX$ "Ri-right!”
 $FM$ "So what is it you want to know?”
 
 $AX$ "What can you tell us about the account?”
+
 pose Alexander Cocky
 
 $FM$ "Well i mean, I was just out ere’ sailing about, getin me’ mornin’ dues in.”
+
 $FM$ "When all of a sudden I spots me a floatin girl out by younder river.”
 
 pose Alexander Neutral
@@ -68,6 +82,7 @@ $FM$ "An’ that’s when I saild’o’er er’ and found ‘er floatin’ ashore by y’old’ri
 $AX$ "uhm...”
 
 $FM$ "An’ then I be quip’n a bout, callin about, try’n to get er attention!”
+
 $FM$ "Then I noticed, young lass be dead!”
 
 pose Alexander Nervousous
@@ -81,12 +96,15 @@ $FM$ "An’ then they show up and question me an be off!”
 $AX$ "Uhm... thank you... for that...”
 
 pose Violet Cocky
+
 $VL$ "Hmm... so you’re saying she washed ashore as you saw her this morning?”
+
 pose Alexander surprised
 
 $FM$ "Exactly!”
 
 pose Alexander Scribbling
+
 $AX$ "W-wow Violet.”
 
 $VL$ "That’s why I’m the expert”

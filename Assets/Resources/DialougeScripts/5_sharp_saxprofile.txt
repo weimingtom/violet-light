@@ -5,15 +5,18 @@ $AX$ "Detective Sharp. I think we know who the real murderer is!”
 
 $SP$ "Huh, do you have any evidence, kid?”
 
-
 pose Alexander Nervousous
+
 $AX$ "Uhm..."
 
 pose Violet Serious
+
 $VL$ "We don’t have anything decisive yet.”
+
 $VL$ "But we’re so close.”
 
 $SP$ "Sigh~”
+
 $SP$ "Unless you can prove it was him-”
 
 $VL$ "Looook, just come with us. We can get him to admit to the crime.”
@@ -22,10 +25,9 @@ $SP$ "I don’t really have time for games..."
 
 $AX$ "Is that because you need more evidence against Harmony?”
 
+pose Sharp shock
 
-s shock
 $SP$ "Well, I mean-”
-
 
 $AX$ "If you come with us you won’t need to look any further.
 

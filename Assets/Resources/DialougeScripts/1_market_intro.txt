@@ -1,22 +1,36 @@
 Show Alexander Left1
 Show Violet Right2
 
-// if came here before music shop	 
+// if came here before music shop	
+ 
 $AX$ "Do you really think we'll find anything here, Violet? Shouldn't we be checking out the Music Shop first?"
+
 $VL$ "Well of course we'll go there next, but you know I just had a strange feeling that there'd be something here we won't be able to find later."
+
 $AX$ "Wait, so your approach to solving this case is based on feelings and hunches?"
+
 pose Violet Happy
+
 $VL$ "Well of cour-- Wait, if you put it that way it makes me seem like an idiot, doesn't it? You could say that sometimes I decide to follow my instincts, call it a woman's intuition. That's all."
+
 pose Alexander Unimpressed
+
 $AX$ "..."
+
 // else
 //	$AX$ “Do you think anyone around here will know anything useful?”
 //	Violet Thinking
 //	$VL$ “Hmmm... I mean maybe! B-but probably not.”
 //	Alexander Unimpressed	
+
 $AX$ “Th-then why did we come here?”
+
 pose Violet Happy
+
 $VL$ “Well because! There’s gotta be some delicious places to eat around here! Don’t you think?”
+
 $AX$ “Wh-WHAT, What about the case?”
+
 // Violet walks off screen
+
 $AX$ “H-hey! C-COME BACK!”

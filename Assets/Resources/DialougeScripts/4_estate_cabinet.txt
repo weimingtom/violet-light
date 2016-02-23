@@ -1,9 +1,13 @@
 // Locked cabinet can’t see inside yet
 
 pose Violet Sad
+
 $VL$ "Awh, no luck. It’s locked.”
+
 pose Violet Thinking
+
 $VL$ "if only we had more time, I could pick it...”
 
 $AX$ "Uhm, no that’s pretty illegal.”
+
 $AX$ "I do wonder what’s inside though...”
