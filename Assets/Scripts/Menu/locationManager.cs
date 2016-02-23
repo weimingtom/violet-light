@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 
-public class locationManager : MonoBehaviour
+public class LocationManager : MonoBehaviour
 {
     public GameObject[] myButtons;
     public Dictionary<int, List<string>> mData;
@@ -48,7 +48,7 @@ public class locationManager : MonoBehaviour
     public void ButtonPressed(int i)
     {
         //note to jesse
-        //use this for change location
+        //SceneManager.Instance.ChangeScene( i );
     }
 
 	// Update is called once per frame
