@@ -4,7 +4,6 @@ using System.Collections;
 public class TestimonyCommand : Commands
 {
     StatementMode myStatementMode = new StatementMode();
-
     public TestimonyCommand()
     {
         commandTag = "testimonycommand";
@@ -30,7 +29,7 @@ public class TestimonyCommand : Commands
 
     public void ActivatePushStatement()
     {
-        myStatementMode.push = true;
+        myStatementMode.push = CommandManager.Instance.push;
     }
 
     public void Next()
@@ -55,6 +54,14 @@ public class TestimonyCommand : Commands
 
     public override bool ExecuteCommand()
     {
+        if( CommandManager.Instance.next )
+        {
+            Next();
+        }
+        else if( CommandManager.Instance.back )
+        {
+            Back();
+        }
         CommandManager.Instance.SetTextHolder( myStatementMode.GetText() );
         return false;
     }

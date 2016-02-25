@@ -28,6 +28,7 @@ public class ShowTextCommand : Commands
     {
         commandTag = "showtextcommand";
     }
+
     public override void Reset()
     {
         htmlFront.Clear();
@@ -41,10 +42,12 @@ public class ShowTextCommand : Commands
         InitialSetup = true;
         loopMode = true;
     }
+
     public override bool ExecuteCommand()
     {
         if( InitialSetup == true )
         {
+            CommandManager.Instance.falseDialogueName = conversationTag;
             CommandManager.Instance.TextBoxSwitch( true );
             CommandManager.Instance.TextSwitch( true );
             CommandManager.Instance.SetTextHolder( "" );

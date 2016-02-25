@@ -9,30 +9,59 @@ public class CommandManager : MonoBehaviour
 
     int destroyCount;
     bool done;
-
+   
     public string correctItem { get; set; }
     public int presentItemIndex { get; set; }
 
     public bool prompt { get; set; }
     public int testimonyItemIndex { get; set;}
+    
     public Text myTextHolder;
     public Text myNameHolder;
 
     public GameObject myBannerBox;
     public GameObject leftButton;
     public GameObject rightButton;
+    public GameObject pushButton;
 
     static public CommandManager Instance;
 
     int commandTracker;
     List<Commands> myCommand;
 
+    public bool next { get; set; }
+    public bool back { get; set; }
+    public bool testimonyDone { get; set; }
+    public bool push { get; set; }
+    //false command
+    public Dictionary<string, ShowTextCommand> falseCommand { get; set; }
+    public string falseDialogueName { get; set; }
+    bool showFalseDialogue = false;
+
     void UpdateButton()
     {
-        leftButton.SetActive(false);
-        rightButton.SetActive(false);
+        if( commandTracker > 0 )
+        {
+            if( myCommand[commandTracker].commandTag == "testimonycommand" )
+            {
+                SetTestimonyButton( true );
+            }
+            else
+            {
+                SetTestimonyButton( false );
+            }
+        }
+        else
+        {
+            SetTestimonyButton( false );
+        }
     }
-
+    void SetTestimonyButton(bool toggle)
+    {
+        leftButton.SetActive( toggle );
+        rightButton.SetActive( toggle );
+        pushButton.SetActive(toggle);
+    }
     public void Terminate()
     {
         commandTracker = myCommand.Count;
@@ -71,12 +100,39 @@ public class CommandManager : MonoBehaviour
 
     void Start()
     {
+        falseCommand = new Dictionary<string, ShowTextCommand>();
+        push = false;
         myTextHolder.supportRichText = true;
         destroyCount = 0;
         done = false;
         commandTracker = 0;
         Instance = this;
         myCommand = new List<Commands>();
+    }
+
+    //testimony stuff
+    public void PushButton()
+    {
+        if( push == false )
+        {
+            push = true;
+        }
+    }
+
+    void ResetNextBackBool()
+    {
+        next = false;
+        back = false;
+    }
+
+    public void NextButton()
+    {
+        next = true;
+    }
+
+    public void BackButton()
+    {
+        back = true;
     }
 
     public void AddCommand(Commands command)
@@ -87,15 +143,20 @@ public class CommandManager : MonoBehaviour
     public void CheckItem(string itemName)
     {
         //therefore it is presenting on the scene
-        if( itemName != correctItem )
+        if( prompt == true )
+        {
+        
+        }
+        if( itemName.ToLower() == correctItem.ToLower() )
         {
             //present in scene
-            if( presentItemIndex == -1 && prompt == false )
+            if( presentItemIndex == -1 )
             {
                 SceneManager.Instance.AdvQuest();
             }//present in testimony
-            else if( presentItemIndex != -1 && prompt == false )
+            else if( presentItemIndex != -1  )
             {
+                //check if it is presented in corret text coordinate
                 if( testimonyItemIndex == presentItemIndex )
                 {
                     //advance when correct item is presented
@@ -105,23 +166,20 @@ public class CommandManager : MonoBehaviour
                 else
                 {
                     //fail
+                    showFalseDialogue = true;
                 }
             }
-            else
-            {
-                //do something for prompted
-                prompt = false;
-            }
-
         }
         else
         {
             //do something if fail
+            showFalseDialogue = true;
         }
     }
 
     public void Reinitialize()
     {
+        SetTestimonyButton( false );
         correctItem = "none";
         presentItemIndex = -1;
         testimonyItemIndex = -1;
@@ -129,6 +187,7 @@ public class CommandManager : MonoBehaviour
         done = false;
         commandTracker = 0;
         myCommand.Clear();
+        falseCommand.Clear();
     }
 
     void Update()
@@ -138,13 +197,23 @@ public class CommandManager : MonoBehaviour
         {
         case false:
 
-		    if(commandTracker < myCommand.Count)
+            if( showFalseDialogue )
+            {
+                if( falseCommand[falseDialogueName].ExecuteCommand() )
+                {
+                    showFalseDialogue = false;
+                }
+            }
+		    else if(commandTracker < myCommand.Count)
 		    {
 			    if ( myCommand[commandTracker].ExecuteCommand() ) 
 			    {
 				    commandTracker++;
-                    //Debug.Log("Run command no  : " + commandTracker);
 			    }
+                if( myCommand[commandTracker].commandTag == "testimonyCommand" )
+                {
+                    ResetNextBackBool();
+                }
 		    }
 		    else if (commandTracker == myCommand.Count)
 		    {
@@ -155,12 +224,13 @@ public class CommandManager : MonoBehaviour
                 }
                 else if(destroyCount == myCommand.Count)
                 {
+                    SetTestimonyButton( false );
                     SceneManager.Instance.SetInputBlocker( false );
                     done = true;
                 }
-		    } 
-            break;
+		    }
 
+            break;
         case true:
             break;
         }

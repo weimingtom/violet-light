@@ -24,35 +24,51 @@ public class StringParser : MonoBehaviour
         }
     }
 
-    public void RunParse( string _mainString )
+    public void RunParse( string _mainString, bool isFalseItem = false )
     {
-        bool testimony = false;
+        if( isFalseItem )
+        {
+            ParseFalseItem( _mainString );
+        }
+        else
+        {
+            bool testimony = false;
+            char[] delimiterChar = { '\r', '\n' };
+            string[] extractedWord = _mainString.Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
+            Debug.Log( "[RunParse] wordLength : " + extractedWord.Length );
+            if( extractedWord[0][0] == '[' )
+            {
+                testimony = true;
+            }
+            if( testimony )
+            {
+                TestimonyCommand tesCmd = new TestimonyCommand();
+                for( Int16 i = 0; i < extractedWord.Length; i++ )
+                {
+                    ParseCommand( ref tesCmd, extractedWord[i] );
+                    extractedWord[i].ToLower();
+                    Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
+                }
+            }
+            else
+            {
+                for( Int16 i = 0; i < extractedWord.Length; i++ )
+                {
+                    ParseCommand( extractedWord[i] );
+                    extractedWord[i].ToLower();
+                    Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
+                }
+            }
+        }
+    }
+
+    public void ParseFalseItem( string str )
+    {
         char[] delimiterChar = { '\r', '\n' };
-        string[] extractedWord = _mainString.Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
-        Debug.Log( "[RunParse] wordLength : " + extractedWord.Length );
-        if( extractedWord[0][0] == '[' )
+        string[] command = str.Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
+        for( int i = 0; i < command.Length; i+= 2 )
         {
-            testimony = true;
-        }
-        switch( testimony )
-        {
-        case true:
-        TestimonyCommand tesCmd = new TestimonyCommand();
-        for( Int16 i = 0; i < extractedWord.Length; i++ )
-        {
-            ParseCommand( ref tesCmd, extractedWord[i] );
-            extractedWord[i].ToLower();
-            Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
-        }
-        break;
-        case false:
-        for( Int16 i = 0; i < extractedWord.Length; i++ )
-        {
-            ParseCommand( extractedWord[i] );
-            extractedWord[i].ToLower();
-            Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
-        }
-        break;
+           CommandManager.Instance.falseCommand[command[0]] = RegisterTextCommand( str );
         }
     }
 
@@ -108,27 +124,7 @@ public class StringParser : MonoBehaviour
         {
             if( command[0] == '$' )
             {
-                char[] delimiter;
-                string[] parsedCommand;
-                delimiter = new char[2];
-                delimiter[0] = '$';
-                delimiter[1] = '"';
-                parsedCommand = command.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
-                if( parsedCommand.Length == 3 )
-                {
-                    DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[2] );
-                }
-                else if( parsedCommand.Length == 2 )
-                {
-                    DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[1] );
-                }
-                else
-                {
-                    Debug.Log( "[Parse Command]Unexpected number of character" );
-                }
-                ShowTextCommand showText = new ShowTextCommand();
-                showText.SetConversation( parsedCommand[0].ToLower() );
-                CommandManager.Instance.AddCommand( showText );
+                CommandManager.Instance.AddCommand( RegisterTextCommand( command ) );
             }
             else
             {
@@ -136,6 +132,32 @@ public class StringParser : MonoBehaviour
             }
         }
     }
+
+    ShowTextCommand RegisterTextCommand( string main )
+    {
+        char[] delimiter;
+        string[] parsedCommand;
+        delimiter = new char[2];
+        delimiter[0] = '$';
+        delimiter[1] = '"';
+        parsedCommand = main.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
+        if( parsedCommand.Length == 3 )
+        {
+            DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[2] );
+        }
+        else if( parsedCommand.Length == 2 )
+        {
+            DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[1] );
+        }
+        else
+        {
+            Debug.Log( "[Parse Command]Unexpected number of character" );
+        }
+        ShowTextCommand showText = new ShowTextCommand();
+        showText.SetConversation(parsedCommand[0].ToLower());
+        return showText;
+    }
+
     void CustomCommand( string command )
     {
         char[] delimiter = new char[1];

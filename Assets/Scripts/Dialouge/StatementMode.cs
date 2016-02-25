@@ -105,6 +105,7 @@ public class StatementMode
         if( pushIndex == pushStatements.Count )
         {
             push = false;
+            CommandManager.Instance.push = push;
             pushIndex = 0;
         }
     }
