@@ -43,7 +43,9 @@ public class SceneManager : MonoBehaviour
     private bool enteredNewScene = false;
 
     private int QuestStage;
-
+    public Texture2D cursor;
+    public Texture2D cursorSparkle;
+    public Vector2 cursorHotspot = new Vector2( 16, 16 );
     
     public void AdvQuest()
     {
@@ -80,6 +82,9 @@ public class SceneManager : MonoBehaviour
         newBackgroundRend.sprite = null;
         
         CanSkip = true;
+
+        Cursor.SetCursor( cursor, cursorHotspot, CursorMode.Auto );
+
     }
 
     void Update()
@@ -96,6 +101,26 @@ public class SceneManager : MonoBehaviour
             ItemManager.Instance.AddItem(item);
     }
 
+    public void SetCursor(bool sparkle)
+    {
+        if (sparkle)
+        {
+            Cursor.SetCursor( cursorSparkle, cursorHotspot, CursorMode.Auto );
+            return;
+        }
+        Cursor.SetCursor( cursor, cursorHotspot, CursorMode.Auto );
+    }   
+
+    public void SetCursor(string itemName)
+    {
+        bool sparkle = !ScenesPlayed.ContainsKey( QuestStage.ToString() + "_" + Scenes[currentScene].Prefab + "_" + itemName );
+        if (sparkle)
+        {
+            Cursor.SetCursor( cursorSparkle, cursorHotspot, CursorMode.Auto );
+            return;
+        }
+        Cursor.SetCursor( cursor, cursorHotspot, CursorMode.Auto );
+    }
     public void SetInputBlocker(bool Enabled)
     {
         if(!Enabled)

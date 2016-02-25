@@ -72,6 +72,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScreenBlocker: {fileID: 129076, guid: bc795d6f307a64a40a1077f219c46d07, type: 2}
   deltaAlpha: .699999988
+  cursor: {fileID: 2800000, guid: b98a9ec08f267114cad7b1c803238386, type: 3}
+  cursorSparkle: {fileID: 2800000, guid: d6dc14bb9f5f8e748a541134f6c7bdd7, type: 3}
+  cursorHotspot: {x: 24, y: 24}
 --- !u!114 &11468158
 MonoBehaviour:
   m_ObjectHideFlags: 1
