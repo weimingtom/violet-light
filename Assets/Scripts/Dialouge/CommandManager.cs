@@ -6,16 +6,15 @@ using System.Collections.Generic;
 
 public class CommandManager : MonoBehaviour 
 {
-
     int destroyCount;
     bool done;
-   
+
     public string correctItem { get; set; }
     public int presentItemIndex { get; set; }
 
     public bool prompt { get; set; }
     public int testimonyItemIndex { get; set;}
-    
+
     public Text myTextHolder;
     public Text myNameHolder;
 
@@ -33,6 +32,7 @@ public class CommandManager : MonoBehaviour
     public bool back { get; set; }
     public bool testimonyDone { get; set; }
     public bool push { get; set; }
+
     //false command
     public Dictionary<string, ShowTextCommand> falseCommand { get; set; }
     public string falseDialogueName { get; set; }
@@ -56,6 +56,7 @@ public class CommandManager : MonoBehaviour
             SetTestimonyButton( false );
         }
     }
+
     void SetTestimonyButton(bool toggle)
     {
         leftButton.SetActive( toggle );
@@ -139,20 +140,22 @@ public class CommandManager : MonoBehaviour
     {
         myCommand.Add(command);
     }
-
+    // prompt is constructed by
+    // option, and present stuff
     public void CheckItem(string itemName)
     {
         //therefore it is presenting on the scene
         if( prompt == true )
         {
-        
+            
         }
         if( itemName.ToLower() == correctItem.ToLower() )
         {
             //present in scene
             if( presentItemIndex == -1 )
             {
-                SceneManager.Instance.AdvQuest();
+                //TODO(Jesse) : Load something
+
             }//present in testimony
             else if( presentItemIndex != -1  )
             {
@@ -161,7 +164,6 @@ public class CommandManager : MonoBehaviour
                 {
                     //advance when correct item is presented
                     commandTracker++;
-                    SceneManager.Instance.AdvQuest();
                 }
                 else
                 {
@@ -229,7 +231,6 @@ public class CommandManager : MonoBehaviour
                     done = true;
                 }
 		    }
-
             break;
         case true:
             break;
