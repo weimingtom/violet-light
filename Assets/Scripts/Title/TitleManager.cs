@@ -198,7 +198,8 @@ public class TitleManager : MonoBehaviour
             if( loadButtons.Count == 0 )
             {
                 SaveLoad.Load();
-                for( int i = 0; i < SaveLoad.savedGames.Count; ++i )
+                //show most recent save first. 
+                for( int i = SaveLoad.savedGames.Count - 1; i >= 0; --i )
                 {
                     //create the object
                     GameObject button = new GameObject( "button" + i, typeof( RectTransform ) );

@@ -17,7 +17,7 @@ public class TitleBgScroll : MonoBehaviour {
     {
         backgrounds[0].transform.position = Vector3.zero;
         spriteSize = backgrounds[0].GetComponent<SpriteRenderer>().bounds.size.x;
-        beside = new Vector3(backgrounds[0].transform.position.x + spriteSize, backgrounds[0].transform.position.y, backgrounds[0].transform.position.z);
+        beside = new Vector3(backgrounds[0].transform.position.x + spriteSize - 0.05f, backgrounds[0].transform.position.y, backgrounds[0].transform.position.z);
         backgrounds.Add(Instantiate<GameObject>(backgrounds[0]));
         backgrounds[1].transform.position = beside;
     }
@@ -37,7 +37,7 @@ public class TitleBgScroll : MonoBehaviour {
 
         if( backgrounds[current].transform.position.x < loopPoint )
         { 
-            Vector3 newpos = new Vector3(backgrounds[notCurrent()].transform.position.x + spriteSize, backgrounds[notCurrent()].transform.position.y, backgrounds[notCurrent()].transform.position.z);
+            Vector3 newpos = new Vector3(backgrounds[notCurrent()].transform.position.x + spriteSize - 0.05f, backgrounds[notCurrent()].transform.position.y, backgrounds[notCurrent()].transform.position.z);
             backgrounds[current].transform.position = newpos;
             current = notCurrent();
         }
