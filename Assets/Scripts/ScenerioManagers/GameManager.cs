@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour {
 
     bool newGame = true;
 
+
 	// Use this for initialization
 	void Start () 
     {
@@ -14,7 +15,6 @@ public class GameManager : MonoBehaviour {
         else
         {
             SceneManager.Instance.LoadGame(SaveLoad.savedGames[0]);
-
         }
 	}
 

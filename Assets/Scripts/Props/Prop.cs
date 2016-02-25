@@ -17,6 +17,11 @@ public class Prop : MonoBehaviour {
         {
             SceneManager.Instance.SetChar( name );
         }
+        Debug.Log( "[Prop] Picked the item up!" );
+        if( IsPickUp && SceneManager.Instance.GetScenePlayed( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name ) )
+        {
+            this.gameObject.SetActive( false );
+        }
     }
 
     //public void SetCheckedItem(string item)
@@ -64,5 +69,16 @@ public class Prop : MonoBehaviour {
             Debug.Log( "[Prop] Picked the item up!" );
             this.gameObject.SetActive(false);
         }
+    }
+
+    void OnMouseEnter()
+    {
+        SceneManager.Instance.SetCursor( name );
+        //SceneManager.Instance.SetCursor( !SceneManager.Instance.GetScenePlayed( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name ) );
+        //Debug.Log( "[Prop] Cursor Entered, changing cursor to not Sparkle? " + SceneManager.Instance.GetScenePlayed( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name ).ToString() );
+    }
+    void OnMouseExit()
+    {
+        SceneManager.Instance.SetCursor( false );
     }
 }
