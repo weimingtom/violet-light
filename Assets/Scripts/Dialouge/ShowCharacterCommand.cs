@@ -38,7 +38,6 @@ public class ShowCharacterCommand : Commands
         break;
         default:
         Debug.Log("No position found\nName : " + CharacterName + " Spawn location :" + SpawnLocation);
-        //Debug.Break();
         break;
         }
         CharacterManager.Instance.ChangePosition( CharacterName, myPos );

@@ -56,7 +56,7 @@ public class CommandManager : MonoBehaviour
             SetTestimonyButton( false );
         }
     }
-
+    
     void SetTestimonyButton(bool toggle)
     {
         leftButton.SetActive( toggle );
@@ -67,7 +67,17 @@ public class CommandManager : MonoBehaviour
     {
         commandTracker = myCommand.Count;
     }
-
+    public void SetNamePosition(CharacterManager.Positions pos)
+    {
+        if( (pos == CharacterManager.Positions.Left1) || (pos == CharacterManager.Positions.Left2) )
+        {
+            myNameHolder.alignment = TextAnchor.MiddleLeft;
+        }
+        else if( (pos == CharacterManager.Positions.Right1) || (pos == CharacterManager.Positions.Right2) )
+        {
+            myNameHolder.alignment = TextAnchor.MiddleRight;
+        }
+    }
 	public void AddCharIntoTextHolder(char c)
 	{
 		myTextHolder.text += c;

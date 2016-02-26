@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 
-public class locationManager : MonoBehaviour
+public class LocationManager : MonoBehaviour
 {
-    public static locationManager Instance;
+    public static LocationManager Instance;
     public GameObject[] myButtons;
     public Dictionary<int, List<string>> mData;
     public bool initialize { get; set; }
@@ -49,7 +49,17 @@ public class locationManager : MonoBehaviour
             }
         }
     }
-
+    public void SetButton(string btnName , bool isOn )
+    {
+        foreach( GameObject go in myButtons )
+        {
+            if( go.transform.name == btnName )
+            {
+                go.SetActive(isOn);
+                break;
+            }
+        }
+    }
     public void ButtonPressed(string location)
     {
         //note to jesse

@@ -187,8 +187,34 @@ public class StringParser : MonoBehaviour
         newPoseCommand.SetNewPose( parsedCommand[1].ToLower(), parsedCommand[2].ToLower() );
         CommandManager.Instance.AddCommand( newPoseCommand );
         break;
-
-        case "eff":
+		
+		case "icon":
+        if( parsedCommand.Length == 3 )
+        {
+            bool set = false;
+            if( parsedCommand[2].ToLower() == "on" )
+            {
+                set = true;
+            }
+            else if( parsedCommand[2].ToLower() == "off" )
+            {
+                set = false;
+            }
+            else
+            {
+                Debug.Log( "[String Parser]<color:red>wrong command</color> !! the format is icon iconName on/off" );
+                Debug.Break();
+            }
+            LocationManager.Instance.SetButton(parsedCommand[1], set);
+        }
+        else
+        {
+            Debug.Log( "[String Parser]<color:red>wrong command</color> !! the format is icon iconName on/off" );
+            Debug.Break();
+        }
+		break;
+        
+		case "eff":
         EffectCommand newEffect = new EffectCommand();
         newEffect.SetEffect( parsedCommand[1] );
         CommandManager.Instance.AddCommand( newEffect );

@@ -47,11 +47,13 @@ public class ShowTextCommand : Commands
     {
         if( InitialSetup == true )
         {
+            string name = DialogueHolder.Instance.GetCharacterNameFromToken( conversationTag );
+            CommandManager.Instance.SetNamePosition(CharacterManager.Instance.GetPosition(name));
             CommandManager.Instance.falseDialogueName = conversationTag;
             CommandManager.Instance.TextBoxSwitch( true );
             CommandManager.Instance.TextSwitch( true );
             CommandManager.Instance.SetTextHolder( "" );
-            CommandManager.Instance.SetNameIntoNameBox( DialogueHolder.Instance.GetCharacterNameFromToken( conversationTag ) );
+            CommandManager.Instance.SetNameIntoNameBox( name );
             InitialSetup = false;
             return false;
         }

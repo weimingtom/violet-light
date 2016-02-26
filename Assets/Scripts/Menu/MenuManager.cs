@@ -62,7 +62,7 @@ public class MenuManager : MonoBehaviour
         }
 		else
         {
-            locationManager.Instance.initialize = true;
+            LocationManager.Instance.initialize = true;
             active = false;
 			CloseMenu();
         }
@@ -89,7 +89,7 @@ public class MenuManager : MonoBehaviour
                     break;
                 case "btn_location":
                     ChangeState( state.Location );
-                    locationManager.Instance.UpdateButton();
+                    LocationManager.Instance.UpdateButton();
                     break;
                 case "btn_suspect":
                     ChangeState( state.Suspect );

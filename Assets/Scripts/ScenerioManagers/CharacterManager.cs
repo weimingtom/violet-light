@@ -115,7 +115,15 @@ public class CharacterManager : MonoBehaviour {
     //Hendry what i need to call
     public Positions GetPosition( string character )
     {
-        return characterList[character].positionToGoTo;
+        try
+        { 
+            return characterList[character.ToLower()].positionToGoTo;
+        }
+        catch( KeyNotFoundException )
+        {
+            Debug.Log("name[" + character + "] <color=red>Postion not found!</red> is this intentional ??");
+            return Positions.Left1;
+        }
     }
 
     private class Character
