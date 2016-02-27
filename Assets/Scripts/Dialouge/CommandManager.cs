@@ -179,32 +179,20 @@ public class CommandManager : MonoBehaviour
         //}
         else if( itemName.ToLower() == correctItem.ToLower() )
         {
-            //present in scene
-            if( presentItemIndex == -1 )
+            //check if it is presented in corret text coordinate
+            if( testimonyItemIndex == presentItemIndex )
             {
-                //TODO(Jesse) : Load something
-
-            }//present in testimony
-            else if( presentItemIndex != -1  )
-            {
-                //check if it is presented in corret text coordinate
-                if( testimonyItemIndex == presentItemIndex )
-                {
-                    //advance when correct item is presented
-                    commandTracker++;
-                }
-                else
-                {
-                    //fail
-                    showFalseDialogue = true;
-                }
+                //advance when correct item is presented
+                commandTracker++;
             }
+            else
+            {
+                //fail
+                showFalseDialogue = true;
+            }
+            
         }
-        else
-        {
-            //do something if fail
-            showFalseDialogue = true;
-        }
+
 
     }
 
