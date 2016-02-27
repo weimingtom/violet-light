@@ -63,10 +63,12 @@ public class CommandManager : MonoBehaviour
         rightButton.SetActive( toggle );
         pushButton.SetActive(toggle);
     }
+
     public void Terminate()
     {
         commandTracker = myCommand.Count;
     }
+
     public void SetNamePosition(CharacterManager.Positions pos)
     {
         if( (pos == CharacterManager.Positions.Left1) || (pos == CharacterManager.Positions.Left2) )
@@ -78,6 +80,7 @@ public class CommandManager : MonoBehaviour
             myNameHolder.alignment = TextAnchor.MiddleRight;
         }
     }
+
 	public void AddCharIntoTextHolder(char c)
 	{
 		myTextHolder.text += c;

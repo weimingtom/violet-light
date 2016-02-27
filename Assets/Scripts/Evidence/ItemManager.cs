@@ -48,7 +48,7 @@ public class ItemManager : MonoBehaviour
         if( loadInventory )
         {
             //Note(Hendry): check item number change
-            if( currentNumberOfItems < playerItems.Count && playerItems.Count > 0 )
+            if( currentNumberOfItems < playerItems.Count - 1 && playerItems.Count > 0 )
             {
                 ItemInventory.Instance.ResetButton();
                 int index = 0;
@@ -60,7 +60,7 @@ public class ItemManager : MonoBehaviour
                         index++;
                     }
                 }
-                currentNumberOfItems = index;
+                currentNumberOfItems = playerItems.Count;
             }
         }//TODO(Hendry): add support for multiple page
 	}
