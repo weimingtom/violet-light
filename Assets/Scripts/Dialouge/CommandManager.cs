@@ -153,15 +153,16 @@ public class CommandManager : MonoBehaviour
     {
         myCommand.Add(command);
     }
+
     // prompt is constructed by
     // option, and present stuff
     public void CheckItem(string itemName)
     {
         //therefore it is presenting on the scene
-        if( prompt == true )
-        {
+        //if( prompt == true )
+        //{/
             
-        }
+        //}
         if( itemName.ToLower() == correctItem.ToLower() )
         {
             //present in scene
@@ -190,6 +191,7 @@ public class CommandManager : MonoBehaviour
             //do something if fail
             showFalseDialogue = true;
         }
+
     }
 
     public void Reinitialize()

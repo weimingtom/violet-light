@@ -74,7 +74,7 @@ public class StringParser : MonoBehaviour
 
     void ParseCommand( ref TestimonyCommand tes, string str )
     {
-        string[] extracted;
+        string[] extracted; 
         if( Char.ToLower( str[0] ) == 't' )
         {
             char[] delimiter = { ' ', ']', '[' };
