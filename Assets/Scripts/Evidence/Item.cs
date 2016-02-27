@@ -12,6 +12,10 @@ public class Item:MonoBehaviour
         itemName = name;
         itemDescription = description;
         itemTexture = Resources.Load<Sprite>( textureAddress );
+        if(itemTexture == null)
+        {
+            itemTexture = Resources.Load<Sprite>( "Textures/Item/no_item" );
+        }
     }
 
     public string GetItemName()

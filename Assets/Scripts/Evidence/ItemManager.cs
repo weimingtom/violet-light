@@ -28,6 +28,7 @@ public class ItemManager : MonoBehaviour
 		//NOTE(Hendry):Use this for diplaying purposes, use load Inventory to load actual item
 		LoadInventory();
     }
+
     //NOTE(Hendry): adam call this
     public void GetHeldItem( ref List<string> itemHolder )
     {
@@ -46,23 +47,22 @@ public class ItemManager : MonoBehaviour
 	{
         if( loadInventory )
         {
-		    //Note(Hendry): check if the number is bigger than the number of slots
-		    if (currentNumberOfItems != playerItems.Count && playerItems.Count > 0)
-		    {
-			    ItemInventory.Instance.ResetButton();
-			    int index = 0;
-			    foreach(Item item in playerItems)
-			    {
-				    if(index < ItemInventory.Instance.GetInventorySize())
-				    {
-					    ItemInventory.Instance.SetItemToInventory(item.GetItemTexture(), item.GetItemName(), index);
-					    index++;
-				    }
-			    }
-                currentNumberOfItems = playerItems.Count;
-		    }
-        }
-		//TODO(Hendry): add support for multiple page
+            //Note(Hendry): check item number change
+            if( currentNumberOfItems < playerItems.Count && playerItems.Count > 0 )
+            {
+                ItemInventory.Instance.ResetButton();
+                int index = 0;
+                foreach( Item item in playerItems )
+                {
+                    if( index < ItemInventory.Instance.GetInventorySize() )
+                    {
+                        ItemInventory.Instance.SetItemToInventory( item.GetItemTexture(), item.GetItemName(), index );
+                        index++;
+                    }
+                }
+                currentNumberOfItems = index;
+            }
+        }//TODO(Hendry): add support for multiple page
 	}
 
 	void ResetInventory()

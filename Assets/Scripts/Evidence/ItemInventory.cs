@@ -7,11 +7,12 @@ public class ItemInventory : MonoBehaviour
 {
     public static ItemInventory Instance;
 
-    int presentButtonLocation = -1;
+    int presentButtonIndex = -1;
     Image mainImageHolder;
     Text[] mainTextHolder = new Text[2];
     Button[] buttons;
-    
+    Button next;
+    Button back; 
     void Awake()
 	{
 		Instance = this;
@@ -52,17 +53,34 @@ public class ItemInventory : MonoBehaviour
 		buttons = this.GetComponentsInChildren<Button>();
         for( int i = 0; i < buttons.Length; i++ )
         {
-            if( buttons[i].tag == "PresentButton" )
+            switch(buttons[i].tag)
             {
-                presentButtonLocation = i;
+            case "PresentButton":
+                presentButtonIndex = i;
                 buttons[i].onClick.AddListener( () => PresentButton() );
-            }
-			else
-			{
-				buttons[i].GetComponentInChildren<Text>().text = "no item";
+            break;
+            case "nextButtonUI":
+                buttons[i].onClick.AddListener( () => NextButton() );
+            break;
+            case "backButtonUI":
+                buttons[i].onClick.AddListener( () => BackButton() );
+            break;
+            default:
+            buttons[i].GetComponentInChildren<Text>().text = "no item";
 				buttons[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/Item/no_item");
-			}
+            break;
+            }
         }
+    }
+
+    void NextButton()
+    {
+        if()
+    }
+
+    void BackButton()
+    {
+        
     }
 
     public void ClickButton(int btn_id)
@@ -71,10 +89,9 @@ public class ItemInventory : MonoBehaviour
     }
 
 
-
     public void TogglePresentButton( bool toggle )
     {
-        buttons[presentButtonLocation].gameObject.SetActive(toggle);
+        buttons[presentButtonIndex].gameObject.SetActive( toggle );
     }
 
     public void PresentButton()

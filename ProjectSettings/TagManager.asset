@@ -17,6 +17,8 @@ TagManager:
   - PresentButton
   - InventoryHolder
   - test
+  - nextButtonUI
+  - backButtonUI
   layers:
   - Default
   - TransparentFX

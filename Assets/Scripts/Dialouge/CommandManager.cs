@@ -191,6 +191,7 @@ public class CommandManager : MonoBehaviour
 
     public void Reinitialize()
     {
+        showFalseDialogue = false;
         SetTestimonyButton( false );
         correctItem = "none";
         presentItemIndex = -1;
