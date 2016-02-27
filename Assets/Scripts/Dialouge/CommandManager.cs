@@ -38,6 +38,18 @@ public class CommandManager : MonoBehaviour
     public string falseDialogueName { get; set; }
     bool showFalseDialogue = false;
 
+    void Awake()
+    {
+        Instance = this;
+        push = false;
+        myTextHolder.supportRichText = true;
+        destroyCount = 0;
+        done = false;
+        commandTracker = 0;
+        falseCommand = new Dictionary<string, ShowTextCommand>();
+        myCommand = new List<Commands>();
+    }
+
     void UpdateButton()
     {
         if( commandTracker > 0 && commandTracker < myCommand.Count )
@@ -112,17 +124,6 @@ public class CommandManager : MonoBehaviour
 		myBannerBox.gameObject.SetActive (status);
 	}
 
-    void Start()
-    {
-        falseCommand = new Dictionary<string, ShowTextCommand>();
-        push = false;
-        myTextHolder.supportRichText = true;
-        destroyCount = 0;
-        done = false;
-        commandTracker = 0;
-        Instance = this;
-        myCommand = new List<Commands>();
-    }
 
     //testimony stuff
     public void PushButton()
@@ -158,12 +159,25 @@ public class CommandManager : MonoBehaviour
     // option, and present stuff
     public void CheckItem(string itemName)
     {
+
+		if(!myBannerBox.gameObject.activeInHierarchy)
+        {
+            string itemFileName = SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" +  SceneManager.Instance.GetChar()  ;
+            if( FileReader.Instance.IsScene( itemFileName + "_" + itemName ) )
+            {
+                FileReader.Instance.LoadScene( itemFileName + "_" + itemName );
+            }
+            else
+            {
+                FileReader.Instance.LoadScene( itemFileName + "_item");            
+            }
+        }
         //therefore it is presenting on the scene
         //if( prompt == true )
         //{/
             
         //}
-        if( itemName.ToLower() == correctItem.ToLower() )
+        else if( itemName.ToLower() == correctItem.ToLower() )
         {
             //present in scene
             if( presentItemIndex == -1 )

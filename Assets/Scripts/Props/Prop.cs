@@ -9,7 +9,6 @@ public class Prop : MonoBehaviour {
     public bool IsCharacter;
 
     string checkedItem = "";
-    bool checkItem = false;
 
     void Start()
     {

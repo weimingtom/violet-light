@@ -86,15 +86,15 @@ public class FileReader : MonoBehaviour
     //  Use this Read dialogue to get file from text  //
     //================================================//
     //update upload wrong scene here
-    public void LoadScene( string _scene, string wrongScene = "Dialogue/false_item_presented_scene" )
+    public void LoadScene( string _scene)
 	{
         Debug.Log("[File Reader] Loading in scene " + _scene);
         CommandManager.Instance.Reinitialize();
 		TextAsset command = Resources.Load(scriptFolder + _scene) as TextAsset;
-        TextAsset falseDialogue = Resources.Load<TextAsset>( wrongScene );
+        //TextAsset falseDialogue = Resources.Load<TextAsset>( wrongScene );
         SceneManager.Instance.SetInputBlocker( true );
         //NOTE(HENDRY) : ParseCommand and ParseDialogue will be combined in RunParse
-        StringParser.Instance.ParseFalseItem( falseDialogue.ToString() );
+        //StringParser.Instance.ParseFalseItem( falseDialogue.ToString() );
         StringParser.Instance.RunParse(command.ToString());
         SceneManager.Instance.SetScenePlayed(_scene);
 	}

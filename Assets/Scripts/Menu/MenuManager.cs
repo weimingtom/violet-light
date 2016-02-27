@@ -58,6 +58,7 @@ public class MenuManager : MonoBehaviour
         else if (!active)
         {
 			OpenMenu();
+            ItemManager.Instance.SetLoadInventory( true );
             active = true;
         }
 		else

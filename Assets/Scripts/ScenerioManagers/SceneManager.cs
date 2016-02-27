@@ -52,6 +52,11 @@ public class SceneManager : MonoBehaviour
         ++QuestStage;
         Debug.Log( "[Scene Manager] Current Quest Stage Advanced to " + QuestStage );
     }
+    public void SetQuestStage(int stage)
+    {
+        QuestStage = stage;
+        Debug.Log( "[Scene Manager] Current Quest Stage Advanced to " + QuestStage );
+    }
 
     public int GetQuestStage()
     {

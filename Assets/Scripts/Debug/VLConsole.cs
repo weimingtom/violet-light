@@ -75,6 +75,11 @@ public class VLConsole : MonoBehaviour
                 SceneManager.Instance.AdvQuest();   
             }
             break;
+            case ("setqueststage"):
+            {
+                SceneManager.Instance.SetQuestStage( int.Parse(commandSeg[1]));
+            }
+            break;
             case ("save"):
             {
                 SaveLoad.Save();

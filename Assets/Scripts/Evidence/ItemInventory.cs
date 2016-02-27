@@ -62,12 +62,6 @@ public class ItemInventory : MonoBehaviour
                 presentButtonIndex = i;
                 buttons[i].onClick.AddListener( () => PresentButton() );
             break;
-            case "nextButtonUI":
-                buttons[i].onClick.AddListener( () => NextButton() );
-            break;
-            case "backButtonUI":
-                buttons[i].onClick.AddListener( () => BackButton() );
-            break;
             default:
             buttons[i].GetComponentInChildren<Text>().text = "";
 				buttons[i].GetComponent<Image>().sprite = null;//Resources.Load<Sprite>("Textures/Item/no_item");
@@ -104,7 +98,7 @@ public class ItemInventory : MonoBehaviour
 	void SetMainImage(int buttonIndex)
     {
         if( buttons[buttonIndex].image.sprite.texture.name != "UISprite"
-            && buttons[buttonIndex].image.sprite.texture.name != "no_item" )
+            && buttons[buttonIndex].image.sprite.texture.name != null)
         {
             TogglePresentButton(true);
             mainImageHolder.sprite = buttons[buttonIndex].image.sprite;

@@ -788,6 +788,18 @@ Prefab:
       propertyPath: m_Text
       value: present
       objectReference: {fileID: 0}
+    - target: {fileID: 167870, guid: 686fd67966d2ee74dbac9a8027d83e2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135032, guid: 686fd67966d2ee74dbac9a8027d83e2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 110636, guid: 686fd67966d2ee74dbac9a8027d83e2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 686fd67966d2ee74dbac9a8027d83e2b, type: 2}
   m_IsPrefabParent: 0
