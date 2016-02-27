@@ -14,7 +14,7 @@ public class Item:MonoBehaviour
         itemTexture = Resources.Load<Sprite>( textureAddress );
         if(itemTexture == null)
         {
-            itemTexture = Resources.Load<Sprite>( "Textures/Item/no_item" );
+            itemTexture = Resources.Load<Sprite>( "Textures/Item/missing" );
         }
     }
 

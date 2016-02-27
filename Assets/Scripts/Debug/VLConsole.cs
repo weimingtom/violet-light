@@ -45,21 +45,26 @@ public class VLConsole : MonoBehaviour
         char[] delimiterChar = { '\r', '\n', ' ' };
         string[] commandSeg = command.Split(delimiterChar, System.StringSplitOptions.RemoveEmptyEntries);
 
-        if(commandSeg.Length > 1)
-            Debug.Log("[VLConsole] Command Split into '" + commandSeg[0] + "' + '" + commandSeg[1] + "' ");
+        //if(commandSeg.Length > 1)
+        //    Debug.Log("[VLConsole] Command Split into '" + commandSeg[0] + "' + '" + commandSeg[1] + "' ");
 
         switch(commandSeg[0].ToLower())
         {
             case ("cs"):
             {
-                SceneManager.Instance.ChangeScene(commandSeg[1]);
+                SceneManager.Instance.ChangeScene( commandSeg[1].ToLower() );
             }
             break;
             case ("ld"):
             {
-                FileReader.Instance.LoadScene(commandSeg[1]);
+                FileReader.Instance.LoadScene( commandSeg[1].ToLower() );
             }
             break;
+            case ("additem"):
+            {
+                ItemManager.Instance.AddItem( commandSeg[1].ToLower() );
+            }
+            break;  
             case ("break"):
             {
                 CommandManager.Instance.Terminate();

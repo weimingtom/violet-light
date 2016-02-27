@@ -10,14 +10,18 @@ public class LocationManager : MonoBehaviour
     public Dictionary<int, List<string>> mData;
     public bool initialize { get; set; }
 	// Use this for initialization
-	void Start () 
+
+    void Awake()
     {
         Instance = this;
-        mData = StringParser.Instance.ReadLocationData("Dialogue/locations_scene_1");// + SceneManager.Instance.GetScene().ToString());
         initialize = true;
         UpdateButton();
+    }
 
-	}
+    void Start()
+    {
+        mData = StringParser.Instance.ReadLocationData( "Dialogue/locations_scene_1" );// + SceneManager.Instance.GetScene().ToString());
+    }
 
     public void UpdateButton()
     {

@@ -82,7 +82,7 @@ public class ItemManager : MonoBehaviour
 			}
 			else
 			{
-				ItemInventory.Instance.SetItemToInventory( Resources.Load<Sprite>( "Textures/Item/no_item"), "empty", i );
+                ItemInventory.Instance.SetItemToInventory( null, "", i );//Resources.Load<Sprite>( "Textures/Item/no_item"), "empty", i );
 			}
         }
 	}
@@ -146,21 +146,27 @@ public class ItemManager : MonoBehaviour
     public void AddItem(string item_name)
     {
         bool addItem = false;
+        Debug.Log( "[Item Manager] Attempting to add " + item_name );
         for( int i = 0; i < allItems.Count; i++ )
         {
-            if( allItems[i].GetItemName() == item_name )
+            Debug.Log( "[Item Manager] Comparing item with " + allItems[i].GetItemName() );
+            if( allItems[i].GetItemName().ToLower() == item_name )
             {
                 addItem = true;
                 for( int j = 0; j < playerItems.Count; j++ )
                 {
-                    if( playerItems[j].GetItemName() == item_name )
+                    // If player already has item don't add it
+                    if( playerItems[j].GetItemName().ToLower() == item_name )
                     {
+                        Debug.Log( "[Item Manager] Player already has " + item_name );
                         addItem = false;
+                        return;
                     }
                 }
                 if( addItem )
                 {
                     playerItems.Add( allItems [i]);
+                    return;
                 }
             }
         }

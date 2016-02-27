@@ -40,7 +40,7 @@ public class CommandManager : MonoBehaviour
 
     void UpdateButton()
     {
-        if( commandTracker > 0 )
+        if( commandTracker > 0 && commandTracker < myCommand.Count )
         {
             if( myCommand[commandTracker].commandTag == "testimonycommand" )
             {

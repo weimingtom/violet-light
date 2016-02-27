@@ -34,19 +34,19 @@ public class ItemInventory : MonoBehaviour
             if( this.gameObject.transform.GetChild( i ).tag == "inventory_item_sprites" )
             {
                 mainImageHolder = this.gameObject.transform.GetChild( i ).gameObject.GetComponent<Image>();
-                mainImageHolder.sprite = Resources.Load<Sprite>( "Textures/Item/no_item" );
+                //mainImageHolder.sprite = Resources.Load<Sprite>( "Textures/Item/no_item" );
             }
             else if( this.gameObject.transform.GetChild( i ).tag == "inventory_item_text" )
             {
 				mainTextHolder[index] = this.gameObject.transform.GetChild( i ).gameObject.GetComponent<Text>();
 				if(index == 0)
 				{
-					mainTextHolder[index].text = "No Item";
+					mainTextHolder[index].text = "";
 					index++;
 				}
 				else
 				{
-					mainTextHolder[index].text = "~Empty Content~";
+					mainTextHolder[index].text = "";
 				}
             }
         }
@@ -66,8 +66,8 @@ public class ItemInventory : MonoBehaviour
                 buttons[i].onClick.AddListener( () => BackButton() );
             break;
             default:
-            buttons[i].GetComponentInChildren<Text>().text = "no item";
-				buttons[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/Item/no_item");
+            buttons[i].GetComponentInChildren<Text>().text = "";
+				buttons[i].GetComponent<Image>().sprite = null;//Resources.Load<Sprite>("Textures/Item/no_item");
             break;
             }
         }
@@ -75,7 +75,7 @@ public class ItemInventory : MonoBehaviour
 
     void NextButton()
     {
-        if()
+        //if()
     }
 
     void BackButton()
@@ -117,8 +117,8 @@ public class ItemInventory : MonoBehaviour
 		{
             if( button.tag != "PresentButton" )
             {
-			    button.image.sprite = Resources.Load<Sprite>( "Textures/Item/no_item" );
-			    button.GetComponentInChildren<Text>().text = "empty";
+                button.image.sprite = null;//Resources.Load<Sprite>( "Textures/Item/no_item" );
+			    button.GetComponentInChildren<Text>().text = "";
             }
 		}
 	}
