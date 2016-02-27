@@ -10,9 +10,11 @@ public class ItemInventory : MonoBehaviour
     int presentButtonIndex = -1;
     Image mainImageHolder;
     Text[] mainTextHolder = new Text[2];
+
     Button[] buttons;
     Button next;
-    Button back; 
+    Button back;
+
     void Awake()
 	{
 		Instance = this;
@@ -50,6 +52,7 @@ public class ItemInventory : MonoBehaviour
 				}
             }
         }
+
 		buttons = this.GetComponentsInChildren<Button>();
         for( int i = 0; i < buttons.Length; i++ )
         {
@@ -75,7 +78,7 @@ public class ItemInventory : MonoBehaviour
 
     void NextButton()
     {
-        //if()
+
     }
 
     void BackButton()
@@ -87,7 +90,6 @@ public class ItemInventory : MonoBehaviour
     {
         SetMainImage( btn_id );
     }
-
 
     public void TogglePresentButton( bool toggle )
     {
@@ -122,7 +124,7 @@ public class ItemInventory : MonoBehaviour
             }
 		}
 	}
-	
+
     public int GetInventorySize()
 	{
 		return buttons.Length;
