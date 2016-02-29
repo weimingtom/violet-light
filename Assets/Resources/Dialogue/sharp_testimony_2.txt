@@ -1,0 +1,29 @@
+// Then Testimony 2 about missing clothing
+
+$SP$ "Even if you are right about the salt misconception. Not saying you are.”
+// Press:
+// TODO
+
+$SP$ "We investigated the Music Shop and found some sort of ribbon in Harmony’s bag.”
+// Press:	
+// TODO
+
+$SP$ "When we searched Melody’s belongings we found similar ribbon in her room, next to her mirror. We believe she would use it in her hair.”
+	// Press:
+// TODO
+
+	// Present Missing Ribbon:
+
+
+
+$SP$ "Furthermore, upon closer inspection we have concluded that small amounts of Harmony’s hair had been torn out at some point.”
+	// Press:
+// TODO
+
+$SP$ "So as Harmony was disposing of the body the ribbon fell out of her hair! And then she tried to hide it in her bag!”
+	// Press:
+// TODO
+
+// Ending Statement
+
+// end testimony

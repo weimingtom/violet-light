@@ -229,6 +229,15 @@ public class StringParser : MonoBehaviour
 
         case "advquest":
         SceneManager.Instance.AdvQuest();
+
+        case "load":
+        LoadCommand dialogue = new LoadCommand();
+        if( parsedCommand.Length == 2 )
+        {
+            dialogue.SetLoad( parsedCommand[1].ToLower() );
+            CommandManager.Instance.AddCommand( dialogue );
+        }
+
         break;
         }
     }
