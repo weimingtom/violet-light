@@ -75,7 +75,6 @@ public class MenuManager : MonoBehaviour
     //Get When a Tab button is pressed
     public void TabPressed( string btn )
     {
-       
         // TODO(jesse): THis is a quick hack to ensure that you don't travel during dialogue
         if (!CommandManager.Instance.myBannerBox.activeInHierarchy)
         {

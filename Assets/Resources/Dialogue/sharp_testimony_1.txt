@@ -8,7 +8,7 @@
 		-$VL$ “Absolutely nothing!”
 		pose Alexander Unimpressed
 		-$AX$ “…”
-		-pose Sharp Upset
+		pose Sharp Upset
 		-$SP$ “H-hey! Don’t gang up on me!”
 		-$SP$ “Anyways, as I was saying...”
 

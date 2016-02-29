@@ -11,7 +11,7 @@ public class StatementMode
 
     Dictionary<int, List<string>> pushStatements = new Dictionary<int, List<string>>();
     Dictionary<int, List<string>> pushStatementsNameTag = new Dictionary<int, List<string>>();
-    List<string> endText;
+    List<string> endText = new List<string>();
 
     int mainIndex = 0;
     int pushIndex = 0;
@@ -26,7 +26,7 @@ public class StatementMode
         mainStatements.Add( str );
     }
 
-    public void AddPushStatement( string nmTag, string str)
+    public void AddPushStatement( string nmTag, string statement)
     {
         //Rule ! push need to folowed by main
         if( mainStatements.Count == 0 )
@@ -36,25 +36,46 @@ public class StatementMode
         }
         else
         {
-            try
+            if( !pushStatementsNameTag.ContainsKey( mainStatements.Count - 1 ) )
+            {
+                List<string> temporaryList = new List<string>();
+                temporaryList.Add(nmTag);
+                pushStatementsNameTag.Add( mainStatements.Count - 1, temporaryList );
+            }
+            else
             {
                 pushStatementsNameTag[mainStatements.Count - 1].Add(nmTag);
             }
-            catch( System.Collections.Generic.KeyNotFoundException )
-            {
-                pushStatementsNameTag[mainStatements.Count - 1] = new List<string>();
-                pushStatements[mainStatements.Count - 1].Add( nmTag );
-            }
 
-            try
+            if( !pushStatements.ContainsKey( mainStatements.Count - 1 ) )
             {
-                pushStatements[mainStatements.Count - 1].Add( nmTag );
+                List<string> temporaryList = new List<string>();
+                temporaryList.Add( statement );
+                pushStatements.Add(mainStatements.Count - 1 , temporaryList);
             }
-            catch( System.Collections.Generic.KeyNotFoundException )
+            else
             {
-                pushStatements[mainStatements.Count - 1] = new List<string>();
-                pushStatements[mainStatements.Count - 1].Add( nmTag );
+                pushStatementsNameTag[mainStatements.Count - 1].Add( statement );
             }
+            //try
+            //{
+            //    pushStatementsNameTag[mainStatements.Count - 1].Add(nmTag);
+            //}
+            //catch( System.Collections.Generic.KeyNotFoundException )
+            //{
+            //    pushStatementsNameTag[mainStatements.Count - 1] = new List<string>();
+            //    pushStatements[mainStatements.Count - 1].Add( nmTag );
+            //}
+
+            //try
+            //{
+            //    pushStatements[mainStatements.Count - 1].Add( nmTag );
+            //}
+            //catch( System.Collections.Generic.KeyNotFoundException )
+            //{
+            //    pushStatements[mainStatements.Count - 1] = new List<string>();
+            //    pushStatements[mainStatements.Count - 1].Add( nmTag );
+            //}
 
         }
     }

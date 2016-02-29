@@ -23,7 +23,7 @@ public class ShowTextCommand : Commands
     bool waitForTime = false;
     bool pause = false;
     bool skipCheck = false;
-    bool loopMode = false;
+    bool finishWithoutClick = false;
     public ShowTextCommand()
     {
         commandTag = "showtextcommand";
@@ -40,7 +40,7 @@ public class ShowTextCommand : Commands
         indexPassed = 0;
         timeTracker = 0;
         InitialSetup = true;
-        loopMode = true;
+        finishWithoutClick = false;
     }
 
     public override bool ExecuteCommand()
@@ -138,7 +138,11 @@ public class ShowTextCommand : Commands
             }
 		    else
 		    {
-                if( loopMode == false )
+                if( finishWithoutClick == true )
+                {
+                    return true;
+                }
+                else
                 {
                     if( Input.GetMouseButtonDown( 0 ) && skipCheck == false )
                     {
@@ -150,6 +154,7 @@ public class ShowTextCommand : Commands
                         return false;
                     }
                 }
+
 		    }
         }
         return false;
@@ -199,6 +204,9 @@ public class ShowTextCommand : Commands
         break;
         case "eff":
         FXManager.Instance.Spawn( _value );
+        break;
+        case "skip":
+        finishWithoutClick = true;
         break;
         default:
         Debug.Log("[Show Text Command]command not found command : " + _tag);

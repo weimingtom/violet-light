@@ -9,7 +9,7 @@ public class VLConsole : MonoBehaviour
     private InputField commandInput;
     private bool consoleEnabled = false;
 
-	void Awake() 
+	void Awake()
     {
         consoleTextBox = GetComponentInChildren<Image>();
         commandInput = GetComponentInChildren<InputField>();
@@ -19,7 +19,7 @@ public class VLConsole : MonoBehaviour
         ToggleConsole(false);
 	}
 	
-	void Update () 
+	void Update ()
     {
 	    if(Input.GetKeyDown(KeyCode.BackQuote))
         {

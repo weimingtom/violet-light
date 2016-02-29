@@ -46,7 +46,8 @@ public class StringParser : MonoBehaviour
                 TestimonyCommand tesCmd = new TestimonyCommand();
                 for( Int16 i = 0; i < extractedWord.Length; i++ )
                 {
-                    ParseCommand( ref tesCmd, extractedWord[i] );
+                    string passed = extractedWord[i].TrimStart('\t');
+                    ParseCommand( ref tesCmd, passed );
                     extractedWord[i].ToLower();
                     Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
                 }
@@ -82,11 +83,12 @@ public class StringParser : MonoBehaviour
          *[3]
          */
         string[] extracted; 
-        if( Char.ToLower( str[0] ) == 't' )
+        //check if
+        if( str[0] == '[' )
         {
             //item//
             char[] delimiter = { ' ', ']', '[' };
-            extracted = str.Split( delimiter );
+            extracted = str.Split( delimiter, StringSplitOptions.RemoveEmptyEntries );
             CommandManager.Instance.correctItem = extracted[2];
             CommandManager.Instance.presentItemIndex = int.Parse(extracted[1]);
             CommandManager.Instance.dialogueToLoad = extracted[3];
@@ -94,7 +96,7 @@ public class StringParser : MonoBehaviour
         }
         else
         {
-            char[] delimiter = { '+', '$', '"' };
+            char[] delimiter = { '\t', '+', '$', '"', '-' };
             switch( str[0] )
             {
             //main
@@ -104,7 +106,6 @@ public class StringParser : MonoBehaviour
             break;
             //push
             case '-':
-            delimiter[0] = '-';
             extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
             tes.AddPushStatement( extracted[0], extracted[1] );
             break;
@@ -172,8 +173,9 @@ public class StringParser : MonoBehaviour
 
     void CustomCommand( string command )
     {
-        char[] delimiter = new char[1];
+        char[] delimiter = new char[2];
         delimiter[0] = ' ';
+        delimiter[1] = '\t';
         string[] parsedCommand = command.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
         switch( parsedCommand[0].ToLower() )
         {
@@ -242,6 +244,7 @@ public class StringParser : MonoBehaviour
         case "advquest":
         SceneManager.Instance.AdvQuest();
         break;
+
 
         case "load":
         LoadCommand dialogue = new LoadCommand();
