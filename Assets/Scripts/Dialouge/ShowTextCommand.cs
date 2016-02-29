@@ -80,6 +80,7 @@ public class ShowTextCommand : Commands
                         string passedString = "";
                         bool checkSpecial = false;
                         skipCheck = true;
+
                         for( int i = 0; i < DialogueHolder.Instance.GetDialogue( conversationTag ).Length; i++ )
                         {
                             if(DialogueHolder.Instance.GetDialogue( conversationTag )[i] == '['
@@ -213,6 +214,7 @@ public class ShowTextCommand : Commands
         break;
         }
     }
+
     void UpdateTime()
     {
         totalTime += Time.deltaTime;

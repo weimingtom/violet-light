@@ -91,10 +91,7 @@ public class FileReader : MonoBehaviour
         Debug.Log("[File Reader] Loading in scene " + _scene);
         CommandManager.Instance.Reinitialize();
 		TextAsset command = Resources.Load(scriptFolder + _scene) as TextAsset;
-        //TextAsset falseDialogue = Resources.Load<TextAsset>( wrongScene );
         SceneManager.Instance.SetInputBlocker( true );
-        //NOTE(HENDRY) : ParseCommand and ParseDialogue will be combined in RunParse
-        //StringParser.Instance.ParseFalseItem( falseDialogue.ToString() );
         StringParser.Instance.RunParse(command.ToString());
         SceneManager.Instance.SetScenePlayed(_scene);
 	}

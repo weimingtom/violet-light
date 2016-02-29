@@ -24,17 +24,17 @@ public class StringParser : MonoBehaviour
         }
     }
 
-    public void RunParse( string _mainString, bool isFalseItem = false )
+    public void RunParse( string mainString, bool isFalseItem = false )
     {
         if( isFalseItem )
         {
-            ParseFalseItem( _mainString );
+            ParseFalseItem( mainString );
         }
         else
         {
             bool testimony = false;
-            char[] delimiterChar = { '\r', '\n' };
-            string[] extractedWord = _mainString.Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
+            char[] delimiterChar = { '\r', '\n', '\t' };
+            string[] extractedWord = mainString.Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
             Debug.Log( "[RunParse] wordLength : " + extractedWord.Length );
             
             if( extractedWord[0][0] == '[' )
@@ -102,12 +102,26 @@ public class StringParser : MonoBehaviour
             //main
             case '+':
             extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
-            tes.AddMainStatement( extracted[0], extracted[1] );
+            if( extracted.Length == 2 )
+            {
+                tes.AddMainStatement( extracted[0], extracted[1] );
+            }
+            else if( extracted.Length == 3 )
+            {
+                tes.AddMainStatement( extracted[0], extracted[1] );
+            }
             break;
             //push
             case '-':
             extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
-            tes.AddPushStatement( extracted[0], extracted[1] );
+            if( extracted.Length == 2 )
+            {
+                tes.AddPushStatement( extracted[0], extracted[1] );
+            }
+            else if( extracted.Length == 3 )
+            {
+                tes.AddPushStatement( extracted[0], extracted[1] );
+            }
             break;
             //end statement
             case '$':
@@ -126,6 +140,8 @@ public class StringParser : MonoBehaviour
             CustomCommand( str );
             break;
             }
+
+
         }
     }
 
