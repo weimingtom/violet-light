@@ -30,6 +30,16 @@ public class Case0Op : MonoBehaviour
             GetComponentInChildren<Case0Body>().StartPan();
             doneOnce[1] = true;
         }
+        if(doneOnce[1] && !SceneManager.Instance.GetInputBlocker())
+        {
+            End();
+        }
 	}
+
+    public void End()
+    {
+        SceneManager.Instance.ChangeScene( 0 );
+        Destroy( this.gameObject );
+    }
 
 }

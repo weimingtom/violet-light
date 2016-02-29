@@ -112,8 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7528f1e1e49d443bbd0746c4927529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panDelay: 2
-  bodyPanDelay: 14
+  panDelay: 6
+  bodyPanDelay: 26
+  opScene: 0_midnight_intro
 --- !u!114 &11428474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPosition: {x: 0, y: -9.5, z: -10}
-  speed: .75
+  speed: .600000024
 --- !u!212 &21205098
 SpriteRenderer:
   m_ObjectHideFlags: 1

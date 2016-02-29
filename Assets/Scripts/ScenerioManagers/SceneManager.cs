@@ -199,6 +199,7 @@ public class SceneManager : MonoBehaviour
             MusicManager.instance.ChangeSong( Scenes[SceneID].Name );
             Debug.Log( "[scene manager] Changed Scene to number "+SceneID );
             enteredNewScene = true;
+            FadeOutScreen.instance.BeginFade( -1 );
         }
         else Debug.Log( "[scene manager] No case loaded!" );
     }

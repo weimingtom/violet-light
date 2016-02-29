@@ -4,7 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
     bool newGame = true;
-
+    public GameObject cutscene;
 
 	// Use this for initialization
 	void Start () 
@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
         if( newGame )
         { 
             //SceneManager.Instance.ChangeScene(0);
+            GameObject newCutscene = Instantiate(cutscene);
         }
         else
         {
