@@ -1,0 +1,21 @@
+$??$ “You know what I love about music? [time 4][skip]”
+
+$??$ “The harmonies and melodies all combine to create something beautiful. [time 4][skip]”
+
+// fade into a graphic of shadowy figure throwing something over a bridge
+// slowly pan down as body falls
+
+$??$ “And at the end of a song, the music just fades away, disappears. The sound floating through the air, and then it’s... [time 4][skip]"
+
+$??$ “...gone. [time 4][skip]”
+
+$??$ “... [time 4][skip]”
+
+$??$ “Fade away, my sweet Melody.”
+
+// keep panning until sploosh
+// Cut to black
+
+$??$ “... [time 4][skip]”
+
+// fade out

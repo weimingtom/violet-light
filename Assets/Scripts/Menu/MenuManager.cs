@@ -20,10 +20,15 @@ public class MenuManager : MonoBehaviour
     public static MenuManager instance;
 	public GameObject menu;
 	private bool active;
+
+    public GameObject menuButton;
+    public GameObject menuButtonBlocker;
+
 	private state myState;
     //animation purposes
     //public GameObject[] States;
     public float speed = 1.0f;
+
     void Awake()
     {
         instance = this;
@@ -41,9 +46,9 @@ public class MenuManager : MonoBehaviour
 	void Update () 
     {
 	    //check if open/close menu button was pressed
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && menuButton.activeInHierarchy)
         {
-			toggleMenu();
+			ToggleMenu();
 		}
 	}
 
@@ -52,7 +57,14 @@ public class MenuManager : MonoBehaviour
 		return active;
 	}
 
-	public void toggleMenu()
+    // NOTE(jesse): Enable and disables the menu buttons and the ability to open the menu
+    public void ToggleMenuAccess()
+    {
+        menuButton.SetActive(false);
+        menuButtonBlocker.SetActive( false );
+    }
+
+	public void ToggleMenu()
 	{
         if( active && myState != state.SaveLoad )
         {
@@ -122,7 +134,7 @@ public class MenuManager : MonoBehaviour
 		switch(btn)
 		{
 		case "btnContinue":
-			toggleMenu();
+			ToggleMenu();
 			break;
         case "btnQuit":
             Debug.Log( "QUIT" );

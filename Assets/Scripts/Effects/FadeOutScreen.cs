@@ -9,6 +9,12 @@ public class FadeOutScreen : MonoBehaviour
     private int drawDepth = -1000;
     private float alpha = 1.0f;
     private int fadeDir = 1;
+    static public FadeOutScreen instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
 	void OnGUI()
     {

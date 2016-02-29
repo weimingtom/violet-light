@@ -10,8 +10,11 @@ public class GameManager : MonoBehaviour {
 	void Start () 
     {
         SceneManager.Instance.LoadCase( 1 );
-        if (newGame)
-            SceneManager.Instance.ChangeScene(0);
+        FadeOutScreen.instance.BeginFade( -1 );
+        if( newGame )
+        { 
+            //SceneManager.Instance.ChangeScene(0);
+        }
         else
         {
             SceneManager.Instance.LoadGame(SaveLoad.savedGames[0]);

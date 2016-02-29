@@ -46,6 +46,8 @@ public class SceneManager : MonoBehaviour
     public Texture2D cursor;
     public Texture2D cursorSparkle;
     public Vector2 cursorHotspot = new Vector2( 16, 16 );
+
+    private Vector3 defaultCameraPos;
     
     public void AdvQuest()
     {
@@ -89,7 +91,7 @@ public class SceneManager : MonoBehaviour
         CanSkip = true;
 
         Cursor.SetCursor( cursor, cursorHotspot, CursorMode.Auto );
-
+        defaultCameraPos = Camera.main.transform.position;
     }
 
     void Update()
@@ -191,6 +193,7 @@ public class SceneManager : MonoBehaviour
         {
             currentScene = SceneID;
             ChangeBackground( Scenes[SceneID].Background , 0.7f);
+            Camera.main.transform.position = defaultCameraPos;
             InteractableManager.Instance.Clear();
             InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab ,Vector3.zero);
             MusicManager.instance.ChangeSong( Scenes[SceneID].Name );

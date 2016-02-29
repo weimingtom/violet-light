@@ -85,6 +85,48 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &127428859
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 464886, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464886, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464886, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464886, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464886, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464886, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464886, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 464886, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &133295770
 Prefab:
   m_ObjectHideFlags: 0
@@ -569,6 +611,18 @@ Prefab:
       propertyPath: menu
       value: 
       objectReference: {fileID: 493282505}
+    - target: {fileID: 11489336, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: menuButton
+      value: 
+      objectReference: {fileID: 1431961097}
+    - target: {fileID: 11489336, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: menuButtonBlocker
+      value: 
+      objectReference: {fileID: 173200067}
+    - target: {fileID: 11473076, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_IsPrefabParent: 0
