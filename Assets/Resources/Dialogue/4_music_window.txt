@@ -1,10 +1,10 @@
 show Alexander Right1
 show Violet Left1
 
-$AX$ "The roads are still salted... at least we got that going for us.”
+$AX$ "The roads are still salted... at least we got that going for us."
 
 pose Violet Happy
 
-$VL$ "Hey, it’ll be alright!”
+$VL$ "Hey, it'll be alright!"
 
-$AX$ "O-of course!”
+$AX$ "O-of course!"

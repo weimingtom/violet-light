@@ -1,17 +1,17 @@
-$AX$ "Phew that was a close one!”
+$AX$ "Phew that was a close one!"
 
 pose Violet Happy
 
-$VL$ "I know right!? We could of gone to jail!”
+$VL$ "I know right!? We could of gone to jail!"
 
-$AX$ "You’re too nonchalant about these things Violet.”
+$AX$ "You're too nonchalant about these things Violet."
 
-$VL$ "Hehehe, let’s take a minute to plan our next move.”
+$VL$ "Hehehe, let's take a minute to plan our next move."
 
 pose Alexander Thinking
 
-$AX$ "Right, we should probably make sure we’ve gathered all the evidence we need...”
+$AX$ "Right, we should probably make sure we've gathered all the evidence we need..."
 
-$AX$ "Then get Sharp and prove Michael George was the real killer!”
+$AX$ "Then get Sharp and prove Michael George was the real killer!"
 
-$VL$ "Sounds like a plan~”
+$VL$ "Sounds like a plan~"

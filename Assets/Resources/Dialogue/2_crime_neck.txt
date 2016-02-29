@@ -5,52 +5,52 @@ pose Violet Neutral
 
 pose Violet surprised
 
-$VL$ "H-huh!? What’s this?”
+$VL$ "H-huh!? What's this?"
 
 pose Alexander Thinking
 
-$AX$ "What did you find Violet?”
+$AX$ "What did you find Violet?"
 
 pose Violet Thinking
 
-$VL$ "Doesn’t the back of her neck look... a littttle strange to you?”
+$VL$ "Doesn't the back of her neck look... a littttle strange to you?"
 
 pose Alexander Thinking
 
-$AX$ "Uhm- I mean she’s kinda pale...”
+$AX$ "Uhm- I mean she's kinda pale..."
 
 pose Violet Upset
 
 pose Alexander Unimpressed
 
-$VL$ "ALEX! NO NOT THAT!”
+$VL$ "ALEX! NO NOT THAT!"
 
 pose Violet Happy
 
-$VL$ "You dork!”
+$VL$ "You dork!"
 
-$AX$ "...”
+$AX$ "..."
 
 pose Alexander Neutral
 pose Violet Thinking
 
-$VL$ "She appears to have some sort of mark... as if something injured her neck”
+$VL$ "She appears to have some sort of mark... as if something injured her neck"
 
 pose Alexander Thinking
 
-$AX$ "Hmmm, you’re right...”
+$AX$ "Hmmm, you're right..."
 
-$AX$ "It’s not post mortem, you can tell by the color of the mark.”
+$AX$ "It's not post mortem, you can tell by the color of the mark."
 
-$VL$ "Could it have been some kind of rope or... jewelry?”
+$VL$ "Could it have been some kind of rope or... jewelry?"
 
 pose Alexander scribble
 
-$AX$ "I’ll write it down, maybe someone else might know more.”
+$AX$ "I'll write it down, maybe someone else might know more."
 
-// It’s a necklace that had been torn off her neck
+// It's a necklace that had been torn off her neck
 
-$/$ “Neck wound added to journal!”
+$/$ "Neck wound added to journal!"
 // Add to journal
 
 // scene end

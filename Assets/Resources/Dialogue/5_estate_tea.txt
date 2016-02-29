@@ -1,43 +1,43 @@
-// Find blood? (Really just spilled tea, but it’s Melody’s fav tea (And secretly harmony’s too)
+// Find blood? (Really just spilled tea, but it's Melody's fav tea (And secretly harmony's too)
 
 pose Alexander Shock
 
-$AX$ "Violet! Is this blood!?”
+$AX$ "Violet! Is this blood!?"
 
 pose Violet Thinking
 
-$VL$ "hmmm... lemme’ check, love!”
+$VL$ "hmmm... lemme' check, love!"
 
-$AX$ "W-wait don’t touch it!”
+$AX$ "W-wait don't touch it!"
 
-$AX$ "WAIT DON’T LICK IT”
+$AX$ "WAIT DON'T LICK IT"
 
 pose Violet Happy
 
-$VL$ "Haha, it’s just tea!”
+$VL$ "Haha, it's just tea!"
 
 pose Alexander Unimpressed
 
-$AX$ "Ah...”
+$AX$ "Ah..."
 
-$AX$ "Wait, what would you of done if it wasn-“
+$AX$ "Wait, what would you of done if it wasn-"
 
 pose Violet Neutral
 
-$VL$ "It appears to be old, but the tea itself is very weak. I’d say it was maybe steeping for a minute or so before it was spilled.”
+$VL$ "It appears to be old, but the tea itself is very weak. I'd say it was maybe steeping for a minute or so before it was spilled."
 
 pose Alexander Neutral
 
-$AX$ "Ah so this was probably Melody’s tea.”
+$AX$ "Ah so this was probably Melody's tea."
 
-$VL$ "Right, and she probably dropped it whenever the killer decided to strike.”
+$VL$ "Right, and she probably dropped it whenever the killer decided to strike."
 
 pose Alexander Thinking
 
-$AX$ "So that would make this the crime scene...”
+$AX$ "So that would make this the crime scene..."
 
 pose Alexander Scribbling
 
-$AX$ "Hmmm... I’ll make note of this.”
+$AX$ "Hmmm... I'll make note of this."
 
-$/$ “Spilled tea added to evidence locker”
+$/$ "Spilled tea added to evidence locker"

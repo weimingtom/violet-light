@@ -3,76 +3,76 @@ show Violet Left1
 show Harmony Center
 
 
-$HR$ “.....”
+$HR$ "....."
 
 
 pose Alexander Happy
 
-$AX$ "Good morning, Harmony!”
+$AX$ "Good morning, Harmony!"
 
 pose Violet Happy
 
-$VL$ "Always shinin’, eh love?”
+$VL$ "Always shinin', eh love?"
 
-$HR$ “YAAWWWWWWWWWWWNWWNNWNWNWNWNWNNWNW”
+$HR$ "YAAWWWWWWWWWWWNWWNNWNWNWNWNWNNWNW"
 pose Alexander Shock
 
 pose Violet Shock
 
-$AX$ "Uhm...”
+$AX$ "Uhm..."
 
 pose Alexander Neutral
 
 pose Violet Neutral
 
 pose Harmony embarrassed
-$HR$ “.....”
+$HR$ "....."
 
-$VL$ "Here love, take a pen and paper.”
+$VL$ "Here love, take a pen and paper."
 
-$VL$ "I don’t think sharp’ll stop us this time.” 
+$VL$ "I don't think sharp'll stop us this time." 
 
 
 pose Harmony happy
-$HR$ “.............”
+$HR$ "............."
 
 pose Harmony scribble
-$HR$ “....”
+$HR$ "...."
 
-$VL$ "It says ‘Sorry! And good morning!”
+$VL$ "It says 'Sorry! And good morning!"
 
 pose Alexander Nervousous
 
-$AX$ "Uhm-, it’s alright!”
+$AX$ "Uhm-, it's alright!"
 
 pose Violet Happy
 
-$VL$ "Yeah no need to apologize!”
+$VL$ "Yeah no need to apologize!"
 
 
 pose Harmony ashamed
-$HR$ “......................”
+$HR$ "......................"
 
-$VL$ "Hey, Harmony.”
+$VL$ "Hey, Harmony."
 
 pose Harmony shock
-$HR$ “....”
+$HR$ "...."
 
 
-$VL$ "It’ll be okay, Violet’s got your back!”
+$VL$ "It'll be okay, Violet's got your back!"
 
 
 pose Harmony smile
 
 pose Alexander Serious
 
-$AX$ "H-hey, how about we clear up some stuff.”
+$AX$ "H-hey, how about we clear up some stuff."
 
 pose Violet Neutral
 
-$VL$ "Yeah, now’s the time to tell us everything, er- write us everything.”
+$VL$ "Yeah, now's the time to tell us everything, er- write us everything."
 
-$HR$ “....”
+$HR$ "...."
 
 
 pose Harmony scribble
@@ -89,21 +89,21 @@ pose Alexander Shock
 
 pose Violet Neutral
 
-$AX$ "W-wow you wrote a lot.”
+$AX$ "W-wow you wrote a lot."
 
-$VL$ "Let’s take a look shall we?”
+$VL$ "Let's take a look shall we?"
 
-$HR$ “.....”
+$HR$ "....."
 
-$AX$ "Yeah.”
+$AX$ "Yeah."
 
 // fade out and in
 
-$VL$ "’I hadn't seen my sister since the night before, she went out on some awesome adventure as usual. I didn’t worry though, as sometimes she goes and sings for the less fortunate at night. So I went to bed assuming as such.”
+$VL$ "'I hadn't seen my sister since the night before, she went out on some awesome adventure as usual. I didn't worry though, as sometimes she goes and sings for the less fortunate at night. So I went to bed assuming as such."
 
-$VL$ "’I left the next morning for the fabric store, as I needed supplies for one of my sister’s clothing pieces. I wake up earlier than Melody usually, so I assumed she made it home safely. I arrived home later, and began my duties tending to the instruments. She hadn’t come down yet so I decided to check on her. I went up and she wasn’t home, I put the ribbon down and went downstairs to find the police at my door. That’s why there was the ribbon in her room.’”
+$VL$ "'I left the next morning for the fabric store, as I needed supplies for one of my sister's clothing pieces. I wake up earlier than Melody usually, so I assumed she made it home safely. I arrived home later, and began my duties tending to the instruments. She hadn't come down yet so I decided to check on her. I went up and she wasn't home, I put the ribbon down and went downstairs to find the police at my door. That's why there was the ribbon in her room.'"
 
-$VL$ "’They arrested me and began searching through my stuff, I tried to ask for help but they kept trying to get me to talk. That didn’t really work though.’”
+$VL$ "'They arrested me and began searching through my stuff, I tried to ask for help but they kept trying to get me to talk. That didn't really work though.'"
 
 // fade out in
 
@@ -111,75 +111,75 @@ pose Alexander Thinking
 
 pose Violet Serious
 
-$AX$ "Huh..”
+$AX$ "Huh.."
 
-$VL$ "W-wait they just came in and started rummaging through your stuff?”
+$VL$ "W-wait they just came in and started rummaging through your stuff?"
 
 pose Violet Upset
 
 pose Harmony nervous
-$HR$ “...........”
+$HR$ "..........."
 
-$VL$ "I- I can’t believe them!”
+$VL$ "I- I can't believe them!"
 
 pose Violet Sad
 
-$VL$ "I’m so sorry harmony...”
+$VL$ "I'm so sorry harmony..."
 
 pose Violet Cocky
 
-$VL$ "But we’ll find em’, love! The real killer that is! Don’tchu worry!”
+$VL$ "But we'll find em', love! The real killer that is! Don'tchu worry!"
 pose Harmonyhappy
-$HR$ “..!!!..”
+$HR$ "..!!!.."
 
-$VL$ "Cheers!”
+$VL$ "Cheers!"
 
-$AX$ "Wait so, the missing ribbon, you only had it to repair her clothes?”
+$AX$ "Wait so, the missing ribbon, you only had it to repair her clothes?"
 
 
 pose Harmony scribble
-$HR$ “.......”
+$HR$ "......."
 
 
-$VL$ "She wrote ‘Yes, it had fallen off previously and I usually tend to her clothing when it is in need of repair. Unfortunately the ribbon was kindof unusable so I had to go buy more.’”
+$VL$ "She wrote 'Yes, it had fallen off previously and I usually tend to her clothing when it is in need of repair. Unfortunately the ribbon was kindof unusable so I had to go buy more.'"
 
 pose Alexander Serious
 
-$AX$ "And you were sleeping during the time she was murdered? Can anyone confirm that?”
+$AX$ "And you were sleeping during the time she was murdered? Can anyone confirm that?"
 
 
 pose Harmony nervous
-$HR$ “........”
+$HR$ "........"
 pose Harmony scribble
-$HR$ “................”
+$HR$ "................"
 
 
-$VL$ "Uhm, so ‘Yes, I was. But no one but me was at the shop then.’”
+$VL$ "Uhm, so 'Yes, I was. But no one but me was at the shop then.'"
 
 pose Alexander Nervous
 
-$AX$ "...”
+$AX$ "..."
 
 pose Alexander Thinking
 
-$AX$ "Well…”
+$AX$ "Well…"
 
 pose Violet Happy
 
-$VL$ "That’s okay!”
+$VL$ "That's okay!"
 
 pose Alexander Shock
 
 $AX$ "Wh-what?
 
-$VL$ "Thanks for everything Harmony!”
+$VL$ "Thanks for everything Harmony!"
 
-$VL$ "We gotta go catch that killer now!”
+$VL$ "We gotta go catch that killer now!"
 
 pose Alexander Serious
 
-$AX$ "Uhm-”
+$AX$ "Uhm-"
 
-$VL$ "Let’s go Alexander!”
+$VL$ "Let's go Alexander!"
 
-$AX$ "O-okay!”
+$AX$ "O-okay!"

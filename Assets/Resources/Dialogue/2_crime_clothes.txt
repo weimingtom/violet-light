@@ -5,36 +5,36 @@ pose Violet Neutral
 
 pose Violet Happy
 
-$VL$ "Her clothes look absolutely adorable! As always!”
+$VL$ "Her clothes look absolutely adorable! As always!"
 
 pose Alexander Nervous
 
-$AX$ "Uhm- y-yeah they are quite... stunning?”
+$AX$ "Uhm- y-yeah they are quite... stunning?"
 
 pose Violet Neutral
 
-$VL$ "Alex! That isn’t how you compliment a woman!”
+$VL$ "Alex! That isn't how you compliment a woman!"
 
 pose Alexander Unimpressed
 
-$AX$ "Uhm- I mean, I hate to be that guy but, uhm...”
+$AX$ "Uhm- I mean, I hate to be that guy but, uhm..."
 
 pose Violet Thinking
 
-$VL$ "I mean usually you should use a word like beautiful... but you don’t want to come off too strong...”
+$VL$ "I mean usually you should use a word like beautiful... but you don't want to come off too strong..."
 
-$VL$ "So maybe pretty?”
+$VL$ "So maybe pretty?"
 
 pose Violet Happy
 
-$VL$ "Oh maybe charming!”
+$VL$ "Oh maybe charming!"
 
 pose Violet Surprised
 
-$VL$ "Wait? Do you notice anything odd about the dress?”
+$VL$ "Wait? Do you notice anything odd about the dress?"
 
 pose Alexander Thinking
 
-$AX$ "Hmmm...”
+$AX$ "Hmmm..."
 
-$AX$ "She is dressed up fairly elaborately for an average night out...” 
+$AX$ "She is dressed up fairly elaborately for an average night out..." 

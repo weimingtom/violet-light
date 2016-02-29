@@ -1,4 +1,4 @@
-// Gathered all evidence now it’s time to present
+// Gathered all evidence now it's time to present
 // Three core evidence pieces are Salt, Clothing Piece, and Sisters Jealousy
 
 Show Sharp Left
@@ -6,104 +6,104 @@ Show Harmony Right
 
 // Intro
 
-$SP$ "Sooo... still not talkin eh?”
+$SP$ "Sooo... still not talkin eh?"
 
 pose Sharp Cocky
 
-$SP$ "Heheheh... can’t keep the act up forever.”
+$SP$ "Heheheh... can't keep the act up forever."
 
 pose Harmony Worried
 
-<HR> “.....”
+<HR> "....."
 
-$SP$ "If you tell me the truth, then I might be able to cut you a deal.”
+$SP$ "If you tell me the truth, then I might be able to cut you a deal."
 
-$SP$ "Buuuuut... if you keep stayin quiet... wellll then I can’t really do that.”
+$SP$ "Buuuuut... if you keep stayin quiet... wellll then I can't really do that."
 
-<HR> “....”
+<HR> "...."
 
-$SP$ "It’s okay, y’know? The guilty ones are always like this. *sigh* You never want to challenge me eh?”
+$SP$ "It's okay, y'know? The guilty ones are always like this. *sigh* You never want to challenge me eh?"
 
-$SP$ "Always makin the case against ya easy. Man I can’t wait for my promotion!”
+$SP$ "Always makin the case against ya easy. Man I can't wait for my promotion!"
 
 pose Harmony Mad
 
-<HR> “........”
+<HR> "........"
 
 pose Violet Serious
 
-$VL$ "HOLD IT!”
+$VL$ "HOLD IT!"
 
 pose Sharp Surprised
 
-$SP$ "H-huh?”
+$SP$ "H-huh?"
 
 pose Violet Cocky
 
-$VL$ "Just what do you think you’re doing talking to my client?”
+$VL$ "Just what do you think you're doing talking to my client?"
 
-$SP$ "Uh-uhm...”
+$SP$ "Uh-uhm..."
 
 pose Violet Angry
 
-$VL$ "Of course she’s not going to tell you anything. First of all because she can’t SPEAK.”
+$VL$ "Of course she's not going to tell you anything. First of all because she can't SPEAK."
 
 pose Violet Cocky
 
-$VL$ "But also because she can’t say anything without her lawyer here.”
+$VL$ "But also because she can't say anything without her lawyer here."
 
-// this lawyer façade might confuse the player so we gotta make it clear maybe that they aren’t real lawyers?
+// this lawyer façade might confuse the player so we gotta make it clear maybe that they aren't real lawyers?
 
 pose Sharp Cocky
 
-$SP$ "Hahaha, of course. Miss Pointy Hair.”
+$SP$ "Hahaha, of course. Miss Pointy Hair."
 
 pose Violet Angry
 
-$VL$ "H-heY!”
+$VL$ "H-heY!"
 
 pose Violet Nervous
 
-$VL$ "it’s not that pointy...”
+$VL$ "it's not that pointy..."
 
 pose Violet Serious
 
-$VL$ "Stop badgering my client.”
+$VL$ "Stop badgering my client."
 
-$SP$ "Hey, unless you produce some evidence there's nothing I can do.”
+$SP$ "Hey, unless you produce some evidence there's nothing I can do."
 
 pose Alexander Nervousous
 
-$AX$ "Uh-oh.”
+$AX$ "Uh-oh."
 
 pose Sharp Cocky
 
-$SP$ "Nothing can stop the Ace Detective!”
+$SP$ "Nothing can stop the Ace Detective!"
 
 pose Alexander Unimpressed
 
-$AX$ "Oh boy...”
+$AX$ "Oh boy..."
 
 pose Alexander Serious
 
 // Note do we need more dialogue before this?
-// Harmony is about to be kinda screwed, so that’s when you have to go against Sharp’s testimony
+// Harmony is about to be kinda screwed, so that's when you have to go against Sharp's testimony
 
-$VL$ "Why don’t you give us a testimony on why you think she did it.”
+$VL$ "Why don't you give us a testimony on why you think she did it."
 
-$AX$ "Ah good thinking Violet.”
+$AX$ "Ah good thinking Violet."
 
 pose Violet Cocky
 
-$VL$ "Then we’ll see who's the Ace here.”
+$VL$ "Then we'll see who's the Ace here."
 
 pose Sharp Nervous
 
-$SP$ "Hmmmph.”
+$SP$ "Hmmmph."
 
 pose Sharp Cocky
 
-$SP$ "Fine, bring it on.”
+$SP$ "Fine, bring it on."
 
 // Is this too abrupt?
 

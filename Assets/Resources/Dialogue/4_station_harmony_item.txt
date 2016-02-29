@@ -1,8 +1,8 @@
-$AX$ "Uhm- do you know anything about this?”
+$AX$ "Uhm- do you know anything about this?"
 
 pose Harmony Confused
 
-$HR$ “...?”
+$HR$ "...?"
 
-$AX$ "A-ah okay..”
+$AX$ "A-ah okay.."
 

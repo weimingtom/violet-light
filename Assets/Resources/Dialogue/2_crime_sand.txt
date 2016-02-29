@@ -1,17 +1,17 @@
 pose Alexander Neutral
 
-$AX$ "Well the sand/rocks is/are dry.”
+$AX$ "Well the sand/rocks is/are dry."
 
-$AX$ "So I guess we can deduce that she’s been here for awhile.”
+$AX$ "So I guess we can deduce that she's been here for awhile."
 
 pose Violet Cocky
 
-$VL$ "Nice work dummy.”
+$VL$ "Nice work dummy."
 
 pose Alexander surprised
 
-$AX$ "Wh-why are you calling me a dummy?”
+$AX$ "Wh-why are you calling me a dummy?"
 
 pose Violet Happy
 
-$AX$ "You’re adorable, love.”
+$AX$ "You're adorable, love."

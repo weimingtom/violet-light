@@ -124,6 +124,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11408538, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+      propertyPath: panDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11408538, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+      propertyPath: bodyPanDelay
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428474, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
+      propertyPath: speed
+      value: .600000024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
   m_IsPrefabParent: 0

@@ -1,14 +1,14 @@
 show Alexander Right1
 show Violet Left1
 
-$VL$ "Looks like they’re not stopping us this time.”
+$VL$ "Looks like they're not stopping us this time."
 
-$AX$ "Well that’s good.”
+$AX$ "Well that's good."
 
-$VL$ "Let’s take a look around shall we?”
+$VL$ "Let's take a look around shall we?"
 
-$VL$ "I’m sure we can discover something quite electrifying.”
+$VL$ "I'm sure we can discover something quite electrifying."
 
 pose Alexander Unimpressed
 
-$AX$ "R-right.”
+$AX$ "R-right."

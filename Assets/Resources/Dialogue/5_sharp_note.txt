@@ -1,86 +1,86 @@
 
 pose Sharp Neutral
 
-$AX$ "Sharp do you know anything about this man?”
+$AX$ "Sharp do you know anything about this man?"
 
 pose Sharp cocky
 
-$SP$ "Of course I do!”
+$SP$ "Of course I do!"
 
-$VL$ "Riiiight, of course you do.”
+$VL$ "Riiiight, of course you do."
 
 pose Sharp Upset
 
-$SP$ "Well it is MY job!”
+$SP$ "Well it is MY job!"
 
 pose Violet Cocky
 
-$VL$ "It’s also your job to keep the innocent safe, but you’re not very good at that either.”
+$VL$ "It's also your job to keep the innocent safe, but you're not very good at that either."
 
-$AX$ "C-c’mon guys! Cut it out!”
+$AX$ "C-c'mon guys! Cut it out!"
 
 pose Sharp Cocky
 
-$SP$ "Heheheh, it’s okay, Alex.”
+$SP$ "Heheheh, it's okay, Alex."
 
 pose Sharp Serious
 
-$SP$ "Look, this man is part of a really wealthy estate in this city. His family has quite a bit of power, if you think he had something to do with this... well going after him might be a little risky.”
+$SP$ "Look, this man is part of a really wealthy estate in this city. His family has quite a bit of power, if you think he had something to do with this... well going after him might be a little risky."
 
 pose Alexander Shock
 
-$AX$ "Ack-“
+$AX$ "Ack-"
 
 pose Alexander Serious
 
-$AX$ "What do you mean?”
+$AX$ "What do you mean?"
 
-$SP$ "He himself doesn’t have that much power within the estate, but the estate itself does. If you really think he’s the one responsible and you do bring him down, I don’t know how long we could even keep him imprisoned for.”
+$SP$ "He himself doesn't have that much power within the estate, but the estate itself does. If you really think he's the one responsible and you do bring him down, I don't know how long we could even keep him imprisoned for."
 
 pose Alexander Thinking
 
-$AX$ "Hmmm... do you know where he lives?”
+$AX$ "Hmmm... do you know where he lives?"
 
-$SP$ "Yeah, I think everyone does. It’s hard to miss the place. Here I’ll give you the location.”
+$SP$ "Yeah, I think everyone does. It's hard to miss the place. Here I'll give you the location."
 
 pose Alexander Scribbling
 
-$AX$ "Ah, thanks!”
+$AX$ "Ah, thanks!"
 
-$SP$ "Don’t mention it, kid.”
+$SP$ "Don't mention it, kid."
 
-$/$ “New location added!” 
+$/$ "New location added!" 
 
 pose Violet Cocky
 
-$VL$ "Heh- I’ve never been one for an easy case.”
+$VL$ "Heh- I've never been one for an easy case."
 
 pose Alexander Unimpressed
 
-$AX$ "You never take cases in the first place, you’re not even a law-“
+$AX$ "You never take cases in the first place, you're not even a law-"
 
-$VL$ "We’ll catch him! And expose the shocking truth!”
+$VL$ "We'll catch him! And expose the shocking truth!"
 
 pose Sharp Cocky
 
-$SP$ "That’s the spirit, kiddo.”
+$SP$ "That's the spirit, kiddo."
 
-$SP$ "Now come back to me once you’ve given up aaand then we’ll negotiate a plea for your client.”
+$SP$ "Now come back to me once you've given up aaand then we'll negotiate a plea for your client."
 
 pose Violet Upset
 
-$SP$ "Maybe 50 years IF she admits to the crime?”
+$SP$ "Maybe 50 years IF she admits to the crime?"
 
 pose Alexander Scribbling
 
-$AX$ "I think we’ve got all we need...”
+$AX$ "I think we've got all we need..."
 
-$VL$ "You dull-headed-“
+$VL$ "You dull-headed-"
 
-$AX$ "Le-Let’s go Violet!”
+$AX$ "Le-Let's go Violet!"
 
 pose Violet Serious
 
-$VL$ "Right.”
+$VL$ "Right."
 
-$AX$ "Bye Mr.Sharp!”
+$AX$ "Bye Mr.Sharp!"

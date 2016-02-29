@@ -18,19 +18,19 @@ pose Alexander Unimpressed
 $AX$ "..."
 
 // else
-//	$AX$ “Do you think anyone around here will know anything useful?”
+//	$AX$ "Do you think anyone around here will know anything useful?"
 //	Violet Thinking
-//	$VL$ “Hmmm... I mean maybe! B-but probably not.”
+//	$VL$ "Hmmm... I mean maybe! B-but probably not."
 //	Alexander Unimpressed	
 
-$AX$ “Th-then why did we come here?”
+$AX$ "Th-then why did we come here?"
 
 pose Violet Happy
 
-$VL$ “Well because! There’s gotta be some delicious places to eat around here! Don’t you think?”
+$VL$ "Well because! There's gotta be some delicious places to eat around here! Don't you think?"
 
-$AX$ “Wh-WHAT, What about the case?”
+$AX$ "Wh-WHAT, What about the case?"
 
 // Violet walks off screen
 
-$AX$ “H-hey! C-COME BACK!”
+$AX$ "H-hey! C-COME BACK!"

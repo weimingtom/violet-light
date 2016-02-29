@@ -1,15 +1,15 @@
-// No one is really here, fisher guys are out to sea still. Old lady is buying fish. That’s it. Alex and Violet suggest investigating somewhere else
+// No one is really here, fisher guys are out to sea still. Old lady is buying fish. That's it. Alex and Violet suggest investigating somewhere else
 
 pose Alexander Neutral
 
-$AX$ "Quite peaceful this morning.”
+$AX$ "Quite peaceful this morning."
 
 pose Violet Thinking
 
-$VL$ "Well I would assume so. All those fishing guys are out to shore, catching some tasty meals.”
+$VL$ "Well I would assume so. All those fishing guys are out to shore, catching some tasty meals."
 
-$AX$ "We should probably look elsewhere for clues.”
+$AX$ "We should probably look elsewhere for clues."
 
-$VL$ "Orrr- maybe we could get some food from a foood stannnd~”
+$VL$ "Orrr- maybe we could get some food from a foood stannnd~"
 
-$AX$ "W-we just ate breakfast!”
+$AX$ "W-we just ate breakfast!"

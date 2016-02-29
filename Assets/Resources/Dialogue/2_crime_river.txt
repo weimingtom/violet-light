@@ -5,10 +5,10 @@ pose Violet neutral
 
 pose Alexander puzzled
 
-$AX$ "I wonder where where the body was dumped for it to get here.”
+$AX$ "I wonder where where the body was dumped for it to get here."
 
-$VL$ "The river Thames is the second longest in the world so we have a long ways to look.”
+$VL$ "The river Thames is the second longest in the world so we have a long ways to look."
 
-$AX$ "If we were going to do that we had better hurry up because the tide is going to come back in soon.”
+$AX$ "If we were going to do that we had better hurry up because the tide is going to come back in soon."
 
-$VL$ "We can leave the grunt work to the ‘ace detective.’”
+$VL$ "We can leave the grunt work to the 'ace detective.'"

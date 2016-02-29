@@ -2,7 +2,7 @@
 
 //eff FadeIn
 
-$PL$ “WA-WAIT- [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] You can’t go in there!”
+$PL$ "WA-WAIT- [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] You can't go in there!"
 
 show Policeman Right1
 pose Policeman neutral
@@ -12,31 +12,31 @@ pose Alexander Puzzled
 show Violet Left2
 pose Violet Serious 
 
-$AX$ “We’re here f-for [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] ... Uh! Harmony! [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] Y-You have to let us through!”
+$AX$ "We're here f-for [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] ... Uh! Harmony! [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] Y-You have to let us through!"
 
-$PL$ “Sorry, no one sees Ms.Harmony without proper permission”
+$PL$ "Sorry, no one sees Ms.Harmony without proper permission"
 
-$AX$ “Violet, If we show the guard the letter we received he might let us see your friend, Open your journal(esc) and [color]present[color] it to him.”
+$AX$ "Violet, If we show the guard the letter we received he might let us see your friend, Open your journal(esc) and [color]present[color] it to him."
 
 // Option to present
 //Switch (Present)
-//Harmony’s Letter
+//Harmony's Letter
 //Violet Explaining
-$VL$ “Look we have written permission. Let us through.”
-$PL$ “H-huh oh I see!”
+$VL$ "Look we have written permission. Let us through."
+$PL$ "H-huh oh I see!"
 //continue
 //Other
-//$PL$ “What are you showing me that for? That’s not getting you anywhere”
+//$PL$ "What are you showing me that for? That's not getting you anywhere"
 //Alex Nervous
-//$VL$ “C’mon Alex think, we have [red]something[/red] that’ll help us get through!”
-//$AX$ “R-Right! [eff FlashScreen] [eff ScreenShake] [eff SoundEffect]”
+//$VL$ "C'mon Alex think, we have [red]something[/red] that'll help us get through!"
+//$AX$ "R-Right! [eff FlashScreen] [eff ScreenShake] [eff SoundEffect]"
 //loop
 
-$PL$ “I-I’m terribly sorry! I’ll let you through right now!”
+$PL$ "I-I'm terribly sorry! I'll let you through right now!"
 
 pose Violet Cocky
 
-$VL$ “Thanks, love.”
+$VL$ "Thanks, love."
 
 pose Alexander Determined
 
@@ -47,30 +47,30 @@ pose Harmony Ashamed
 
 pose Violet shock
 
-$VL$ “H-Harmony, are you okay?”
+$VL$ "H-Harmony, are you okay?"
 
-$VL$ “Did they do anything to you? hurt you in any way, omygod that must have been a terrible experience! I’ll find the guy who did this, I can’t believe it, I’m so sorry about your sister, ahh omygod-“
+$VL$ "Did they do anything to you? hurt you in any way, omygod that must have been a terrible experience! I'll find the guy who did this, I can't believe it, I'm so sorry about your sister, ahh omygod-"
 
 pose Alexander Unimpressed
 
-$AX$ “Violet calm down...”
+$AX$ "Violet calm down..."
 
 //eff ding
 pose Violet Shock
 
-$VL$ “R-right!”
+$VL$ "R-right!"
 
 pose Violet Neutral
 
 pose Alexander Scribbling
 
-$AX$ “Now what can you tell us, Miss Rush?”
+$AX$ "Now what can you tell us, Miss Rush?"
 
 pose Alexander Determined
 
 poes Harmony Nervous
 
-$HR$ “............  ...  ... ... ... ...”
+$HR$ "............  ...  ... ... ... ..."
 
 // TODO THIS EXCHANGE NEEDS WORK
 //
@@ -79,15 +79,15 @@ pose Alexander Puzzled
 
 pose Violet Upset
 
-$AX$ “Uhm...”
+$AX$ "Uhm..."
 
 pose Harmony sad
 // \ _ /
-$VL$ “ALEX! [eff crash]”
+$VL$ "ALEX! [eff crash]"
 
 pose Alexander Shock
 // o__o
-$AX$ “WH- WHAT?”
+$AX$ "WH- WHAT?"
 
 
 pose Alexander Puzzled
@@ -96,99 +96,99 @@ pose Violet Shrug
 
 pose Harmony determined
 
-$HR$ “....... ...  ...... ...”
+$HR$ "....... ...  ...... ..."
 
 // To the side
 
-$VL$ “She has no voice...”
+$VL$ "She has no voice..."
 
 pose Alexander unimpressed
 
-$AX$ “O-Oh...”
+$AX$ "O-Oh..."
 
 pose Violet shrug
 
-$VL$ “Yeah.”
+$VL$ "Yeah."
 
 //Alex Looks at harmony and turns back
 
-$HR$ “......”
+$HR$ "......"
 
 //
 
 pose Alexander serious
 
-$AX$ “So... how is she going to communicate with us?”
+$AX$ "So... how is she going to communicate with us?"
 
 pose Violet cocky
 
-$VL$ “Alex, don’t worry she can still [eff clue] write.”
+$VL$ "Alex, don't worry she can still [eff clue] write."
 
-$AX$ “A-ah right...”
+$AX$ "A-ah right..."
 
 // Both turn back to harmony
 
 pose Violet neutral
 
-$VL$ “But it seems like they didn’t give her anything to write with...”
+$VL$ "But it seems like they didn't give her anything to write with..."
 
-$VL$ “H-HEY! POLICEGUY! COME HERE!”
+$VL$ "H-HEY! POLICEGUY! COME HERE!"
 
 show Policeman Center
 
-$PL$ “Y-YES SIR-“ //cut off
+$PL$ "Y-YES SIR-" //cut off
 
-$VL$ “What did you just call me, love?”
+$VL$ "What did you just call me, love?"
 
-$PL$ “I MEAN MA’AM!”
+$PL$ "I MEAN MA'AM!"
 
-$VL$ “Why doesn’t the fine young woman here have anything to write with?”
+$VL$ "Why doesn't the fine young woman here have anything to write with?"
 
-$PL$ “I’m under direct orders from Detective Sharp to not let her have any objects that could aid in her escape!”
+$PL$ "I'm under direct orders from Detective Sharp to not let her have any objects that could aid in her escape!"
 
 show Violet smirk
 
-$VL$ “A pen and paper? This Detective may be sharp but he’s not too bright![pause] Fine, I’ll just give her Alex’s notebook then...”
+$VL$ "A pen and paper? This Detective may be sharp but he's not too bright![pause] Fine, I'll just give her Alex's notebook then..."
 
 // [show notebook icon]
 // [hide icon]
 
-$PL$ “I can’t let you do that! S-SORRY! 
-//[eff crash/flash]”
+$PL$ "I can't let you do that! S-SORRY! 
+//[eff crash/flash]"
 
 pose Violet serious
 
-$VL$ “What really?”
+$VL$ "What really?"
 
-$AX$ “Seems a little silly...”
+$AX$ "Seems a little silly..."
 
-$PL$ “I’m under direct orders from the Detective! You’ll have to talk to him!”
+$PL$ "I'm under direct orders from the Detective! You'll have to talk to him!"
 
 pose Alexander puzzled
 
-$AX$ “And where can we find him?”
+$AX$ "And where can we find him?"
 
-$PL$ “He’s at the scene of the crime at the moment! I-I can mark it on your map!”
+$PL$ "He's at the scene of the crime at the moment! I-I can mark it on your map!"
 
 // Violet moves off screen
 
 pose Alexander Scribble
 
-$AX$ “Ah- thank you.”
+$AX$ "Ah- thank you."
 
 //Alex turns to violet
 
 pose Alexander Shocked
 
-$AX$ “W-Wait for me!”
+$AX$ "W-Wait for me!"
 
 //Alex turns to harmony
 
 pose Alexander Cocky
 
-$AX$ “Don’t worry, Violet and I are on the case! We’ll be back soon!”
+$AX$ "Don't worry, Violet and I are on the case! We'll be back soon!"
 
-$HR$ “....”
+$HR$ "...."
 advquest
 //Alex leaves
 //fade out

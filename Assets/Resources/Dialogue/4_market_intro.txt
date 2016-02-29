@@ -9,36 +9,36 @@ pose Alexander tired
 
 pose Violet Happy
 
-$VL$ "hehehe, alex why so gloom?”
+$VL$ "hehehe, alex why so gloom?"
 
-$AX$ "It’s earrrly!”
+$AX$ "It's earrrly!"
 
-$VL$ "Don’t whine, love!”
+$VL$ "Don't whine, love!"
 
 pose Violet Cocky
 
-$VL$ "It’s childish.”
+$VL$ "It's childish."
 
-$AX$ "COMING FROM YOU!”
+$AX$ "COMING FROM YOU!"
 
-$VL$ "Hahaha”
+$VL$ "Hahaha"
 
-$AX$ "You got to sleep right away, AND slept in.”
+$AX$ "You got to sleep right away, AND slept in."
 
-$VL$ "Mmmhmm...”
+$VL$ "Mmmhmm..."
 
-$AX$ "I had to wait an extra hour before you would finally get out of bed.”
+$AX$ "I had to wait an extra hour before you would finally get out of bed."
 
-$VL$ "Hehehe”
+$VL$ "Hehehe"
 
-$AX$ "Look, we need to head to the police station. We can finally ask harmony questions now.”
+$AX$ "Look, we need to head to the police station. We can finally ask harmony questions now."
 
 pose Violet Neutral
 
-$VL$ "Of course.”
+$VL$ "Of course."
 
-$VL$ "I’m just waitin on youuu~”
+$VL$ "I'm just waitin on youuu~"
 
-$AX$ "... right...”
+$AX$ "... right..."
 
 // end fade out, go to police station

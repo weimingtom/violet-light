@@ -5,4 +5,4 @@ Show Violet left2
 pose Alexander neutral
 pose Violet Neutral
 
-$AX$ “We can't touch that!”
+$AX$ "We can't touch that!"

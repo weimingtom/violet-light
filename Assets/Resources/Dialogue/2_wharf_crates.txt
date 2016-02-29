@@ -4,32 +4,32 @@ show Violet Left1
 pose Alexander neutral
 pose Violet neutral
 
-$AX$ “Crates!”
+$AX$ "Crates!"
 
-$VL$ “Good job Alex. They are probably made out oF WOOD! WHOOPDEDOO YOU LEARNED WHAT CRATES ARE MADE OUT OF!”
+$VL$ "Good job Alex. They are probably made out oF WOOD! WHOOPDEDOO YOU LEARNED WHAT CRATES ARE MADE OUT OF!"
 
-$AX$ "What do you suppose is in these crates Violet?”
+$AX$ "What do you suppose is in these crates Violet?"
 
 pose Violet Thinking
 
-$VL$ "Probably fish, or supplies or something.”
+$VL$ "Probably fish, or supplies or something."
 
-$VL$ "You probably shouldn't lean against it though, Alexander.”
+$VL$ "You probably shouldn't lean against it though, Alexander."
 
-$AX$ "Huh? Why not?”
+$AX$ "Huh? Why not?"
 
 pose Violet Shock
 
-$VL$ "Wait Alex, the crates! Be careful!”
+$VL$ "Wait Alex, the crates! Be careful!"
 
 pose Alexander Shock
 
-$AX$ "Wh-what?!”
+$AX$ "Wh-what?!"
 
 pose Violet Happy
 
-$VL$ "Hahaha, made’ya jump!”
+$VL$ "Hahaha, made'ya jump!"
 
 pose Alexander Unimpressed
 
-$AX$ "...”
+$AX$ "..."

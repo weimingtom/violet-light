@@ -3,28 +3,28 @@ show Violet Left1
 pose Alexander grim
 pose Violet neutral
 
-$AX$ “So this is the body...”
+$AX$ "So this is the body..."
 
-$AX$ "She looks kinda peaceful! Ah, uhm-“
+$AX$ "She looks kinda peaceful! Ah, uhm-"
 
-$VL$ "...”
+$VL$ "..."
 
 pose Alexander embarrassed
 
-$AX$ "S- sorry”
+$AX$ "S- sorry"
 
-$AX$ "...”
+$AX$ "..."
 
 pose Alexander surprised
 
 pose Violet Happy
 
-$VL$ "It’s okay Alex! We can be grim after the case, but right now we need to find out who did this...”
+$VL$ "It's okay Alex! We can be grim after the case, but right now we need to find out who did this..."
 
 pose Violet grim
 
 pose Alexander Neutral
 
-$AX$ "Of course!”
+$AX$ "Of course!"
 
 // Move in closer to examine body

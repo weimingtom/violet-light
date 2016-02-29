@@ -1,94 +1,94 @@
 // Sax guy is there, now you can talk to him
 // Can explore background but Sax man might stop you from touching stuff
 
-$VL$ "Knock, knock~”
+$VL$ "Knock, knock~"
 
-$AX$ "Violet! You can’t just say knock, knock and walk in! It was already too close of a call last time.”
+$AX$ "Violet! You can't just say knock, knock and walk in! It was already too close of a call last time."
 
-$SP$ "Wait what do you mean last time?”
+$SP$ "Wait what do you mean last time?"
 
 pose Michael Shock
-$MG$ "Hey sweetie, I enjoy your company and all but I need my personal time once in awhile.”
+$MG$ "Hey sweetie, I enjoy your company and all but I need my personal time once in awhile."
 
 pose Violet Upset
-$VL$ "Sweetie… Really?”
+$VL$ "Sweetie… Really?"
 
 pose Michael Neutral
 
-$MG$ "Well since you’re here, care for some tea?”
+$MG$ "Well since you're here, care for some tea?"
 
-$SP$ "Sorry about this Mr.George...”
+$SP$ "Sorry about this Mr.George..."
 
-$MG$ "The good detective, it’s no problem at all.”
+$MG$ "The good detective, it's no problem at all."
 
-$MG$ "Mind you to introduce your friends here?”
+$MG$ "Mind you to introduce your friends here?"
 
-$SP$ "Friends is a strong word.”
+$SP$ "Friends is a strong word."
 
 pose Sharp Cocky
 
-$SP$ "That would be implying we’re equals.”
+$SP$ "That would be implying we're equals."
 
 pose Violet Cocky
 
-$VL$ "Which would be wrong, since Sharp isn’t quite as sharp as he seems.”
+$VL$ "Which would be wrong, since Sharp isn't quite as sharp as he seems."
 
 pose Sharp Shock
 
-$SP$ "Oh come on, sweetie.”
+$SP$ "Oh come on, sweetie."
 
 pose Alexander Unimpressed
 
-$AX$ "Uhm, let’s please just calm down.”
+$AX$ "Uhm, let's please just calm down."
 
-$VL$ "Whatever~”
+$VL$ "Whatever~"
 
 pose Violet Neutral
 
-$SP$ "tch-”
+$SP$ "tch-"
 
 pose Sharp neutral
 
 pose Alexander Serious
 
-$AX$ "I’m Alexander Strong, Criminal Psychologist.”
+$AX$ "I'm Alexander Strong, Criminal Psychologist."
 
 pose Alexander Nervousous
 
-$AX$ "[eff hit] Ouch! Violet don’t elbow me-[eff hit]”
+$AX$ "[eff hit] Ouch! Violet don't elbow me-[eff hit]"
 
-$AX$ "Aaahndd Defence Attorney.”
+$AX$ "Aaahndd Defence Attorney."
 
 pose Violet Serious
 
-$VL$ "And I’m Violet Light, a Defence Attorney as well.”
+$VL$ "And I'm Violet Light, a Defence Attorney as well."
 
 // awkward pause
 
 pose Violet Happy
 
-$VL$ "A pleasure to meet you formally, Mr.George.”
+$VL$ "A pleasure to meet you formally, Mr.George."
 
-<MG> "The pleasure’s all mine to meet two fine young attorneys such as yourselves.”
+<MG> "The pleasure's all mine to meet two fine young attorneys such as yourselves."
 
-$AX$ "Uh-huh.”
+$AX$ "Uh-huh."
 
-$AX$ "Yep”
+$AX$ "Yep"
 
-$AX$ "Okay”
+$AX$ "Okay"
 
-$VL$ "Alex are you okay?”
+$VL$ "Alex are you okay?"
 
-$AX$ "...”
+$AX$ "..."
 
-$AX$ "We’re taking you down Michael George!!!!!!!!!!!!!!!!!!”
+$AX$ "We're taking you down Michael George!!!!!!!!!!!!!!!!!!"
 
-$AX$ "AHHHHHHHHHHHHHHHHHHHHHHH!!!!!!!!!!!!!!!!!!!”
+$AX$ "AHHHHHHHHHHHHHHHHHHHHHHH!!!!!!!!!!!!!!!!!!!"
 
-$AX$ "YOUUU WILLLL LOOOOOSSSSSSSSSSSSEEEEEEEEEEEEE!!!!!!!!!!!!!!!”
+$AX$ "YOUUU WILLLL LOOOOOSSSSSSSSSSSSEEEEEEEEEEEEE!!!!!!!!!!!!!!!"
 
-$VL$ "Alex has gone full super sayan god super sayan!”
+$VL$ "Alex has gone full super sayan god super sayan!"
 
-$AX$ "AAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHH”
+$AX$ "AAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHH"
 
-$SP$ "Find out next time on Dragon Ball Z!”
+$SP$ "Find out next time on Dragon Ball Z!"
