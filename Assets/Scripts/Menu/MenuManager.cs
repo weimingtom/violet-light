@@ -32,6 +32,9 @@ public class MenuManager : MonoBehaviour
     {
         menu.SetActive(false);
         active = false;
+        // NOTE(jesse): Calling this while inactive will probs throw error
+        // but Sometimes the menu won't open on first hit without it
+        ChangeState(state.SaveLoad);
         myState = state.SaveLoad;
     }
 
