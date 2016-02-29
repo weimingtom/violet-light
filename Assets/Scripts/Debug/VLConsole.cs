@@ -85,6 +85,12 @@ public class VLConsole : MonoBehaviour
                 SaveLoad.Save();
             } 
             break;
+            case ("skip"):
+            {
+                CommandManager.Instance.Terminate();
+                FindObjectOfType<Case0Op>().End();
+            }
+            break;
         }
 
         commandInput.text = "";
