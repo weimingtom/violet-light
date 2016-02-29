@@ -4,7 +4,7 @@
 
 $PL$ "WA-WAIT- [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] You can't go in there!"
 
-show Policeman Right1
+show Policeman Right2
 pose Policeman neutral
 
 show Alexander Left1
@@ -12,11 +12,53 @@ pose Alexander Puzzled
 show Violet Left2
 pose Violet Serious 
 
-$AX$ "We're here f-for [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] ... Uh! Harmony! [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] Y-You have to let us through!"
+$VL$ “You really shouldn’t try to stop me, love”
 
-$PL$ "Sorry, no one sees Ms.Harmony without proper permission"
+$PL$ “It’s my job to.”
 
-$AX$ "Violet, If we show the guard the letter we received he might let us see your friend, Open your journal(esc) and [color]present[color] it to him."
+pose Violet unimpressed
+$VL$ “Right.”
+pose Violet neutral
+
+// fade background to show only violet
+// move Violet to the center of screen
+
+$/$ “<color=blue>This is Violet Light, a famous Engineering Psychologist, and my mentor.</color>”
+$/$ “<color=blue>She’s usually not this careless, but her temper has gotten the best of her right now.</color>”
+
+// fade in background
+
+$AX$ “Violet slow down!”
+
+show Alexander Puzzled
+
+$AX$ “At least let me catch up first!”
+
+// fade background to show only Alex
+// move Alex to the center of screen
+
+$/$ “<color=blue> This is me, Alexander Strong. I’m a criminal psychologist, trying to learn as much from Violet as possible.</color>”
+
+$/$ “<color=blue> But we keep getting wrapped up in misadventures like our current predicament.</color>”
+
+// fade in background
+
+$VL$ “Alexander, tell this ruffian why he must let us through.”
+
+$AX$ “Ah, not this again Viole-[eff hit]”
+$AX$ “Er- I mean- uhm…”
+
+$AX$ “We’re here f-for [eff smash] [pause] Uh! Harmony! [eff crash] Y-You have to let us through!”
+
+$PL$ “Sorry, no one sees Ms.Harmony without proper permission”
+
+$AX$ “But-”
+
+$VL$ “Wait, Alexander, If we show the guard the letter we received he might let us see your friend.”
+
+$AX$ “Good idea Violet! I can open up my rucksack and <color=red>present</color> it to him.”
+
+
 
 // Option to present
 //Switch (Present)
@@ -47,10 +89,9 @@ pose Harmony Ashamed
 
 pose Violet shock
 
-$VL$ "H-Harmony, are you okay?"
-
-$VL$ "Did they do anything to you? hurt you in any way, omygod that must have been a terrible experience! I'll find the guy who did this, I can't believe it, I'm so sorry about your sister, ahh omygod-"
-
+<VL> “H-Harmony, are you okay? [eff crash]”
+<VL> “Did they do anything to you? [eff smash] Hurt you in any way? Omygod that must have been a terrible experience! [eff crash] I’ll find the guy who did this, I promise. I’m so sorry about your sister! Omygod, this is just- [noclick]“
+ 
 pose Alexander Unimpressed
 
 $AX$ "Violet calm down..."

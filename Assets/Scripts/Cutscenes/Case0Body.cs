@@ -26,7 +26,7 @@ public class Case0Body : MonoBehaviour
             float distCovered = (Time.time - startTime) * speed;
             float fracJourney = distCovered / journeyLength;
             this.transform.position = Vector3.Lerp( startPosition, endPosition, fracJourney );
-            if(this.transform.position == endPosition)
+            if(this.transform.position.y == endPosition.y)
             {
                 this.gameObject.SetActive( false );
                 FadeOutScreen.instance.BeginFade( 1 );

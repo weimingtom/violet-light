@@ -38,8 +38,8 @@ public class Case0Op : MonoBehaviour
 
     public void End()
     {
-        SceneManager.Instance.ChangeScene( 0 );
-        Destroy( this.gameObject );
+        SceneManager.Instance.ChangeScene( 1 );
+        Destroy( gameObject );
     }
 
 }
