@@ -179,7 +179,6 @@ public class CommandManager : MonoBehaviour
             {
                 //advance when correct item is presented
                 //commandTracker++;
-
                 FileReader.Instance.LoadScene( dialogueToLoad );
             }
             else
