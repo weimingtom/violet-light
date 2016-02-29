@@ -110,6 +110,11 @@ public class StringParser : MonoBehaviour
             {
                 tes.AddMainStatement( extracted[0], extracted[1] );
             }
+            else
+            {
+                Debug.Log( "[Parse Command]Unexpected number of character" + extracted.Length );
+                Debug.Break();
+            }
             break;
             //push
             case '-':
@@ -122,6 +127,11 @@ public class StringParser : MonoBehaviour
             {
                 tes.AddPushStatement( extracted[0], extracted[1] );
             }
+            else
+            {
+                Debug.Log( "[Parse Command]Unexpected number of character" + extracted.Length );
+                Debug.Break();
+            }
             break;
             //end statement
             case '$':
@@ -133,6 +143,11 @@ public class StringParser : MonoBehaviour
             else if( extracted.Length == 3 )
             {
                 tes.AddEndStatement( extracted[0], extracted[1] );
+            }
+            else
+            {
+                Debug.Log( "[Parse Command]Unexpected number of character" + extracted.Length );
+                Debug.Break();
             }
             break;
             default:
@@ -178,10 +193,7 @@ public class StringParser : MonoBehaviour
         {
             DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[1] );
         }
-        else
-        {
-            Debug.Log( "[Parse Command]Unexpected number of character" );
-        }
+
         ShowTextCommand showText = new ShowTextCommand();
         showText.SetConversation(parsedCommand[0].ToLower());
         return showText;

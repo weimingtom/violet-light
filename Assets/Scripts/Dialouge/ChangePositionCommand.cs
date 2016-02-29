@@ -9,7 +9,7 @@ public class ChangePositionCommand : Commands
 	public void SetNewPosition(string character, string pos)
 	{
 		characterName = character;
-		newPosition = pos;
+		newPosition = pos.ToLower();
 	}
     public override void Reset()
     {
@@ -22,23 +22,35 @@ public class ChangePositionCommand : Commands
         CharacterManager.Positions myPos = CharacterManager.Positions.Offscreen;
         switch( newPosition )
         {
-        case "Offscreen":
+        case "offscreen":
         myPos = CharacterManager.Positions.Offscreen;
         break;
-        case "Left1":
+        case "left1":
         myPos = CharacterManager.Positions.Left1;
         break;
-        case "Left2":
+        case "left":
+        myPos = CharacterManager.Positions.Left1;
+        break;
+        case "left2":
         myPos = CharacterManager.Positions.Left2;
         break;
-        case "Centre":
+        case "centre":
         myPos = CharacterManager.Positions.Centre;
         break;
-        case "Right1":
+        case "center":
+        myPos = CharacterManager.Positions.Centre;
+        break;
+        case "right1":
         myPos = CharacterManager.Positions.Right1;
         break;
-        case "Right2":
+        case "right":
+        myPos = CharacterManager.Positions.Right1;
+        break;
+        case "right2":
         myPos = CharacterManager.Positions.Right2;
+        break;
+        default:
+        myPos = CharacterManager.Positions.Offscreen;
         break;
         }
         CharacterManager.Instance.ChangePosition( characterName, myPos );
