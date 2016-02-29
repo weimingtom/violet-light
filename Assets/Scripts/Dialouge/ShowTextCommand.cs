@@ -138,7 +138,7 @@ public class ShowTextCommand : Commands
             }
 		    else
 		    {
-                if( finishWithoutClick == true )
+                if( finishWithoutClick == true && waitForTime == false)
                 {
                     return true;
                 }
