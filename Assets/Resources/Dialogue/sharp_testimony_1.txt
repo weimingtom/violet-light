@@ -4,12 +4,12 @@
 pose Violet Cocky
 -$VL$ “Ace detective? You really call yourself that? Kinda lame don’t you think, Alexander?”
 pose Alexander Thinking
--$AX$ “I mean, I-I guess, but what’s this have to do with the case, Violet?”
+-$AX$ “I mean, I guess, but what’s this have to do with the case, Violet?”
 -$VL$ “Absolutely nothing!”
 pose Alexander Unimpressed
 -$AX$ “…”
 pose Sharp Upset
--$SP$ “H-hey! Don’t gang up on me!”
+-$SP$ “H hey! Don’t gang up on me!”
 -$SP$ “Anyways, as I was saying...”
 
 +$SP$ “The body was found washed up in the River Thames and discovered by a passing fisherman.”
@@ -44,7 +44,7 @@ pose Sharp Cocky
 pose Sharp Serious
 -$SP$ "Not possible.”
 pose Violet Shocked
--$VL$ "Wh-what?”
+-$VL$ "Wh what?”
 pose Violet Serious
 -$VL$ "Are you sure?”
 -$SP$ "100%”
@@ -67,10 +67,10 @@ $AX$ “So Violet, what do you think?”
 pose Violet Thinking
 $VL$ “Hmmm... That his case is really weak, like I’m actually kinda bored right now.”
 pose Violet Neutral
-$VL$ “W-ait were you even paying attention to what he said?”
+$VL$ “W ait were you even paying attention to what he said?”
 $VL$ “No, not really. This guy is kinda lame.”
 $SP$ “I can hear both of you, you know?” 
 $VL$ “Just think, how else could salt have gotten on her boots?”
-$AX$ “H-huh...”
+$AX$ “H huh...”
 $VL$ “And when in doubt press for more information!”
-$AX$ “R-right...”
+$AX$ “R right...”

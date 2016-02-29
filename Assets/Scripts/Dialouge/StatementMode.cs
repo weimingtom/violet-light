@@ -57,26 +57,6 @@ public class StatementMode
             {
                 pushStatements[mainStatements.Count - 1].Add( statement );
             }
-            //try
-            //{
-            //    pushStatementsNameTag[mainStatements.Count - 1].Add(nmTag);
-            //}
-            //catch( System.Collections.Generic.KeyNotFoundException )
-            //{
-            //    pushStatementsNameTag[mainStatements.Count - 1] = new List<string>();
-            //    pushStatements[mainStatements.Count - 1].Add( nmTag );
-            //}
-
-            //try
-            //{
-            //    pushStatements[mainStatements.Count - 1].Add( nmTag );
-            //}
-            //catch( System.Collections.Generic.KeyNotFoundException )
-            //{
-            //    pushStatements[mainStatements.Count - 1] = new List<string>();
-            //    pushStatements[mainStatements.Count - 1].Add( nmTag );
-            //}
-
         }
     }
 

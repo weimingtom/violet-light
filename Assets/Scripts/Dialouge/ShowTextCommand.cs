@@ -24,6 +24,7 @@ public class ShowTextCommand : Commands
     bool pause = false;
     bool skipCheck = false;
     bool finishWithoutClick = false;
+
     public ShowTextCommand()
     {
         commandTag = "showtextcommand";

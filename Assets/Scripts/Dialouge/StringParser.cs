@@ -49,7 +49,7 @@ public class StringParser : MonoBehaviour
                     string passed = extractedWord[i].TrimStart('\t');
                     ParseCommand( ref tesCmd, passed );
                     extractedWord[i].ToLower();
-                    Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
+                    //Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
                 }
             }
             else
@@ -58,7 +58,7 @@ public class StringParser : MonoBehaviour
                 {
                     ParseCommand( extractedWord[i] );
                     extractedWord[i].ToLower();
-                    Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
+                    //Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
                 }
             }
         }
@@ -92,7 +92,6 @@ public class StringParser : MonoBehaviour
             CommandManager.Instance.correctItem = extracted[2];
             CommandManager.Instance.presentItemIndex = int.Parse(extracted[1]);
             CommandManager.Instance.dialogueToLoad = extracted[3];
-            //tes.SetItem( int.Parse( extracted[1] ), extracted[2] );
         }
         else
         {
@@ -155,8 +154,6 @@ public class StringParser : MonoBehaviour
             CustomCommand( str );
             break;
             }
-
-
         }
     }
 
@@ -272,7 +269,6 @@ public class StringParser : MonoBehaviour
         case "advquest":
         SceneManager.Instance.AdvQuest();
         break;
-
 
         case "load":
         LoadCommand dialogue = new LoadCommand();
