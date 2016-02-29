@@ -1,12 +1,12 @@
-[Testimony] 3 Icy_Streets
+[Testimony] 3 Icy_Streets 3_station_middle
 
 +$SP$ “Look, your friend here is a very guilty person. And as the Ace Detective it is MY job to put her away.”
 		pose Violet Cocky
-		-$VL$ “Ace detective? You really call yourself that? Kinda lame don’t you think, Alex?”
-		pose Alex Thinking
+		-$VL$ “Ace detective? You really call yourself that? Kinda lame don’t you think, Alexander?”
+		pose Alexander Thinking
 		-$AX$ “I mean, I-I guess, but what’s this have to do with the case, Violet?”
 		-$VL$ “Absolutely nothing!”
-		pose Alex Unimpressed
+		pose Alexander Unimpressed
 		-$AX$ “…”
 		-pose Sharp Upset
 		-$SP$ “H-hey! Don’t gang up on me!”
@@ -49,13 +49,7 @@
 		-$VL$ "Are you sure?”
 		-$SP$ "100%”
 		-$SP$ "Anyways, regardless...”
-		
-		// Present Salted Roads
 
-		load 3_station_middle
-		
-		// Move forward
-		
 +$SP$ “There was no other reason for her to be that far from her shop that night.
 		// Press:
 		-$VL$ "I mean she could have been on a walk, or something”
