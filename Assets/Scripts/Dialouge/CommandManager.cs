@@ -9,6 +9,7 @@ public class CommandManager : MonoBehaviour
     int destroyCount;
     bool done;
 
+    public string dialogueToLoad { get; set; }
     public string correctItem { get; set; }
     public int presentItemIndex { get; set; }
 
@@ -159,7 +160,6 @@ public class CommandManager : MonoBehaviour
     // option, and present stuff
     public void CheckItem(string itemName)
     {
-
 		if(!myBannerBox.gameObject.activeInHierarchy)
         {
             string itemFileName = SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" +  SceneManager.Instance.GetChar()  ;
@@ -172,18 +172,15 @@ public class CommandManager : MonoBehaviour
                 FileReader.Instance.LoadScene( itemFileName + "_item");            
             }
         }
-        //therefore it is presenting on the scene
-        //if( prompt == true )
-        //{/
-            
-        //}
         else if( itemName.ToLower() == correctItem.ToLower() )
         {
             //check if it is presented in corret text coordinate
             if( testimonyItemIndex == presentItemIndex )
             {
                 //advance when correct item is presented
-                commandTracker++;
+                //commandTracker++;
+
+                FileReader.Instance.LoadScene( dialogueToLoad );
             }
             else
             {

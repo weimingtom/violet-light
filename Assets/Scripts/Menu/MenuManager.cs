@@ -109,7 +109,6 @@ public class MenuManager : MonoBehaviour
                     break;
             }
         }
-         
     }
 
 
@@ -118,7 +117,6 @@ public class MenuManager : MonoBehaviour
         SceneManager.Instance.ChangeScene(btn);
         CloseMenu();
     }
-
 
 	public void MainButtonPressed(string btn)
 	{
@@ -137,7 +135,6 @@ public class MenuManager : MonoBehaviour
 			Debug.Log("ERROR: Button Not Found In List, " + btn);
 			break;
 		}
-
 	}
 
 	private void ChangeState(state newState)
@@ -186,7 +183,6 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log( "Brightness Changed: " + multiplier );
     }
-
 
 }
 

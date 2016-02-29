@@ -36,6 +36,7 @@ public class StringParser : MonoBehaviour
             char[] delimiterChar = { '\r', '\n' };
             string[] extractedWord = _mainString.Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
             Debug.Log( "[RunParse] wordLength : " + extractedWord.Length );
+            
             if( extractedWord[0][0] == '[' )
             {
                 testimony = true;
@@ -74,13 +75,21 @@ public class StringParser : MonoBehaviour
 
     void ParseCommand( ref TestimonyCommand tes, string str )
     {
+        /*
+         *[0] 
+         *[1][0][1] 
+         *[2]
+         *[3]
+         */
         string[] extracted; 
         if( Char.ToLower( str[0] ) == 't' )
         {
+            //item//
             char[] delimiter = { ' ', ']', '[' };
             extracted = str.Split( delimiter );
             CommandManager.Instance.correctItem = extracted[2];
             CommandManager.Instance.presentItemIndex = int.Parse(extracted[1]);
+            CommandManager.Instance.dialogueToLoad = extracted[3];
             //tes.SetItem( int.Parse( extracted[1] ), extracted[2] );
         }
         else
@@ -88,16 +97,18 @@ public class StringParser : MonoBehaviour
             char[] delimiter = { '+', '$', '"' };
             switch( str[0] )
             {
+            //main
             case '+':
             extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
             tes.AddMainStatement( extracted[0], extracted[1] );
             break;
-
+            //push
             case '-':
             delimiter[0] = '-';
             extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
             tes.AddPushStatement( extracted[0], extracted[1] );
             break;
+            //end statement
             case '$':
             extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
             if( extracted.Length == 2 )
@@ -110,6 +121,7 @@ public class StringParser : MonoBehaviour
             }
             break;
             default:
+            //other command
             CustomCommand( str );
             break;
             }
@@ -241,7 +253,7 @@ public class StringParser : MonoBehaviour
         break;
         }
     }
-
+    
     public Dictionary<int, List<string>> ReadLocationData( string loc )
     {
         char[] delimiter = { '\r', '\n' };
