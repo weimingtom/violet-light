@@ -55,7 +55,7 @@ public class StatementMode
             }
             else
             {
-                pushStatementsNameTag[mainStatements.Count - 1].Add( statement );
+                pushStatements[mainStatements.Count - 1].Add( statement );
             }
             //try
             //{

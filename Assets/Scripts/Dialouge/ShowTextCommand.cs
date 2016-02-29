@@ -193,7 +193,7 @@ public class ShowTextCommand : Commands
     }
     void RegisterTextCommand(string _tag, string _value)
     {
-        switch( _tag )
+        switch( _tag.ToLower() )
         {
         case "time":
         SetWaitForTime(float.Parse(_value));
@@ -205,7 +205,7 @@ public class ShowTextCommand : Commands
         case "eff":
         FXManager.Instance.Spawn( _value );
         break;
-        case "skip":
+        case "noclick":
         finishWithoutClick = true;
         break;
         default:
