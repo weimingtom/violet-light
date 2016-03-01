@@ -45,7 +45,6 @@ public class DialogueHolder : MonoBehaviour
     public void AddDialogue(ref string header, string content )
     {
         // NOTE(jesse) This should get rid of the extra space at the beginning of all dialogue
-
         string newContent = content.ToString();
         content.TrimStart( ' ' );
         content.TrimStart( '\n' );

@@ -16,6 +16,8 @@ public class CommandManager : MonoBehaviour
     public bool prompt { get; set; }
     public int testimonyItemIndex { get; set;}
 
+    public bool testimonyMode { get; set; }
+
     public Text myTextHolder;
     public Text myNameHolder;
 
@@ -31,7 +33,6 @@ public class CommandManager : MonoBehaviour
     List<Commands> myCommand;
     //testimony stuff
     Dictionary<int, List<Commands>> pushCommand;
-    List<int> pushCommandCoordinate = List<int>();
     /////
     public bool next { get; set; }
     public bool back { get; set; }
@@ -50,6 +51,7 @@ public class CommandManager : MonoBehaviour
         myTextHolder.supportRichText = true;
         destroyCount = 0;
         done = false;
+        testimonyMode = false;
         commandTracker = 0;
         falseCommand = new Dictionary<string, ShowTextCommand>();
         myCommand = new List<Commands>();
@@ -210,6 +212,7 @@ public class CommandManager : MonoBehaviour
 
     public void Reinitialize()
     {
+        testimonyMode = false;
         showFalseDialogue = false;
         SetTestimonyButton( false );
         correctItem = "none";
@@ -219,6 +222,7 @@ public class CommandManager : MonoBehaviour
         done = false;
         commandTracker = 0;
         myCommand.Clear();
+        pushCommand.Clear();
         falseCommand.Clear();
     }
 
@@ -238,15 +242,18 @@ public class CommandManager : MonoBehaviour
             }
 		    else if(commandTracker < myCommand.Count)
 		    {
-			    if ( myCommand[commandTracker].ExecuteCommand() ) 
+                if( myCommand[commandTracker].ExecuteCommand() ) 
 			    {
 				    commandTracker++;
+                    if( testimonyMode && commandTracker >= myCommand.Count )
+                    {
+                        commandTracker = 0;
+                        for( int i = 0; i < myCommand.Count; i++ )
+                        {
+                            myCommand[i].Reset();
+                        }
+                    }
 			    }
-                if( myCommand[commandTracker].commandTag == "testimonyCommand" )
-                {
-                    myCommand[commandTracker].ExecuteCommand();
-                    ResetNextBackBool();
-                }
 		    }
 		    else if (commandTracker == myCommand.Count)
 		    {
