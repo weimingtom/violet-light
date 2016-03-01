@@ -7,11 +7,12 @@ public class ShowTextCommand : Commands
 	int indexPassed = 0;
 	float timeTracker = 0;
     // TODO(jesse): Make set speed command
-    float speed = 0.015f;
+    public float speed  {get;set;}
+    public float defaultSpeed = 0.015f;
     //0.035f
     string conversationTag = "";
     //string conversation = "";
-	char passedChar = '\0';
+	char passedChar = ' ';
     bool isMale = false;
 
     List<string> htmlFront = new List<string>();
@@ -24,6 +25,7 @@ public class ShowTextCommand : Commands
     bool pause = false;
     bool skipCheck = false;
     bool finishWithoutClick = false;
+
 
     public ShowTextCommand()
     {
@@ -41,6 +43,7 @@ public class ShowTextCommand : Commands
         indexPassed = 0;
         timeTracker = 0;
         InitialSetup = true;
+        speed = defaultSpeed;
         finishWithoutClick = false;
     }
 

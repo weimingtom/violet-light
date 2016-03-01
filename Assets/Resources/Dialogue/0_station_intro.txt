@@ -10,13 +10,13 @@ pose Alexander Puzzled
 show Violet Left2
 pose Violet Serious 
 
-$VL$ “You really shouldn’t try to stop me, love”
+$VL$ "You really shouldn't try to stop me, love."
 show Policeman Right2
 pose Policeman neutral
-$PL$ “It’s my job to.”
+$PL$ "It's my job to!"
 
 pose Violet unimpressed
-$VL$ “Right.”
+$VL$ "Right."
 pose Violet neutral
 
 // fade background to show only violet
@@ -25,18 +25,18 @@ pose Violet neutral
 show Policeman Offscreen
 show Violet Center
 bg null
-$/$ “<color=blue>This is Violet Light, a famous Engineering Psychologist, and my mentor.</color>”
-$/$ “<color=blue>She’s usually not this careless, but her temper has gotten the best of her right now.</color>”
+$/$ "<color=blue>This is Violet Light, a famous Engineering Psychologist, and my mentor.</color>"
+$/$ "<color=blue>She's usually not this careless, but her temper has gotten the best of her right now.</color>"
 bg police_station
 // fade in background
 show Violet Left2
 show Policeman Right2
 
-$AX$ “Violet slow down!”
+$AX$ "Violet slow down!"
 
 show Alexander Left1
 
-$AX$ “At least let me catch up first!”
+$AX$ "At least let me catch up first!"
 
 // fade background to show only Alex
 // move Alex to the center of screen
@@ -45,9 +45,9 @@ show Policeman Offscreen
 show Violet Offscreen
 show Alexander Center
 
-$/$ “<color=blue>This is me, Alexander Strong. I’m a criminal psychologist, trying to learn as much from Violet as possible.</color>”
+$/$ "<color=blue>This is me, Alexander Strong. I'm a criminal psychologist, trying to learn as much from Violet as possible.</color>"
 
-$/$ “<color=blue>But we keep getting wrapped up in misadventures like our current predicament.</color>”
+$/$ "<color=blue>But we keep getting wrapped up in misadventures like our current predicament.</color>"
 
 bg police_station
 
@@ -57,20 +57,20 @@ show Alexander Left1
 
 // fade in background
 
-$VL$ “Alexander, tell this ruffian why he must let us through.”
+$VL$ "Alexander, tell this ruffian why he must let us through."
 
-$AX$ “Ah, not this again Viole-[eff hit]”
-$AX$ “Er- I mean- uhm…”
+$AX$ "Ah, not this again Viole-[eff hit]"
+$AX$ "Er- I mean- uhm…"
 
-$AX$ “We’re here f-for [eff smash] [pause] Uh! Harmony! [eff crash] Y-You have to let us through!”
+$AX$ "We're here f-for [eff smash] [pause] Uh! Harmony! [eff crash] Y-You have to let us through!"
 
-$PL$ “Sorry, no one sees Ms.Harmony without proper permission”
+$PL$ "Sorry, no one sees Ms.Harmony without proper permission"
 
-$AX$ “But-”
+$AX$ "But-"
 
-$VL$ “Wait, Alexander, If we show the guard the letter we received he might let us see your friend.”
+$VL$ "Wait, Alexander, If we show the guard the letter we received he might let us see your friend."
 
-$AX$ “Good idea Violet! I can open up my rucksack and <color=red>present</color> it to him.”
+$AX$ "Good idea Violet! I can open up my rucksack and <color=red>present</color> it to him."
 
 
 
@@ -103,8 +103,8 @@ pose Harmony Ashamed
 
 pose Violet shock
 
-<VL> “H-Harmony, are you okay? [eff crash]”
-<VL> “Did they do anything to you? [eff smash] Hurt you in any way? Omygod that must have been a terrible experience! [eff crash] I’ll find the guy who did this, I promise. I’m so sorry about your sister! Omygod, this is just- [noclick]“
+<VL> "H-Harmony, are you okay? [eff crash]"
+<VL> "Did they do anything to you? [eff smash] Hurt you in any way? Omygod that must have been a terrible experience! [eff crash] I'll find the guy who did this, I promise. I'm so sorry about your sister! Omygod, this is just- [noclick]"
  
 pose Alexander Unimpressed
 
