@@ -206,6 +206,18 @@ public class StringParser : MonoBehaviour
         {
         //NOTE(Hendry)::Add command here
         case "bg":
+        BgCommand bgc = new BgCommand();
+        if( parsedCommand.Length == 2 )
+        {
+            bgc.SetBg(parsedCommand[1].ToLower());
+            if (parsedCommand.Length == 3)
+            {
+                bgc.SetSpd(int.Parse(parsedCommand[2]));
+
+            }
+            CommandManager.Instance.AddCommand(bgc);
+        }
+
         break;
 
         case "bgm":
@@ -244,7 +256,7 @@ public class StringParser : MonoBehaviour
                 Debug.Log( "[String Parser]<color:red>wrong command</color> !! the format is icon iconName on/off" );
                 Debug.Break();
             }
-            LocationManager.Instance.SetButton(parsedCommand[1], set);
+            locationManager.Instance.SetButton(parsedCommand[1], set);
         }
         else
         {

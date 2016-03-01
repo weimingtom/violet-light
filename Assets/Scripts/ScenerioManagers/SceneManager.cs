@@ -150,7 +150,7 @@ public class SceneManager : MonoBehaviour
         return !backgroundLookup.ContainsKey( bgName );
     }
 
-    void ChangeBackground( string backgroundName, float Speed = 0.5f )
+    private void ChangeBackground( string backgroundName, float Speed = 0.5f )
     {
         //Check if the requested background exists in the dictionary - debug mode only.
         if( Debug.isDebugBuild )
@@ -166,6 +166,13 @@ public class SceneManager : MonoBehaviour
         newBackgroundRend.color = new Color( 1f, 1f, 1f, 0f );
         deltaAlpha = Speed;
         SceneManager.Instance.SetInputBlocker( true );
+    }
+
+    public void ChangeBg(string backgroundName, float Speed = 0.5f)
+    {
+        newBackgroundRend.sprite = Resources.Load<Sprite>(backgroundLookup[backgroundName]);
+        newBackgroundRend.color = new Color(1f, 1f, 1f, 0f);
+        deltaAlpha = Speed;
     }
 
     void DoFade()

@@ -97,7 +97,7 @@ public class ItemInventory : MonoBehaviour
 
 	void SetMainImage(int buttonIndex)
     {
-        if( buttons[buttonIndex].image.sprite.texture.name != "UISprite"
+        if( buttons[buttonIndex].image.sprite.texture.name != ""
             && buttons[buttonIndex].image.sprite.texture.name != null)
         {
             TogglePresentButton(true);

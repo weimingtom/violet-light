@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ItemPrefab : MonoBehaviour
 {
-	public string name = "bloody_knife";
+	public string name;// = "bloody_knife";
 
 	void Update()
 	{

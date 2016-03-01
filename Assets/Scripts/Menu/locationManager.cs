@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 
-public class LocationManager : MonoBehaviour
+public class locationManager : MonoBehaviour
 {
-    public static LocationManager Instance;
+    public static locationManager Instance;
     public GameObject[] myButtons;
     public Dictionary<int, List<string>> mData;
     public bool initialize { get; set; }
