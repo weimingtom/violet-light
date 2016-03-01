@@ -33,6 +33,7 @@ public class CommandManager : MonoBehaviour
     List<Commands> myCommand;
     //testimony stuff
     Dictionary<int, List<Commands>> pushCommand;
+
     /////
     public bool next { get; set; }
     public bool back { get; set; }
