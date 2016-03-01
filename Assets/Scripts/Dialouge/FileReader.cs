@@ -88,6 +88,15 @@ public class FileReader : MonoBehaviour
     //update upload wrong scene here
     public void LoadScene( string _scene)
 	{
+        if (SceneManager.Instance.GetScenePlayed(_scene))
+        {
+            SceneManager.Instance.SetCanSkip(true);
+        }
+        else
+        {
+            SceneManager.Instance.SetCanSkip(false);
+
+        }
         Debug.Log("[File Reader] Loading in scene " + _scene);
         CommandManager.Instance.Reinitialize();
 		TextAsset command = Resources.Load(scriptFolder + _scene) as TextAsset;

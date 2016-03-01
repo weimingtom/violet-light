@@ -45,9 +45,9 @@ show Policeman Offscreen
 show Violet Offscreen
 show Alexander Center
 
-$/$ “<color=blue> This is me, Alexander Strong. I’m a criminal psychologist, trying to learn as much from Violet as possible.</color>”
+$/$ “<color=blue>This is me, Alexander Strong. I’m a criminal psychologist, trying to learn as much from Violet as possible.</color>”
 
-$/$ “<color=blue> But we keep getting wrapped up in misadventures like our current predicament.</color>”
+$/$ “<color=blue>But we keep getting wrapped up in misadventures like our current predicament.</color>”
 
 bg police_station
 

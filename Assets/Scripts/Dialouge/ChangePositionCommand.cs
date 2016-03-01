@@ -20,6 +20,8 @@ public class ChangePositionCommand : Commands
 	public override bool ExecuteCommand()
 	{
         CharacterManager.Positions myPos = CharacterManager.Positions.Offscreen;
+
+        Debug.Log("[Change Pose Command] Setting Position to " + newPosition);        
         switch( newPosition )
         {
         case "offscreen":

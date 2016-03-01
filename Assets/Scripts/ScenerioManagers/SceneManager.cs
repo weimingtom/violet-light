@@ -314,4 +314,9 @@ public class SceneManager : MonoBehaviour
     {
         return CanSkip;
     }
+
+    public void SetCanSkip(bool newBool)
+    {
+        CanSkip = newBool;
+    }
 }

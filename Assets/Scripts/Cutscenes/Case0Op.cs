@@ -15,6 +15,7 @@ public class Case0Op : MonoBehaviour
         panDelay += Time.time;
         MenuManager.instance.ToggleMenuAccess();
         FileReader.Instance.LoadScene( opScene );
+        SceneManager.Instance.SetCanSkip(false);
 	}
 	
 	// Update is called once per frame
@@ -40,7 +41,10 @@ public class Case0Op : MonoBehaviour
     {
         MenuManager.instance.ToggleMenuAccess(true);
         SceneManager.Instance.ChangeScene( 1 );
+        SceneManager.Instance.SetCanSkip(true);
         Destroy( this.gameObject );
+
+
 
     }
 

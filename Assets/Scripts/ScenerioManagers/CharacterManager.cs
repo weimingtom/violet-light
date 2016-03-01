@@ -73,7 +73,7 @@ public class CharacterManager : MonoBehaviour {
         if(newPosition == Positions.Offscreen)
             fadeSpeed *= -1;
         
-        characterList[character].SetForMovement(newPosition, facing, fadeSpeed, easeSpeed);
+        characterList[character.ToLower()].SetForMovement(newPosition, facing, fadeSpeed, easeSpeed);
     }
 
     public void ChangeCharacterPose(string name, string pose)
@@ -81,7 +81,7 @@ public class CharacterManager : MonoBehaviour {
         try
         {
             Debug.Log( "Success ! [Character Manager] name : " + name + "[Character Manager] pose : "  + pose);
-            characterList[name].ChangePose( pose );
+            characterList[name.ToLower()].ChangePose(pose);
         }
         catch( KeyNotFoundException )
         {
@@ -102,7 +102,7 @@ public class CharacterManager : MonoBehaviour {
     }
     public void addCharacter( string key, string name )
     {
-        characterList.Add( key, new CharacterManager.Character() );
+        characterList.Add(key.ToLower(), new CharacterManager.Character());
         characterList[key].Initialize( name );
     }
     public void AddCharacterPose( string key, string poseName, string posePath )
@@ -242,8 +242,8 @@ public class CharacterManager : MonoBehaviour {
 
         //TODO: change these to be able to adapt to the screen size. NO MORE MAGIC NUMBERS
         private Vector3 FindStartPlace( Positions position )
-        { 
-            Vector3 startPlace;
+        {
+            Vector3 startPlace =  Vector3.zero;;
              switch(position)
              {
                 case Positions.Left1:
@@ -255,7 +255,8 @@ public class CharacterManager : MonoBehaviour {
                 break;
 
                 case Positions.Centre:
-                startPlace = new Vector3(0.0f, yValue, zValue);
+                startPlace = new Vector3(0.0f, yValue-3.0f, zValue);
+                Debug.Log("[Char Manager] Start place is Center!");
                 break;
 
                 case Positions.Right1:
@@ -267,7 +268,6 @@ public class CharacterManager : MonoBehaviour {
                 break;
          
                 case Positions.Offscreen:
-                default:
                 startPlace = new Vector3( mPortrait.transform.position.x, mPortrait.transform.position.y, mPortrait.transform.position.z );
                 break;
              }
@@ -276,7 +276,7 @@ public class CharacterManager : MonoBehaviour {
         }
         private Vector3 FindEndPlace( Positions position ) 
         {
-            Vector3 endPlace;
+            Vector3 endPlace = Vector3.zero;
             switch( position )
             {
             case Positions.Left1:
@@ -300,7 +300,6 @@ public class CharacterManager : MonoBehaviour {
             break;
 
             case Positions.Offscreen:
-            default:
             endPlace = new Vector3( mPortrait.transform.position.x, mPortrait.transform.position.y, mPortrait.transform.position.z );
             break;
             }

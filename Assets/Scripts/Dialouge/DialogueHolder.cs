@@ -44,15 +44,19 @@ public class DialogueHolder : MonoBehaviour
     }
     public void AddDialogue(ref string header, string content )
     {
+        // NOTE(jesse) This should get rid of the extra space at the beginning of all dialogue
+
+        string newContent = content.ToString();
+        content.TrimStart(' ');
         if( !dialogue.ContainsKey( header.ToLower() ) )
         {
-            dialogue.Add( header.ToLower(), content.ToString() );
+            dialogue.Add( header.ToLower(), newContent );
         }
         else
         {
             header += "_" + index.ToString();
             index++;
-            dialogue.Add( header.ToLower(), content.ToString() );
+            dialogue.Add( header.ToLower(), newContent );
         }
     }
     public string GetDialogue( string index )
