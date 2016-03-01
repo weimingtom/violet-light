@@ -339,7 +339,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -577,14 +579,6 @@ Prefab:
       propertyPath: menuButtonBlocker
       value: 
       objectReference: {fileID: 173200067}
-    - target: {fileID: 11473076, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11415000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: cutscene
-      value: 
-      objectReference: {fileID: 138170, guid: 6a23b7e27469ace428f6d3bcd055b285, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_IsPrefabParent: 0
