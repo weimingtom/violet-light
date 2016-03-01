@@ -151,7 +151,7 @@ public class StringParser : MonoBehaviour
     {
         char[] delimiter;
         string[] parsedCommand;
-        delimiter = new char[2];
+        delimiter = new char[4];
         //delimiter = new char[4];
         delimiter[0] = '$';
         delimiter[1] = '"';
