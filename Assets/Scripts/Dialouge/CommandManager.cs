@@ -27,8 +27,12 @@ public class CommandManager : MonoBehaviour
     static public CommandManager Instance;
 
     int commandTracker;
+    
+    //testimony stuff
     List<Commands> myCommand;
-
+    Dictionary<int, List<Commands>> pushCommand;
+    public int trackPushCommandIdx { get; set; }
+    /////
     public bool next { get; set; }
     public bool back { get; set; }
     public bool testimonyDone { get; set; }
@@ -49,6 +53,8 @@ public class CommandManager : MonoBehaviour
         commandTracker = 0;
         falseCommand = new Dictionary<string, ShowTextCommand>();
         myCommand = new List<Commands>();
+        pushCommand = new Dictionary<int, List<Commands>>();
+        trackPushCommandIdx = 0;
     }
 
     void UpdateButton()
@@ -125,7 +131,6 @@ public class CommandManager : MonoBehaviour
 		myBannerBox.gameObject.SetActive (status);
 	}
 
-
     //testimony stuff
     public void PushButton()
     {
@@ -154,6 +159,20 @@ public class CommandManager : MonoBehaviour
     public void AddCommand(Commands command)
     {
         myCommand.Add(command);
+    }
+
+    public void AddPushCommand(int pushIndex, Commands command)
+    {
+        if( !pushCommand.ContainsKey( pushIndex ) )
+        {
+            List<Commands> temporaryCommand = new List<Commands>();
+            temporaryCommand.Add( command );
+            pushCommand.Add( pushIndex, temporaryCommand );
+        }
+        else
+        {
+            pushCommand[pushIndex].Add(command);
+        }
     }
 
     // prompt is constructed by
@@ -186,10 +205,7 @@ public class CommandManager : MonoBehaviour
                 //fail
                 showFalseDialogue = true;
             }
-            
         }
-
-
     }
 
     public void Reinitialize()
@@ -228,6 +244,7 @@ public class CommandManager : MonoBehaviour
 			    }
                 if( myCommand[commandTracker].commandTag == "testimonyCommand" )
                 {
+                    myCommand[commandTracker].ExecuteCommand();
                     ResetNextBackBool();
                 }
 		    }

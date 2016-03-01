@@ -25,7 +25,7 @@ pose Sharp Nervous
 -$SP$ "That we don't know yet..."
 pose Sharp Serious
 -$SP$ "But we're working on it."
--$SP$ "What we do know is..." 
+-$SP$ "What we do know is..."
 
 +$SP$ "Once we identified the body we went to investigate the sister's shop, and when we arrived we found our suspect's shoes outside."
 pose Alexander Thinking

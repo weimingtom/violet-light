@@ -43,14 +43,17 @@ public class StringParser : MonoBehaviour
             }
             if( testimony )
             {
-                TestimonyCommand tesCmd = new TestimonyCommand();
+                //TestimonyCommand tesCmd = new TestimonyCommand();
                 for( Int16 i = 0; i < extractedWord.Length; i++ )
                 {
                     string passed = extractedWord[i].TrimStart('\t');
-                    ParseCommand( ref tesCmd, passed );
+                    //ParseCommand( ref tesCmd, passed );
                     extractedWord[i].ToLower();
                     //Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
                 }
+                //CommandManager.Instance.AddCommand(tesCmd);
+                Debug.Log("[Run Parse] Finished Parsing!");
+                Debug.Break();
             }
             else
             {
