@@ -17,6 +17,7 @@ public class Case0Op : MonoBehaviour
         MenuManager.instance.ToggleMenuAccess();
         FileReader.Instance.LoadScene( opScene );
         SceneManager.Instance.SetCanSkip(false);
+        FadeOutScreen.instance.BeginFade(-1);
 	}
 	
 	// Update is called once per frame
