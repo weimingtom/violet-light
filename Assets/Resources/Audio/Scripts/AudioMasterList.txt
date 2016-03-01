@@ -4,10 +4,11 @@ drama_theme Audio/Music/Alt_Theme_Drama
 theme Audio/Music/Theme
 violetstheme Audio/Music/Violet_Theme
 Crime Audio/Music/Crime
-Fisherman Audio/Music/Fisherman
-Market Audio/Music/Market
+Fisherman Audio/Music/Idea
+Market Audio/Music/Waltz
 Mountain Audio/Music/Violet_Theme
 Music Audio/Music/Music
-Police Audio/Music/Police
+Police Audio/Music/Soul
 Sax Audio/Music/Sax
 Waltz Audio/Music/Waltz
+alt_theme Audio/Music/Alt_Theme_Drama

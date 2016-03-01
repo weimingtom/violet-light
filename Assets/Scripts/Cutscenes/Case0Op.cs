@@ -11,6 +11,7 @@ public class Case0Op : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        MusicManager.instance.ChangeSong("alt_theme");
         doneOnce = new bool[2];
         panDelay += Time.time;
         MenuManager.instance.ToggleMenuAccess();
