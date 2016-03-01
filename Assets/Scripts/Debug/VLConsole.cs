@@ -82,8 +82,21 @@ public class VLConsole : MonoBehaviour
             break;
             case ("save"):
             {
+                SaveLoad.Load();
+                if( commandSeg.Length > 1 )
+                {
+                    SaveLoad.Save( int.Parse( commandSeg[1] ) );
+                }
+                else
                 SaveLoad.Save();
+
             } 
+            break;
+            case ("load"):
+            {
+                SaveLoad.Load();
+                SaveLoad.LoadGame( int.Parse( commandSeg[1] ) );
+            }
             break;
             case ("skip"):
             {

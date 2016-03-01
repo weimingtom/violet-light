@@ -339,9 +339,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -721,6 +719,14 @@ Prefab:
       propertyPath: cursorHotspot.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11415000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434496, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: cutscene
+      value: 
+      objectReference: {fileID: 138170, guid: b6195fc1c492a994aac2cad25313af68, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_IsPrefabParent: 0
@@ -1235,10 +1241,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
-    - target: {fileID: 133394, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
-      propertyPath: m_Name
-      value: Text Screen
-      objectReference: {fileID: 0}
     - target: {fileID: 11477200, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1251,17 +1253,9 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1796020164}
-    - target: {fileID: 112598, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 112328, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 133960, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 133394, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}
+      propertyPath: m_Name
+      value: Text Screen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40b55ab20cdd84447b2f45945dff0239, type: 2}

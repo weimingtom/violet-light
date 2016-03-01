@@ -179,6 +179,7 @@ public class TitleManager : MonoBehaviour
 
         }
     }
+
     private void DoNewGame()
     {
         timer += Time.deltaTime;
@@ -188,7 +189,7 @@ public class TitleManager : MonoBehaviour
         }
         else if( timer >= 3.0f )
         {
-            Application.LoadLevel( "MainScene" );
+            GameManager.instance.StartGame( true );
         }
     }
     private void DoLoadGame()
@@ -297,7 +298,8 @@ public class TitleManager : MonoBehaviour
     private void LoadButtonClicked(int id)
     {
         Debug.Log( "Loading Game " + id );
-        SaveLoad.LoadGame( id );
+
+        GameManager.instance.StartGame( false, id);
     }
 
     //button Movement

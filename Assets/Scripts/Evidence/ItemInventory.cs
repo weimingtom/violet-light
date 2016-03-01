@@ -143,4 +143,10 @@ public class ItemInventory : MonoBehaviour
         ItemManager.Instance.SetLoadInventory( false );
     }
 
+    public void ResetInventory()
+    {
+        
+
+    }
+
 }

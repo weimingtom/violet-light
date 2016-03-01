@@ -65,9 +65,9 @@ public class ItemManager : MonoBehaviour
         }//TODO(Hendry): add support for multiple page
 	}
 
-	void ResetInventory()
+	public void ResetInventory()
 	{
-
+        playerItems.Clear();
 	}
 
 	void TemporaryLoad()

@@ -1,25 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour 
+{
 
-    bool newGame = true;
-    public GameObject cutscene;
+    public static GameManager instance;
 
-	// Use this for initialization
-	void Start () 
+
+    public bool newGame {get; set;}
+    public int gameToLoad {get; set;}
+
+    void Awake()
     {
-        SceneManager.Instance.LoadCase( 1 );
-        FadeOutScreen.instance.BeginFade( -1 );
-        if( newGame )
-        { 
-            //SceneManager.Instance.ChangeScene(0);
-            GameObject newCutscene = Instantiate(cutscene);
+
+        if( instance == null )
+        {
+            newGame = true;
+            gameToLoad = -1; 
+            instance = this;
+            DontDestroyOnLoad( gameObject );
         }
         else
         {
-            SceneManager.Instance.LoadGame(SaveLoad.savedGames[0]);
+            Destroy( this );
         }
-	}
+
+    }
+
+    public void StartGame(bool _newGame, int _gameToLoad = -1)
+    {
+        newGame = _newGame;
+        gameToLoad = _gameToLoad;
+        Application.LoadLevel( "MainScene" );
+    }
 
 }

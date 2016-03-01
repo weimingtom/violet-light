@@ -48,6 +48,7 @@ public class SceneManager : MonoBehaviour
     public Vector2 cursorHotspot = new Vector2( 16, 16 );
 
     private Vector3 defaultCameraPos;
+    public GameObject cutscene;
     
     public void AdvQuest()
     {
@@ -78,6 +79,8 @@ public class SceneManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        Debug.Log( "[Scene Manager] Awakened from my eternal slumber!" );
+
         // Create GameObject
         ScreenBlocker = Instantiate( ScreenBlocker, new Vector3(0,0,-8), Quaternion.identity ) as GameObject;
         currBackground = new GameObject( "Background" );
@@ -94,6 +97,22 @@ public class SceneManager : MonoBehaviour
         defaultCameraPos = Camera.main.transform.position;
     }
 
+    void Start()
+    {
+        SceneManager.Instance.LoadCase( 1 );
+        FadeOutScreen.instance.BeginFade( -1 );
+
+        if( GameManager.instance.newGame )
+        {
+            //SceneManager.Instance.ChangeScene(0);
+            GameObject newCutscene = Instantiate( cutscene );
+        }
+        else
+        {
+            SceneManager.Instance.LoadGame( SaveLoad.savedGames[GameManager.instance.gameToLoad] );
+        }
+    }
+
     void Update()
     {
         SceneStart();
@@ -102,10 +121,14 @@ public class SceneManager : MonoBehaviour
 
     public void LoadGame(Game loadedGame)
     {
-        currentScene = loadedGame.currentScene;
+        ItemManager.Instance.ResetInventory();
+        ScenesPlayed.Clear();
+        ChangeScene(loadedGame.currentScene);
         QuestStage = loadedGame.questStage;
         foreach (string item in loadedGame.inventory)
             ItemManager.Instance.AddItem(item);
+        foreach( string strScene in loadedGame.playedScenes )
+            ScenesPlayed.Add( strScene, true );
     }
 
     public void SetCursor(bool sparkle)
@@ -239,6 +262,19 @@ public class SceneManager : MonoBehaviour
     public void SetScenePlayed(string scene, bool played = true)
     {
         ScenesPlayed.Add(scene, true);
+    }
+
+    public List<string> GetAllScenesPlayed()
+    {
+        List<string> newScenesPlayed = new List<string>();
+
+        foreach (string newScene in ScenesPlayed.Keys)
+        {
+            newScenesPlayed.Add( newScene );
+        }
+
+
+        return newScenesPlayed;
     }
 
     public bool GetScenePlayed(string scene)

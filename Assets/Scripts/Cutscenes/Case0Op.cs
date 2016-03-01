@@ -28,12 +28,12 @@ public class Case0Op : MonoBehaviour
             GetComponent<PanDown>().StartPan();
             doneOnce[0] = true;
         }
-        if( Time.time > bodyPanDelay && !doneOnce[1] )
+        else if( Time.time > bodyPanDelay && !doneOnce[1] )
         {
             GetComponentInChildren<Case0Body>().StartPan();
             doneOnce[1] = true;
         }
-        if(doneOnce[1] && !SceneManager.Instance.GetInputBlocker())
+        else if(doneOnce[1] && !SceneManager.Instance.GetInputBlocker())
         {
             End();
         }

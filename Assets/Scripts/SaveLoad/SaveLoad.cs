@@ -22,7 +22,8 @@ public class Game
     public int questStage;
     public int currentScene;
     public string currentCaseFile;
-    public List<string> inventory;
+    public List<string> inventory= new List<string>();
+    public List<string> playedScenes;
 
     public Game()
     {
@@ -35,6 +36,7 @@ public class Game
 
         //this will change to GetHeldItems( ref inventory ) in the next update
         ItemManager.Instance.GetHeldItem( ref inventory );
+        playedScenes = SceneManager.Instance.GetAllScenesPlayed();
         
     }
 
@@ -46,7 +48,7 @@ public static class SaveLoad
 {
     //can me used for multiple save files!
     public static List<Game> savedGames = new List<Game>();
-    private const string VLSaveFile = "/saveGames.vls";
+    private const string VLSaveFile = "./saveGames.vls";
 
     public static void Save()
     {
@@ -55,7 +57,26 @@ public static class SaveLoad
         FileStream file = File.Create( Application.persistentDataPath + VLSaveFile );
         bf.Serialize( file, SaveLoad.savedGames );
         file.Close();
+        Debug.Log( Application.persistentDataPath );
     }
+
+
+    public static void Save(int Savefile)
+    {
+        if(savedGames.Count < Savefile)
+        {
+            Debug.Log( "[SAve Load] Saved file tried to save to " + Savefile.ToString() + "When save file length is only " + savedGames.Count.ToString() );
+            return;
+        }
+        savedGames[Savefile] = ( new Game() );
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create( Application.persistentDataPath + VLSaveFile );
+        bf.Serialize( file, SaveLoad.savedGames );
+        file.Close();
+        Debug.Log( Application.persistentDataPath );
+    }
+
+
 
     public static void Load()
     {
@@ -71,6 +92,7 @@ public static class SaveLoad
     public static void LoadGame( int id )
     {
         Debug.Log( "Loading Game " + id );
+        SceneManager.Instance.LoadGame(savedGames[id]);
     }
 	
 }
