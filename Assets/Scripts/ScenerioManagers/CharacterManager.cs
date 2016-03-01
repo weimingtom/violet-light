@@ -23,8 +23,8 @@ public class CharacterManager : MonoBehaviour {
     /************************ CHARACTER CODE ******************************/
     private Dictionary<string, Character> characterList = new Dictionary<string,Character>();
     
-    public const float defaultEasingDuration = 2.0f;
-    public const float defaultDeltaAlpha = 2.5f;
+    public float defaultEasingDuration = 2.0f;
+    public float defaultDeltaAlpha = 2.5f;
     private const float zValue = -3.0f;
 
     static public CharacterManager Instance;
@@ -58,8 +58,16 @@ public class CharacterManager : MonoBehaviour {
         }   
     }
     
-    public void ChangePosition(string character, Positions newPosition = Positions.Offscreen, Facings facing = Facings.auto, float fadeSpeed = defaultDeltaAlpha, float easeSpeed = defaultEasingDuration) 
+    public void ChangePosition(string character, Positions newPosition = Positions.Offscreen, Facings facing = Facings.auto, float fadeSpeed = 0, float easeSpeed = 0) 
     {
+        if(fadeSpeed == 0)
+        {
+            fadeSpeed = defaultDeltaAlpha;
+        }
+        if (easeSpeed == 0)
+        {
+            easeSpeed = defaultEasingDuration;
+        }
         changingPortraits.Add(character);
 
         if(newPosition == Positions.Offscreen)

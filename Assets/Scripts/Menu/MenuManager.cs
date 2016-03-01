@@ -58,10 +58,10 @@ public class MenuManager : MonoBehaviour
 	}
 
     // NOTE(jesse): Enable and disables the menu buttons and the ability to open the menu
-    public void ToggleMenuAccess()
+    public void ToggleMenuAccess(bool enable = false)
     {
-        menuButton.SetActive(false);
-        menuButtonBlocker.SetActive( false );
+            menuButton.SetActive(enable);
+            menuButtonBlocker.SetActive(enable);
     }
 
 	public void ToggleMenu()

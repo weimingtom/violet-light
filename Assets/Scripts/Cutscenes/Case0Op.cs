@@ -38,8 +38,10 @@ public class Case0Op : MonoBehaviour
 
     public void End()
     {
+        MenuManager.instance.ToggleMenuAccess(true);
         SceneManager.Instance.ChangeScene( 1 );
-        Destroy( gameObject );
+        Destroy( this.gameObject );
+
     }
 
 }
