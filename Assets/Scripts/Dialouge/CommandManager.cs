@@ -28,10 +28,10 @@ public class CommandManager : MonoBehaviour
 
     int commandTracker;
     
-    //testimony stuff
     List<Commands> myCommand;
+    //testimony stuff
     Dictionary<int, List<Commands>> pushCommand;
-    public int trackPushCommandIdx { get; set; }
+    List<int> pushCommandCoordinate = List<int>();
     /////
     public bool next { get; set; }
     public bool back { get; set; }
@@ -54,7 +54,6 @@ public class CommandManager : MonoBehaviour
         falseCommand = new Dictionary<string, ShowTextCommand>();
         myCommand = new List<Commands>();
         pushCommand = new Dictionary<int, List<Commands>>();
-        trackPushCommandIdx = 0;
     }
 
     void UpdateButton()
@@ -161,17 +160,18 @@ public class CommandManager : MonoBehaviour
         myCommand.Add(command);
     }
 
-    public void AddPushCommand(int pushIndex, Commands command)
+    public void AddPushCommand( Commands command)
     {
-        if( !pushCommand.ContainsKey( pushIndex ) )
+        int commandCount = myCommand.Count - 1;
+        if( !pushCommand.ContainsKey( commandCount ) )
         {
             List<Commands> temporaryCommand = new List<Commands>();
             temporaryCommand.Add( command );
-            pushCommand.Add( pushIndex, temporaryCommand );
+            pushCommand.Add( commandCount, temporaryCommand );
         }
         else
         {
-            pushCommand[pushIndex].Add(command);
+            pushCommand[commandCount].Add( command );
         }
     }
 

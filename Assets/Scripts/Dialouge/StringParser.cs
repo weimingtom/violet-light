@@ -37,7 +37,8 @@ public class StringParser : MonoBehaviour
             string[] extractedWord = mainString.Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
             Debug.Log( "[RunParse] wordLength : " + extractedWord.Length );
             
-            if( extractedWord[0][0] == '[' )
+            if( extractedWord[0][0] == '['
+                && extractedWord[0][0] == 't' )
             {
                 testimony = true;
             }
@@ -47,7 +48,7 @@ public class StringParser : MonoBehaviour
                 for( Int16 i = 0; i < extractedWord.Length; i++ )
                 {
                     string passed = extractedWord[i].TrimStart('\t');
-                    //ParseCommand( ref tesCmd, passed );
+                    ParseCommandTestimony( passed );
                     extractedWord[i].ToLower();
                     //Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
                 }
@@ -77,7 +78,7 @@ public class StringParser : MonoBehaviour
         }
     }
 
-    void ParseCommand( ref TestimonyCommand tes, string str )
+    void ParseCommandTestimony( string command )
     {
         /*
          *[0] 
@@ -87,75 +88,42 @@ public class StringParser : MonoBehaviour
          */
         string[] extracted; 
         //check if
-        if( str[0] == '[' )
+        if( command[0] == '[' && command[1] == 't' )
         {
             //item//
             char[] delimiter = { ' ', ']', '[' };
-            extracted = str.Split( delimiter, StringSplitOptions.RemoveEmptyEntries );
+            extracted = command.Split( delimiter, StringSplitOptions.RemoveEmptyEntries );
             CommandManager.Instance.correctItem = extracted[2];
             CommandManager.Instance.presentItemIndex = int.Parse(extracted[1]);
             CommandManager.Instance.dialogueToLoad = extracted[3];
         }
         else
         {
-            char[] delimiter = { '\t', '+', '$', '"', '-' };
-            switch( str[0] )
+            //do testimony part
+            //char[] delimiter = { '\t', '+', '$', '"', '-' };
+            if( command[0] == '+' && command[0] == '$' )
             {
-            //main
-            case '+':
-            extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
-            if( extracted.Length == 2 )
-            {
-                tes.AddMainStatement( extracted[0], extracted[1] );
+                CommandManager.Instance.AddCommand( RegisterTextCommand( command ) );
             }
-            else if( extracted.Length == 3 )
+            else if( command[0] == '+' && command[0] != '$' )
             {
-                tes.AddMainStatement( extracted[0], extracted[1] );
+                CustomCommand( command,  false);
             }
-            else
+            else if( command[0] == '-' && command[0] == '$' )
             {
-                Debug.Log( "[Parse Command]Unexpected number of character" + extracted.Length );
-                Debug.Break();
+                CommandManager.Instance.AddPushCommand( RegisterTextCommand( command ) );
             }
-            break;
-            //push
-            case '-':
-            extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
-            if( extracted.Length == 2 )
+            else if( command[0] == '-' && command[0] != '$' )
             {
-                tes.AddPushStatement( extracted[0], extracted[1] );
+                CustomCommand( command, true );
             }
-            else if( extracted.Length == 3 )
+            else if( command[0] == '$' )
             {
-                tes.AddPushStatement( extracted[0], extracted[1] );
+                CommandManager.Instance.AddCommand( RegisterTextCommand( command ) );
             }
             else
             {
-                Debug.Log( "[Parse Command]Unexpected number of character" + extracted.Length );
-                Debug.Break();
-            }
-            break;
-            //end statement
-            case '$':
-            extracted = str.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
-            if( extracted.Length == 2 )
-            {
-                tes.AddEndStatement( extracted[0], extracted[1] );
-            }
-            else if( extracted.Length == 3 )
-            {
-                tes.AddEndStatement( extracted[0], extracted[1] );
-            }
-            else
-            {
-                Debug.Log( "[Parse Command]Unexpected number of character" + extracted.Length );
-                Debug.Break();
-            }
-            break;
-            default:
-            //other command
-            CustomCommand( str );
-            break;
+                CustomCommand( command, false );
             }
         }
     }
@@ -177,13 +145,15 @@ public class StringParser : MonoBehaviour
         }
     }
 
-    ShowTextCommand RegisterTextCommand( string main )
+    ShowTextCommand RegisterTextCommand( string main)
     {
         char[] delimiter;
         string[] parsedCommand;
-        delimiter = new char[2];
+        delimiter = new char[4];
         delimiter[0] = '$';
         delimiter[1] = '"';
+        delimiter[2] = '+';
+        delimiter[3] = '-';
         parsedCommand = main.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
         if( parsedCommand.Length == 3 )
         {
@@ -193,13 +163,12 @@ public class StringParser : MonoBehaviour
         {
             DialogueHolder.Instance.AddDialogue( ref parsedCommand[0], parsedCommand[1] );
         }
-
         ShowTextCommand showText = new ShowTextCommand();
         showText.SetConversation(parsedCommand[0].ToLower());
         return showText;
     }
 
-    void CustomCommand( string command )
+    void CustomCommand( string command, bool pushCommand = false )
     {
         char[] delimiter = new char[2];
         delimiter[0] = ' ';
@@ -218,7 +187,14 @@ public class StringParser : MonoBehaviour
                 bgc.SetSpd(int.Parse(parsedCommand[2]));
 
             }
-            CommandManager.Instance.AddCommand(bgc);
+            if( pushCommand )
+            {
+                CommandManager.Instance.AddPushCommand(bgc);
+            }
+            else
+            {
+                CommandManager.Instance.AddCommand( bgc );
+            }
         }
 
         break;
@@ -232,7 +208,15 @@ public class StringParser : MonoBehaviour
         {
             character.SetCharacterName( parsedCommand[1].ToLower() );
             character.SetSpawnLocation( parsedCommand[2].ToLower() );
-            CommandManager.Instance.AddCommand( character );
+            if( pushCommand )
+            {
+                
+            }
+            else
+            {
+                CommandManager.Instance.AddCommand( character );
+                
+            }
         }
         break;
 

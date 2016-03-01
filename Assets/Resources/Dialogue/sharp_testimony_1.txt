@@ -1,51 +1,51 @@
 [Testimony] 3 Icy_Streets 3_station_middle
 
 +$SP$ "Look, your friend here is a very guilty person. And as the Ace Detective it is MY job to put her away."
-pose Violet Cocky
+-pose Violet Cocky
 -$VL$ "Ace detective? You really call yourself that? Kinda lame don't you think, Alexander?"
-pose Alexander Thinking
+-pose Alexander Thinking
 -$AX$ "I mean, I guess, but what's this have to do with the case, Violet?"
 -$VL$ "Absolutely nothing!"
-pose Alexander Unimpressed
+-pose Alexander Unimpressed
 -$AX$ "…"
-pose Sharp Upset
+-pose Sharp Upset
 -$SP$ "H hey! Don't gang up on me!"
 -$SP$ "Anyways, as I was saying..."
 
 +$SP$ "The body was found washed up in the River Thames and discovered by a passing fisherman."
-pose Violet Thinking
+-pose Violet Thinking
 -$VL$ "So how exactly do you think my client murdered the victim..."
-pose Violet Serious
+-pose Violet Serious
 -$VL$ "Dragged the body"
-pose Violet Unimpressed
+-pose Violet Unimpressed
 -$VL$ "And threw it in the river?"
-pose Sharp cocky
+-pose Sharp cocky
 -$SP$ "..."
-pose Sharp Nervous
+-pose Sharp Nervous
 -$SP$ "That we don't know yet..."
-pose Sharp Serious
+-pose Sharp Serious
 -$SP$ "But we're working on it."
 -$SP$ "What we do know is..."
 
 +$SP$ "Once we identified the body we went to investigate the sister's shop, and when we arrived we found our suspect's shoes outside."
-pose Alexander Thinking
+-pose Alexander Thinking
 -$AX$ "So you found her shoes outside?"
 -$SP$ "Correct."
-pose Alexander Cocky
+-pose Alexander Cocky
 -$AX$ "Well I mean wouldn't you expect to find her shoes outside her own store?"
-pose Violet Thinking
+-pose Violet Thinking
 -$VL$ "Yeah, she works there after all."
-pose Sharp Cocky
+-pose Sharp Cocky
 -$SP$ "Of course... but..."
 	
 
 +$SP$ "Here's the fun part, the soles of her boots, still wet and covered in salt residue. Proving she was near the river recently."
 -$VL$ "Is there anyother way salt could of gotten on to her boots?"
-pose Sharp Serious
+-pose Sharp Serious
 -$SP$ "Not possible."
-pose Violet Shocked
+-pose Violet Shocked
 -$VL$ "Wh what?"
-pose Violet Serious
+-pose Violet Serious
 -$VL$ "Are you sure?"
 -$SP$ "100%"
 -$SP$ "Anyways, regardless..."
@@ -55,10 +55,10 @@ pose Violet Serious
 -$VL$ "I mean she could have been on a walk, or something"
 -$SP$ "We already asked her if she was near the river."
 -$SP$ "She shook her head saying no."
-pose Violet Shocked
+-pose Violet Shocked
 -$VL$ "Oh no..."
 -$SP$ "So someone here is lying..."
-pose Sharp Cocky
+-pose Sharp Cocky
 -$SP$ "And it's not me!"
 
 // Ending Statement
