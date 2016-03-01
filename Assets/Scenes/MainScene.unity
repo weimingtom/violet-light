@@ -571,6 +571,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11489256, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: Effects.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 470988, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -727,6 +731,10 @@ Prefab:
       propertyPath: cutscene
       value: 
       objectReference: {fileID: 138170, guid: b6195fc1c492a994aac2cad25313af68, type: 2}
+    - target: {fileID: 11489256, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: Effects.Array.data[3]
+      value: 
+      objectReference: {fileID: 144574, guid: 855617872df0eaa4cb2ad0116f33b9bb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_IsPrefabParent: 0
