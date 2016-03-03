@@ -120,10 +120,6 @@ public class MenuManager : MonoBehaviour
             break;
             }
         }
-        else
-        {
-            ChangeState(state.Evidence);
-        }
     }
 
 

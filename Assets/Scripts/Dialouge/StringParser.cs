@@ -26,56 +26,39 @@ public class StringParser : MonoBehaviour
 
     public void RunParse( string mainString, bool isFalseItem = false )
     {
-        if( isFalseItem )
+        bool testimony = false;
+        char[] delimiterChar = { '\r', '\n', '\t' };
+        string[] extractedWord = mainString.Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
+        Debug.Log( "[RunParse] wordLength : " + extractedWord.Length );
+            
+        if( extractedWord[0][0] == '['
+            && (extractedWord[0][1] == 't'
+            || extractedWord[0][1] == 'T'))
         {
-            ParseFalseItem( mainString );
+            testimony = true;
+        }
+        if( testimony )
+        {
+            //TestimonyCommand tesCmd = new TestimonyCommand();
+            for( Int16 i = 0; i < extractedWord.Length; i++ )
+            {
+                string passed = extractedWord[i].TrimStart('\t');
+                ParseCommandTestimony( passed );
+                extractedWord[i].ToLower();
+                //Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
+            }
+            //CommandManager.Instance.AddCommand(tesCmd);
+            Debug.Log("[Run Parse] Finished Parsing!");
+            Debug.Break();
         }
         else
         {
-            bool testimony = false;
-            char[] delimiterChar = { '\r', '\n', '\t' };
-            string[] extractedWord = mainString.Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
-            Debug.Log( "[RunParse] wordLength : " + extractedWord.Length );
-            
-            if( extractedWord[0][0] == '['
-                && (extractedWord[0][1] == 't'
-                || extractedWord[0][1] == 'T'))
+            for( Int16 i = 0; i < extractedWord.Length; i++ )
             {
-                testimony = true;
+                ParseCommand( extractedWord[i] );
+                extractedWord[i].ToLower();
+                //Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
             }
-            if( testimony )
-            {
-                //TestimonyCommand tesCmd = new TestimonyCommand();
-                for( Int16 i = 0; i < extractedWord.Length; i++ )
-                {
-                    string passed = extractedWord[i].TrimStart('\t');
-                    ParseCommandTestimony( passed );
-                    extractedWord[i].ToLower();
-                    //Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
-                }
-                //CommandManager.Instance.AddCommand(tesCmd);
-                Debug.Log("[Run Parse] Finished Parsing!");
-                Debug.Break();
-            }
-            else
-            {
-                for( Int16 i = 0; i < extractedWord.Length; i++ )
-                {
-                    ParseCommand( extractedWord[i] );
-                    extractedWord[i].ToLower();
-                    //Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
-                }
-            }
-        }
-    }
-
-    public void ParseFalseItem( string str )
-    {
-        char[] delimiterChar = { '\r', '\n' };
-        string[] command = str.Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
-        for( int i = 0; i < command.Length; i+= 2 )
-        {
-           CommandManager.Instance.falseCommand[command[0]] = RegisterTextCommand( str );
         }
     }
 
@@ -280,7 +263,9 @@ public class StringParser : MonoBehaviour
         ItemManager.Instance.AddItem( parsedCommand[1].ToLower() );
         break;
 
-        case "decisions":
+        case "prompt":
+        CommandManager.Instance.correctItem = parsedCommand[1];
+        MenuManager.instance.ToggleMenu();
         break;
 
         case "advquest":
