@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 419910}
   - 114: {fileID: 11434420}
   m_Layer: 0
-  m_Name: SupriseChar
+  m_Name: SurpriseChar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

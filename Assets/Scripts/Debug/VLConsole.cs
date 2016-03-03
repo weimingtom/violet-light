@@ -104,6 +104,12 @@ public class VLConsole : MonoBehaviour
                 FindObjectOfType<Case0Op>().End();
             }
             break;
+            case ("surprise"):
+            {
+                Debug.Log( "Surpise " + commandSeg[1] );
+                FXManager.Instance.Spawn( "SurpriseChar", commandSeg[1] );
+            }
+            break;
         }
 
         commandInput.text = "";

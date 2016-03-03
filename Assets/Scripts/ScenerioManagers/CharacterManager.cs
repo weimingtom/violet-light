@@ -120,7 +120,6 @@ public class CharacterManager : MonoBehaviour {
             entry.Value.ChangePose( "neutral" );
         }
     }
-    //Hendry what i need to call
     public Positions GetPosition( string character )
     {
         try
@@ -133,13 +132,27 @@ public class CharacterManager : MonoBehaviour {
             return Positions.Left1;
         }
     }
+    public void GetCharacter( string character, ref GameObject charGameObj, ref short invert )
+    {
+        foreach( KeyValuePair<string, CharacterManager.Character> entry in characterList )
+        {
+            if( entry.Key == character )
+            {
+                charGameObj = entry.Value.GetGameObject();
+                if( entry.Value.GetFacing() == Facings.left )
+                    invert = 1;
+                else
+                    invert = -1;
+                return;
+            }
+        }
+        Debug.Log( "ERROR: Character " + character + " not found. [SurpriseChar]" );
+        invert = 0;
+        charGameObj = null;
+    }
 
     private class Character
     {
-
-        //May need to change expressions so there is functionality to change position
-        //of the face when the pose changes. This is to save memory and not save
-        //multiples of the same face just slightly moved or rotated.
 
         private string mName;
         public GameObject mGObject;
@@ -151,8 +164,6 @@ public class CharacterManager : MonoBehaviour {
 
         //list of filepaths to all expressions
         private Dictionary<string, string> mExpressions;
-        //private GameObject mExpressionGO; //not needed for now.
-        //private SpriteRenderer mExpressionRend;
 
         private List<bool> mFlags;  //will add functionality later if time.
         private int mAffinity;      //will add functionality later if time.
@@ -184,6 +195,8 @@ public class CharacterManager : MonoBehaviour {
         }
         public string GetName()
         {   return mName;   }
+        public GameObject GetGameObject()
+        { return mGObject; }
         public void AddToAffinity( int change )
         {
             mAffinity += change;
@@ -206,6 +219,8 @@ public class CharacterManager : MonoBehaviour {
         {
             //mExpressionRend.sprite = Resources.Load<Sprite>( mExpressions[expression] );
         }
+        public Facings GetFacing()
+        { return currentFacing;  }
 
         public void SetForMovement(Positions position, Facings facing, float fadeSpeed, float easeSpeed)
         {

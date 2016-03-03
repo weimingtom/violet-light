@@ -12,14 +12,16 @@ public class FXManager : MonoBehaviour {
         Instance = this;
     }
 
-    public void Spawn( string Name )
+    public void Spawn( string Name, string objName = null )
     {
         foreach( GameObject Effect in Effects )
         {
             if( Effect.name == Name )
             {
                 Debug.Log( "[FX Manager] Spawned Prop " + Name );
-                Instantiate( Effect, Vector3.zero, Quaternion.identity );
+                GameObject newObj = GameObject.Instantiate( Effect, Vector3.zero, Quaternion.identity ) as GameObject;
+                if( objName != null )
+                    newObj.GetComponent<SurpriseChar>().Init( objName );
                 return;
             }
         }
