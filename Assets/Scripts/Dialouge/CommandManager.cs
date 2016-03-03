@@ -6,9 +6,10 @@ using System.Collections.Generic;
 
 public class CommandManager : MonoBehaviour 
 {
+    static public CommandManager Instance;
+    
     int destroyCount;
     bool done;
-
     public string dialogueToLoad { get; set; }
     public string correctItem { get; set; }
     public int presentItemIndex { get; set; }
@@ -16,7 +17,7 @@ public class CommandManager : MonoBehaviour
     public bool prompt { get; set; }
     public int testimonyItemIndex { get; set;}
 
-    public bool testimonyMode { get; set; }
+    public bool testimonyMode { private get; set; }
 
     public Text myTextHolder;
     public Text myNameHolder;
@@ -26,19 +27,18 @@ public class CommandManager : MonoBehaviour
     public GameObject rightButton;
     public GameObject pushButton;
 
-    static public CommandManager Instance;
-
+    int pushCommandTracker;
     int commandTracker;
     
     List<Commands> myCommand;
     //testimony stuff
-    Dictionary<int, List<Commands>> pushCommand;
+    Dictionary<int, List<Commands>> myPushCommand;
 
     /////
     public bool next { get; set; }
     public bool back { get; set; }
     public bool testimonyDone { get; set; }
-    public bool push { get; set; }
+    public bool runPushCommand { get; set; }
 
     //false command
     public Dictionary<string, ShowTextCommand> falseCommand { get; set; }
@@ -48,28 +48,28 @@ public class CommandManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        push = false;
+        runPushCommand = false;
         myTextHolder.supportRichText = true;
         destroyCount = 0;
         done = false;
         testimonyMode = false;
         commandTracker = 0;
+        pushCommandTracker = 0;
         falseCommand = new Dictionary<string, ShowTextCommand>();
         myCommand = new List<Commands>();
-        pushCommand = new Dictionary<int, List<Commands>>();
+        myPushCommand = new Dictionary<int, List<Commands>>();
     }
 
     void UpdateButton()
     {
-        if( commandTracker > 0 && commandTracker < myCommand.Count )
+        if( commandTracker >= 0 && commandTracker < myCommand.Count )
         {
-            if( myCommand[commandTracker].commandTag == "testimonycommand" )
+            if( testimonyMode )
             {
-                SetTestimonyButton( true );
-            }
-            else
-            {
-                SetTestimonyButton( false );
+                if( runPushCommand == false )
+                {
+                    SetTestimonyButton(true);
+                }
             }
         }
         else
@@ -82,7 +82,7 @@ public class CommandManager : MonoBehaviour
     {
         leftButton.SetActive( toggle );
         rightButton.SetActive( toggle );
-        pushButton.SetActive(toggle);
+        pushButton.SetActive( toggle );
     }
 
     public void Terminate()
@@ -136,9 +136,9 @@ public class CommandManager : MonoBehaviour
     //testimony stuff
     public void PushButton()
     {
-        if( push == false )
+        if( runPushCommand == false )
         {
-            push = true;
+            runPushCommand = true;
         }
     }
 
@@ -150,12 +150,29 @@ public class CommandManager : MonoBehaviour
 
     public void NextButton()
     {
-        next = true;
+        //next = true;
+        myCommand[commandTracker].Reset();
+        commandTracker++;
+        if( commandTracker >= myCommand.Count )
+        {
+            ResetMainCommand();
+        }
     }
 
     public void BackButton()
     {
-        back = true;
+        do
+        {
+            myCommand[commandTracker].Reset();
+            commandTracker--;
+            if( commandTracker <= 0 )
+            {
+                commandTracker = 0;
+                break;
+            }
+        }
+        while( myCommand[commandTracker].commandTag != "showtextcommand" );
+        myCommand[commandTracker].Reset();
     }
 
     public void AddCommand(Commands command)
@@ -166,15 +183,15 @@ public class CommandManager : MonoBehaviour
     public void AddPushCommand( Commands command)
     {
         int commandCount = myCommand.Count - 1;
-        if( !pushCommand.ContainsKey( commandCount ) )
+        if( !myPushCommand.ContainsKey( commandCount ) )
         {
             List<Commands> temporaryCommand = new List<Commands>();
             temporaryCommand.Add( command );
-            pushCommand.Add( commandCount, temporaryCommand );
+            myPushCommand.Add( commandCount, temporaryCommand );
         }
         else
         {
-            pushCommand[commandCount].Add( command );
+            myPushCommand[commandCount].Add( command );
         }
     }
 
@@ -213,18 +230,29 @@ public class CommandManager : MonoBehaviour
 
     public void Reinitialize()
     {
+        runPushCommand = false;
         testimonyMode = false;
         showFalseDialogue = false;
         SetTestimonyButton( false );
         correctItem = "none";
         presentItemIndex = -1;
         testimonyItemIndex = -1;
+        pushCommandTracker = 0;
         destroyCount = 0;
         done = false;
         commandTracker = 0;
         myCommand.Clear();
-        pushCommand.Clear();
+        myPushCommand.Clear();
         falseCommand.Clear();
+    }
+
+    void ResetMainCommand()
+    {
+        commandTracker = 0;
+        for( int i = 0; i < myCommand.Count; i++ )
+        {
+            myCommand[i].Reset();
+        }
     }
 
     void Update()
@@ -240,21 +268,47 @@ public class CommandManager : MonoBehaviour
                 {
                     showFalseDialogue = false;
                 }
+                else
+                {
+                
+                }
             }
-		    else if(commandTracker < myCommand.Count)
+		    else if(commandTracker < myCommand.Count )
 		    {
-                if( myCommand[commandTracker].ExecuteCommand() ) 
-			    {
-				    commandTracker++;
-                    if( testimonyMode && commandTracker >= myCommand.Count )
+                if( runPushCommand )
+                {
+                    if( myPushCommand.ContainsKey( commandTracker ) )
                     {
-                        commandTracker = 0;
-                        for( int i = 0; i < myCommand.Count; i++ )
+                        if( myPushCommand[commandTracker][pushCommandTracker].ExecuteCommand() )
                         {
-                            myCommand[i].Reset();
+                            pushCommandTracker++;
+                            if( pushCommandTracker >= myPushCommand[commandTracker].Count )
+                            {
+                                pushCommandTracker = 0;
+                                for( int i = 0; i < myPushCommand[commandTracker].Count; i++ )
+                                {
+                                    myPushCommand[commandTracker][i].Reset();
+                                }
+                                runPushCommand = false;
+                            }
                         }
                     }
-			    }
+                    else
+                    {
+                        runPushCommand = false;
+                    }
+                }
+                else
+                {
+                    if( myCommand[commandTracker].ExecuteCommand() ) 
+			        {
+				        commandTracker++;
+                        if( testimonyMode && commandTracker >= myCommand.Count )
+                        {
+                            ResetMainCommand();
+                        }
+			        }
+                }
 		    }
 		    else if (commandTracker == myCommand.Count)
 		    {

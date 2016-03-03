@@ -251,14 +251,14 @@ public class StringParser : MonoBehaviour
             }
             else
             {
-                Debug.Log( "[String Parser]<color:red>wrong command</color> !! the format is icon iconName on/off" );
+                Debug.Log( "[String Parser]<color=red>wrong command</color> !! the format is icon iconName on/off" );
                 Debug.Break();
             }
             locationManager.Instance.SetButton(parsedCommand[1], set);
         }
         else
         {
-            Debug.Log( "[String Parser]<color:red>wrong command</color> !! the format is icon iconName on/off" );
+            Debug.Log( "[String Parser]<color=red>wrong command</color> !! the format is icon iconName on/off" );
             Debug.Break();
         }
 		break;
