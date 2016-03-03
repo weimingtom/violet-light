@@ -7,7 +7,7 @@ public class locationManager : MonoBehaviour
 {
     public static locationManager Instance;
     public GameObject[] myButtons;
-    public Dictionary<int, List<string>> mData;
+    public Dictionary<int, List<string>> mData = new Dictionary<int,List<string>>();
     public bool initialize { get; set; }
 	// Use this for initialization
 
@@ -15,12 +15,13 @@ public class locationManager : MonoBehaviour
     {
         Instance = this;
         initialize = true;
-        UpdateButton();
     }
 
     void Start()
     {
-        mData = StringParser.Instance.ReadLocationData( "Dialogue/locations_scene_1" );// + SceneManager.Instance.GetScene().ToString());
+        StringParser.Instance.ReadLocationData( ref mData ,"Dialogue/locations_scene_1" );// + SceneManager.Instance.GetScene().ToString());
+        UpdateButton();
+
     }
 
     public void UpdateButton()
@@ -48,7 +49,7 @@ public class locationManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("key does not exists!");
+                Debug.Log("<color=red>key does not exists!</color> key passed : " + key);
                 Debug.Break();
             }
         }

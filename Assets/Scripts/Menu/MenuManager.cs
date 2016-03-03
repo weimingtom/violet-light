@@ -88,37 +88,41 @@ public class MenuManager : MonoBehaviour
     public void TabPressed( string btn )
     {
         // TODO(jesse): THis is a quick hack to ensure that you don't travel during dialogue
-        if (!CommandManager.Instance.myBannerBox.activeInHierarchy)
+        if( !CommandManager.Instance.myBannerBox.activeInHierarchy )
         {
             //animateMenu = true;
-            switch (btn.ToLower())
+            switch( btn.ToLower() )
             {
-                case "btn_save_load":
-                    ChangeState(state.SaveLoad);
-                    break;
-                case "btn_evidence":
-                    ChangeState(state.Evidence);
-                    break;
-                case "btn_note":
-                    ChangeState( state.Note );
-                    break;
-                case "btn_location":
-                    ChangeState( state.Location );
-                    locationManager.Instance.UpdateButton();
-                    break;
-                case "btn_suspect":
-                    ChangeState( state.Suspect );
-                    break;
-                case "btn_puzzle":
-                    ChangeState( state.Puzzle );
-                    break;
-                case "btn_setting":
-                    ChangeState( state.Setting );
-                    break;
-                default:
-                    Debug.Log("ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn);
-                    break;
+            case "btn_save_load":
+            ChangeState( state.SaveLoad );
+            break;
+            case "btn_evidence":
+            ChangeState( state.Evidence );
+            break;
+            case "btn_note":
+            ChangeState( state.Note );
+            break;
+            case "btn_location":
+            ChangeState( state.Location );
+            locationManager.Instance.UpdateButton();
+            break;
+            case "btn_suspect":
+            ChangeState( state.Suspect );
+            break;
+            case "btn_puzzle":
+            ChangeState( state.Puzzle );
+            break;
+            case "btn_setting":
+            ChangeState( state.Setting );
+            break;
+            default:
+            Debug.Log( "ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn );
+            break;
             }
+        }
+        else
+        {
+            ChangeState(state.Evidence);
         }
     }
 

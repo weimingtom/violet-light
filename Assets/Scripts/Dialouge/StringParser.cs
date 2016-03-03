@@ -299,12 +299,12 @@ public class StringParser : MonoBehaviour
         }
     }
     
-    public Dictionary<int, List<string>> ReadLocationData( string loc )
+    public void ReadLocationData(ref Dictionary<int, List<string>> value, string loc )
     {
         char[] delimiter = { '\r', '\n' };
         string[] data = (Resources.Load( loc ) as TextAsset).ToString().Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
-        Dictionary<int, List<string>> value = new Dictionary<int, List<string>>();
-        string compare = "empty";
+        //Dictionary<int, List<string>> value = new Dictionary<int, List<string>>();
+        string compare = "";
         int currentID = 0;
         for( int i = 0; i < data.Length; i++ )
         {
@@ -317,14 +317,14 @@ public class StringParser : MonoBehaviour
             {
                 string[] id = data[i].ToString().Split( ' ' );
                 currentID = int.Parse( id[1] );
-                value[currentID] = new List<string>();
+                value.Add(currentID, new List<string>());
+                //value[currentID] = new List<string>();
             }
             else
             {
                 value[currentID].Add( data[i].ToLower() );
             }
         }
-        return value;
     }
 
     public void BackgroundReader( string mainString, ref Dictionary<string, string> _background )

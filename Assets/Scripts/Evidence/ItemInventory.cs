@@ -18,13 +18,12 @@ public class ItemInventory : MonoBehaviour
     void Awake()
 	{
 		Instance = this;
-        
+        Initialize();
 	}
 
     void Start()
     {
         ItemManager.Instance.SetLoadInventory( true );
-        Initialize();
         TogglePresentButton(false);
     }
 
@@ -97,8 +96,7 @@ public class ItemInventory : MonoBehaviour
 
 	void SetMainImage(int buttonIndex)
     {
-        if( buttons[buttonIndex].image.sprite.texture.name != ""
-            && buttons[buttonIndex].image.sprite.texture.name != null)
+        if( buttons[buttonIndex].image.sprite.texture.name != null )
         {
             TogglePresentButton(true);
             mainImageHolder.sprite = buttons[buttonIndex].image.sprite;

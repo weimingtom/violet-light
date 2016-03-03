@@ -62,7 +62,7 @@ public class CommandManager : MonoBehaviour
 
     void UpdateButton()
     {
-        if( commandTracker >= 0 && commandTracker < myCommand.Count )
+        if( commandTracker >= 0 && commandTracker < myCommand.Count && myCommand.Count != 0)
         {
             if( testimonyMode )
             {
@@ -180,7 +180,7 @@ public class CommandManager : MonoBehaviour
         myCommand.Add(command);
     }
 
-    public void AddPushCommand( Commands command)
+    public void AddPushCommand( Commands command )
     {
         int commandCount = myCommand.Count - 1;
         if( !myPushCommand.ContainsKey( commandCount ) )
@@ -220,11 +220,13 @@ public class CommandManager : MonoBehaviour
                 //commandTracker++;
                 FileReader.Instance.LoadScene( dialogueToLoad );
             }
-            else
-            {
-                //fail
-                showFalseDialogue = true;
-            }
+        }
+        else if(itemName.ToLower() != correctItem.ToLower())
+        {
+            //fail
+            Debug.Log("command manager : wrong item");
+            Debug.Break();
+            showFalseDialogue = true;
         }
     }
 
@@ -267,10 +269,6 @@ public class CommandManager : MonoBehaviour
                 if( falseCommand[falseDialogueName].ExecuteCommand() )
                 {
                     showFalseDialogue = false;
-                }
-                else
-                {
-                
                 }
             }
 		    else if(commandTracker < myCommand.Count )

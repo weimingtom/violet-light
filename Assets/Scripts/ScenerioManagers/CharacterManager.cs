@@ -129,7 +129,7 @@ public class CharacterManager : MonoBehaviour {
         }
         catch( KeyNotFoundException )
         {
-            Debug.Log("name[" + character + "] <color='red'>Postion not found!</red> is this intentional ??");
+            Debug.Log( "name[" + character + "] <color=red>Postion not found!</color> is this intentional ??" );
             return Positions.Left1;
         }
     }
