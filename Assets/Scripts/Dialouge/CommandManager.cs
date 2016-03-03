@@ -202,6 +202,11 @@ public class CommandManager : MonoBehaviour
     // option, and present stuff
     public void CheckItem(string itemName)
     {
+        if( myCommand.Count == 0 )
+        {
+            return;
+        }
+
         string itemFileName = SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" +  SceneManager.Instance.GetChar()  ;
 		if(!myBannerBox.gameObject.activeInHierarchy )
         {
@@ -318,7 +323,6 @@ public class CommandManager : MonoBehaviour
                 {
                     ResetWrongTextCommand();
                 }
-                showFalseDialogue = false;
             }
         }
         else if( commandTracker < myCommand.Count )

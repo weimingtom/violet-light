@@ -175,6 +175,7 @@ public class MenuManager : MonoBehaviour
     {
 		//Do fancy transition animation
         menu.SetActive(true);
+
 		//spawn input eater
 		SceneManager.Instance.SetInputBlocker(true);
     }
@@ -186,10 +187,10 @@ public class MenuManager : MonoBehaviour
 
         //set menu back to default state
         ChangeState( state.SaveLoad );
+
 		//reset menu hierarchy
         menu.SetActive(false);
-        //delte input eater
-        
+        //delete input eater
         // TODO(jesse): Hacky fix to input blocker disappearing while still in dialogue
         // so we need to make a better one
         if (!CommandManager.Instance.myBannerBox.activeInHierarchy)
