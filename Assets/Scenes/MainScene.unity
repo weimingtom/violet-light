@@ -289,6 +289,7 @@ GameObject:
   - 4: {fileID: 173200068}
   - 212: {fileID: 173200070}
   - 61: {fileID: 173200069}
+  - 114: {fileID: 173200071}
   m_Layer: 0
   m_Name: Blocker
   m_TagString: Untagged
@@ -303,7 +304,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 173200067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.23999977, y: -3.4000001, z: -8}
+  m_LocalPosition: {x: 7.51999998, y: -3.63000011, z: -9.31999969}
   m_LocalScale: {x: 8.46227741, y: 8.46227932, z: .604687512}
   m_Children: []
   m_Father: {fileID: 0}
@@ -344,9 +345,20 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -5
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 31205d36a1ebb88428c79cf53b150f1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &173200071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 173200067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85cc2e741b88d284dabc11c4e0aad8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &197668929 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 195010, guid: 686fd67966d2ee74dbac9a8027d83e2b, type: 2}

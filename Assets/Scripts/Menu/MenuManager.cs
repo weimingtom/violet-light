@@ -128,6 +128,15 @@ public class MenuManager : MonoBehaviour
     }
 
 
+    public bool MouseIsAboveInv { get; set; }
+
+    public bool CheckMouseAbove()
+    {
+
+        return MouseIsAboveInv;
+    }
+
+
     public void TravelButtonPressed(int btn)
     {
         SceneManager.Instance.ChangeScene(btn);

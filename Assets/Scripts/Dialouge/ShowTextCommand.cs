@@ -151,7 +151,10 @@ public class ShowTextCommand : Commands
                 {
                     if( Input.GetMouseButtonDown( 0 ) && skipCheck == false )
                     {
-                        return true;
+                        if(!MenuManager.instance.CheckMouseAbove())
+                        {
+                            return true;
+                        }
                     }
                     else
                     {
@@ -227,7 +230,7 @@ public class ShowTextCommand : Commands
             break;
             case ("m"):
             {
-                speed = defaultSpeed * 1.5f;
+                speed = defaultSpeed * 1.5f;    
             }
             break;
             case ("f"):
