@@ -7,8 +7,8 @@ public class ShowTextCommand : Commands
 	int indexPassed = 0;
 	float timeTracker = 0;
     // TODO(jesse): Make set speed command
-    public float speed  {get;set;}
     public float defaultSpeed = 0.015f;
+    public float speed = 0.015f;
     //0.035f
     string conversationTag = "";
     //string conversation = "";
@@ -25,7 +25,6 @@ public class ShowTextCommand : Commands
     bool pause = false;
     bool skipCheck = false;
     bool finishWithoutClick = false;
-
 
     public ShowTextCommand()
     {
@@ -137,9 +136,10 @@ public class ShowTextCommand : Commands
                 }
 			    else
 			    {
-				    timeTracker += Time.deltaTime;
+				    
 			    }
-			    return false;
+                timeTracker += Time.deltaTime;
+                return false;
             }
 		    else
 		    {
@@ -215,6 +215,33 @@ public class ShowTextCommand : Commands
         break;
         default:
         Debug.Log("[Show Text Command]command not found command : " + _tag);
+        break;
+        case "speed":
+        {
+            switch(_value)
+            {
+            case("s"):
+            {
+                speed =  defaultSpeed * 2.5f;
+            }
+            break;
+            case ("m"):
+            {
+                speed = defaultSpeed * 1.5f;
+            }
+            break;
+            case ("f"):
+            {
+                speed = defaultSpeed / 1000;
+            }
+            break;
+            default:
+            {
+                speed = ((float)(int.Parse(_value)))*0.001f;
+            }
+            break;
+            }
+        }
         break;
         }
     }

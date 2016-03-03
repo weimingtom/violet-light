@@ -279,7 +279,6 @@ public class StringParser : MonoBehaviour
             dialogue.SetLoad( parsedCommand[1].ToLower() );
             CommandManager.Instance.AddCommand( dialogue );
         }
-
         break;
         }
     }

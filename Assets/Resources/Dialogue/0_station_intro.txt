@@ -2,21 +2,19 @@
 
 //eff FadeIn
 
-$PL$ "WA-WAIT- [eff FlashScreen] [eff ScreenShake] [eff SoundEffect] You can't go in there!"
-
-
+$PL$ "[speed f]WA-WAIT- [eff ScreenShake][eff SoundEffect][speed s]You can't go in there!"
 
 pose Alexander Puzzled 
 show Violet Left2
 pose Violet Serious 
 
-$VL$ "You really shouldn't try to stop me, love."
+$VL$ "[speed m]You really shouldn't try to stop me, love."
 show Policeman Right2
 pose Policeman neutral
-$PL$ "It's my job to!"
+$PL$ "[speed f]It's my job to!"
 
 pose Violet unimpressed
-$VL$ "Right."
+$VL$ "[speed m]Right."
 pose Violet neutral
 
 // fade background to show only violet
@@ -32,11 +30,11 @@ bg police_station
 show Violet Left2
 show Policeman Right2
 
-$AX$ "Violet slow down!"
+$AX$ "[speed f]Violet [eff ScreenFlash][eff ScreenShake][eff SoundEffect]slow down!"
 
 show Alexander Left1
 
-$AX$ "At least let me catch up first!"
+$AX$ "At [eff ScreenFlash][eff ScreenShake][eff SoundEffect]least let [eff ScreenFlash][eff ScreenShake][eff SoundEffect]me catch up first! [eff ScreenFlash][eff ScreenShake][eff SoundEffect]"
 
 // fade background to show only Alex
 // move Alex to the center of screen
@@ -85,7 +83,7 @@ $PL$ "H-huh oh I see!"
 //$PL$ "What are you showing me that for? That's not getting you anywhere"
 //Alex Nervous
 //$VL$ "C'mon Alex think, we have [red]something[/red] that'll help us get through!"
-//$AX$ "R-Right! [eff FlashScreen] [eff ScreenShake] [eff SoundEffect]"
+//$AX$ "R-Right! [eff ScreenFlash] [eff ScreenShake] [eff SoundEffect]"
 //loop
 
 $PL$ "I-I'm terribly sorry! I'll let you through right now!"
