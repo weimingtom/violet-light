@@ -3,13 +3,3 @@ $AX$ "I'am not sure why this item is relevant to me"
 $VL$ "Why should this help the case?"
 
 $SP$ "Stop wasting officer time!"
-
-$HM$ "....?"
-
-$SX$ "I am not sure why you show rubbish to me"
-
-$FM$ "hmmm is this for me ? that is deligthful but i don't have any use of this item dear"
-
-$PL$ "Stop bugging me citizen!"
-
-$HR$ ".....?"

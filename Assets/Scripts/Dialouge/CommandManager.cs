@@ -7,15 +7,14 @@ using System.Collections.Generic;
 public class CommandManager : MonoBehaviour 
 {
     static public CommandManager Instance;
-    
+
     int destroyCount;
     bool done;
     public string dialogueToLoad { get; set; }
     public string correctItem { private get; set; }
-    public int presentItemIndex { get; set; }
 
     public bool prompt { get; set; }
-    public int testimonyItemIndex { get; set;}
+    public int testimonyItemIndex { private get; set;}
 
     public bool testimonyMode { private get; set; }
 
@@ -29,25 +28,28 @@ public class CommandManager : MonoBehaviour
 
     int pushCommandTracker;
     int commandTracker;
-    
+
     List<Commands> myCommand;
     //testimony stuff
     Dictionary<int, List<Commands>> myPushCommand;
-
-    /////
+    List<Commands> wrongTextCommand;
+    int wrongTextCommandIndex;
+    //
     public bool next { get; set; }
     public bool back { get; set; }
     public bool testimonyDone { get; set; }
     public bool runPushCommand { get; set; }
 
+
     //false command
     //public Dictionary<string, ShowTextCommand> falseCommand { get; set; }
-    public string falseDialogueName { get; set; }
+    //public string falseDialogueName { get; set; }
     bool showFalseDialogue = false;
 
     void Awake()
     {
         Instance = this;
+        wrongTextCommandIndex = 0;
         testimonyItemIndex = -1;
         runPushCommand = false;
         myTextHolder.supportRichText = true;
@@ -58,6 +60,7 @@ public class CommandManager : MonoBehaviour
         pushCommandTracker = 0;
         myCommand = new List<Commands>();
         myPushCommand = new Dictionary<int, List<Commands>>();
+        wrongTextCommand = new List<Commands>();
     }
 
     void UpdateButton()
@@ -77,7 +80,7 @@ public class CommandManager : MonoBehaviour
             SetTestimonyButton( false );
         }
     }
-    
+
     void SetTestimonyButton(bool toggle)
     {
         leftButton.SetActive( toggle );
@@ -211,36 +214,58 @@ public class CommandManager : MonoBehaviour
                 FileReader.Instance.LoadScene( itemFileName + "_item");            
             }
         }
-        else if(testimonyItemIndex != -1)
+        else
         {
-            //therefore it is on either testimony or prompt mode
-            //check if it is presented in corret text coordinate for testimony
-            if( testimonyItemIndex == presentItemIndex )
+            if( testimonyItemIndex != -1 )
             {
-                FileReader.Instance.LoadScene( dialogueToLoad );
+                if( testimonyItemIndex == commandTracker )
+                {
+                    FileReader.Instance.LoadScene( dialogueToLoad );
+                }
+                else
+                {
+                    // cannot do this
+                    // reason : if i do this, it will break out from testimony mode
+                    // since loading new scene will call Reinitialize()
+                    // FileReader.Instance.LoadScene( itemFileName + "_item" );
+                    // therefore load another command set that will be stored into other command
+                    // warning! can only read the wrong dialogue
+                    // problem! only can 
+                    if( Resources.Load( itemFileName + "_item" ) != null )
+                    {
+                        wrongTextCommand = StringParser.Instance.ParseWrongCommand( itemFileName + "_item" );
+                    }
+                    else
+                    {
+                        string address = "Dialogue/false_item_presented_scene";
+                        wrongTextCommand = StringParser.Instance.ParseWrongCommand( Resources.Load(address).ToString() );
+                    }
+                    showFalseDialogue = true;
+                }
             }
             else
             {
-                FileReader.Instance.LoadScene( itemFileName + "_item" );
+                if( FileReader.Instance.IsScene( itemFileName + "_" + itemName ) )
+                {
+                    FileReader.Instance.LoadScene( itemFileName + "_" + itemName );
+                }
+                else
+                {
+                    FileReader.Instance.LoadScene( itemFileName + "_item" );
+                }
             }
         }
-        else
-        {
-            //prompt stuff
-            //possibly simmilar with the first one ?
-        }
-
     }
 
     public void Reinitialize()
     {
+        wrongTextCommandIndex = 0;
         dialogueToLoad = "";
         runPushCommand = false;
         testimonyMode = false;
         showFalseDialogue = false;
         SetTestimonyButton( false );
         correctItem = "";
-        presentItemIndex = -1;
         testimonyItemIndex = -1;
         pushCommandTracker = 0;
         destroyCount = 0;
@@ -248,6 +273,7 @@ public class CommandManager : MonoBehaviour
         commandTracker = 0;
         myCommand.Clear();
         myPushCommand.Clear();
+        wrongTextCommand.Clear();
     }
 
     void ResetMainCommand()
@@ -258,6 +284,7 @@ public class CommandManager : MonoBehaviour
             myCommand[i].Reset();
         }
     }
+
     void ResetPushCommand()
     {
         pushCommandTracker = 0;
@@ -267,62 +294,82 @@ public class CommandManager : MonoBehaviour
         }
         runPushCommand = false;
     }
+    void ResetWrongTextCommand()
+    {
+        wrongTextCommandIndex = 0;
+        for( int i = 0; i < wrongTextCommand.Count; i++ )
+        {
+            wrongTextCommand[i].Reset();
+        }
+        showFalseDialogue = false;
+    }
     void Update()
     {
         UpdateButton();
         switch( done )
         {
         case false:
-		    if(commandTracker < myCommand.Count )
-		    {
-                if( runPushCommand )
+        if( showFalseDialogue )
+        {
+            if( wrongTextCommand[wrongTextCommandIndex].ExecuteCommand() )
+            {
+                wrongTextCommandIndex++;
+                if( wrongTextCommandIndex >= wrongTextCommand.Count )
                 {
-                    if( myPushCommand.ContainsKey( commandTracker ) )
+                    ResetWrongTextCommand();
+                }
+                showFalseDialogue = false;
+            }
+        }
+        else if( commandTracker < myCommand.Count )
+        {
+            if( runPushCommand )
+            {
+                if( myPushCommand.ContainsKey( commandTracker ) )
+                {
+                    if( myPushCommand[commandTracker][pushCommandTracker].ExecuteCommand() )
                     {
-                        if( myPushCommand[commandTracker][pushCommandTracker].ExecuteCommand() )
+                        pushCommandTracker++;
+                        if( pushCommandTracker >= myPushCommand[commandTracker].Count )
                         {
-                            pushCommandTracker++;
-                            if( pushCommandTracker >= myPushCommand[commandTracker].Count )
-                            {
-                                ResetPushCommand();
-                            }
+                            ResetPushCommand();
                         }
-                    }
-                    else
-                    {
-                        runPushCommand = false;
                     }
                 }
                 else
                 {
-                    if( myCommand[commandTracker].ExecuteCommand() ) 
-			        {
-				        commandTracker++;
-                        if( testimonyMode && commandTracker >= myCommand.Count )
-                        {
-                            ResetMainCommand();
-                        }
-			        }
+                    runPushCommand = false;
                 }
-		    }
-		    else if (commandTracker == myCommand.Count)
-		    {
-                if( destroyCount < myCommand.Count
-                    && myCommand[destroyCount].Destroy())
+            }
+            else
+            {
+                if( myCommand[commandTracker].ExecuteCommand() )
                 {
-                    destroyCount++;
+                    commandTracker++;
+                    if( testimonyMode && commandTracker >= myCommand.Count )
+                    {
+                        ResetMainCommand();
+                    }
                 }
-                else if(destroyCount == myCommand.Count)
-                {
-                    SetTestimonyButton( false );
-                    SceneManager.Instance.SetInputBlocker( false );
-                    done = true;
-                }
-		    }
-            break;
+            }
+        }
+        else if( commandTracker == myCommand.Count )
+        {
+            if( destroyCount < myCommand.Count
+                && myCommand[destroyCount].Destroy() )
+            {
+                destroyCount++;
+            }
+            else if( destroyCount == myCommand.Count )
+            {
+                SetTestimonyButton( false );
+                SceneManager.Instance.SetInputBlocker( false );
+                done = true;
+            }
+        }
+        break;
 
         case true:
-
             break;
         }
     }

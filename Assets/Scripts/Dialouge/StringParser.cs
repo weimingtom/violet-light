@@ -55,7 +55,7 @@ public class StringParser : MonoBehaviour
         {
             for( Int16 i = 0; i < extractedWord.Length; i++ )
             {
-                ParseCommand( extractedWord[i] );
+                ParseCommand( extractedWord[i]);
                 extractedWord[i].ToLower();
                 //Debug.Log( "[RunParse] Data[" + i + "] : " + extractedWord[i] );
             }
@@ -79,7 +79,7 @@ public class StringParser : MonoBehaviour
             extracted = command.Split( delimiter, StringSplitOptions.RemoveEmptyEntries );
             CommandManager.Instance.testimonyMode = true;
             CommandManager.Instance.correctItem = extracted[2];
-            CommandManager.Instance.presentItemIndex = int.Parse(extracted[1]);
+            CommandManager.Instance.testimonyItemIndex = int.Parse( extracted[1] );
             CommandManager.Instance.dialogueToLoad = extracted[3];
         }
         else
@@ -128,6 +128,23 @@ public class StringParser : MonoBehaviour
                 CustomCommand( command );
             }
         }
+    }
+
+    public List<Commands> ParseWrongCommand(string command)
+    {
+        List<Commands> commands = new List<Commands>();
+        char[] delimiters = new char[3];
+        delimiters[0] = '\r';
+        delimiters[1] = '\n';
+        string[] extractedCommandStr = command.Split(delimiters, System.StringSplitOptions.RemoveEmptyEntries);
+        for( int i = 0; i < extractedCommandStr.Length; i++ )
+        {
+            if( extractedCommandStr[i][0] == '$' )
+            {
+                commands.Add(RegisterTextCommand(extractedCommandStr[0]));
+            }
+        }
+        return commands;
     }
 
     ShowTextCommand RegisterTextCommand( string main )
@@ -266,6 +283,7 @@ public class StringParser : MonoBehaviour
         case "prompt":
         CommandManager.Instance.correctItem = parsedCommand[1];
         MenuManager.instance.ToggleMenu();
+        MenuManager.instance.TabPressed( "btn_evidence" );
         break;
 
         case "advquest":

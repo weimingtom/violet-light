@@ -33,6 +33,7 @@ public class MenuManager : MonoBehaviour
     {
         instance = this;
     }
+
 	void Start () 
     {
         menu.SetActive(false);
@@ -119,6 +120,10 @@ public class MenuManager : MonoBehaviour
             Debug.Log( "ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn );
             break;
             }
+        }
+        else if( CommandManager.Instance.myBannerBox.activeInHierarchy )
+        {
+            ChangeState( state.Evidence );
         }
     }
 
