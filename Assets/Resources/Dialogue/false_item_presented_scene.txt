@@ -1,5 +1,1 @@
 $AX$ "I'am not sure why this item is relevant to me"
-
-$VL$ "Why should this help the case?"
-
-$SP$ "Stop wasting officer time!"

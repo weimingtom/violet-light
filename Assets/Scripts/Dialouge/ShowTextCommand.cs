@@ -50,6 +50,7 @@ public class ShowTextCommand : Commands
     {
         if( InitialSetup == true )
         {
+            //blip
             string name = DialogueHolder.Instance.GetCharacterNameFromToken( conversationTag );
             CommandManager.Instance.SetNamePosition(CharacterManager.Instance.GetPosition(name));
             //CommandManager.Instance.falseDialogueName = conversationTag;
