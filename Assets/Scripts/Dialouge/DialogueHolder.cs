@@ -9,18 +9,45 @@ public class DialogueHolder : MonoBehaviour
     static public DialogueHolder Instance;
     Dictionary<string, string> dialogue;
     Dictionary<string, string> characterNameDictionary;
+    List<string> maleCharacter;
+    List<string> femaleCharacter;
     int index = 0;
 	// Use this for initialization
 	void Awake () 
     {
         Instance = this;
         dialogue = new Dictionary<string, string>();
+        maleCharacter = new List<string>();
+        femaleCharacter = new List<string>();
         characterNameDictionary = new Dictionary<string, string>();
 	}
     void Start()
     {
         string charLoca = "Dialogue/character_names_scene_1";// +SceneManager.Instance.GetScene().ToString();
-        StringParser.Instance.RunRegisterCharacterCode( charLoca, ref characterNameDictionary );
+        StringParser.Instance.RunRegisterCharacterCode( charLoca, ref characterNameDictionary, ref maleCharacter, ref femaleCharacter );
+        Debug.Log("male character : ");
+        foreach( string charName in maleCharacter )
+        {
+            Debug.Log(charName);
+        }
+        Debug.Log( "female character : " );
+        foreach( string charName in femaleCharacter )
+        {
+            Debug.Log( charName );
+        }
+    }
+    public char GetCharacterGender(string name)
+    {
+        char gender = 'm';
+        if( !maleCharacter.Contains( name ) )
+        {
+            
+            if( femaleCharacter.Contains( name ) )
+            {
+                gender = 'f';
+            }
+        }
+        return gender;
     }
     public string GetCharacterNameFromToken(string _token)
     {

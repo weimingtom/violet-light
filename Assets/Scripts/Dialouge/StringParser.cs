@@ -12,7 +12,7 @@ public class StringParser : MonoBehaviour
     }
 
     //Note(HENDRY) : Run Parse will be used instead of parse doalogue and parse command
-    public void RunRegisterCharacterCode( string _address, ref Dictionary<string, string> _characterDict )
+    public void RunRegisterCharacterCode( string _address, ref Dictionary<string, string> _characterDict, ref List<string> maleChar, ref List<string> femaleChar)
     {
         char[] delimiterChar = { '\r', '\n' };
         string[] extractedWord = (Resources.Load( _address ) as TextAsset).ToString().Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
@@ -20,6 +20,18 @@ public class StringParser : MonoBehaviour
         for( int i = 0; i < extractedWord.Length; i++ )
         {
             passedChar = extractedWord[i].Split( '-' );
+            if( passedChar.Length == 3 )
+            {
+                switch(passedChar[2].ToLower())
+                {
+                case "m":
+                maleChar.Add(passedChar[1]);
+                break;
+                case "f":
+                femaleChar.Add(passedChar[1]);
+                break;
+                }
+            }
             _characterDict.Add( passedChar[0].ToLower(), passedChar[1] );
         }
     }

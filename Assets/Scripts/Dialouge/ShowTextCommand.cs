@@ -50,14 +50,22 @@ public class ShowTextCommand : Commands
     {
         if( InitialSetup == true )
         {
-            //blip
             string name = DialogueHolder.Instance.GetCharacterNameFromToken( conversationTag );
             CommandManager.Instance.SetNamePosition(CharacterManager.Instance.GetPosition(name));
-            //CommandManager.Instance.falseDialogueName = conversationTag;
             CommandManager.Instance.TextBoxSwitch( true );
             CommandManager.Instance.TextSwitch( true );
             CommandManager.Instance.SetTextHolder( "" );
             CommandManager.Instance.SetNameIntoNameBox( name );
+            //blip
+            char gender = DialogueHolder.Instance.GetCharacterGender( name );
+            if( gender == 'f' )
+            {
+                isMale = false;
+            }
+            else
+            {
+                isMale = true;
+            }
             InitialSetup = false;
             return false;
         }
