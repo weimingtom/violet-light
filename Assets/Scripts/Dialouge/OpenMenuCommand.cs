@@ -5,7 +5,7 @@ public class OpenMenuCommand : Commands
     //potential to open other menu
     public OpenMenuCommand()
     {
-        commandTag = "commands";
+        commandTag = "openmenucommand";
     }
     public override void PrintData()
     {
