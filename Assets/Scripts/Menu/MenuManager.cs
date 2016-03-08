@@ -85,6 +85,13 @@ public class MenuManager : MonoBehaviour
         }
 	}
 
+    public void OpenEvidenceTab()
+    {
+        OpenMenu();
+        ItemManager.Instance.SetLoadInventory( true );
+        active = true;
+        ChangeState(state.Evidence);
+    }
     //Get When a Tab button is pressed
     public void TabPressed( string btn )
     {
@@ -120,10 +127,6 @@ public class MenuManager : MonoBehaviour
             Debug.Log( "ERROR: Button Marked as 'tab' But Was Not Found In Tab Switch List!" + btn );
             break;
             }
-        }
-        else if( CommandManager.Instance.myBannerBox.activeInHierarchy )
-        {
-            ChangeState( state.Evidence );
         }
     }
 

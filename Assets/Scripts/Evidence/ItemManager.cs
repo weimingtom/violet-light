@@ -12,7 +12,6 @@ public class ItemManager : MonoBehaviour
     List<Item> playerItems = new List<Item>();
     int currentNumberOfItems = 0;
     bool loadInventory = false;
-
     void Awake()
     {
         Instance = this;
@@ -171,7 +170,17 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
-
+    public Sprite GetItemTexture(string name)
+    {
+        foreach( Item item in allItems )
+        {
+            if( item.GetItemName() == name )
+            {
+                return item.GetItemTexture();
+            }
+        }
+        return Resources.Load<Sprite>( "Textures/missing" );
+    }
     public void RemoveItem(string item_name)
     {
 		foreach(Item item in playerItems)

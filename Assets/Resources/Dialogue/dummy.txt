@@ -1,3 +1,1 @@
-item Harmony's_Letter
-item Head_Wound
-prompt Neck_Wound
+icon Neck_Wound left 1.5

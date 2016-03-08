@@ -249,7 +249,7 @@ public class StringParser : MonoBehaviour
         }
         break;
 		
-		case "icon":
+		case "location":
         if( parsedCommand.Length == 3 )
         {
             bool set = false;
@@ -292,16 +292,31 @@ public class StringParser : MonoBehaviour
         ItemManager.Instance.AddItem( parsedCommand[1].ToLower() );
         break;
 
+        case "icon":
+        //Note(Hendry) : format is -> icon itemName position scale
+        // position[] = middle/mid/m left/l right/r
+        // scale float value
+        // to destroy -> icon destroy
+        if( parsedCommand[1].ToLower() == "destroy" )
+        {
+            IconManager.instance.DestroyIcon();
+        }
+        else
+        {
+            IconManager.instance.ShowIcon( parsedCommand[1], parsedCommand[2], float.Parse( parsedCommand[3] ) );
+        }
+        break;
+
         case "prompt":
         //note : prompt will call the menu then open evidence tab
         CommandManager.Instance.correctItem = parsedCommand[1];
-        MenuManager.instance.ToggleMenu();
-        MenuManager.instance.TabPressed( "btn_evidence" );
+        MenuManager.instance.OpenEvidenceTab();
         break;
 
         case "advquest":
         SceneManager.Instance.AdvQuest();
         break;
+
 
         case "load":
         LoadCommand dialogue = new LoadCommand();
