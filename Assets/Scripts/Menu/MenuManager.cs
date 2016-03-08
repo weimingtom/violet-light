@@ -209,7 +209,15 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log( "Brightness Changed: " + multiplier );
     }
-
+    public void SaveGame()
+    {
+        SaveLoad.Load();
+        SaveLoad.Save();
+    }
+    public void ExitGame()
+    {
+        Application.LoadLevel(0);
+    }
 }
 
 

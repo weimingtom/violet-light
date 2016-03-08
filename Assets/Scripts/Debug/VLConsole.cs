@@ -88,7 +88,9 @@ public class VLConsole : MonoBehaviour
                     SaveLoad.Save( int.Parse( commandSeg[1] ) );
                 }
                 else
-                SaveLoad.Save();
+                {
+                    SaveLoad.Save();
+                }
 
             } 
             break;

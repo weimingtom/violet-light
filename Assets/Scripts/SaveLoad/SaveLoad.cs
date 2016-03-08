@@ -49,7 +49,6 @@ public static class SaveLoad
     //can me used for multiple save files!
     public static List<Game> savedGames = new List<Game>();
     private const string VLSaveFile = "./saveGames.vls";
-
     public static void Save()
     {
         savedGames.Add( new Game() );
@@ -65,7 +64,7 @@ public static class SaveLoad
     {
         if(savedGames.Count < Savefile)
         {
-            Debug.Log( "[SAve Load] Saved file tried to save to " + Savefile.ToString() + "When save file length is only " + savedGames.Count.ToString() );
+            Debug.Log( "[Save Load] Saved file tried to save to " + Savefile.ToString() + "When save file length is only " + savedGames.Count.ToString() );
             return;
         }
         savedGames[Savefile] = ( new Game() );
