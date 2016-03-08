@@ -19,7 +19,10 @@ public class UIAnimation : MonoBehaviour
     public bool animateForward { get; set; }
     public bool animateBackward { get; set; }
     private bool animateBtn;
-
+    
+    //opening animation
+    Vector3[] menuOpenPosition;
+    public float openCloseMenuOffset = 500.0f;
     void Start()
     {
         animateBtn = false;
@@ -32,8 +35,111 @@ public class UIAnimation : MonoBehaviour
         {
             uiButtonOriginalPos[i] = uiElementButtons[i].transform.position;
         }
-    }
+        menuOpenPosition = new Vector3[uiElements.Length];
+        
+        for(int i = 0; i < menuOpenPosition.Length; i++)
+        {
+            menuOpenPosition[i] = new Vector3( originalPosition.x, originalPosition.y + openCloseMenuOffset + (openCloseMenuOffset * i), originalPosition.z );
+            uiElements[i].transform.position = menuOpenPosition[i];
+        }
 
+        int j = 0;
+        for( int i = uiElements.Length - 1; i >= 0; i-- )
+        {
+            uiElements[i].transform.position = menuOpenPosition[j];
+            j++;
+        }
+    }
+    //backup do alpha transition instead
+    //void SetUIColor(Color color)
+    //{
+    //    foreach( GameObject uiImage in uiElements )
+    //    {
+    //        uiImage.GetComponent<Image>().color = color;
+    //    }
+    //}
+    //bool CheckAlpha(Color destinationColor)
+    //{
+    //    foreach( GameObject go in uiElements )
+    //    {
+    //        Vector4 initialColor = new Vector4( go.GetComponent<Image>().color.r,
+    //                                            go.GetComponent<Image>().color.g,
+    //                                            go.GetComponent<Image>().color.b,
+    //                                            go.GetComponent<Image>().color.a);
+    //        Vector4 destColor = new Vector4( destinationColor.r,
+    //                                            destinationColor.g,
+    //                                            destinationColor.b,
+    //                                            destinationColor.a );
+    //        if( Mathf.Abs((initialColor - destColor).magnitude) == 0)
+    //        {
+
+    //        }
+    //    }
+
+    //    return true;
+    //}
+    bool AnimateDown()
+    {
+        float step = speed * Time.deltaTime * Screen.height / 100;
+        int doneCount = 0;
+        foreach(GameObject gO in uiElements)
+        {
+            gO.transform.position = Vector3.MoveTowards(gO.transform.position, originalPosition, step);
+            if( Mathf.Abs( gO.transform.position.magnitude - originalPosition.magnitude ) < 0.1f )
+            {
+                doneCount++;
+            }
+        }
+        if( doneCount == uiElements.Length )
+        {
+            
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    bool AnimateUp()
+    {
+        float step = speed * Time.deltaTime * Screen.height / 100;
+        int doneCount = 0;
+        float speedModifier = 0.1f;
+        Vector3 destination;
+        for( int i = 0; i < uiElements.Length; i++ )
+        {
+            destination = menuOpenPosition[i];
+            uiElements[i].transform.position = Vector3.MoveTowards( uiElements[i].transform.position, destination, step / (float)(i * speedModifier) );
+            if( Mathf.Abs( uiElements[i].transform.position.magnitude - destination.magnitude ) < 0.1f )
+            {
+                doneCount++;
+            }
+        }
+        if( doneCount == uiElements.Length )
+        {
+            int j = 0;
+            for( int i = uiElements.Length - 1; i >= 0; i-- )
+            {
+                uiElements[i].transform.position = menuOpenPosition[j];
+                j++;
+            } 
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public bool OpeningMenuAnimation()
+    {
+        bool done = AnimateDown();
+        return done;
+    }
+    public bool ClosingMenuAnimation()
+    {
+        bool menuReadyToClose = !AnimateUp();
+        return menuReadyToClose;
+    }
     public void StartAnimate(MenuManager.state dest)
     {
         animateBtn = true;

@@ -50,7 +50,7 @@ public class locationManager : MonoBehaviour
             else
             {
                 Debug.Log("<color=red>key does not exists!</color> key passed : " + key);
-                Debug.Break();
+                //Debug.Break();
             }
         }
     }

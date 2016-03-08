@@ -23,7 +23,7 @@ public class IconManager : MonoBehaviour
         if( destinationTransforms.Length != 3 )
         {
             Debug.Log("[IconManager]<color=red>no position assigned!</color>");
-            Debug.Break();
+            //Debug.Break();
         }
         DestroyIcon();
     }
