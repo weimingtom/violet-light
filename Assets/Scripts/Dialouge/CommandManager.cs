@@ -202,13 +202,11 @@ public class CommandManager : MonoBehaviour
     // option, and present stuff
     public void CheckItem(string itemName)
     {
-        if( myCommand.Count == 0 )
-        {
-            return;
-        }
 
         string itemFileName = SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" +  SceneManager.Instance.GetChar()  ;
-		if(!myBannerBox.gameObject.activeInHierarchy )
+        string defaultWrongItemSceneAddress = "Dialogue/false_item_presented_scene";		
+        //check what type of present
+        if(!myBannerBox.gameObject.activeInHierarchy )
         {
             if( FileReader.Instance.IsScene( itemFileName + "_" + itemName ) )
             {
@@ -223,40 +221,49 @@ public class CommandManager : MonoBehaviour
         {
             if( testimonyItemIndex != -1 )
             {
-                if( testimonyItemIndex == commandTracker )
+                //item is correct
+                if( testimonyItemIndex == commandTracker && correctItem == itemName)
                 {
+                    //therefore load the correct scene
                     FileReader.Instance.LoadScene( dialogueToLoad );
                 }
                 else
                 {
-                    // cannot do this
-                    // reason : if i do this, it will break out from testimony mode
-                    // since loading new scene will call Reinitialize()
-                    // FileReader.Instance.LoadScene( itemFileName + "_item" );
-                    // therefore load another command set that will be stored into other command
-                    // warning! can only read the wrong dialogue
-                    // problem! only can 
+                    //check if there is default unique dialoue for that specifict item
                     if( Resources.Load( itemFileName + "_item" ) != null )
                     {
+                        
                         wrongTextCommand = StringParser.Instance.ParseWrongCommand( itemFileName + "_item" );
                     }
                     else
                     {
-                        string address = "Dialogue/false_item_presented_scene";
-                        wrongTextCommand = StringParser.Instance.ParseWrongCommand( Resources.Load(address).ToString() );
+                        //no unique command then load default
+                        wrongTextCommand = StringParser.Instance.ParseWrongCommand( Resources.Load( defaultWrongItemSceneAddress ).ToString() );
                     }
                     showFalseDialogue = true;
                 }
             }
             else
             {
+                //therefore it is prompt sutff
+                //assumption, it will do some mechanic as presenting item while dialogue is not presented
                 if( FileReader.Instance.IsScene( itemFileName + "_" + itemName ) )
                 {
+                    //load the correct dialogue/scene
                     FileReader.Instance.LoadScene( itemFileName + "_" + itemName );
                 }
                 else
                 {
-                    FileReader.Instance.LoadScene( itemFileName + "_item" );
+                    //wrong item then do something elese
+                    if( FileReader.Instance.IsScene( itemFileName + "_item" ) )
+                    {
+                        FileReader.Instance.LoadScene( itemFileName + "_item" );
+                    }
+                    else
+                    {
+                        //no default found load dummy
+                        FileReader.Instance.LoadScene( defaultWrongItemSceneAddress );
+                    }
                 }
             }
         }

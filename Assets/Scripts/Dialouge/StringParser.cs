@@ -293,6 +293,7 @@ public class StringParser : MonoBehaviour
         break;
 
         case "prompt":
+        //note : prompt will call the menu then open evidence tab
         CommandManager.Instance.correctItem = parsedCommand[1];
         MenuManager.instance.ToggleMenu();
         MenuManager.instance.TabPressed( "btn_evidence" );
