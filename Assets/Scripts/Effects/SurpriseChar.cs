@@ -26,7 +26,7 @@ public class SurpriseChar : MonoBehaviour {
 	void Update () 
     {
         counter += Time.deltaTime;
-        Debug.Break();
+        //Debug.Break();
 
         myCharacter.transform.Rotate( new Vector3( 0.0f, 0.0f, 1.0f ), (rotateDeg * Time.deltaTime) * invert );
         myCharacter.transform.localScale = new Vector3( myCharacter.transform.rotation.x + (stretchValue * Time.deltaTime * invert), myCharacter.transform.rotation.y + (stretchValue * Time.deltaTime * invert), 1.0f );

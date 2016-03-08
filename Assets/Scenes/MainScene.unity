@@ -1523,6 +1523,10 @@ Prefab:
       propertyPath: Effects.Array.data[3]
       value: 
       objectReference: {fileID: 101026, guid: 583eb49ae3b74924f94dfc30ac36a373, type: 2}
+    - target: {fileID: 11489336, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_IsPrefabParent: 0

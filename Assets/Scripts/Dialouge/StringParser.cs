@@ -61,7 +61,7 @@ public class StringParser : MonoBehaviour
             }
             //CommandManager.Instance.AddCommand(tesCmd);
             Debug.Log("[Run Parse] Finished Parsing!");
-            Debug.Break();
+            //Debug.Break();
         }
         else
         {
@@ -264,14 +264,14 @@ public class StringParser : MonoBehaviour
             else
             {
                 Debug.Log( "[String Parser]<color=red>wrong command</color> !! the format is icon iconName on/off" );
-                Debug.Break();
+                //Debug.Break();
             }
             locationManager.Instance.SetButton(parsedCommand[1], set);
         }
         else
         {
             Debug.Log( "[String Parser]<color=red>wrong command</color> !! the format is icon iconName on/off" );
-            Debug.Break();
+            //Debug.Break();
         }
 		break;
         

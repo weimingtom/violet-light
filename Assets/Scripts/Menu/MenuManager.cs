@@ -17,6 +17,8 @@ public class MenuManager : MonoBehaviour
         end
 	}
 
+    private bool animateMenu;
+
     public static MenuManager instance;
 	public GameObject menu;
 	private bool active;
@@ -38,6 +40,7 @@ public class MenuManager : MonoBehaviour
     {
         menu.SetActive(false);
         active = false;
+        animateMenu = false;
         // NOTE(jesse): Calling this while inactive will probs throw error
         // but Sometimes the menu won't open on first hit without it
         ChangeState(state.SaveLoad);
@@ -75,12 +78,11 @@ public class MenuManager : MonoBehaviour
         {
 			OpenMenu();
             ItemManager.Instance.SetLoadInventory( true );
-            active = true;
+            //active = true;
         }
 		else
         {
-            //LocationManager.Instance.initialize = true;
-            active = false;
+            //active = false;
 			CloseMenu();
         }
 	}
@@ -130,7 +132,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public bool MouseIsAboveInv { get; set; }
+    public bool MouseIsAboveInv { protected get; set; }
 
     public bool CheckMouseAbove()
     {
@@ -177,6 +179,7 @@ public class MenuManager : MonoBehaviour
     {
 		//Do fancy transition animation
         menu.SetActive(true);
+        animateMenu = true;
 
 		//spawn input eater
 		SceneManager.Instance.SetInputBlocker(true);
@@ -184,20 +187,20 @@ public class MenuManager : MonoBehaviour
 
     public void CloseMenu()
     {
-		//do fancy transition in reverse
-        active = false;
-
         //set menu back to default state
         ChangeState( state.SaveLoad );
-
-		//reset menu hierarchy
-        menu.SetActive(false);
+        animateMenu = true;
+    }
+    void DisableMenu()
+    {
+        //reset menu hierarchy
+        menu.SetActive( false );
         //delete input eater
         // TODO(jesse): Hacky fix to input blocker disappearing while still in dialogue
         // so we need to make a better one
-        if (!CommandManager.Instance.myBannerBox.activeInHierarchy)
+        if( !CommandManager.Instance.myBannerBox.activeInHierarchy )
         {
-            SceneManager.Instance.SetInputBlocker(false);
+            SceneManager.Instance.SetInputBlocker( false );
         }
     }
 
@@ -219,6 +222,37 @@ public class MenuManager : MonoBehaviour
     public void ExitGame()
     {
         Application.LoadLevel(0);
+    }
+    void AnimateMenu()
+    {
+        Color maxVal = Color.white;
+        Color minVal = Color.white;
+        minVal.a = 0.0f;
+
+        if( !active )
+        {
+            active = UIAnimation.Instance.OpeningMenuAnimation();
+            if( active == true )
+            {
+                animateMenu = false;
+            }
+        }
+        else if( active )
+        {
+            active = UIAnimation.Instance.ClosingMenuAnimation();
+            if( active == false )
+            {
+                animateMenu = false;
+                DisableMenu();
+            }
+        }
+    }
+    void FixedUpdate()
+    {
+        if( animateMenu )
+        {
+            AnimateMenu();
+        }
     }
 }
 

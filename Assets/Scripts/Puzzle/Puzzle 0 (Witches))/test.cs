@@ -14,7 +14,7 @@ public class test : MonoBehaviour
 		if(col.gameObject.tag == "test")
 		{
 			print("test collision");
-			Debug.Break();
+			//Debug.Break();
 		}
 	}
 

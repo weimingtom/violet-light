@@ -181,7 +181,7 @@ public class SceneManager : MonoBehaviour
             if( checkExists( backgroundName ) )
             {
                 Debug.Log( "[Scene Manager] ERROR: Requested background does not exist - " + backgroundName );
-                Debug.Break();
+                //Debug.Break();
             }
         }
         // Load from \Resources\ folder
