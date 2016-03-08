@@ -5,10 +5,15 @@ using System.Collections;
 public class SoundEffect : MonoBehaviour {
 
     private AudioSource audioSource;
-	void Start() 
+	void OnEnable() 
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = Resources.Load( "Audio/SFX/" + gameObject.name.ToString().Substring( 0, gameObject.name.ToString().Length - 7 ) ) as AudioClip;
+        string clipName = gameObject.name.ToString();
+        string isClone = clipName.Substring( clipName.Length - 7 );
+        if(isClone == "(Clone)")
+            audioSource.clip = Resources.Load( "Audio/SFX/" + gameObject.name.ToString().Substring( 0, gameObject.name.ToString().Length - 7 ) ) as AudioClip;
+        else
+            audioSource.clip = Resources.Load( "Audio/SFX/" + clipName ) as AudioClip;
         audioSource.Play();
 	}
 

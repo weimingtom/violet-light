@@ -18,6 +18,7 @@ GameObject:
   - 114: {fileID: 11485844}
   - 114: {fileID: 11415000}
   - 114: {fileID: 11433232}
+  - 114: {fileID: 11442082}
   m_Layer: 0
   m_Name: Main Manager
   m_TagString: Untagged
@@ -48,7 +49,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d6a5169e9ea304fa03d77b62205f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutscene: {fileID: 138170, guid: b6195fc1c492a994aac2cad25313af68, type: 2}
 --- !u!114 &11433232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,7 +75,24 @@ MonoBehaviour:
   deltaAlpha: .699999988
   cursor: {fileID: 2800000, guid: b98a9ec08f267114cad7b1c803238386, type: 3}
   cursorSparkle: {fileID: 2800000, guid: d6dc14bb9f5f8e748a541134f6c7bdd7, type: 3}
-  cursorHotspot: {x: 24, y: 24}
+  cursorHotspot: {x: 4, y: 4}
+  cutscene: {fileID: 138170, guid: b6195fc1c492a994aac2cad25313af68, type: 2}
+--- !u!114 &11442082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf900a46906c18c41b7a0ba69bb8d852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationTransforms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  image: {fileID: 0}
 --- !u!114 &11468158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,6 +188,11 @@ MonoBehaviour:
   - {fileID: 131968, guid: 2ab347bea3abf124ca35fec830714821, type: 2}
   - {fileID: 110772, guid: 7a8fd3fa8b4734344a815165ef8f6bac, type: 2}
   - {fileID: 144574, guid: 855617872df0eaa4cb2ad0116f33b9bb, type: 2}
+  - {fileID: 101026, guid: 583eb49ae3b74924f94dfc30ac36a373, type: 2}
+  - {fileID: 183310, guid: 1fe873e51dbb55849ba9941bb792e1b0, type: 2}
+  - {fileID: 116680, guid: 371c9e8c1186e244c95c1734d57798be, type: 2}
+  - {fileID: 197642, guid: 23868ca14b7d1a143bb6664bcdd0fadc, type: 2}
+  - {fileID: 198842, guid: bcceb2f55f8976649ad0a09bf401a6c2, type: 2}
 --- !u!114 &11489336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -197,8 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4213e641b92534d9c75805f389254f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultEasingDuration: 2
-  defaultDeltaAlpha: 2.5
+  defaultEasingDuration: 5.6500001
+  defaultDeltaAlpha: 2.75
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

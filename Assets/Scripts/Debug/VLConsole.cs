@@ -112,6 +112,9 @@ public class VLConsole : MonoBehaviour
                 FXManager.Instance.Spawn( "SurpriseChar", commandSeg[1] );
             }
             break;
+            case ("fx"):
+            FXManager.Instance.Spawn( commandSeg[1] );
+            break;
         }
 
         commandInput.text = "";

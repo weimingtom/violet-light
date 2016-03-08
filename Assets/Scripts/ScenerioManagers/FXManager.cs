@@ -16,7 +16,7 @@ public class FXManager : MonoBehaviour {
     {
         foreach( GameObject Effect in Effects )
         {
-            if( Effect.name == Name )
+            if( Effect.name.ToLower() == Name.ToLower() )
             {
                 Debug.Log( "[FX Manager] Spawned Prop " + Name );
                 GameObject newObj = GameObject.Instantiate( Effect, Vector3.zero, Quaternion.identity ) as GameObject;
