@@ -297,20 +297,24 @@ public class StringParser : MonoBehaviour
         // position[] = middle/mid/m left/l right/r
         // scale float value
         // to destroy -> icon destroy
+        IconCommand iconCommand;
         if( parsedCommand[1].ToLower() == "destroy" )
         {
-            IconManager.instance.DestroyIcon();
+            iconCommand = new IconCommand( true );
         }
         else
         {
-            IconManager.instance.ShowIcon( parsedCommand[1], parsedCommand[2], float.Parse( parsedCommand[3] ) );
+            iconCommand = new IconCommand( parsedCommand[1], parsedCommand[2], float.Parse( parsedCommand[3] ) );
         }
+        CommandManager.Instance.AddCommand( iconCommand );
         break;
 
         case "prompt":
         //note : prompt will call the menu then open evidence tab
+        // format -> prompt itemName
         CommandManager.Instance.correctItem = parsedCommand[1];
-        MenuManager.instance.OpenEvidenceTab();
+        OpenMenuCommand menuCommand = new OpenMenuCommand();
+        CommandManager.Instance.AddCommand( menuCommand );
         break;
 
         case "advquest":
