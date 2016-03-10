@@ -89,11 +89,21 @@ public class MenuManager : MonoBehaviour
 
     public void OpenEvidenceTab()
     {
-        OpenMenu();
-        ItemManager.Instance.SetLoadInventory( true );
-        active = true;
+        ToggleMenu();
+        //OpenMenu();
+        //ItemManager.Instance.SetLoadInventory( true );
+        //active = true;
         ChangeState(state.Evidence);
     }
+
+    public void ForceCloseMenu()
+    {
+        UIAnimation.Instance.ResetButtonPosition();
+        CloseMenu();
+        DisableMenu();
+        //ToggleMenu();
+    }
+
     //Get When a Tab button is pressed
     public void TabPressed( string btn )
     {
@@ -145,6 +155,8 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.Instance.ChangeScene(btn);
         CloseMenu();
+        animateMenu = false;
+        DisableMenu();
     }
 
 	public void MainButtonPressed(string btn)

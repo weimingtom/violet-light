@@ -90,7 +90,7 @@ sfx Paper Tear
 
 $AX$ "H-HEY! [eff yell] BE CAREFUL WITH THAT!"
 
-show IconOpenLetter
+show IconOpenLetter m 1.0
 
 bgm None
 
@@ -150,8 +150,9 @@ $AX$ "When-" (gets cut off)
 
 $VL$ "Now."
 
+icon Notebook m 1.0
 $AX$ "Let me just grab my journal..." [Show Notebook Icon]
-
+icon destroy
 $AX$ "Without it I won't be able to keep track of all our suspects, evidence, and locations of interest." 
 
 // NOTE: I would work the tutorial for traveling into the dialogue a bit better, but I feel like the uh, context isn't appropriate due to the whole dead friend thing. An onscreen tutorial should fit as it would only take the player three taps to get to where they want to go.

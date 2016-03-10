@@ -2,6 +2,7 @@
 
 public class OpenMenuCommand : Commands
 {
+    bool execute = false;
     //potential to open other menu
     public OpenMenuCommand()
     {
@@ -13,8 +14,19 @@ public class OpenMenuCommand : Commands
     }
     public override bool ExecuteCommand()
     {
-        MenuManager.instance.OpenEvidenceTab();
-        return true;
+        if( !execute )
+        {
+            MenuManager.instance.OpenEvidenceTab();
+            execute = true;
+        }
+
+        if(CommandManager.Instance.donePrompt)
+        {
+            MenuManager.instance.ForceCloseMenu();
+            return true;
+        }
+
+        return false;
     }
     public override bool Destroy()
     {

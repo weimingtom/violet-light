@@ -13,7 +13,7 @@ public class CommandManager : MonoBehaviour
     public string dialogueToLoad { get; set; }
     public string correctItem { private get; set; }
 
-    public bool prompt { get; set; }
+    public bool donePrompt { get; set; }
     public int testimonyItemIndex { private get; set;}
 
     public bool testimonyMode { private get; set; }
@@ -49,6 +49,7 @@ public class CommandManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        donePrompt = false;
         wrongTextCommandIndex = 0;
         testimonyItemIndex = -1;
         runPushCommand = false;
@@ -245,24 +246,15 @@ public class CommandManager : MonoBehaviour
             }
             else
             {
-                //therefore it is prompt sutff
-                //assumption, it will do some mechanic as presenting item while dialogue is not presented
-                if( FileReader.Instance.IsScene( itemFileName + "_" + itemName ) )
+                if( myCommand[commandTracker].commandTag == "openmenucommand" )
                 {
-                    //load the correct dialogue/scene
-                    FileReader.Instance.LoadScene( itemFileName + "_" + itemName );
-                }
-                else
-                {
-                    //wrong item then do something elese
-                    if( FileReader.Instance.IsScene( itemFileName + "_item" ) )
+                    if( itemName.ToLower() == correctItem.ToLower() )
                     {
-                        FileReader.Instance.LoadScene( itemFileName + "_item" );
+                        donePrompt = true;
                     }
                     else
                     {
-                        //no default found load dummy
-                        FileReader.Instance.LoadScene( defaultWrongItemSceneAddress );
+                        //do something if it is wrong
                     }
                 }
             }
@@ -271,6 +263,7 @@ public class CommandManager : MonoBehaviour
 
     public void Reinitialize()
     {
+        donePrompt = false;
         wrongTextCommandIndex = 0;
         dialogueToLoad = "";
         runPushCommand = false;

@@ -50,71 +50,76 @@ public class VLConsole : MonoBehaviour
 
         switch(commandSeg[0].ToLower())
         {
-            case ("cs"):
+        case ("cs"):
+        {
+            SceneManager.Instance.ChangeScene( commandSeg[1].ToLower() );
+        }
+        break;
+        case ("ld"):
+        {
+            FileReader.Instance.LoadScene( commandSeg[1].ToLower() );
+        }
+        break;
+        case ("additem"):
+        {
+            ItemManager.Instance.AddItem( commandSeg[1].ToLower() );
+        }
+        break;  
+        case ("break"):
+        {
+            CommandManager.Instance.Terminate();
+        }
+        break;
+        case ("advq"):
+        {
+            SceneManager.Instance.AdvQuest();   
+        }
+        break;
+        case ("setqueststage"):
+        {
+            SceneManager.Instance.SetQuestStage( int.Parse(commandSeg[1]));
+        }
+        break;
+        case ("save"):
+        {
+            SaveLoad.Load();
+            if( commandSeg.Length > 1 )
             {
-                SceneManager.Instance.ChangeScene( commandSeg[1].ToLower() );
+                SaveLoad.Save( int.Parse( commandSeg[1] ) );
             }
-            break;
-            case ("ld"):
+            else
             {
-                FileReader.Instance.LoadScene( commandSeg[1].ToLower() );
+                SaveLoad.Save();
             }
-            break;
-            case ("additem"):
-            {
-                ItemManager.Instance.AddItem( commandSeg[1].ToLower() );
-            }
-            break;  
-            case ("break"):
-            {
-                CommandManager.Instance.Terminate();
-            }
-            break;
-            case ("advq"):
-            {
-                SceneManager.Instance.AdvQuest();   
-            }
-            break;
-            case ("setqueststage"):
-            {
-                SceneManager.Instance.SetQuestStage( int.Parse(commandSeg[1]));
-            }
-            break;
-            case ("save"):
-            {
-                SaveLoad.Load();
-                if( commandSeg.Length > 1 )
-                {
-                    SaveLoad.Save( int.Parse( commandSeg[1] ) );
-                }
-                else
-                {
-                    SaveLoad.Save();
-                }
 
-            } 
-            break;
-            case ("load"):
+        } 
+        break;
+        case ("load"):
+        {
+            SaveLoad.Load();
+            SaveLoad.LoadGame( int.Parse( commandSeg[1] ) );
+        }
+        break;
+        case ("skip"):
+        {
+            CommandManager.Instance.Terminate();
+            FindObjectOfType<Case0Op>().End();
+        }
+        break;
+        case ("surprise"):
+        {
+            Debug.Log( "Surpise " + commandSeg[1] );
+            FXManager.Instance.Spawn( "SurpriseChar", commandSeg[1] );
+        }
+        break;
+        case ("fx"):
+        FXManager.Instance.Spawn( commandSeg[1] );
+        break;
+        case ("enableskip"):
             {
-                SaveLoad.Load();
-                SaveLoad.LoadGame( int.Parse( commandSeg[1] ) );
+                SceneManager.Instance.SetCanSkip( true );
             }
-            break;
-            case ("skip"):
-            {
-                CommandManager.Instance.Terminate();
-                FindObjectOfType<Case0Op>().End();
-            }
-            break;
-            case ("surprise"):
-            {
-                Debug.Log( "Surpise " + commandSeg[1] );
-                FXManager.Instance.Spawn( "SurpriseChar", commandSeg[1] );
-            }
-            break;
-            case ("fx"):
-            FXManager.Instance.Spawn( commandSeg[1] );
-            break;
+        break;
         }
 
         commandInput.text = "";

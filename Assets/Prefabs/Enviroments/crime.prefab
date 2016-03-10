@@ -657,6 +657,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11407326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -670,6 +672,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11412392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -683,6 +687,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11416784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -696,6 +702,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11419440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -722,6 +730,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11422886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -735,6 +745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 1
   IsCharacter: 1
+  minStageRange: 1
+  maxStageRange: 3
 --- !u!114 &11441840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -748,6 +760,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11454600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -761,6 +775,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11462472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -774,6 +790,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11470106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -787,6 +805,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11474174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -800,6 +820,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11479892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -813,6 +835,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11495912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -826,6 +850,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!114 &11498208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -839,6 +865,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 0
+  maxStageRange: 0
 --- !u!212 &21218282
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1217,6 +1245,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: RoomToChangeTo
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxStageRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minStageRange
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

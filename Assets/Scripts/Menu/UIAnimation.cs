@@ -50,34 +50,7 @@ public class UIAnimation : MonoBehaviour
             j++;
         }
     }
-    //backup do alpha transition instead
-    //void SetUIColor(Color color)
-    //{
-    //    foreach( GameObject uiImage in uiElements )
-    //    {
-    //        uiImage.GetComponent<Image>().color = color;
-    //    }
-    //}
-    //bool CheckAlpha(Color destinationColor)
-    //{
-    //    foreach( GameObject go in uiElements )
-    //    {
-    //        Vector4 initialColor = new Vector4( go.GetComponent<Image>().color.r,
-    //                                            go.GetComponent<Image>().color.g,
-    //                                            go.GetComponent<Image>().color.b,
-    //                                            go.GetComponent<Image>().color.a);
-    //        Vector4 destColor = new Vector4( destinationColor.r,
-    //                                            destinationColor.g,
-    //                                            destinationColor.b,
-    //                                            destinationColor.a );
-    //        if( Mathf.Abs((initialColor - destColor).magnitude) == 0)
-    //        {
 
-    //        }
-    //    }
-
-    //    return true;
-    //}
     bool AnimateDown()
     {
         float step = speed * Time.deltaTime * Screen.height / 100;
@@ -140,6 +113,15 @@ public class UIAnimation : MonoBehaviour
         bool menuReadyToClose = !AnimateUp();
         return menuReadyToClose;
     }
+
+    public void ResetButtonPosition()
+    {
+        for( int i = 0; i < uiElementButtons.Length; i++ )
+        {
+            uiElementButtons[i].transform.position = uiButtonOriginalPos[i];
+        }
+    }
+
     public void StartAnimate(MenuManager.state dest)
     {
         animateBtn = true;

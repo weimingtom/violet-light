@@ -112,10 +112,11 @@ $SP$ “Well I’ll tell the blues to back off for a bit, give ya some room to ‘play
 pose Sharp Serious
 $SP$ “Also, you guys’ll need this if you don’t have a copy already.”
 $SP$ “It’s a report of what we know about the body at this time.” 
-showicon police_report
+icon police_report m 1.0
 
 pose Alexander Scribbling
 $AX$ “I’ll take that, thank you.”
+icon destroy
 eff item
 item police_report
 $/$ “Police report added to Journal!”

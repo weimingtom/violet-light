@@ -7,21 +7,36 @@ public class Prop : MonoBehaviour {
 
     public bool IsPickUp;
     public bool IsCharacter;
+    public int minStageRange = 0;
+    public int maxStageRange = 0;
+    private int range;
 
     string checkedItem = "";
 
-    void Start()
+    void Awake()
     {
         if(IsCharacter)
         {
             SceneManager.Instance.SetChar( name );
             ItemInventory.Instance.TogglePresentButton( true );
         }
-        if( IsPickUp && SceneManager.Instance.GetScenePlayed( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name ) )
+
+        if(minStageRange != 0 || maxStageRange != 0)
+        {
+            for(int i = minStageRange; i < maxStageRange; ++i)
+            {
+                if( IsPickUp && SceneManager.Instance.GetScenePlayed( ( i) + "_" + SceneManager.Instance.GetSceneName() + "_" + name ) )
+                {
+                    this.gameObject.SetActive( false );
+                }
+            }
+        }
+        else if( IsPickUp && SceneManager.Instance.GetScenePlayed( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name ) )
         {
             this.gameObject.SetActive( false );
         }
     }
+
 
     void OnMouseDown()
     {

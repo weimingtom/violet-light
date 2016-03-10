@@ -1,1 +1,1 @@
-icon Neck_Wound left 1.5
+prompt Harmony's_Letter
