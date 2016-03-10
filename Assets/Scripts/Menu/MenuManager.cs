@@ -140,6 +140,13 @@ public class MenuManager : MonoBehaviour
             break;
             }
         }
+        else
+        {
+            if( btn == "btn_evidence" )
+            {
+                ChangeState(state.Evidence);
+            }
+        }
     }
 
     public bool MouseIsAboveInv { protected get; set; }

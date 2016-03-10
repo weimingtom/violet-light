@@ -50,6 +50,7 @@ public class ShowTextCommand : Commands
     {
         if( InitialSetup == true )
         {
+            CommandManager.Instance.allTextInScreen = false;
             string name = DialogueHolder.Instance.GetCharacterNameFromToken( conversationTag );
             CommandManager.Instance.SetNamePosition(CharacterManager.Instance.GetPosition(name));
             CommandManager.Instance.TextBoxSwitch( true );
@@ -152,6 +153,10 @@ public class ShowTextCommand : Commands
             }
 		    else
 		    {
+                if( indexPassed == DialogueHolder.Instance.GetDialogue( conversationTag ).Length )
+                {
+                    CommandManager.Instance.allTextInScreen = true;
+                }
                 if( finishWithoutClick == true && waitForTime == false)
                 {
                     return true;
@@ -164,6 +169,7 @@ public class ShowTextCommand : Commands
                         {
                             return true;
                         }
+
                     }
                     else
                     {
@@ -176,6 +182,7 @@ public class ShowTextCommand : Commands
         }
         return false;
     }
+
     void ParseCustomTextCommand()
     {
         string commandTag = "";
@@ -208,6 +215,7 @@ public class ShowTextCommand : Commands
         }
         RegisterTextCommand(commandTag.ToLower(), commandValue);
     }
+
     void RegisterTextCommand(string _tag, string _value)
     {
         switch( _tag.ToLower() )
@@ -269,11 +277,13 @@ public class ShowTextCommand : Commands
             totalTime = 0;
         }
     }
+
     void SetWaitForTime(float _t)
     {
         time = _t;
         waitForTime = true;
     }
+
     void PassTextToCommandManager()
     {
         AudioPlayer.instance.PlayBlip( !isMale );
@@ -298,6 +308,7 @@ public class ShowTextCommand : Commands
         timeTracker = 0;
         indexPassed++;
     }
+
     void RegisterHtmlCommand()
     {
         //refactorized with list
@@ -328,6 +339,7 @@ public class ShowTextCommand : Commands
         htmlBack.Add(backholder);
         indexPassed++;
     }
+
     void UnRegisterHtmlCommand()
     {
         while( DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed] != '>' )
@@ -339,18 +351,22 @@ public class ShowTextCommand : Commands
         htmlFront.RemoveAt(htmlFront.Count-1);
         htmlBack.RemoveAt(htmlBack.Count-1);
     }
+
     public override void PrintData()
     {
         Debug.Log( "ShowTextCommand\nconversationTag : " + conversationTag );
     }
+
     public void SetConversation( string _conversationTag )
     {
         conversationTag = _conversationTag;
     }
+
     public string GetConversationTag()
     {
         return conversationTag;
     }
+
 	public override bool Destroy()
 	{
 		CommandManager.Instance.TextBoxSwitch (false);

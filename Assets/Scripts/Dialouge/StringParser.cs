@@ -310,12 +310,11 @@ public class StringParser : MonoBehaviour
         break;
 
         case "prompt":
-        //note : prompt will call the menu then open evidence tab
+        // note : prompt will call the menu then open evidence tab
         // format -> prompt itemName
         CommandManager.Instance.correctItem = parsedCommand[1];
         OpenMenuCommand menuCommand = new OpenMenuCommand();
         CommandManager.Instance.AddCommand( menuCommand );
-
         break;
 
         case "advquest":

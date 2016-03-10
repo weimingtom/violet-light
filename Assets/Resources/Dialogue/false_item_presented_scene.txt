@@ -1,1 +1,1 @@
-$AX$ "I'am not sure why this item is relevant to me"
+$AX$ "I'am not sure why this item is relevant to our case"

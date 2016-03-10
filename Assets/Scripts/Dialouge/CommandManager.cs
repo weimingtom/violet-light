@@ -13,10 +13,11 @@ public class CommandManager : MonoBehaviour
     public string dialogueToLoad { get; set; }
     public string correctItem { private get; set; }
 
+    public bool allTextInScreen { get; set; }
     public bool donePrompt { get; set; }
     public int testimonyItemIndex { private get; set;}
 
-    public bool testimonyMode { private get; set; }
+    public bool testimonyMode { get; set; }
 
     public Text myTextHolder;
     public Text myNameHolder;
@@ -48,6 +49,7 @@ public class CommandManager : MonoBehaviour
 
     void Awake()
     {
+        allTextInScreen = false;
         Instance = this;
         donePrompt = false;
         wrongTextCommandIndex = 0;
@@ -143,6 +145,14 @@ public class CommandManager : MonoBehaviour
         if( runPushCommand == false )
         {
             runPushCommand = true;
+            if( allTextInScreen == true )
+            {
+                myCommand[commandTracker].Reset();
+                commandTracker--;
+            }
+            //myCommand[commandTracker].Reset();
+            //commandTracker--;
+            //myCommand[commandTracker].Reset();
         }
     }
 
@@ -155,11 +165,14 @@ public class CommandManager : MonoBehaviour
     public void NextButton()
     {
         //next = true;
-        myCommand[commandTracker].Reset();
-        commandTracker++;
-        if( commandTracker >= myCommand.Count )
+        if( !runPushCommand )
         {
-            ResetMainCommand();
+            myCommand[commandTracker].Reset();
+            commandTracker++;
+            if( commandTracker >= myCommand.Count )
+            {
+                ResetMainCommand();
+            }
         }
     }
 
@@ -297,6 +310,7 @@ public class CommandManager : MonoBehaviour
         {
             myPushCommand[commandTracker][i].Reset();
         }
+        myCommand[commandTracker].Reset();
         runPushCommand = false;
     }
     void ResetWrongTextCommand()

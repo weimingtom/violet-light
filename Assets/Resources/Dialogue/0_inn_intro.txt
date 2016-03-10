@@ -151,7 +151,7 @@ $AX$ "When-" (gets cut off)
 $VL$ "Now."
 
 icon Notebook m 1.0
-$AX$ "Let me just grab my journal..." [Show Notebook Icon]
+$AX$ "Let me just grab my journal..."
 icon destroy
 $AX$ "Without it I won't be able to keep track of all our suspects, evidence, and locations of interest." 
 
