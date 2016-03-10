@@ -1,0 +1,4 @@
+$VL$ “Look at that huge bridge”
+$AX$ "It needs to hold a lot of people"
+$AX$ "There is a lot of traffic every day.”
+$VL$ "We should visit this place on the morning, there is a lot of merchats selling their wares."

@@ -1,0 +1,5 @@
+$AX$ “Hei look it is a boat violet, i want one of those”
+$VL$ “We can steal that”
+$AX$ "Thats not what i meant!"
+$VL$ "It is a joke.....”
+
