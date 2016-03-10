@@ -112,7 +112,7 @@ $SP$ “Well I’ll tell the blues to back off for a bit, give ya some room to ‘play
 pose Sharp Serious
 $SP$ “Also, you guys’ll need this if you don’t have a copy already.”
 $SP$ “It’s a report of what we know about the body at this time.” 
-[showicon police_report]
+showicon police_report
 
 pose Alexander Scribbling
 $AX$ “I’ll take that, thank you.”
@@ -163,3 +163,4 @@ $VL$ “...”
 // flip alex back
 
 $AX$ “Er… R-right.”
+advquest
