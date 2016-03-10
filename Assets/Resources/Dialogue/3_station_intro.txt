@@ -94,6 +94,13 @@ show Alexander Offscreen
 show Harmony Offscreen
 show Sharp Center
 
+$SP$ “<color=green>Look, your friend here is a very guilty person. And as the Ace Detective it is MY job to put her away.</color>”
+$SP$ “<color=green>The body was found washed up in the River Thames and discovered by a passing fisherman.</color>”
+$SP$ “<color=green>Once we identified the body we went to investigate the sister’s shop, and when we arrived we found our suspect’s shoes outside.</color>”
+$SP$ “<color=green>Here’s the fun part, the soles of her boots, still wet and covered in salt residue. Proving she was near the river recently.</color>”
+$SP$ “<color=green>There was no other reason for her to be that far from her shop that night.</color>”
+
+$AX$ "Time to push for more information!"
 
 eff testimony
 $/$ “[speed s]<b><color=green>BEGIN TESTIMONY</color></b>”
