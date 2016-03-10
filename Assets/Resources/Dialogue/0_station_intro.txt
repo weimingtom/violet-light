@@ -72,9 +72,10 @@ $VL$ “Wait, Alexander, If we show the guard the letter we received he might let 
 $AX$ “Good idea Violet! I can open up my rucksack and <color=red>present</color> it to him.”
 
 // Option to present
-prompt harmonys_letter
-pose Violet Explaining
+//item harmony's_letter
+//prompt harmony's_letter
 $VL$ “Look, we have written permission. Let us through.”
+pose Violet Explaining
 $PL$ “H-huh. [eff ding] Oh I see!”
 
 $PL$ “Alright ma’am, I guess I can let you through. But I’ll have my eye on you. ”
@@ -155,10 +156,13 @@ $VL$ “A pen and paper? What’s she going to do with that?”
 pose Violet Smirk
 $VL$ “That Detective may be sharp, but he’s not too bright!”
 pose Violet Shrug
-$VL$ “Fine, I’ll just give her [showicon notebook]Alex’s notebook then.” 
+
+icon notebook m 1.0
+$VL$ “Fine, I’ll just give her Alex’s notebook then.” 
+icon destroy
 
 $PL$ “[speed f]I can’t let you do that, Ma’am! [eff yell]Sorry!”
-[hideicon]
+
 
 pose Violet serious
 $VL$ “What, really?”
