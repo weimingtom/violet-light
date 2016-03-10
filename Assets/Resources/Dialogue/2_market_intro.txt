@@ -1,4 +1,4 @@
-$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963,\nLondon Streets - Market\n6:15 PM</color></size></b>”
+$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963, London Streets - Market 6:15 PM</color></size></b>”
 Show Alexander Left1
 Show Violet Right2
 $AX$ "Do you really think we'll find anything here, Violet? Shouldn't we be checking out the Music Shop first?"

@@ -1,4 +1,4 @@
-$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963,\nLondon Police Department – Holding Room B\n5:32 PM</color></size></b>”
+$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963, London Police Department – Holding Room B 5:32 PM</color></size></b>”
 $PL$ "[speed f]WA-WAIT-[eff yell]
 $PL$ "[speed s]You can't go in there!"
 

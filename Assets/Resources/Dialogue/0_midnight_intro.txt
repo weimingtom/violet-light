@@ -1,11 +1,11 @@
-$??$ "You know what I love about music? [time 3][noclick]"
-$??$ "The harmonies and melodies all combine to create something beautiful. [time 4][noclick]"
+$??$ "[speed m]You know what I love about music? [time 3][noclick]"
+$??$ "[speed m]The harmonies and melodies all combine to create something beautiful. [time 4][noclick]"
 // fade into a graphic of shadowy figure throwing something over a bridge
 // slowly pan down as body falls
-$??$ "And at the end of a song, the music just fades away, disappears. The sound floating through the air, and then it's... [time 4][noclick]"
-$??$ "...gone. [time 4][noclick]"
-$??$ "... [time 4][noclick]"
-$??$ "Fade away, my sweet Melody.[time 4][noclick]"
+$??$ "[speed m]And at the end of a song, the music just fades away, disappears. The sound floating through the air, and then it's... [time 4][noclick]"
+$??$ "[speed m]...gone. [time 4][noclick]"
+$??$ "[speed f]... [time 4][noclick]"
+$??$ "[speed m]Fade away, my sweet Melody.[time 4][noclick]"
 // keep panning until sploosh
 // Cut to black
 $??$ "... [time 4][noclick]"

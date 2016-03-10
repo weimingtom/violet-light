@@ -1,4 +1,4 @@
-$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963,\nLondon Police Department – Holding Room B\n8:47 PM</color></size></b>”
+$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963, London Police Department – Holding Room B 8:47 PM</color></size></b>”
 show Sharp Left2
 show Harmony Right1
 

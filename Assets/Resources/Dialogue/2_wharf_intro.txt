@@ -1,4 +1,4 @@
-$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963,\nRiver Thames – Fisherman’s Wharf\n6:15 PM</color></size></b>”
+$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963, River Thames – Fisherman’s Wharf 6:15 PM</color></size></b>”
 Show Alexander Right1
 Show Violet Left2
 Pose Alexander Scribbling
