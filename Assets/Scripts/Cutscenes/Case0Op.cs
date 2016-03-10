@@ -9,16 +9,17 @@ public class Case0Op : MonoBehaviour
     private bool[] doneOnce;
 
 	// Use this for initialization
-	void Awake () 
+	void Awake() 
     {
         MusicManager.instance.ChangeSong("alt_theme");
         doneOnce = new bool[2];
-        panDelay += Time.time;
         MenuManager.instance.ToggleMenuAccess();
         FileReader.Instance.LoadScene( opScene );
         SceneManager.Instance.SetCanSkip(false);
         FadeOutScreen.instance.BeginFade(-1);
-	}
+
+        panDelay += Time.time;
+    }
 	
 	// Update is called once per frame
 	void Update () 
