@@ -5,7 +5,7 @@ PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
   AndroidProfiler: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   targetResolution: 0
   accelerometerFrequency: 60
@@ -83,7 +83,7 @@ PlayerSettings:
     16:10: 0
     16:9: 1
     Others: 0
-  bundleIdentifier: com.Company.ProductName
+  bundleIdentifier: com.AGameTeam.VioletLight
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -92,7 +92,7 @@ PlayerSettings:
   virtualRealitySupported: 0
   productGUID: ebab94638dae194489049b153dec48d8
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 9
+  AndroidMinSdkVersion: 21
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
@@ -135,7 +135,7 @@ PlayerSettings:
   iOSLaunchScreenFillPct: 100
   iOSLaunchScreenSize: 100
   iOSLaunchScreenCustomXibPath: 
-  AndroidTargetDevice: 0
+  AndroidTargetDevice: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: 
