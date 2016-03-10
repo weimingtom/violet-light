@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+   
     public void StartGame(bool _newGame, int _gameToLoad = -1)
     {
         newGame = _newGame;

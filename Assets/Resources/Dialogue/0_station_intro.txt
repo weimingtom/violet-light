@@ -1,3 +1,5 @@
+item harmonys_letter
+
 $/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963, London Police Department – Holding Room B 5:32 PM</color></size></b>”
 $PL$ "[speed f]WA-WAIT-[eff yell]
 $PL$ "[speed s]You can't go in there!"
@@ -58,7 +60,7 @@ $VL$ “Alexander, tell this ruffian why he must let us through.”
 $AX$ “Ah, not this again Viole-[eff hit]”
 $AX$ “Er- I mean- uhm…”
 
-$AX$ “We’re here f-for [eff yell][pause]Uh! Harmony! [eff yell]”
+$AX$ “We’re here f-for [eff yell][time 1]Uh! Harmony! [eff yell]”
 $AX$ “Y-You have to let us through!”
 
 $PL$ “Sorry, no one sees Ms.Harmony without proper permission.”
@@ -70,18 +72,10 @@ $VL$ “Wait, Alexander, If we show the guard the letter we received he might let 
 $AX$ “Good idea Violet! I can open up my rucksack and <color=red>present</color> it to him.”
 
 // Option to present
-Switch (Present)
-•	Harmony’s Letter
-Violet Explaining
+prompt harmonys_letter
+pose Violet Explaining
 $VL$ “Look, we have written permission. Let us through.”
 $PL$ “H-huh. [eff ding] Oh I see!”
-continue
-•	Other
-$PL$ “What are you showing me that for? That’s not getting you anywhere”
-Alex Nervous
-$VL$ “C’mon, Alex think! Don’t we have [red]something[/red] that’ll help us get through?”
-$AX$ “R-Right![eff flash/shake]”
-loop
 
 $PL$ “Alright ma’am, I guess I can let you through. But I’ll have my eye on you. ”
 

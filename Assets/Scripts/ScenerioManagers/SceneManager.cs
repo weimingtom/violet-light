@@ -117,6 +117,8 @@ public class SceneManager : MonoBehaviour
     {
         SceneStart();
         DoFade();
+
+        
     }
 
     public void LoadGame(Game loadedGame)
@@ -284,7 +286,7 @@ public class SceneManager : MonoBehaviour
         return ScenesPlayed[scene];
         return false;
     }
-
+    bool debugQuestBool = false;
     // NOTE(jesse): Function to run the intro script after the fade into a new scene has finished.
     private void SceneStart()
     {
@@ -292,6 +294,15 @@ public class SceneManager : MonoBehaviour
         {
             if (!SceneManager.Instance.GetInputBlocker())
             {
+                // TODO REMOVE THIS
+                if( ItemManager.Instance.CheckItem( "icy_streets" ) && ItemManager.Instance.CheckItem( "neck_wound" ) )
+                {
+                    if( debugQuestBool == false )
+                    {
+                        AdvQuest();
+                        debugQuestBool = true;
+                    }
+                }
                 string introScene = QuestStage.ToString() + "_" + Scenes[currentScene].Prefab + "_" + "intro";
                 if (FileReader.Instance.IsScene(introScene) && !GetScenePlayed(introScene))
                 {

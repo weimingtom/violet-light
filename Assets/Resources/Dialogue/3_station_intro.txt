@@ -98,3 +98,4 @@ show Sharp Center
 eff testimony
 $/$ “[speed s]<b><color=green>BEGIN TESTIMONY</color></b>”
 
+load sharp_testimony_1

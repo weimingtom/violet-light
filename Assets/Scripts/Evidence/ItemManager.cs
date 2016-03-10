@@ -192,5 +192,17 @@ public class ItemManager : MonoBehaviour
 			}
 		}
     }
+
+    public bool CheckItem( string item_name )
+    {
+        foreach( Item item in playerItems )
+        {
+            if( item.GetItemName().ToLower() == item_name.ToLower() )
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     
 }
