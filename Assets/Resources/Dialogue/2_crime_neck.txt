@@ -1,56 +1,17 @@
-show Alexander Right1
-show Violet Right2
-pose Alexander Neutral
-pose Violet Neutral
+$VL$ “H-huh!? What’s this?”
+$AX$ “What did you find Violet?”
+$VL$ “Doesn’t the back of her neck look a liiiittle strange to you?”
+$AX$ “What do you mean?”
 
-pose Violet surprised
+$VL$ “She appears to have some sort of mark, as if something injured her neck.”
+$AX$ “Hmmm, you’re right.”
+$AX$ “It’s not post mortem, you can tell by the color.”
 
-$VL$ "H-huh!? What's this?"
+$VL$ “Could it have been some kind of rope or... jewelry?”
+$AX$ “I’ll write it down. Maybe someone else might know more.”
 
-pose Alexander Thinking
+item neck_wound
+eff item
 
-$AX$ "What did you find Violet?"
-
-pose Violet Thinking
-
-$VL$ "Doesn't the back of her neck look... a littttle strange to you?"
-
-pose Alexander Thinking
-
-$AX$ "Uhm- I mean she's kinda pale..."
-
-pose Violet Upset
-
-pose Alexander Unimpressed
-
-$VL$ "ALEX! NO NOT THAT!"
-
-pose Violet Happy
-
-$VL$ "You dork!"
-
-$AX$ "..."
-
-pose Alexander Neutral
-pose Violet Thinking
-
-$VL$ "She appears to have some sort of mark... as if something injured her neck"
-
-pose Alexander Thinking
-
-$AX$ "Hmmm, you're right..."
-
-$AX$ "It's not post mortem, you can tell by the color of the mark."
-
-$VL$ "Could it have been some kind of rope or... jewelry?"
-
-pose Alexander scribble
-
-$AX$ "I'll write it down, maybe someone else might know more."
-
-// It's a necklace that had been torn off her neck
-
-$/$ "Neck wound added to journal!"
+$/$ “<color=blue>Neck wound added to journal!</color>”
 // Add to journal
-
-// scene end

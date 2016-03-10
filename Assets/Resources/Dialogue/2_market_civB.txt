@@ -1,38 +1,31 @@
-// Unimportant information
-// information about the locket. 
+show Violet Left2
+pose Violet Happy
+$VL$ “Oh, this looks shiny!”
+pose Alexander Shock
+show Alexander Left1
+$AX$ “Violet, put that down. We can't afford something like that.”
+show CivA Right1
+pose Alexander Unimpressed
+pose Violet Shock
+$JW$ “That pocket watch is 18 karat gold and built by one of the finest craftsman of our time. Its sure to go splendid with your attire.”
+pose Alexander Explaining
+pose Violet neutral
+$AX$ “Sorry but we're not in the market for jewelry right now. Right Violet?”
+pose Alexander Neutral
+$JW$ “That’s quite alright, what can I do for such a handsome face?”
+$VL$ “Do you know anything about the Rush sisters?”
+$JW$ “Those two lovely sisters were here just a couple months ago, but I don't see how that is any of your business.”
+$AX$ “Oh, uh how do I put this... Melody's body was found washed up in the river earlier. We are investigating for harmony, anything you could tell us would really help.”
+$JW$ “Oh I didn't realize. I'm sorry for being rude. [wait 1]That poor girl...”
+$AX$ “It's understandable, you were protecting your clients.”
+$VL$ “Now tell us everything!”
+$JW$ “They were having me appraise some jewelry. Melody brought in a stunningly beautiful locket that was worth a lot. Harmony had an equally beautiful ring, but it wasn't worth very much.”
+$AX$ “Do you think melody was murdered for her locket?”
+$VL$ “Hmm, unlikely. Petty theft doesn't often end with bodies in rivers.”
+$AX$ “Ehh, right.”
+pose Alexander Scribbling
+$VL$ “Better make a note of it anyway.”
 
-$VL$ "oh, this looks shiny"
-
-$AX$ "Violet, put that down. We can't afford something like that."
-
-$f$ "that pocket watch is 18 karat gold and built by one of the finest craftsman of our time. Its sure to go splendid with your attire."
-
-$AX$ "sorry but we're not in the market for jewelry right now."
-
-$f$ "suit yourself, what can I do for such a handsome face?"
-
-$VL$ "do you know anything about the Rush sisters?"
-
-$f$ "They were here just a couple months ago, but I don't see how that is any of your business."
-
-$AX$ "oh, uh, Melody's body was found dead earlier this week. We are investigating for harmony, anything you could tell us would really help."
-
-$f$ "Oh I didn't realize. I'm sorry for being rude. [Pause] That poor girl."
-
-$AX$ "It's understandable, you were protecting your clients."
-
-$VL$ "Now tell us everything!"
-
-$F$ "They were having me appraise some jewelry. Melody brought in a stunningly beautiful locket that was worth a lot. Harmony had an equally beautiful ring, but it wasn't worth very much."
-
-$AX$ "Do you think melody was murdered for her locket?"
-
-$VL$ "hmm, unlikely. Petty theft doesn't often end with bodies in rivers."
-
-$AX$ "ehh, right."
-
-$VL$ "better make a note of it anyway."
-
-[Note get thing.]
-
-// it reveals locket information, get that added to journal
+eff item
+item melodys_locket
+$/$ “Locket added to journal!”

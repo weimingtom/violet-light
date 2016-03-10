@@ -1,93 +1,81 @@
-// Meet Sax Man
-show Alexander Right1
+$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963,\nRush Sisters’ Music Shoppe\n6:15 PM</color></size></b>”
+show Alexander Left1
 show Violet Right2
-
 pose Alexander scribbling
 pose Violet thinking
+$AX$ “So this is the Rush Sisters’ Music Shop?”
+$VL$ “Sure is, but I fancied it much more without all the police tape.”
 
-$AX$ "So this is the Rush Sisters' Music Shop?"
+pose Alexander Shock
+pose Violet Shock
+$PL$ “Please [eff crash]Sir! I can’t let you through!”
 
-$VL$ "Uh-huh, but I fancied it more without all the police tape."
+Show Alexander Offscreen
+Show Violet Offscreen
 
-//shift camera to right?
-
-pose Policeman neutral
-show Policeman Left1 
 // facing right
-$PL$ "P-please! S-sir! I can't let you through!"
-pose Michael neutral
-show Michael Left2
+show Policeman Right1
+show Policeman Left1
 
-//music SaxTheme+-
-//slide Saxman left //slow
-//Saxman Saxphoning
+music SaxTheme
+show George Left1
+//slow
+pose George Saxphoning
 
 // finish animation
-
 // this scene needs to be refined and thought out
 
-//saxman smirk
+pose George smirk
+$SX$ “Quite the scene you’ve got set up here!”
+$PL$ “Sir! I-I Can’t let you go any further!”
+$SX$ “Ah and you must be the detective in charge of the situation here, or at least you should be.”
+$PL$ “W-well! N-no! B-No Sir, but thank you! And sorry but I can’t let you on to the crime scene.”
+$SX$ “Crimescene? This looks much like a humble music shop to me.”
 
-$SX$ "Quite the scene you've got set up here!"
+$PL$ “W-well yes it does look like that, anywhere can be a crime scene sir, but there are extenuating circumstances.!”
+$SX$ “It’s okay, no need to force me out, I’ll be on my way. Thank you for your time officer...[pause] or should I say soon-to-be-detective?”
+show George offscreen
+$PL$ “A-ah Thank You! A-and sorry! Ah yes, sir. Thank you, sir. And sorry, sir.”
+$SX$ “Well reguardless, I’ll be off!”
 
-$PL$ "S-sir! I-I Can't let you go any further!"
+Show Policeman Offscreen
+Show George Offscreen
 
-$SX$ "Ah and you must be the detective in charge of the situation here, or at least you should be."
 
-$PL$ "W-well! N-no! B-No Sirbut thank you! And sorry but I can't let you on to the crime scene."
+// pan back to Alex and violet
+Pose Alexander unimpressed
+Pose violet puzzled
+show Alexander Left1
+show Violet Right2
 
-$SX$ "Crimescene? This looks much like a humble music shop to me."
-
-$PL$ "W-well yes it does look like that,Anywhere can be a crime scene sir, but  there are extenuating circumstances.!"
-
-$SX$ "It's okay, no need to force me out, I'll be on my way. Thank you for your time officer...[pause] or should I say soon-to-be-detective?"
-//`vshow saxman offscreen
-
-$PL$ "A-ah Thank You! A-and sorry! Yes sir, and sorry sir."
-
-// pan back to alex and violet
-
-pose Alexander unimpressed
-pose violet puzzled
-
-$AX$ "W-wow, he managed to trespass and get the officer to apologize for it."
-
-$VL$ "Huh, wonder why I can never get away with that."
-
+$AX$ “W-wow, he managed to trespass AND get the officer to apologize for it!”
+$VL$ “Huh, wonder why I can never get away with that.”
 pose Alexander smirk
-
-$AX$ "Welll... you're a bit different."
-
-pose Violet mad
+$Ax$ “Well, you’re a bit different.”
+Pose Violet upset
 
 show Policeman center
+$PL$ “Excuse me! You two can’t be here!”
 
-$PL$ "Excuse me! You two can't be here!"
+Pose Alexander scribbling
+Pose Violet neutral
 
-pose Alexander scribbling
-pose Violet neutral
+$AX$ “Detective Sharp gave us permission.”
+$PL$ “Do you have it in writing?”
 
-$AX$ "Detective Sharp gave us permission."
+Pose Alexander unimpressed
+$AX$ “U-uh, well...”
+$PL$ “Then you can look, but don’t cross the tape!”
 
-$PL$ "Do you have it in writing?"
-
-pose Alexander unimpressed
-
-$AX$ "U-uh well..."
-
-$PL$ "Then you can look, but don't cross the tape!"
-
-show Policeman offscreen
-
-pose Alexander serious
+show Policeman Offscreen
+pose Alexander Serious
 pose Violet thinking
+$VL$ “Hmm, you really messed that one up Alex!”
 
-$VL$ "Hmm, you really messed that one up Alex!"
-
-pose Alexander shocked
-
-$AX$ "Wh-WHAT?"
-
-pose Alexander serious
-
-$VL$ "Let's see if we can find something while they're busy with the tall man."
+Pose Alexander shocked
+$AX$ “I messed it up?!”
+$VL$ “You hesitated! Never show weakness! They can smell it on you.”
+$AX$ “They’re police officers, not dogs.”
+Pose Alexander unimpressed
+$VL$ “It’s all the same in the wild, Alex.”
+$AX$ “Sure, Violet.”

@@ -1,29 +1,37 @@
-// Spooky scene foreshadowing both forever machine and Harmony's voice + Coverup + Sax Man
+bg null
+// Spooky scene foreshadowing both forever machine and Harmony’s voice + Coverup + Sax Man
 
 // How did it go?
-1 "..."
+$??$ “...”
 
-2 "Shwelll if I don't say so myself!"
-2 "And I see you're doing quite alright!"
+$??$ “Shwelll if I don’t say so myself!”
+$??$ “And I see you’re doing quite alright!”
 
-// I guess you could say that. I'm free now
-1 "..."
+// I guess you could say that. I’m free now
+$??$ “...”
 
-2 "Don't look so gloom! We'll be fiiiine."
-2 "Hey- nothing easy was ever worth fighting for... or something."
+$??$ “Don’t look so gloom! We’ll be fiiiine.”
+$??$ “Hey- nothing easy was ever worth fighting for... or something.”
 
-// Hmm. I suppose so. Look. this machine, it was supposed to go well."
-1 "..."
-1 "....."
+// Hmm. I suppose so. Look. this machine, it was supposed to go well.”
+$??$ “...”
+$??$ “.....”
 
-2 "Machine? It's muuuch more than that."
-2 "Anyways that's not what's important. Let's keep our eyes on the prize!"
-2 "Just keep this façade on a little longer, my dear."
+$??$ “Machine? It’s muuuch more than that.”
+$??$ “Anyways that’s not what’s important. Let’s keep our eyes on the prize!”
+$??$ “Just keep this façade on a little longer, my dear.”
 
-1 "..."
+$??$ “...”
 
-2 "They have no Idea."
+$??$ “They have no Idea.”
 
-1 "...."
+$??$ “....”
+
+//fade out
+
+
+$/$ “What happens next? Find out in the full version of Violet Light and the Forever Machine Case Zero!”
+$/$ “Coming soon.”
+
 advquest
 //fade out

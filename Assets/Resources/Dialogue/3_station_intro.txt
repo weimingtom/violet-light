@@ -1,112 +1,100 @@
-// Gathered all evidence now it's time to present
-// Three core evidence pieces are Salt, Clothing Piece, and Sisters Jealousy
+$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963,\nLondon Police Department – Holding Room B\n8:47 PM</color></size></b>”
+show Sharp Left2
+show Harmony Right1
 
-Show Sharp Left
-Show Harmony Right
+$SP$ “Sooo... still not talkin eh?”
+// flip sharp
+pose Sharp cocky
+$SP$ “Heheheh...”
+// flip him back
+$SP$ “You can’t keep the act up forever, cupcake.”
+pose Harmony worried
+$HR$ “.....”
 
-// Intro
+$SP$ “Ya know, if you tell me the truth...”
+$SP$ “Then I just might be able to cut you a deal.”
+$SP$ “Well y’know, probably.”
+$SP$ “Buuuuut!”
+$SP$ “If you keep stayin quiet...”
+$SP$ “Wellll then I can’t really do that.”
 
-$SP$ "Sooo... still not talkin eh?"
+pose Harmony sad
+$HR$ “....”
 
+pose Sharp neutral
+$SP$ “You guilty ones, you’re always like this.”
+pose Sharp Happy
+$SP$ “Hahaha, just lookin’ all sad for yourselves.”
+$SP$ “Sayin stuff like ‘Oh no! Please it wasn’t me! It was really my brother! He’s the one with blood on his clothes’[noclick]”
+$SP$ “Well y’know what?”
+pose Harmony worried
+$HR$ “.....”
+pose Sharp Mad
+$SP$ “I always catch the killer, and there ain’t nothing you can do about it!”
+// flip sharp
 pose Sharp Cocky
+$SP$ “Hahaha. Man I can’t wait for my promotion!”
 
-$SP$ "Heheheh... can't keep the act up forever."
+pose Harmony mad
+$HR$ “........[noclick]”
 
-pose Harmony Worried
+pose Violet serious
+$VL$ “[speed f]Woah, woah, woah! [speed m]HOLD IT![eff yell]”
+pose Harmony Surprised
+pose Sharp surprised
+$SP$ “H-huh?”
+show Harmony center
+show Alexander right2
+show Violet right1
 
-<HR> "....."
-
-$SP$ "If you tell me the truth, then I might be able to cut you a deal."
-
-$SP$ "Buuuuut... if you keep stayin quiet... wellll then I can't really do that."
-
-<HR> "...."
-
-$SP$ "It's okay, y'know? The guilty ones are always like this. *sigh* You never want to challenge me eh?"
-
-$SP$ "Always makin the case against ya easy. Man I can't wait for my promotion!"
-
-pose Harmony Mad
-
-<HR> "........"
-
-pose Violet Serious
-
-$VL$ "HOLD IT!"
-
-pose Sharp Surprised
-
-$SP$ "H-huh?"
-
-pose Violet Cocky
-
-$VL$ "Just what do you think you're doing talking to my client?"
-
-$SP$ "Uh-uhm..."
-
-pose Violet Angry
-
-$VL$ "Of course she's not going to tell you anything. First of all because she can't SPEAK."
-
-pose Violet Cocky
-
-$VL$ "But also because she can't say anything without her lawyer here."
-
-// this lawyer façade might confuse the player so we gotta make it clear maybe that they aren't real lawyers?
-
-pose Sharp Cocky
-
-$SP$ "Hahaha, of course. Miss Pointy Hair."
-
-pose Violet Angry
-
-$VL$ "H-heY!"
-
-pose Violet Nervous
-
-$VL$ "it's not that pointy..."
-
-pose Violet Serious
-
-$VL$ "Stop badgering my client."
-
-$SP$ "Hey, unless you produce some evidence there's nothing I can do."
-
-pose Alexander Nervousous
-
-$AX$ "Uh-oh."
-
-pose Sharp Cocky
-
-$SP$ "Nothing can stop the Ace Detective!"
-
-pose Alexander Unimpressed
-
-$AX$ "Oh boy..."
-
-pose Alexander Serious
-
-// Note do we need more dialogue before this?
-// Harmony is about to be kinda screwed, so that's when you have to go against Sharp's testimony
-
-$VL$ "Why don't you give us a testimony on why you think she did it."
-
-$AX$ "Ah good thinking Violet."
-
-pose Violet Cocky
-
-$VL$ "Then we'll see who's the Ace here."
-
+pose Violet cocky
+$VL$ “Just what do you think you’re doing talking to my client?”
+pose Harmony happy
 pose Sharp Nervous
+$SP$ “Uh-uhm...”
 
-$SP$ "Hmmmph."
+$VL$ “Of course she’s not going to tell you anything.”
+pose Violet angry
+$VL$ “First of all because she can’t [eff yell]SPEAK.”
+pose Sharp Cocky
+$SP$ “Woah, cool it princess.”
+$VL$ “...”
+pose Violet cocky
+$VL$ “AND also she wouldn’t even be able to say anything without her lawyer present.”
+
+pose Sharp serious
+$SP$ “Of course.”
+pose Violet Serious
+$VL$ “So stop badgering my client.”
 
 pose Sharp Cocky
+$SP$ “Well, until you produce some decisive evidence, she’s all mine.”
+pose Alexander nervous
+pose Sharp pose
+$SP$ “Nothing can stop the Ace Detective!”
+pose Sharp cocky
+pose Alexander unimpressed
+$AX$ “Oh boy...”
+pose Alexander serious
+$AX$ “Well, it looks like now is as good of a time as ever to try and prover Harmony’s Innocence!”
+$VL$ “Then why doesn’t the ‘Ace Detective’ give us a testimony on why he thinks she did it.”
+pose Violet cocky 
+$VL$ “Then we’ll see who's the Ace here.”
 
-$SP$ "Fine, bring it on."
+pose Sharp cocky
+$SP$ “Fine, bring it on.”
+//flip alex to violet
+$AX$ “I guess it’s time to cross examine Detective Sharp.”
+$VL$ “We’ll just have to present some evidence to contradict his statements!”
+// flip alex
+$AX$ “Here goes nothing!”
 
-// Is this too abrupt?
+show Violet Offscreen
+show Alexander Offscreen
+show Harmony Offscreen
+show Sharp Center
 
-// Start Testimony
 
-load sharp_testimony_1
+eff testimony
+$/$ “[speed s]<b><color=green>BEGIN TESTIMONY</color></b>”
+

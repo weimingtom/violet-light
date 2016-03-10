@@ -1,14 +1,6 @@
-show Alexander Right1
-show Violet Left1
-pose Alexander puzzled
-pose Violet neutral
+$VL$ “River Thames! Good fish, not so great for swimming or body dumping, though.” 
+$AX$ “I wonder where the body was dumped for it to wind up here.”
+$VL$ “The river Thames is the second longest river in the world, so we have a long ways to look.”
+$AX$ “If we were going to do that we had better hurry up. The tide is going to come in soon.”
+$VL$ “We can leave the grunt work to the ‘ace detective.’”
 
-pose Alexander puzzled
-
-$AX$ "I wonder where where the body was dumped for it to get here."
-
-$VL$ "The river Thames is the second longest in the world so we have a long ways to look."
-
-$AX$ "If we were going to do that we had better hurry up because the tide is going to come back in soon."
-
-$VL$ "We can leave the grunt work to the 'ace detective.'"

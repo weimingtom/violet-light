@@ -1,141 +1,165 @@
-show Alexander Right1
-show Violet Right2
-pose Alexander Neutral
-pose Violet Neutral
-
-show Sharp Left1 
-//facing wrong way
+// Sharp facing Policeman
+show Sharp Center
+show Policeman Left1
 pose Sharp Cocky
-
-$SP$ "Well... yeah? Of course I was right!"
-
+$SP$ “Oh yeah? Well, of course I was right!”
 pose Sharp Thinking
 
-$SP$ "H-huh?[time 1] Behind me?
+show Alexander Right1
+show Violet Right2
+Pose Alexander Neutral
+Pose Violet Neutral
 
-// Sharp Turns around
+$SP$ “H-huh?[pause] Behind me?[eff discovery]”
 
-pose Sharp Neutral
+pose Sharp Confident
+// Slowly zoom in on sharp
+// wait for a bit
+// Violet bursts his bubble
 
-$SP$ "Woah, woah, woah. HOLD IT!
-
-$SP$ "This... This, is a Crime Scene."
-
-$SP$ "Common folk like yourselves can't be here.
-
-$SP$ "Especially you sweetheart."
-
-pose Violet upset
-
-$VL$ "You..."
-
-pose Alexander unimpressed
-
-$AX$ "Keep it together Violet..."
-
-$VL$ "Eh, ehm.."
-
-pose Violet Neutral
-
-$VL$ "Actually, you're wrong, love."
-
+eff Pop
+// snap back to normal camera
 pose Sharp Surprised
 
-pose Violet Cocky
-
-$VL$ "We're Miss Rush's lawyers, on official business."
-
-pose Alexander Surprised
-
-$AX$ "Wait, We are-?" 
-
-// Gets cut off
-
-$VL$ "As you can see by my official papers, so please step aside, we're looking for someone with a knife."
-
-pose Sharp Nervous
-
-$SP$ "U-uh right!"
-
-pose Sharp Cocky
-
-$SP$ "Of course, Miss...?"
-
-$VL$ "Light, Violet Light. And this Is my assistant Alexander Strong."
-
-pose Alexander Unimpressed
-
-$AX$ "W-wow that worked. I think this is illegal..." 
-//cut off
-
-$SP$ "I'm Detective Sharp, but there really isn't much to investigate here. It's a pretty open and shut case, if I do say so myself."
-
-$VL$ "I'll be the judge of that!"
-
-$SP$ "Uh, well no you won't. The judge will."
-
-pose Violet Nervous
-
-$VL$ "R-right!"
-
-pose Alexander Neutral
-
-$SP$ "So what's this about a knife?"
-
-// TODO Choice? Maybe put in the choice to say either We were looking for: A man named Sharp, A knife man, or a Sharply dressed man
-
-pose Alexander Thinking
-$AX$ "No, no, no..[pause] We were looking for the lead detective, he was supposed to be sharply dressed or something..."
+// pause
+// flip sharp
+show Sharp Left2
 
 pose Sharp Neutral
-$SP$ "Well that's me! Just because I look young doesn't mean I can't be in charge here."
+$SP$ “Woah, woah, woah! HOLD IT![eff yell]”
+$SP$ “This, is a Crime Scene.”
+$SP$ “Common folk like yourselves can’t be here.
+$SP$ “Especially not you, sweetheart. Wouldn’t want you to get your shoes dirty.”
 
-$VL$ "Uhuh...[pause] we need to get access to the crime scene. How about you tell your goons to let us through?"
-
-pose Sharp Cocky
-$SP$ "I guess, but it's not like you're going to find anything I haven't already found yet."
-pose Sharp Serious
-$SP$ "Really you two, uh… 'Lawyers', should just give up now. I have this case totally under control."
-
-pose Violet Cocky
-$VL$ "It won't be that simple for ya, love. I've never lost a case." 
-
-pose Sharp Shock
-$SP$ "Wh-what?"
-pose Sharp Nervous
-$SP$ "Psh, neither have I!"
-pose Sharp Cocky
-$SP$ "Actually sweetheart, none of my investigations ever last longer than a day..."
-$SP$ "I usually find the culprit within thean hour, so, y'know, have fun losing." 
+pose Violet upset
+$VL$ “YOU-!”
 
 pose Alexander unimpressed
+$AX$ “Keep it together Violet!”
+
+$VL$ “Eh, ehm...”
+pose Violet Neutral
+$VL$ “Actually, you’re wrong, love.”
+
+pose Sharp Surprised
+pose Violet Cocky
+$VL$ “We’re Miss Rush’s lawyers. On official business.”
+
+pose Alexander Surprised
+$AX$ “Wait, We are-?[noclick]”
+
+$VL$ “So please step aside.”
+
+pose Sharp Nervous
+$SP$ “Uh, right!”
+pose Sharp Cocky
+$SP$ “Of course, Miss...?”
+
+$VL$ “Light, Violet Light. And this is my assistant Alexander Strong.”
+
+pose Alexander Unimpressed
+// flip alex to violet
+$AX$ “[small text] Wow that worked!”
+$AX$ “Although, I think posing as lawyers is illegal-[no click]”
+// flip him back
+
+$SP$ “I’m Detective Sharp, but there really isn’t much to investigate here. It’s a pretty open and shut case, if I do say so myself.”
+$VL$ “I’ll be the judge of that!”
+
+$SP$ “Uh, well no.”
+$SP$ “No you won’t. The judge will.”
+pose Violet Nervous
+$VL$ “Right!”
+pose Violet Neutral
+pose Alexander Neutral
+$AX$ “Uh, anyways, We were looking for the lead detective.”
+pose Alexander Thinking
+$AX$ “He was supposed to be sharply dressed or something?“
+pose Sharp Serious
+$SP$ “Well that’s me!”
+pose Sharp Cocky 
+$SP$ “Just because I’m young and handsome doesn’t mean I can’t be in charge here.”
+
+$VL$ “Uhuh...[wait 1] we need to get access to the crime scene.”
+pose Violet Cocky
+$VL$ “How about you tell your goons to let us through?”
+pose Sharp Cocky
+$SP$ “I guess,[wait 1] but it’s not like you’re going to find anything I haven’t already discovered.”
+pose Sharp Serious
+$SP$ “I mean really, you two, uh… ‘Lawyers’, should just give up now.”
+$SP$ “I have this case totally under control.”
+
+Violet Cocky
+$VL$ “It won’t be that simple for ya, love. I’ve never lost a case.” 
+
+pose Alexander unimpressed
+pose Sharp Shock
+$SP$ “Wh-what?”
+pose Sharp Nervous
+$SP$ “Psh, neither have I!”
+pose Sharp Cocky
+$SP$ “Actually, sweetheart, none of my investigations ever last longer than a day.”
+$SP$ “I usually find the culprit within the hour, so, y’know, have fun losing.” 
+
 // Under his breath, quiet, small text, gets cut off
-$AX$ "You've never actually taken a crime case before, nor are you a lawyer-" 
-
-// Sharp and violet stare at eachother
-
-
-// TODO This needs to be expanded
-// Adam suggested: maybe mention that he will tell his blue's to stand down and then you can talk to a police guy who will give you the report.
-// And that makes more sense character wise.
+// flip alex 
+$AX$ “B-but you’ve never actually taken a crime case before, nor are you a lawyer-[noclick]“ 
+$VL$ “Does it matter? I’ve got this in the bag!”
+// flip alex back
 
 pose Sharp Neutral
-$SP$ "Anyways, you guys'll need this if you don't have a copy already. [show Police report icon] It's a report of what we know about the body at this time."
+$SP$ “Well I’ll tell the blues to back off for a bit, give ya some room to ‘play detective’.”
+pose Sharp Serious
+$SP$ “Also, you guys’ll need this if you don’t have a copy already.”
+$SP$ “It’s a report of what we know about the body at this time.” 
+[showicon police_report]
 
 pose Alexander Scribbling
-$AX$ "I'll take that, thank you."
+$AX$ “I’ll take that, thank you.”
+eff item
+item police_report
+$/$ “Police report added to Journal!”
 
-$SP$ "I've got some important detective business to attend to, so I'll catch you two ladies later!"
+$SP$ “Oh, and I’ll take that while you’ve got it open, kiddo.”
+pose Alexander Shock
+$AX$ “H-hey give that back!”
 
-// Sharp leaves
+$SP$ “Oh boy, your face right now!”
+$SP$ “What, do you have love letters for your girlfriend over there, in here?”
 
-$AX$ "W-wait, I'm not a lady..."
+pose Alexander Embarassed
+$VL$ “Oh, please.”
 
-pose Violet Neutral
+$SP$ “Haha, anyways I’m just marking some important places on your map.”
+$SP$ “Here you go, kiddo.”
+pose Alexander Scribbling
+$SP$ “A-ah thank you!”
 
-$VL$ "Time to look around!~"
-$AX$ "R-right"
+eff item
+$/$ “Market, Music Shop, and Fisherman’s Wharf added to the map!”
 
-//Sharps information added/updated in journal Gain access to going to town, fish docks, music shop
-advquest
-//scene end
+$SP$ “Soooo...”
+$SP$ “I’ve got some important detective business to attend to...”
+$SP$ “Catch you two ladies later!”
+
+show Sharp Offscreen
+
+show Alexander Embarassed
+$AX$ “W-wait, [small text]I’m not a lady!”
+$VL$ “Well not with THAT attitude!
+$AX$ “That’s not what I--”
+$VL$ “Yeah, at least try!”
+$AX$ “...”
+Violet Neutral
+
+$VL$ “Time to look around!~”
+
+// flip alex so he’s facing the direction sharp went
+show Alexander Left2
+pose Alexander Upset
+$AX$ “I’LL HAVE YOU KNOW I’VE BEEN A MAN MY WHOLE LIFE!!”
+
+$VL$ “...”
+// flip alex back
+
+$AX$ “Er… R-right.”

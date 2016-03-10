@@ -1,21 +1,13 @@
-show Alexander Right1
-show Violet Left2
-
-pose Alexander Scribbling
-pose Violet Neutral
-
-$AX$ "Sooo... according to the notes Detective Sharp gave us... [show notes icon]"
-
-$AX$ "We're supposed to be able to find the man who discovered the body here...[pause] [fast] [eff crash] but it looks like everyone is either packing up or already went home!"
-
-pose Alexander Serious
-
-pose Violet Thinking
-
-$VL$ "Hmm..."
-
-pose Violet Happy
-
-$VL$ "There might be a few chaps left around! Let's see what we can find, love!" 
-
-// end scene
+$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963,\nRiver Thames – Fisherman’s Wharf\n6:15 PM</color></size></b>”
+Show Alexander Right1
+Show Violet Left2
+Pose Alexander Scribbling
+Pose Violet Neutral
+$AX$ “Sooo... according to the notes Detective Sharp gave us...”
+showicon police_report
+$AX$ “We’re supposed to be able to find the man who discovered the body here... [pause][speed f][eff crash]but it looks like everyone is either packing up or already went home!”
+Pose Alexander Serious
+Pose Violet Thinking
+$VL$ “Hmm...”
+Pose Violet Happy
+$VL$ “There might be a few chaps left around! Let’s see what we can find, love!” 

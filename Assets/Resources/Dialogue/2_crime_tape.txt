@@ -1,15 +1,6 @@
-// TODO //come back to this later
-show Alexander Right1
-show Violet Left1
-pose Alexander neutral
-pose Violet neutral
-
-$VL$ "Ah, the old black and yellow, it has been too long."
-
-$AX$ "you really do love solving crimes don't you?"
-
-pose Violet Cocky
-
-$VL$ "Who wouldn't fall in love with the bumble bee of justice and despair?"
-
-$AX$ "Whatever you say Violet."
+$VL$ “Ah, the old black and yellow, it has been too long.”
+$AX$ “Wait. What do you mean? You’ve never actually had anything to do with solving crimes before.”
+$VL$ “Who wouldn't fall in love with the bumble bee of justice and despair?”
+$AX$ “A-”
+$AX$ “...”
+$AX$ “Whatever you say Violet.”

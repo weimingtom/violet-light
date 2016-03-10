@@ -1,77 +1,116 @@
 [Testimony] 3 Icy_Streets 3_station_middle
 
-+$SP$ "Look, your friend here is a very guilty person. And as the Ace Detective it is MY job to put her away."
-%pose Violet Cocky
-%$VL$ "Ace detective? You really call yourself that? Kinda lame don't you think, Alexander?"
++$SP$ “<color=green>Look, your friend here is a very guilty person. And as the Ace Detective it is MY job to put her away.</color>”
+%show Alexander right2
+%show Violet right1
+%show Sharp left1
+%pose Violet Cocky		
+%$VL$ “Ace detective? You really call yourself that?”
+%$VL$ “Kinda lame don’t you think, Alex?”
 %pose Alexander Thinking
-%$AX$ "I mean, I guess, but what's this have to do with the case, Violet?"
-%$VL$ "Absolutely nothing!"
+%$AX$ “I mean, I-I guess, but what’s this have to do with the case, Violet?”
+%$VL$ “Absolutely nothing!”
 %pose Alexander Unimpressed
-%$AX$ "…"
+%$AX$ “...”
 %pose Sharp Upset
-%$SP$ "H hey! Don't gang up on me!"
-%$SP$ "Anyways, as I was saying..."
+%$SP$ “H-hey! Don’t gang up on me!”
+%$SP$ “Anyways, as I was saying...”
+%show Violet Offscreen
+%show Alexander Offscreen
+%show Sharp Center
 
-+$SP$ "The body was found washed up in the River Thames and discovered by a passing fisherman."
-%pose Violet Thinking
-%$VL$ "So how exactly do you think my client murdered the victim..."
-%pose Violet Serious
-%$VL$ "Dragged the body"
-%pose Violet Unimpressed
-%$VL$ "And threw it in the river?"
+
++$SP$ “<color=green>The body was found washed up in the River Thames and discovered by a passing fisherman.</color>”
+%show Alexander right2
+%show Violet right1
+%show Sharp left1
+%pose Violet thinking
+%$VL$ “So how exactly do you think my client murdered the victim...”
+%pose Violet serious
+%$VL$ “Dragged the body”
+%pose Violet unimpressed
+%$VL$ “And threw it in the river?”
 %pose Sharp cocky
-%$SP$ "..."
-%pose Sharp Nervous
-%$SP$ "That we don't know yet..."
-%pose Sharp Serious
-%$SP$ "But we're working on it."
-%$SP$ "What we do know is..."
+%$SP$ “...”
+%pose Sharp nervous
+%$SP$ “That we don’t know yet...”
+%pose Sharp srs
+%$SP$ “But we’re working on it.”
+%$SP$ “What we do know is...” 
+%show Violet Offscreen
+%show Alexander Offscreen
+%show Sharp Center
 
-+$SP$ "Once we identified the body we went to investigate the sister's shop, and when we arrived we found our suspect's shoes outside."
-%pose Alexander Thinking
-%$AX$ "So you found her shoes outside?"
-%$SP$ "Correct."
-%pose Alexander Cocky
-%$AX$ "Well I mean wouldn't you expect to find her shoes outside her own store?"
-%pose Violet Thinking
-%$VL$ "Yeah, she works there after all."
-%pose Sharp Cocky
-%$SP$ "Of course... but..."
+
++$SP$ “<color=green>Once we identified the body we went to investigate the sister’s shop, and when we arrived we found our suspect’s shoes outside.</color>”
+%show Alexander right2
+%show Violet right1
+%show Sharp left1
+%pose Alexander thinking
+%$AX$ “So you found her shoes outside?”
+%$SP$ “Correct.”
+%pose Alexander cocky
+%$AX$ “Well I mean wouldn’t you expect to find her shoes outside her own store?”
+%pose Violet thinking
+%$VL$ “Yeah, she works there after all.”
+%pose Sharp cocky
+%$SP$ “Of course... but...”
+%show Violet Offscreen
+%show Alexander Offscreen
+%show Sharp Center
+
 	
 
-+$SP$ "Here's the fun part, the soles of her boots, still wet and covered in salt residue. Proving she was near the river recently."
-%$VL$ "Is there anyother way salt could of gotten on to her boots?"
-%pose Sharp Serious
-%$SP$ "Not possible."
-%pose Violet Shocked
-%$VL$ "Wh what?"
-%pose Violet Serious
-%$VL$ "Are you sure?"
-%$SP$ "100%"
-%$SP$ "Anyways, regardless..."
++$SP$ “<color=green>Here’s the fun part, the soles of her boots, still wet and covered in salt residue. Proving she was near the river recently.</color>”
+%show Alexander right2
+%show Violet right1
+%show Sharp left1
+%$VL$ “Is there any other way salt could of gotten on to her boots?”
+%pose Sharp srs
+%$SP$ “Not possible.”
+%pose Violet shocked
+%$VL$ “Wh-what?”
+%pose Violet srs
+%$VL$ “Are you sure?”
+%$SP$ “100%”
+%$SP$ “Anyways, regardless...”
+%show Violet Offscreen
+%show Alexander Offscreen
+%show Sharp Center
 
-+$SP$ "There was no other reason for her to be that far from her shop that night.
-// Press:
-%$VL$ "I mean she could have been on a walk, or something"
-%$SP$ "We already asked her if she was near the river."
-%$SP$ "She shook her head saying no."
-%pose Violet Shocked
-%$VL$ "Oh no..."
-%$SP$ "So someone here is lying..."
-%pose Sharp Cocky
-%$SP$ "And it's not me!"
++$SP$ “<color=green>There was no other reason for her to be that far from her shop that night.</color>”
+%show Alexander right2
+%show Violet right1
+%show Sharp left1
+%$VL$ “I mean she could have been on a walk, or something”
+%$SP$ “We already asked her if she was near the river.”
+%$SP$ “She shook her head, no.”
+%pose Violet shocked
+%$VL$ “Oh no...”
+%$SP$ “So someone here is lying...”
+%pose Sharp cocky
+%$SP$ “And it’s not me!”
+%show Violet Offscreen
+%show Alexander Offscreen
+%show Sharp Center
+
 
 // Ending Statement
-show Alexander Right1
+show Alexander right2
+show Violet right1
+show Sharp left1
 pose Alexander Nervous
-$AX$ "So Violet, what do you think?" 
+$AX$ “So Violet, what do you think?” 
 pose Violet Thinking
-$VL$ "Hmmm... That his case is really weak, like I'm actually kinda bored right now."
+$VL$ “Hmmm... That his case is really weak, like I’m actually kinda bored right now.”
 pose Violet Neutral
-$VL$ "W ait were you even paying attention to what he said?"
-$VL$ "No, not really. This guy is kinda lame."
-$SP$ "I can hear both of you, you know?" 
-$VL$ "Just think, how else could salt have gotten on her boots?"
-$AX$ "H huh..."
-$VL$ "And when in doubt press for more information!"
-$AX$ "R right..."
+$AX$ “W-ait were you even paying attention to what he said?”
+$VL$ “No, not really. This guy is kinda lame.”
+$SP$ “I can hear both of you, you know?” 
+$VL$ “Just think, how else could salt have gotten on her boots?”
+$AX$ “H-huh...”
+$VL$ “And when in doubt press for more information!”
+$AX$ “R-right...”
+show Violet Offscreen
+show Alexander Offscreen
+show Sharp Center

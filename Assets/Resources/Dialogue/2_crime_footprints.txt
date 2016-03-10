@@ -1,16 +1,4 @@
-show Alexander Right1
-show Violet Right2
-pose Alexander Neutral
-pose Violet Neutral
-
-$AX$ "it looks like the police officers left these footprints here"
-
-$VL$ "Or maybe it was the murderer disguised as a policeman!"
-
-pose Alexander Unimpressed
-
-$AX$ "why would the killer go to where the body washed up?"
-
-pose Violet Cocky
-
-$VL$ "Elementary my dear Alex."
+$AX$ “It looks like the police officers left these footprints here”
+$VL$ “Or maybe it was the murderer disguised as a policeman!”
+$AX$ “Why would the killer go to where the body washed up?”
+$VL$ “Elementary, my dear Alex.”
