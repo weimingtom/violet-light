@@ -17,15 +17,14 @@ Show Violet Offscreen
 show Policeman Right1
 show Policeman Left1
 
-music SaxTheme
-show George Left1
+show Michael Left1
 //slow
-pose George Saxphoning
+pose Michael neutral
 
 // finish animation
 // this scene needs to be refined and thought out
 
-pose George smirk
+pose Michael smirk
 $SX$ “Quite the scene you’ve got set up here!”
 $PL$ “Sir! I-I Can’t let you go any further!”
 $SX$ “Ah and you must be the detective in charge of the situation here, or at least you should be.”
@@ -34,12 +33,12 @@ $SX$ “Crimescene? This looks much like a humble music shop to me.”
 
 $PL$ “W-well yes it does look like that, anywhere can be a crime scene sir, but there are extenuating circumstances.!”
 $SX$ “It’s okay, no need to force me out, I’ll be on my way. Thank you for your time officer...[pause] or should I say soon-to-be-detective?”
-show George offscreen
+show Michael offscreen
 $PL$ “A-ah Thank You! A-and sorry! Ah yes, sir. Thank you, sir. And sorry, sir.”
 $SX$ “Well reguardless, I’ll be off!”
 
 Show Policeman Offscreen
-Show George Offscreen
+Show Michael Offscreen
 
 
 // pan back to Alex and violet
