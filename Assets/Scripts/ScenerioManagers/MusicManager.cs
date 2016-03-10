@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ public class MusicManager : MonoBehaviour
     private string[] MusicLibraryFile;
     private AudioSource audioSource;
     static public MusicManager instance;
-
+    public Slider mySlider;
     private Dictionary<string, AudioClip> MusicLibrary;
 
     void Awake()
@@ -36,6 +37,13 @@ public class MusicManager : MonoBehaviour
     {
         audioSource.clip = MusicLibrary[newSong];
         audioSource.Play();
+    }
+
+    public void OnReset()
+    {
+        float maxVolume = 1.0f;
+        mySlider.value = maxVolume;
+        audioSource.volume = maxVolume;
     }
 
     public void SetVolume( float volume )

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class AudioPlayer : MonoBehaviour
@@ -7,7 +8,7 @@ public class AudioPlayer : MonoBehaviour
     public AudioClip maleBlip;
     public AudioClip femaleBlip;
     private AudioSource audioSource;
-
+    public Slider mySlider;
 	// Use this for initialization
 	void Awake () 
     {
@@ -25,10 +26,16 @@ public class AudioPlayer : MonoBehaviour
         audioSource.Play();
     }
 
-
+    public void OnReset()
+    {
+        float maxVolume = 1.0f;
+        mySlider.value = maxVolume;
+        audioSource.volume = maxVolume;
+    }
     public void SetVolume(float volume)
     {
         audioSource.volume = volume;
+        
     }
 
 }
