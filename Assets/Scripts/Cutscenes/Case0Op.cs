@@ -9,7 +9,7 @@ public class Case0Op : MonoBehaviour
     private bool[] doneOnce;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
     {
         MusicManager.instance.ChangeSong("alt_theme");
         doneOnce = new bool[2];
