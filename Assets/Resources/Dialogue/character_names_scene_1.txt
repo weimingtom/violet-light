@@ -6,5 +6,6 @@ SX-Michael-m
 FM-Fisherman-m
 PL-Policeman-m
 HR-Harmony-f
+JW-Jeweler-f
 /-
 ??-???
