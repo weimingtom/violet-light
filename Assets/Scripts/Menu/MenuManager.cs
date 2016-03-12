@@ -110,6 +110,13 @@ public class MenuManager : MonoBehaviour
         openMenuState = state.Evidence;
     }
 
+    public void OpenTravelTab()
+    {
+        ToggleMenu();
+        calledByOpenMenuCommand = true;
+        openMenuState = state.Location;
+    }
+
     public void ForceCloseMenu()
     {
         //UIAnimation.Instance.ResetButtonPosition();

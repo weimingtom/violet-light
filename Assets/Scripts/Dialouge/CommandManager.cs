@@ -31,20 +31,17 @@ public class CommandManager : MonoBehaviour
     int commandTracker;
 
     List<Commands> myCommand;
-    //testimony stuff
+
     Dictionary<int, List<Commands>> myPushCommand;
     List<Commands> wrongTextCommand;
     int wrongTextCommandIndex;
-    //
+
     public bool next { get; set; }
     public bool back { get; set; }
     public bool testimonyDone { get; set; }
     public bool runPushCommand { get; set; }
+    bool hideMenu = true;
 
-
-    //false command
-    //public Dictionary<string, ShowTextCommand> falseCommand { get; set; }
-    //public string falseDialogueName { get; set; }
     bool showFalseDialogue = false;
 
     void Awake()
@@ -154,9 +151,6 @@ public class CommandManager : MonoBehaviour
                 myCommand[commandTracker].Reset();
                 commandTracker--;
             }
-            //myCommand[commandTracker].Reset();
-            //commandTracker--;
-            //myCommand[commandTracker].Reset();
         }
     }
 
@@ -168,7 +162,6 @@ public class CommandManager : MonoBehaviour
 
     public void NextButton()
     {
-        //next = true;
         if( !runPushCommand )
         {
             myCommand[commandTracker].Reset();
@@ -215,7 +208,6 @@ public class CommandManager : MonoBehaviour
             myPushCommand[commandCount].Add( command );
         }
     }
-
     // prompt is constructed by
     // option, and present stuff
     public void CheckItem(string itemName)
@@ -275,7 +267,6 @@ public class CommandManager : MonoBehaviour
                         showFalseDialogue = true;
                         MenuManager.instance.ForceCloseMenu();
                         myCommand[commandTracker].Reset();
-                        //do nothing until they present the
                     }
                 }
             }
@@ -338,6 +329,7 @@ public class CommandManager : MonoBehaviour
         switch( done )
         {
         case false:
+        SceneMenuManager.instance.HideFromCommandManager();
         if( showFalseDialogue )
         {
             if( wrongTextCommand[wrongTextCommandIndex].ExecuteCommand() )
@@ -371,8 +363,10 @@ public class CommandManager : MonoBehaviour
             }
             else
             {
+
                 if( myCommand[commandTracker].ExecuteCommand() )
                 {
+
                     commandTracker++;
                     if( testimonyMode && commandTracker >= myCommand.Count )
                     {
@@ -392,6 +386,7 @@ public class CommandManager : MonoBehaviour
             {
                 SetTestimonyButton( false );
                 SceneManager.Instance.SetInputBlocker( false );
+                SceneMenuManager.instance.EnteredNewScene();
                 done = true;
             }
         }
