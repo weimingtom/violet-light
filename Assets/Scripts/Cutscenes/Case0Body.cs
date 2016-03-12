@@ -29,7 +29,6 @@ public class Case0Body : MonoBehaviour
             if(this.transform.position.y == endPosition.y)
             {
                 this.gameObject.SetActive( false );
-                FadeOutScreen.instance.BeginFade( 1 );
             }
         }
 

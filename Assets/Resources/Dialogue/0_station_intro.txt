@@ -1,7 +1,6 @@
-item harmonys_letter
+$/$ "[speed s]<b><size=100><color=green>Tuesday, December 21st, 1963, - London Police Department – Holding Room B - 5:32 PM</color></size></b>"
+$PL$ "[speed f]WA-WAIT-[eff yell]"
 
-$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963, London Police Department – Holding Room B 5:32 PM</color></size></b>”
-$PL$ "[speed f]WA-WAIT-[eff yell]
 $PL$ "[speed s]You can't go in there!"
 
 pose Alexander Puzzled 
@@ -35,7 +34,7 @@ $AX$ "Slow down!"
 
 show Alexander Left1
 
-<AX> “At least let me catch up first!”
+$AX$ "At least let me catch up first!"
 
 // fade background to show only Alex
 // move Alex to the center of screen
@@ -55,34 +54,42 @@ show Alexander Left1
 
 // fade in background
 
-$VL$ “Alexander, tell this ruffian why he must let us through.”
+$VL$ "Alexander, tell this ruffian why he must let us through."
 
-$AX$ “Ah, not this again Viole-[eff hit]”
-$AX$ “Er- I mean- uhm…”
+$AX$ "Ah, not this again Viole-[eff hit]"
+$AX$ "Er- I mean- uhm…"
 
-$AX$ “We’re here f-for [eff yell][time 1]Uh! Harmony! [eff yell]”
-$AX$ “Y-You have to let us through!”
+$AX$ "We're here f-for [eff yell][pause]Uh! Harmony! [eff yell]"
+$AX$ "Y-You have to let us through!"
 
-$PL$ “Sorry, no one sees Ms.Harmony without proper permission.”
+$PL$ "Sorry, no one sees Ms.Harmony without proper permission."
 
-$AX$ “But-”
+$AX$ "But-"
 
-$VL$ “Wait, Alexander, If we show the guard the letter we received he might let us see your friend.”
+$VL$ "Wait, Alexander, If we show the guard the letter we received he might let us see your friend."
 
-$AX$ “Good idea Violet! I can open up my rucksack and <color=red>present</color> it to him.”
+$AX$ "Good idea Violet! I can open up my rucksack and <color=red>present</color> it to him."
 
 // Option to present
-//item harmony's_letter
-//prompt harmony's_letter
-$VL$ “Look, we have written permission. Let us through.”
-pose Violet Explaining
-$PL$ “H-huh. [eff ding] Oh I see!”
+item harmony's_letter
+prompt harmony's_letter
 
-$PL$ “Alright ma’am, I guess I can let you through. But I’ll have my eye on you. ”
+pose Violet Explaining
+$VL$ "Look, we have written permission. Let us through."
+$PL$ "H-huh. [eff ding] Oh I see!"
+
+//Other
+//$PL$ "What are you showing me that for? That's not getting you anywhere"
+//Alex Nervous
+//$VL$ "C'mon, Alex think! Don't we have [red]something[/red] that'll help us get through?"
+//$AX$ "R-Right![eff flash/shake]"
+//loop
+
+$PL$ "Alright ma'am, I guess I can let you through. But I'll have my eye on you. "
 
 pose Violet Smirk
-$VL$ “Thanks, love. Just don’t let it happen again.”
-$PL$ “Hph!”
+$VL$ "Thanks, love. Just don't let it happen again."
+$PL$ "Hph!"
 pose Alexander Determined
 
 show Policeman Offscreen
@@ -91,105 +98,122 @@ pose Harmony Ashamed
 show Harmony Right1
 
 pose Violet shock
-$VL$ “H-Harmony, are you okay? [eff crash][noclick]"
+$VL$ "H-Harmony, are you okay? [eff crash][noclick]"
 $VL$ "[speed f]Did they do anything to you? [eff smash] Hurt you in any way? Omygod that must have been a terrible experience! [eff crash][noclick]"
-$VL$ "[speed f]I’ll find the guy who did this, I promise. I’m so sorry about your sister! Omygod, this is just-[noclick]" //Run on sentence Alex Cuts her off
-
+$VL$ "[speed f]I'll find the guy who did this, I promise. I'm so sorry about your sister! Omygod, this is just-[noclick
 pose Alexander Unimpressed
-$AX$ “Violet calm down!”
+$AX$ "Violet calm down!"
 
 eff ding
 pose Violet Shock
-$VL$ “[speed f]R-right!”
+$VL$ "[speed f]R-right!"
 pose Violet Ashamed
-$VL$ “[speed s]I just can’t believe this happened.”
+$VL$ "[speed s]I just can't believe this happened."
 
 pose Alexander Ashamed
-$AX$ “It’s okay Violet, we just gotta take this slow.”
+$AX$ "It's okay Violet, we just gotta take this slow."
 pose Alexander Scribbling
-$AX$ “Now... Miss Rush,
+$AX$ "Now... Miss Rush,
 pose Alexander Determined
-$AX$ “Tell us everything!”
+$AX$ "Tell us everything!"
 
 pose Harmony Nervous
-$HR$ “............  ...  ......”
+$HR$ "............  ...  ......"
 
 pose Alexander Puzzled
 pose Violet Upset
-$AX$ “Uhm... Miss Rush?”
+$AX$ "Uhm... Miss Rush?"
+
+
+bg null
+show Alexander Offscreen
+show Violet Offscreen
+show Harmony Center
+
+$/$ "<color=blue>This girl is Harmony Rush, a friend of Violet.</color>"
+$/$ "<color=blue>Harmony's sister, Melody Rush, has just been murdered.</color>"
+$/$ "<color=blue>The worst part is, the police are trying to blame it on Harmony.</color>"
+
+bg police_station
+
+show Violet Left2
+show Harmony Right1
+show Alexander Left1
+
+
 
 pose Harmony Sad
-$VL$ “ALEX! [eff crash]”
+$VL$ "ALEX! [eff crash]"
 
 pose Alexander Shock
-$AX$ “WH- WHAT?”
+$AX$ "WH- WHAT?"
 
 // flip them so they face eachother
 pose Violet Shrug
 pose Alexander Nervous
-$VL$ “She has no voice.”
-$AX$ “[speed s]Ohhh...”
+$VL$ "She has no voice."
+$AX$ "[speed s]Ohhh..."
 
 pose Harmony determined
-$HR$ “....... ...”
+$HR$ "....... ..."
 //Alex Looks at harmony and turns back
 pose Alexander serious
-$AX$ “So, how is she going to communicate with us?”
+$AX$ "So, how is she going to communicate with us?"
 pose Violet Smirk
-$VL$ “Alex, don’t worry she can still [eff clue]write.”
-$AX$ “A-ah, right.”
+$VL$ "Alex, don't worry she can still [eff clue]write."
+$AX$ "A-ah, right."
 // Both turn back to hr
 
 pose Violet Normal
-$VL$ “But it seems like they didn’t give her anything to write with...”
-$VL$ “HEY! POLICEGUY [eff yell]! COME HERE!”
+$VL$ "But it seems like they didn't give her anything to write with..."
+$VL$ "HEY! POLICEGUY [eff yell]! COME HERE!"
 
 show Policeman Center
-$PL$ “Y-Yes, ma’am?
+$PL$ "Y-Yes, ma'am?
 
-$VL$ “Why doesn’t the young lady here have anything to write with?”
+$VL$ "Why doesn't the young lady here have anything to write with?"
 
-$PL$ “I’m under direct orders from Detective Sharp to NOT allow her access to any objects that could aid in her escape!”
+$PL$ "I'm under direct orders from Detective Sharp to NOT allow her access to any objects that could aid in her escape!"
 
 pose Violet Unimpressed
-$VL$ “A pen and paper? What’s she going to do with that?”
+$VL$ "A pen and paper? What's she going to do with that?"
 pose Violet Smirk
-$VL$ “That Detective may be sharp, but he’s not too bright!”
+$VL$ "That Detective may be sharp, but he's not too bright!"
 pose Violet Shrug
+$VL$ "Fine, I'll just give her [showicon notebook]Alex's notebook then." 
 
-icon notebook m 1.0
-$VL$ “Fine, I’ll just give her Alex’s notebook then.” 
-icon destroy
-
-$PL$ “[speed f]I can’t let you do that, Ma’am! [eff yell]Sorry!”
-
+$PL$ "[speed f]I can't let you do that, Ma'am! [eff yell]Sorry!"
+[hideicon]
 
 pose Violet serious
-$VL$ “What, really?”
+$VL$ "What, really?"
 pose Alexander Unimpressed
-$AX$ “That seems a little silly...”
+$AX$ "That seems a little silly..."
 
-$PL$ “I’m under direct orders from the Detective! You’ll have to talk to him first.”
+$PL$ "I'm under direct orders from the Detective! You'll have to talk to him first."
 
 pose Alexander puzzled
-$AX$ “And where can we find him?”
+$AX$ "And where can we find him?"
 
-$PL$ “He’s currently at the crime scene. I can mark it on your map.”
+$PL$ "He's currently at the crime scene. I can mark it on your map."
 
 show Violet Offscreen
 pose Alexander Scribble
-$AX$ “Ah- thank you.”
+$AX$ "Ah- thank you."
 
 //Alex turns to violet
 
 pose Policeman Offscreen
 
 pose Alexander Shocked
-$AX$ “[speed f]Hey! W-Wait for me!”
+$AX$ "[speed f]Hey! W-Wait for me!"
 //Alex turns to harmony
 pose Alexander Smirk
-$AX$ “[speed m]Don’t worry, Violet and I are on the case! We’ll be back soon!”
-$HR$ “[speed s]. . . . ”
+$AX$ "[speed m]Don't worry, Violet and I are on the case! We'll be back soon!"
+$HR$ "[speed s]. . . . "
 pose Alexander Offscreen
+pose Harmony Offscreen
+
+$/$ "<color=blue>I can open up my rucksack in the bottom right corner to follow Violet to the crimescene. I just have to find my map by selecting the map tab on the left once I'm inside.</color>"
+
 //End scene, have a pointer point on the inventory icon, and then the travel menu.
-advquest

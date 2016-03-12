@@ -330,6 +330,36 @@ public class StringParser : MonoBehaviour
             CommandManager.Instance.AddCommand( dialogue );
         }
         break;
+            case"fade":
+                {
+                    if (parsedCommand.Length > 2)
+                    {
+                        FadeCommand foo = new FadeCommand();
+
+                        if (parsedCommand[1].ToLower() == "in")
+                            foo.SetFade(-1, float.Parse(parsedCommand[2]));
+                        else
+                            foo.SetFade(1, float.Parse(parsedCommand[2]));
+
+                        CommandManager.Instance.AddCommand(foo);
+                    }
+                    else if(parsedCommand.Length > 1)
+                    {
+                        FadeCommand foo = new FadeCommand();
+
+                        if (parsedCommand[1].ToLower() == "in")
+                            foo.SetFade(-1);
+                        else
+                            foo.SetFade(1);
+
+                        CommandManager.Instance.AddCommand(foo);
+                    }
+                    else
+                    {
+                        Debug.Log("STRING PARSER - FADE COMMAND NOT LONG ENOUGH");
+                    }
+                }
+                break;
         }
     }
     

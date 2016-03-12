@@ -34,7 +34,7 @@ public class Case0Op : MonoBehaviour
             GetComponentInChildren<Case0Body>().StartPan();
             doneOnce[1] = true;
         }
-        else if(doneOnce[1] && !SceneManager.Instance.GetInputBlocker())
+        else if(doneOnce[1] && FadeOutScreen.instance.GetFadedIn())
         {
             End();
         }

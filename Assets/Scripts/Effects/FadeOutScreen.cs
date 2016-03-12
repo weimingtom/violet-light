@@ -5,7 +5,8 @@ public class FadeOutScreen : MonoBehaviour
 {
 
     public Texture2D fadeOutTex;
-    public float fadeSpeed = 0.8f;
+    public float defFadeSpeed = 0.8f;
+    private float fadeSpeed;
     private int drawDepth = -1000;
     private float alpha = 1.0f;
     private int fadeDir = 1;
@@ -31,7 +32,34 @@ public class FadeOutScreen : MonoBehaviour
     public float BeginFade(int newFadeDir)
     {
         fadeDir = newFadeDir;
+        fadeSpeed = defFadeSpeed;
         return (fadeSpeed);
+    }
+
+    public float BeginFade(int newFadeDir, float newFadeSpeed)
+    {
+        fadeDir = newFadeDir;
+        fadeSpeed = newFadeSpeed;
+        return (fadeSpeed);
+    }
+
+    // NOTE(jesse): Returns if it has been fully faded to black 
+    public bool GetFadedOut()
+    {
+        if (alpha == 0.0f)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool GetFadedIn()
+    {
+        if (alpha == 1.0f)
+        {
+            return true;
+        }
+        return false;
     }
 
     void OnLevelWasLoaded(int level)
