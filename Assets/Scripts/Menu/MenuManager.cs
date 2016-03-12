@@ -240,11 +240,12 @@ public class MenuManager : MonoBehaviour
     }
     public void ExitGame()
     {
+        Destroy(this.gameObject);
         Application.LoadLevel(0);
     }
     void AnimateMenu()
     {
-        Color maxVal = Color.white;
+        //Color maxVal = Color.white;
         Color minVal = Color.white;
         minVal.a = 0.0f;
 

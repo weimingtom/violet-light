@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ItemPrefab : MonoBehaviour
 {
-	public string name;// = "bloody_knife";
+	public string newName;// = "bloody_knife";
 
 	void Update()
 	{
@@ -13,8 +13,8 @@ public class ItemPrefab : MonoBehaviour
 			Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
 			if( hitCollider )
 			{
-				ItemManager.Instance.AddItem(name);
-				Debug.Log(name);
+				ItemManager.Instance.AddItem(newName);
+				Debug.Log(newName);
 				Destroy(this.gameObject);
 			}
 		}

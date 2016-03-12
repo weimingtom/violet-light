@@ -11,7 +11,6 @@ public class SpawnPuzzleCommand : Commands
     }
     public override bool ExecuteCommand()
     {
-        PuzzleManager.Instance.StartPuzzle(puzzleNumber);
         return true;
     }
     public override void PrintData()

@@ -105,7 +105,7 @@ public class SceneManager : MonoBehaviour
         if( GameManager.instance.newGame )
         {
             //SceneManager.Instance.ChangeScene(0);
-            GameObject newCutscene = Instantiate( cutscene );
+            Instantiate( cutscene );
         }
         else
         {

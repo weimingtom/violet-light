@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SurpriseChar : MonoBehaviour {
 
-    private string characterName;
+    //private string characterName;
 
     private float stretchValue = 2.0f;
     private float rotateDeg = -80.0f;
@@ -19,7 +19,7 @@ public class SurpriseChar : MonoBehaviour {
 	// Use this for initialization
 	public void Init (string charName) 
     {
-        characterName = charName;
+        //characterName = charName;
         CharacterManager.Instance.GetCharacter( charName, ref myCharacter, ref invert );
         stretchValue*= invert;
         if( myCharacter == null )

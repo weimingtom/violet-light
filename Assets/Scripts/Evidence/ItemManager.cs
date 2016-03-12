@@ -102,7 +102,7 @@ public class ItemManager : MonoBehaviour
     public void ParseItem(string itemAddress)
     {
         char[] delimiterChar = { '\r', '\n' };
-        char[] otherDelimiter = { ':' };
+        //char[] otherDelimiter = { ':' };
         string[] extractedWord = (Resources.Load( itemAddress ) as TextAsset).ToString().Split( delimiterChar, System.StringSplitOptions.RemoveEmptyEntries );
         string name = "";
         string textureAddress = "";

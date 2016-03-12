@@ -5,13 +5,13 @@ using System.Collections;
 public class VLConsole : MonoBehaviour 
 {
 
-    private Image consoleTextBox;
+    //private Image consoleTextBox;
     private InputField commandInput;
     private bool consoleEnabled = false;
 
 	void Awake()
     {
-        consoleTextBox = GetComponentInChildren<Image>();
+        //consoleTextBox = GetComponentInChildren<Image>();
         commandInput = GetComponentInChildren<InputField>();
         InputField.SubmitEvent submitEvent = new InputField.SubmitEvent();
         submitEvent.AddListener(SubmitCommand);

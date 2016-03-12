@@ -11,8 +11,6 @@ public class Prop : MonoBehaviour {
     public int maxStageRange = 0;
     private int range;
 
-    string checkedItem = "";
-
     void Awake()
     {
         if(IsCharacter)
