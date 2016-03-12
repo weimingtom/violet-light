@@ -16,6 +16,7 @@ public class Case0Op : MonoBehaviour
         MenuManager.instance.ToggleMenuAccess();
         FileReader.Instance.LoadScene( opScene );
         SceneManager.Instance.SetCanSkip(false);
+        SceneManager.Instance.SetCanControl(false);
         FadeOutScreen.instance.BeginFade(-1);
 
         panDelay += Time.time;
@@ -31,7 +32,7 @@ public class Case0Op : MonoBehaviour
         }
         else if( Time.time > bodyPanDelay && !doneOnce[1] )
         {
-            GetComponentInChildren<Case0Body>().StartPan();
+            //GetComponentInChildren<Case0Body>().StartPan();
             doneOnce[1] = true;
         }
         else if(doneOnce[1] && FadeOutScreen.instance.GetFadedIn())
@@ -45,6 +46,8 @@ public class Case0Op : MonoBehaviour
         MenuManager.instance.ToggleMenuAccess(true);
         SceneManager.Instance.ChangeScene( 1 );
         SceneManager.Instance.SetCanSkip(true);
+        SceneManager.Instance.SetCanControl(true);
+
         Destroy( this.gameObject );
 
 

@@ -38,6 +38,7 @@ public class SceneManager : MonoBehaviour
     private SpriteRenderer newBackgroundRend;
 
     private bool CanSkip;
+    private bool CanControl = true;
     private string CurrentChar = "";
 
     private bool enteredNewScene = false;
@@ -373,5 +374,16 @@ public class SceneManager : MonoBehaviour
     public void SetCanSkip(bool newBool)
     {
         CanSkip = newBool;
+    }
+
+    public void SetCanControl(bool newBool)
+    {
+        CanControl = newBool;
+    }
+
+
+    public bool GetCanControl()
+    {
+        return CanControl;
     }
 }

@@ -62,13 +62,10 @@ public class ShowTextCommand : Commands
             CommandManager.Instance.SetNameIntoNameBox( name );
             //blip
             char gender = DialogueHolder.Instance.GetCharacterGender( name );
-            if( gender == 'f' )
+            isMale = true;
+            if (gender == 'f')
             {
                 isMale = false;
-            }
-            else
-            {
-                isMale = true;
             }
             InitialSetup = false;
             return false;
@@ -166,14 +163,10 @@ public class ShowTextCommand : Commands
                 }
                 else
                 {
-                    if( Input.GetMouseButtonDown( 0 ) && skipCheck == false )
+                    if( Input.GetMouseButtonDown( 0 ) && skipCheck == false && !MenuManager.instance.CheckMouseAbove() && SceneManager.Instance.GetCanControl())
                     {
-                        if(!MenuManager.instance.CheckMouseAbove())
-                        {
-                            SFXManager.instance.PlayAccept();
-                            return true;
-                        }
-
+                        SFXManager.instance.PlayAccept();
+                        return true;
                     }
                     else
                     {
@@ -290,7 +283,7 @@ public class ShowTextCommand : Commands
 
     void PassTextToCommandManager()
     {
-        if( htmlFront.Count > 0 && htmlBack.Count > 0 )
+        if (htmlFront.Count > 0 && htmlBack.Count > 0)
         {
             string passedStr = "";
             for( int i = 0; i < htmlFront.Count; i++ )
@@ -302,13 +295,14 @@ public class ShowTextCommand : Commands
             {
                 passedStr += htmlBack[i];
             }
-            CommandManager.Instance.AddStringIntoTextHolder( passedStr );
+            AudioPlayer.instance.PlayBlip(!isMale);
+            CommandManager.Instance.AddStringIntoTextHolder(passedStr);
         }
         else
         {
             //if (prevPassedChar == ' ' || passedChar == '.')
           //  {
-                AudioPlayer.instance.PlayBlip(!isMale);
+            AudioPlayer.instance.PlayBlip(!isMale);
 
            // }
            // prevPassedChar = passedChar;
