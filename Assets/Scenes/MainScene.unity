@@ -222,11 +222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655167597e680e84784a190cc14cadc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkButton: {fileID: 0}
-  presentButton: {fileID: 0}
-  moveButton: {fileID: 0}
-  examineButton: {fileID: 0}
-  backButton: {fileID: 0}
+  talkButton: {fileID: 894884118}
+  presentButton: {fileID: 217028007}
+  moveButton: {fileID: 33858250}
+  examineButton: {fileID: 1936888902}
+  backButton: {fileID: 342495998}
 --- !u!4 &73938287
 Transform:
   m_ObjectHideFlags: 0
@@ -533,9 +533,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1066,6 +1064,36 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 686fd67966d2ee74dbac9a8027d83e2b, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &664862663 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22404542, guid: 686fd67966d2ee74dbac9a8027d83e2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 664862662}
+--- !u!224 &664862664 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22447246, guid: 686fd67966d2ee74dbac9a8027d83e2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 664862662}
+--- !u!224 &664862665 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22457102, guid: 686fd67966d2ee74dbac9a8027d83e2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 664862662}
+--- !u!224 &664862666 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22498612, guid: 686fd67966d2ee74dbac9a8027d83e2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 664862662}
+--- !u!224 &664862667 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22417640, guid: 686fd67966d2ee74dbac9a8027d83e2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 664862662}
+--- !u!224 &664862668 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22473502, guid: 686fd67966d2ee74dbac9a8027d83e2b,
+    type: 2}
+  m_PrefabInternal: {fileID: 664862662}
 --- !u!224 &672695985 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22494608, guid: 686fd67966d2ee74dbac9a8027d83e2b,
@@ -1596,31 +1624,31 @@ Prefab:
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiButtonDestination.Array.data[0]
       value: 
-      objectReference: {fileID: 1155739267}
+      objectReference: {fileID: 664862663}
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiButtonDestination.Array.data[1]
       value: 
-      objectReference: {fileID: 586482181}
+      objectReference: {fileID: 664862666}
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiButtonDestination.Array.data[2]
       value: 
-      objectReference: {fileID: 1354781460}
+      objectReference: {fileID: 664862665}
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiButtonDestination.Array.data[3]
       value: 
-      objectReference: {fileID: 672695985}
+      objectReference: {fileID: 664862664}
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiButtonDestination.Array.data[4]
       value: 
-      objectReference: {fileID: 1689274385}
+      objectReference: {fileID: 664862666}
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiButtonDestination.Array.data[5]
       value: 
-      objectReference: {fileID: 1256657924}
+      objectReference: {fileID: 664862667}
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiButtonDestination.Array.data[6]
       value: 
-      objectReference: {fileID: 1805807697}
+      objectReference: {fileID: 664862668}
     - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: destinationTransforms.Array.data[0]
       value: 
