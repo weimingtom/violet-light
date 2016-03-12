@@ -215,5 +215,5 @@ pose Alexander Offscreen
 pose Harmony Offscreen
 
 $/$ "<color=blue>I can open up my rucksack in the bottom right corner to follow Violet to the crimescene. I just have to find my map by selecting the map tab on the left once I'm inside.</color>"
-
+advquest
 //End scene, have a pointer point on the inventory icon, and then the travel menu.

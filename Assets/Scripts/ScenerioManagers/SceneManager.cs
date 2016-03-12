@@ -231,7 +231,7 @@ public class SceneManager : MonoBehaviour
             MusicManager.instance.ChangeSong( Scenes[SceneID].Name );
             Debug.Log( "[scene manager] Changed Scene to number "+SceneID );
             enteredNewScene = true;
-            ItemInventory.Instance.TogglePresentButton(false);
+            //ItemInventory.Instance.TogglePresentButton(false);
 
             SceneMenuManager.instance.EnteredNewScene();
 
@@ -256,7 +256,7 @@ public class SceneManager : MonoBehaviour
                     MusicManager.instance.ChangeSong(Scenes[currentScene].Name);
                     Debug.Log("[scene manager] Changed Scene to number " + cs.ID);
                     enteredNewScene = true;
-                    ItemInventory.Instance.TogglePresentButton( false );
+                    //ItemInventory.Instance.TogglePresentButton( false );
                     SceneMenuManager.instance.EnteredNewScene();
 
 
