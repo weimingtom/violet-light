@@ -222,7 +222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655167597e680e84784a190cc14cadc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainButton: []
+  talkButton: {fileID: 0}
+  presentButton: {fileID: 0}
+  moveButton: {fileID: 0}
+  examineButton: {fileID: 0}
   backButton: {fileID: 0}
 --- !u!4 &73938287
 Transform:
@@ -530,7 +533,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1644,18 +1649,6 @@ Prefab:
       propertyPath: menuButtonBlocker
       value: 
       objectReference: {fileID: 173200067}
-    - target: {fileID: 11434496, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: cursor
-      value: 
-      objectReference: {fileID: 2800000, guid: 5ee8f68a38133ba4a9060697979db848, type: 3}
-    - target: {fileID: 11434496, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: cursorSparkle
-      value: 
-      objectReference: {fileID: 2800000, guid: e701324e9b6995540886c8d17353aa6f, type: 3}
-    - target: {fileID: 11434496, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: cursorNorm
-      value: 
-      objectReference: {fileID: 2800000, guid: 92bbd7415c24e4b4d9ea0cfa9d3c88b5, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_IsPrefabParent: 0
