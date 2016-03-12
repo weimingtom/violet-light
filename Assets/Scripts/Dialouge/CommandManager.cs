@@ -386,7 +386,7 @@ public class CommandManager : MonoBehaviour
             {
                 SetTestimonyButton( false );
                 SceneManager.Instance.SetInputBlocker( false );
-                SceneMenuManager.instance.EnteredNewScene();
+                SceneMenuManager.instance.ActivateFromCommandManager();
                 done = true;
             }
         }
