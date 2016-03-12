@@ -105,6 +105,8 @@ public class FileReader : MonoBehaviour
         SceneManager.Instance.SetInputBlocker( true );
         StringParser.Instance.RunParse(command.ToString());
         SceneManager.Instance.SetScenePlayed(_scene);
+        SceneManager.Instance.ResetCursor();
+
 	}
     // NOTE(jesse): Check if the scene exists
     public bool IsScene(string _scene)

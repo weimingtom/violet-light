@@ -46,10 +46,13 @@ public class SceneManager : MonoBehaviour
     private int QuestStage;
     public Texture2D cursor;
     public Texture2D cursorSparkle;
+    public Texture2D cursorNorm;
     public Vector2 cursorHotspot = new Vector2( 16, 16 );
 
     private Vector3 defaultCameraPos;
     public GameObject cutscene;
+
+    public bool ShowSpecialCursor { get; set; }
     
     public void AdvQuest()
     {
@@ -96,6 +99,9 @@ public class SceneManager : MonoBehaviour
 
         Cursor.SetCursor( cursor, cursorHotspot, CursorMode.Auto );
         defaultCameraPos = Camera.main.transform.position;
+
+        ResetCursor();
+        ShowSpecialCursor = true;
     }
 
     void Start()
@@ -146,6 +152,10 @@ public class SceneManager : MonoBehaviour
 
     public void SetCursor(string itemName)
     {
+        if(ShowSpecialCursor)
+        {
+
+
         string sceneToCheck =  QuestStage.ToString() + "_" + Scenes[currentScene].Prefab + "_" + itemName;
         bool sparkle;
         if (FileReader.Instance.IsScene(sceneToCheck))
@@ -162,6 +172,7 @@ public class SceneManager : MonoBehaviour
             return;
         }
         Cursor.SetCursor( cursor, cursorHotspot, CursorMode.Auto );
+        }
     }
     public void SetInputBlocker(bool Enabled)
     {
@@ -245,9 +256,17 @@ public class SceneManager : MonoBehaviour
 
             SceneMenuManager.instance.EnteredNewScene();
 
+            ResetCursor();
+
             FadeOutScreen.instance.BeginFade( -1 );
         }
         else Debug.Log( "[scene manager] No case loaded!" );
+    }
+    
+    public void ResetCursor()
+    {
+            Cursor.SetCursor(cursorNorm, cursorHotspot, CursorMode.Auto);
+
     }
 
     public void ChangeScene(string SceneID)
@@ -259,19 +278,7 @@ public class SceneManager : MonoBehaviour
             {
                 if (cs.Name == SceneID || cs.Prefab == SceneID)
                 {
-                    currentScene = (int)cs.ID;
-                    ChangeBackground(Scenes[currentScene].Background, 0.7f);
-                    InteractableManager.Instance.Clear();
-                    InteractableManager.Instance.Spawn(Scenes[currentScene].Prefab, Vector3.zero);
-                    MusicManager.instance.ChangeSong(Scenes[currentScene].Name);
-                    Debug.Log("[scene manager] Changed Scene to number " + cs.ID);
-                    enteredNewScene = true;
-                    //ItemInventory.Instance.TogglePresentButton( false );
-                    SceneMenuManager.instance.EnteredNewScene();
-
-
-                    FadeOutScreen.instance.BeginFade(-1);
-                    break;
+                    ChangeScene((int)cs.ID);
                 }
             }
             
