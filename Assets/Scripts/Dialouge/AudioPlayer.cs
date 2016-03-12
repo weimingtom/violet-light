@@ -6,8 +6,8 @@ public class AudioPlayer : MonoBehaviour
 {
 	static public AudioPlayer instance;
     public AudioClip maleBlip;
-    public AudioClip femaleBlip;
     private AudioSource audioSource;
+    public AudioClip femaleBlip;
     public Slider mySlider;
 	// Use this for initialization
 	void Awake () 

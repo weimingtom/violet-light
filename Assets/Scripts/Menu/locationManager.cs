@@ -68,7 +68,8 @@ public class locationManager : MonoBehaviour
     public void ButtonPressed(string location)
     {
         //note to jesse
-        SceneManager.Instance.ChangeScene( location );
+        SFXManager.instance.PlaySceneChange();
+        SceneManager.Instance.ChangeScene(location);
         MenuManager.instance.CloseMenu();
     }
 

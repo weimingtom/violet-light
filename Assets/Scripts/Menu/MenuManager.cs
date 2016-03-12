@@ -70,6 +70,7 @@ public class MenuManager : MonoBehaviour
 
 	public void ToggleMenu()
 	{
+        SFXManager.instance.PlayPage();
         if( !animateMenu && !UIAnimation.Instance.animateBackward && !UIAnimation.Instance.animateForward )
         {
             if( active && myState != state.SaveLoad )
@@ -113,6 +114,7 @@ public class MenuManager : MonoBehaviour
         // TODO(jesse): THis is a quick hack to ensure that you don't travel during dialogue
         if( !CommandManager.Instance.myBannerBox.activeInHierarchy )
         {
+            SFXManager.instance.PlayPage();
             //animateMenu = true;
             switch( btn.ToLower() )
             {
@@ -169,25 +171,6 @@ public class MenuManager : MonoBehaviour
         DisableMenu();
     }
 
-	public void MainButtonPressed(string btn)
-	{
-		switch(btn)
-		{
-		case "btnContinue":
-			ToggleMenu();
-			break;
-        case "btnQuit":
-            Debug.Log( "QUIT" );
-            Application.Quit();
-            break;
-        case "btnSave":
-            break;
-		default:
-			Debug.Log("ERROR: Button Not Found In List, " + btn);
-			break;
-		}
-	}
-
 	private void ChangeState(state newState)
 	{
         if( myState != newState )
@@ -238,6 +221,7 @@ public class MenuManager : MonoBehaviour
     }
     public void SaveGame()
     {
+        SFXManager.instance.PlaySave();
         SaveLoad.Load();
         SaveLoad.Save();
     }

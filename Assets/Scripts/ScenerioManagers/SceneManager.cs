@@ -231,6 +231,10 @@ public class SceneManager : MonoBehaviour
             MusicManager.instance.ChangeSong( Scenes[SceneID].Name );
             Debug.Log( "[scene manager] Changed Scene to number "+SceneID );
             enteredNewScene = true;
+            ItemInventory.Instance.TogglePresentButton(false);
+
+            SceneMenuManager.instance.EnteredNewScene();
+
             FadeOutScreen.instance.BeginFade( -1 );
         }
         else Debug.Log( "[scene manager] No case loaded!" );
@@ -253,6 +257,10 @@ public class SceneManager : MonoBehaviour
                     Debug.Log("[scene manager] Changed Scene to number " + cs.ID);
                     enteredNewScene = true;
                     ItemInventory.Instance.TogglePresentButton( false );
+                    SceneMenuManager.instance.EnteredNewScene();
+
+
+                    FadeOutScreen.instance.BeginFade(-1);
                     break;
                 }
             }

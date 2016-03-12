@@ -26,6 +26,9 @@ public class ShowTextCommand : Commands
     bool skipCheck = false;
     bool finishWithoutClick = false;
 
+
+    //private char prevPassedChar = ' ';
+
     public ShowTextCommand()
     {
         commandTag = "showtextcommand";
@@ -167,6 +170,7 @@ public class ShowTextCommand : Commands
                     {
                         if(!MenuManager.instance.CheckMouseAbove())
                         {
+                            SFXManager.instance.PlayAccept();
                             return true;
                         }
 
@@ -286,7 +290,6 @@ public class ShowTextCommand : Commands
 
     void PassTextToCommandManager()
     {
-        AudioPlayer.instance.PlayBlip( !isMale );
         if( htmlFront.Count > 0 && htmlBack.Count > 0 )
         {
             string passedStr = "";
@@ -303,7 +306,13 @@ public class ShowTextCommand : Commands
         }
         else
         {
-            CommandManager.Instance.AddCharIntoTextHolder( passedChar );
+            //if (prevPassedChar == ' ' || passedChar == '.')
+          //  {
+                AudioPlayer.instance.PlayBlip(!isMale);
+
+           // }
+           // prevPassedChar = passedChar;
+            CommandManager.Instance.AddCharIntoTextHolder(passedChar);
         }
         timeTracker = 0;
         indexPassed++;

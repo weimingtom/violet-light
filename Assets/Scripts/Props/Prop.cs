@@ -11,6 +11,12 @@ public class Prop : MonoBehaviour {
     public int maxStageRange = 0;
     private int range;
 
+
+
+
+
+
+
     void Awake()
     {
         if(IsCharacter)
@@ -38,16 +44,21 @@ public class Prop : MonoBehaviour {
 
     void OnMouseDown()
     {
-        if(!FileReader.Instance.IsScene( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name ))
+        Talk();
+    }
+
+    public void Talk()
+    {
+        if (!FileReader.Instance.IsScene(SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name))
         {
-            FileReader.Instance.LoadScene( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_obj" );
+            FileReader.Instance.LoadScene(SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_obj");
         }
         else
-            FileReader.Instance.LoadScene( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name );
+            FileReader.Instance.LoadScene(SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name);
 
-        if( IsPickUp )
+        if (IsPickUp)
         {
-            Debug.Log( "[Prop] Picked the item up!" );
+            Debug.Log("[Prop] Picked the item up!");
             this.gameObject.SetActive(false);
         }
     }
