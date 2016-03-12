@@ -271,7 +271,11 @@ public class CommandManager : MonoBehaviour
                     }
                     else
                     {
-                        //do something if it is wrong
+                        wrongTextCommand = StringParser.Instance.ParseWrongCommand( Resources.Load( defaultWrongItemSceneAddress ).ToString() );
+                        showFalseDialogue = true;
+                        MenuManager.instance.ForceCloseMenu();
+                        myCommand[commandTracker].Reset();
+                        //do nothing until they present the
                     }
                 }
             }
@@ -317,6 +321,7 @@ public class CommandManager : MonoBehaviour
         myCommand[commandTracker].Reset();
         runPushCommand = false;
     }
+
     void ResetWrongTextCommand()
     {
         wrongTextCommandIndex = 0;
@@ -326,6 +331,7 @@ public class CommandManager : MonoBehaviour
         }
         showFalseDialogue = false;
     }
+
     void Update()
     {
         UpdateButton();
