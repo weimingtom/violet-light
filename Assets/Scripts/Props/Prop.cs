@@ -26,13 +26,15 @@ public class Prop : MonoBehaviour {
             {
                 if( IsPickUp && SceneManager.Instance.GetScenePlayed( ( i) + "_" + SceneManager.Instance.GetSceneName() + "_" + name ) )
                 {
-                    this.gameObject.SetActive( false );
+                    SceneManager.Instance.SetChar("");
+                    this.gameObject.SetActive(false);
                 }
             }
         }
         else if( IsPickUp && SceneManager.Instance.GetScenePlayed( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name ) )
         {
-            this.gameObject.SetActive( false );
+            SceneManager.Instance.SetChar("");
+            this.gameObject.SetActive(false);
         }
     }
 
@@ -53,6 +55,7 @@ public class Prop : MonoBehaviour {
         if (IsPickUp)
         {
             Debug.Log("[Prop] Picked the item up!");
+            SceneManager.Instance.SetChar("");
             this.gameObject.SetActive(false);
         }
     }
