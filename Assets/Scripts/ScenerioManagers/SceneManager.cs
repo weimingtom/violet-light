@@ -234,20 +234,24 @@ public class SceneManager : MonoBehaviour
         if( CurrentCaseFile != null )
         {
             currentScene = SceneID;
-            ChangeBackground( Scenes[SceneID].Background , 0.7f);
+            ChangeBackground( Scenes[SceneID].Background, 0.7f );
             Camera.main.transform.position = defaultCameraPos;
             InteractableManager.Instance.Clear();
-            InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab ,Vector3.zero);
+            InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab, Vector3.zero );
             MusicManager.instance.ChangeSong( Scenes[SceneID].Name );
-            Debug.Log( "[scene manager] Changed Scene to number "+SceneID );
+            Debug.Log( "[scene manager] Changed Scene to number " + SceneID );
             enteredNewScene = true;
             //ItemInventory.Instance.TogglePresentButton(false);
 
             SceneMenuManager.instance.EnteredNewScene();
 
             FadeOutScreen.instance.BeginFade( -1 );
+            InteractableManager.Instance.doneLoading = true;
         }
-        else Debug.Log( "[scene manager] No case loaded!" );
+        else
+        {
+            Debug.Log( "[scene manager] No case loaded!" );
+        }
     }
 
     public void ChangeScene(string SceneID)
@@ -268,12 +272,11 @@ public class SceneManager : MonoBehaviour
                     enteredNewScene = true;
                     //ItemInventory.Instance.TogglePresentButton( false );
                     SceneMenuManager.instance.EnteredNewScene();
-
-
                     FadeOutScreen.instance.BeginFade(-1);
                     break;
                 }
             }
+            InteractableManager.Instance.doneLoading = true;
             
         }
         else Debug.Log("[scene manager] No case loaded!");

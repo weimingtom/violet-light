@@ -1,12 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SceneMenuManager : MonoBehaviour
 {
     static public SceneMenuManager instance;
-    public Button[] mainButton;
+    
+    public Button talkButton;
+    public Button presentButton;
+    public Button moveButton;
+    public Button examineButton;
     public Button backButton;
+    
+    bool showTalkButton;
+    bool showPresentButton;
+    bool showExamineButton;
+
     string characterOnScene = "";
     void Awake()
     {
@@ -14,10 +24,16 @@ public class SceneMenuManager : MonoBehaviour
     }
     void Start()
     {
-        foreach( Button btn in mainButton )
-        {
-            btn.transform.gameObject.SetActive(false);
-        }
+        showTalkButton = false;
+        showPresentButton = false;
+        showExamineButton = false;
+        talkButton.onClick.AddListener( () => TalkToCharacterInScene() );
+        backButton.onClick.AddListener( () => ResetButton() );
+        examineButton.onClick.AddListener( () => ExamineScene() );
+        talkButton.transform.gameObject.SetActive( false );
+        presentButton.transform.gameObject.SetActive( false );
+        moveButton.transform.gameObject.SetActive( false );
+        examineButton.transform.gameObject.SetActive( false );
         backButton.transform.gameObject.SetActive( false );
     }
 	// Use this for initialization
@@ -26,16 +42,16 @@ public class SceneMenuManager : MonoBehaviour
         characterOnScene = SceneManager.Instance.GetChar();
         if( characterOnScene != "" )
         {
-            foreach( Button btn in mainButton )
-            {
-                btn.transform.gameObject.SetActive( true );
-            }
+            ShowExamineButton();
+            showTalkButton = true;
+            showPresentButton = true;
         }
-        else
-        {
-            
-        }
-        // Check if there is a character in the scene
+        ShowExamineButton();
+        talkButton.transform.gameObject.SetActive( showTalkButton );
+        presentButton.transform.gameObject.SetActive( showPresentButton );
+        moveButton.transform.gameObject.SetActive( true );
+
+        // Check if there is a character in the scene //
             // if yes then show button for PRESENT and for TALK
                 // IF THE TALK BUTTON IS PRESSED RUN:
                     //TalkToCharacterInScene()
@@ -52,6 +68,48 @@ public class SceneMenuManager : MonoBehaviour
         
         // Show move button no matter what
     }
+
+    public void ResetButton()
+    {
+        talkButton.transform.gameObject.SetActive( showTalkButton );
+        presentButton.transform.gameObject.SetActive( showPresentButton );
+        examineButton.transform.gameObject.SetActive( showExamineButton );
+        moveButton.transform.gameObject.SetActive( true );
+        backButton.transform.gameObject.SetActive( false );
+    }
+
+    public void hideAll()
+    {
+        talkButton.transform.gameObject.SetActive( false );
+        presentButton.transform.gameObject.SetActive( false );
+        examineButton.transform.gameObject.SetActive( false );
+        moveButton.transform.gameObject.SetActive( true );
+        backButton.transform.gameObject.SetActive( false );
+    }
+
+    void ShowExamineButton()
+    {
+        int childNumber = InteractableManager.Instance.GetNumberOfInteractable();
+        //check if there is something to examine
+        if( childNumber > 0 )
+        {
+            if( !InteractableManager.Instance.IsOnlyCharacterInScene() )
+            {
+                showExamineButton = true;
+                examineButton.transform.gameObject.SetActive( showExamineButton );
+            }
+        }
+    }
+
+    void ExamineScene()
+    {
+        talkButton.transform.gameObject.SetActive( false );
+        presentButton.transform.gameObject.SetActive( false );
+        examineButton.transform.gameObject.SetActive( false );
+        moveButton.transform.gameObject.SetActive( false );
+        backButton.transform.gameObject.SetActive( true );
+    }
+
     void TalkToCharacterInScene()
     {
         Prop Character = GameObject.Find(SceneManager.Instance.GetChar()).GetComponent<Prop>();

@@ -33,7 +33,14 @@ public class CharacterManager : MonoBehaviour {
 
     //TODO account for case of starting another movement before last has finished. 
     private List<string> changingPortraits = new List<string>();
-
+    public bool IsCharacter(string name)
+    {
+        if( characterList.ContainsKey( name ) )
+        {
+            return true;
+        }
+        return false;
+    }
 	void Update () 
     {
         for( int i = 0; i < changingPortraits.Count; i++ )

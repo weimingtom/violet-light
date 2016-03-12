@@ -12,11 +12,6 @@ public class Prop : MonoBehaviour {
     private int range;
 
 
-
-
-
-
-
     void Awake()
     {
         if(IsCharacter)
