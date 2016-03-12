@@ -122,11 +122,11 @@ public class SceneMenuManager : MonoBehaviour
 
     public void HideFromCommandManager()
     {
-        talkCurrentState = talkButton.IsActive();
-        presentCurrentState = presentButton.IsActive();
-        examineCurrentState = examineButton.IsActive();
-        moveCurrentState = moveButton.IsActive();
-        backCurrentState = backButton.IsActive();
+        talkCurrentState = talkButton.transform.gameObject.activeInHierarchy;
+        presentCurrentState = presentButton.transform.gameObject.activeInHierarchy;
+        examineCurrentState = examineButton.transform.gameObject.activeInHierarchy;
+        moveCurrentState = moveButton.transform.gameObject.activeInHierarchy;
+        backCurrentState = backButton.transform.gameObject.activeInHierarchy;
         talkButton.transform.gameObject.SetActive( false );
         presentButton.transform.gameObject.SetActive( false );
         examineButton.transform.gameObject.SetActive( false );

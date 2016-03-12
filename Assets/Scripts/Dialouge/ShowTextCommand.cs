@@ -7,8 +7,8 @@ public class ShowTextCommand : Commands
 	int indexPassed = 0;
 	float timeTracker = 0;
     // TODO(jesse): Make set speed command
-    public float defaultSpeed = 0.025f;
-    public float speed = 0.025f;
+    public float defaultSpeed = 0.035f;
+    public float speed = 0.035f;
     //0.035f
     string conversationTag = "";
     //string conversation = "";
@@ -249,7 +249,7 @@ public class ShowTextCommand : Commands
             break;
             case ("f"):
             {
-                speed = defaultSpeed / 1000;
+                speed = defaultSpeed / 2;
             }
             break;
             default:
