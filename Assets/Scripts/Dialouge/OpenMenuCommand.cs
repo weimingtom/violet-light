@@ -17,6 +17,8 @@ public class OpenMenuCommand : Commands
         if( !execute )
         {
             MenuManager.instance.OpenEvidenceTab();
+            //MenuManager.instance.calledByOpenMenuCommand = true;
+
             execute = true;
         }
 

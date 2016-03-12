@@ -23,6 +23,15 @@ public class UIAnimation : MonoBehaviour
     //opening animation
     Vector3[] menuOpenPosition;
     public float openCloseMenuOffset = 500.0f;
+    void Awake()
+    {
+        uiButtonOriginalPos = new Vector3[uiElementButtons.Length];
+        for( int i = 0; i < uiElementButtons.Length; i++ )
+        {
+            uiButtonOriginalPos[i] = uiElementButtons[i].transform.position;
+       }
+    }
+
     void Start()
     {
         animateBtn = false;
@@ -30,11 +39,7 @@ public class UIAnimation : MonoBehaviour
         Instance = this;
 
         originalPosition = uiElements[0].transform.position;
-        uiButtonOriginalPos = new Vector3[uiElementButtons.Length];
-        for( int i = 0; i < uiElementButtons.Length; i++ )
-        {
-            uiButtonOriginalPos[i] = uiElementButtons[i].transform.position;
-        }
+        
         menuOpenPosition = new Vector3[uiElements.Length];
         
         for(int i = 0; i < menuOpenPosition.Length; i++)
@@ -196,29 +201,32 @@ public class UIAnimation : MonoBehaviour
 
     void FixedUpdate()
     {
-        if( animateForward )
+        if( MenuManager.instance.IsDoneAnimating() )
         {
-            if( AnimateElementFroward() )
+            if( animateForward )
             {
-                myState++;
+                if( AnimateElementFroward() )
+                {
+                    myState++;
+                }
+                if( myState == destinationState )
+                {
+                    animateForward = false;
+                }
             }
-            if( myState == destinationState )
+            if( animateBackward )
             {
-                animateForward = false;
-            }
-        }
-        if( animateBackward )
-        {
-            if( AnimateElementBackward() )
-            {
-                myState--;
-            }
-            if( myState < destinationState )
-            {
-                Debug.Log("my state is :" + myState.ToString() );
-                //Debug.Break();
-                animateBackward = false;
-                myState = destinationState;
+                if( AnimateElementBackward() )
+                {
+                    myState--;
+                }
+                if( myState < destinationState )
+                {
+                    Debug.Log("my state is :" + myState.ToString() );
+                    //Debug.Break();
+                    animateBackward = false;
+                    myState = destinationState;
+                }
             }
         }
     }

@@ -41,7 +41,6 @@ public class Prop : MonoBehaviour {
         }
     }
 
-
     void OnMouseDown()
     {
         Talk();

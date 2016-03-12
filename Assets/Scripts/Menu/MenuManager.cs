@@ -19,12 +19,16 @@ public class MenuManager : MonoBehaviour
 
     private bool animateMenu;
 
+    private bool calledByOpenMenuCommand;
+    private state openMenuState;
+
     public static MenuManager instance;
 	public GameObject menu;
 	private bool active;
 
     public GameObject menuButton;
     public GameObject menuButtonBlocker;
+    bool forceCloseMenu = false;
 
 	private state myState;
     //animation purposes
@@ -38,6 +42,7 @@ public class MenuManager : MonoBehaviour
 
 	void Start () 
     {
+        calledByOpenMenuCommand = false;
         menu.SetActive(false);
         active = false;
         animateMenu = false;
@@ -60,7 +65,10 @@ public class MenuManager : MonoBehaviour
 	{
 		return active;
 	}
-
+    public bool IsDoneAnimating()
+    {
+        return !animateMenu;
+    }
     // NOTE(jesse): Enable and disables the menu buttons and the ability to open the menu
     public void ToggleMenuAccess(bool enable = false)
     {
@@ -85,27 +93,23 @@ public class MenuManager : MonoBehaviour
             }
 		    else
             {
-                //active = false;
+                active = false;
 			    CloseMenu();
             }
         }
 	}
-
     public void OpenEvidenceTab()
     {
         ToggleMenu();
-        //OpenMenu();
-        //ItemManager.Instance.SetLoadInventory( true );
-        //active = true;
-        ChangeState(state.Evidence);
+        calledByOpenMenuCommand = true;
+        openMenuState = state.Evidence;
     }
-
     public void ForceCloseMenu()
     {
-        UIAnimation.Instance.ResetButtonPosition();
-        CloseMenu();
-        DisableMenu();
-        //ToggleMenu();
+        //UIAnimation.Instance.ResetButtonPosition();
+        ToggleMenu();
+        forceCloseMenu = false;
+        //CloseMenu();
     }
 
     //Get When a Tab button is pressed
@@ -166,9 +170,7 @@ public class MenuManager : MonoBehaviour
     public void TravelButtonPressed(int btn)
     {
         SceneManager.Instance.ChangeScene(btn);
-        CloseMenu();
-        animateMenu = false;
-        DisableMenu();
+        ForceCloseMenu();
     }
 
 	private void ChangeState(state newState)
@@ -232,9 +234,6 @@ public class MenuManager : MonoBehaviour
     }
     void AnimateMenu()
     {
-        //Color maxVal = Color.white;
-        Color minVal = Color.white;
-        minVal.a = 0.0f;
 
         if( !active )
         {
@@ -250,12 +249,21 @@ public class MenuManager : MonoBehaviour
             if( active == false )
             {
                 animateMenu = false;
+                active = false;
                 DisableMenu();
             }
         }
     }
     void FixedUpdate()
     {
+        //if( forceCloseMenu )
+        //wait for menu animation then execute
+        if( calledByOpenMenuCommand && !animateMenu )
+        {
+            ChangeState( openMenuState );
+            openMenuState = state.end;
+            calledByOpenMenuCommand = false;
+        }
         if( animateMenu )
         {
             AnimateMenu();
