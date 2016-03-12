@@ -3,6 +3,9 @@ using System.Collections;
 using System.IO;
 using System.Text;
 using System;
+
+using System.Collections.Generic;
+
 public class FileReader : MonoBehaviour 
 {
     enum eTextType
@@ -16,6 +19,7 @@ public class FileReader : MonoBehaviour
     static public FileReader Instance;
     public string fileLocation;
     public string scriptFolder = "Dialogue/";
+
     //=================================================================
     //  Load file function
     //  can be used to read both text sequence and command
@@ -24,9 +28,7 @@ public class FileReader : MonoBehaviour
     {
         Instance = this;
     }
-    void Start()
-    {
-    }
+
     private void RegisterFile(eTextType type, string line)
     {
         //print( "Raw file : " + line );
@@ -107,10 +109,8 @@ public class FileReader : MonoBehaviour
     // NOTE(jesse): Check if the scene exists
     public bool IsScene(string _scene)
     {
-        Debug.Log("[File Reader] Checking if scene exists: " + _scene);
-        if (Resources.Load(scriptFolder + _scene)!=null)
-        { return true; }
-        return false;
+        Debug.Log("[File Reader] Checking if scene exists: " + Application.dataPath + "/Resources/" + scriptFolder + _scene + ".txt");
+        return File.Exists(Application.dataPath+"/Resources/"+scriptFolder + _scene + ".txt");
     }
     public string ReadCommandText(string commandAddress)
     {

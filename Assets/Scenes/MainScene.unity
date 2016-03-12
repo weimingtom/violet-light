@@ -1461,10 +1461,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11468158, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: InteractableList.Array.size
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 470988, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1497,6 +1493,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: destinationTransforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 1221729521}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: destinationTransforms.Array.data[1]
+      value: 
+      objectReference: {fileID: 985397684}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: destinationTransforms.Array.data[2]
+      value: 
+      objectReference: {fileID: 1435200604}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 999765132}
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiElements.Array.data[0]
       value: 
@@ -1597,26 +1609,6 @@ Prefab:
       propertyPath: menuButtonBlocker
       value: 
       objectReference: {fileID: 173200067}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: destinationTransforms.Array.data[0]
-      value: 
-      objectReference: {fileID: 1221729521}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: destinationTransforms.Array.data[1]
-      value: 
-      objectReference: {fileID: 985397684}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: destinationTransforms.Array.data[2]
-      value: 
-      objectReference: {fileID: 1435200604}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 999765132}
-    - target: {fileID: 11468158, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: InteractableList.Array.data[7]
-      value: 
-      objectReference: {fileID: 144672, guid: 6a12bda8a33bb9d47b830aafc374dab7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_IsPrefabParent: 0

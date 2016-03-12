@@ -146,7 +146,16 @@ public class SceneManager : MonoBehaviour
 
     public void SetCursor(string itemName)
     {
-        bool sparkle = !ScenesPlayed.ContainsKey( QuestStage.ToString() + "_" + Scenes[currentScene].Prefab + "_" + itemName );
+        string sceneToCheck =  QuestStage.ToString() + "_" + Scenes[currentScene].Prefab + "_" + itemName;
+        bool sparkle;
+        if (FileReader.Instance.IsScene(sceneToCheck))
+        {
+            sparkle = !ScenesPlayed.ContainsKey(sceneToCheck);
+        }
+        else
+        {
+            sparkle = false;
+        }
         if (sparkle)
         {
             Cursor.SetCursor( cursorSparkle, cursorHotspot, CursorMode.Auto );
