@@ -106,6 +106,10 @@ public class CommandManager : MonoBehaviour
         {
             myNameHolder.alignment = TextAnchor.MiddleRight;
         }
+        else if( pos == CharacterManager.Positions.Centre )
+        {
+            myNameHolder.alignment = TextAnchor.MiddleCenter;
+        }
     }
 
 	public void AddCharIntoTextHolder(char c)

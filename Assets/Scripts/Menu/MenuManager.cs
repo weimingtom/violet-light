@@ -70,20 +70,23 @@ public class MenuManager : MonoBehaviour
 
 	public void ToggleMenu()
 	{
-        if( active && myState != state.SaveLoad )
+        if( !animateMenu && !UIAnimation.Instance.animateBackward && !UIAnimation.Instance.animateForward )
         {
-            ChangeState( state.SaveLoad );
-        }
-        else if (!active)
-        {
-			OpenMenu();
-            ItemManager.Instance.SetLoadInventory( true );
-            //active = true;
-        }
-		else
-        {
-            //active = false;
-			CloseMenu();
+            if( active && myState != state.SaveLoad )
+            {
+                ChangeState( state.SaveLoad );
+            }
+            else if (!active)
+            {
+			    OpenMenu();
+                ItemManager.Instance.SetLoadInventory( true );
+                //active = true;
+            }
+		    else
+            {
+                //active = false;
+			    CloseMenu();
+            }
         }
 	}
 
