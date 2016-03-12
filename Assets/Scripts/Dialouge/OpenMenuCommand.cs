@@ -37,6 +37,6 @@ public class OpenMenuCommand : Commands
     }
     public override void Reset()
     {
-    
+        execute = false;
     }
 }

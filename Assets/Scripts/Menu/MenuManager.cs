@@ -17,8 +17,8 @@ public class MenuManager : MonoBehaviour
         end
 	}
 
+    public bool MouseIsAboveInv { protected get; set; }
     private bool animateMenu;
-
     private bool calledByOpenMenuCommand;
     private state openMenuState;
 
@@ -55,7 +55,7 @@ public class MenuManager : MonoBehaviour
 	void Update () 
     {
 	    //check if open/close menu button was pressed
-        if(Input.GetKeyDown(KeyCode.Escape) && menuButton.activeInHierarchy)
+        if( Input.GetKeyDown( KeyCode.Escape ) && menuButton.activeInHierarchy && !CommandManager.Instance.myBannerBox.activeInHierarchy )
         {
 			ToggleMenu();
 		}
@@ -65,15 +65,17 @@ public class MenuManager : MonoBehaviour
 	{
 		return active;
 	}
+
     public bool IsDoneAnimating()
     {
         return !animateMenu;
     }
+
     // NOTE(jesse): Enable and disables the menu buttons and the ability to open the menu
     public void ToggleMenuAccess(bool enable = false)
     {
-            menuButton.SetActive(enable);
-            menuButtonBlocker.SetActive(enable);
+        menuButton.SetActive(enable);
+        menuButtonBlocker.SetActive(enable);
     }
 
 	public void ToggleMenu()
@@ -89,26 +91,28 @@ public class MenuManager : MonoBehaviour
             {
 			    OpenMenu();
                 ItemManager.Instance.SetLoadInventory( true );
-                //active = true;
+
             }
 		    else
             {
-                active = false;
+                //active = false;
 			    CloseMenu();
             }
         }
 	}
+
     public void OpenEvidenceTab()
     {
         ToggleMenu();
         calledByOpenMenuCommand = true;
         openMenuState = state.Evidence;
     }
+
     public void ForceCloseMenu()
     {
         //UIAnimation.Instance.ResetButtonPosition();
         ToggleMenu();
-        forceCloseMenu = false;
+        forceCloseMenu = true;
         //CloseMenu();
     }
 
@@ -158,14 +162,12 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public bool MouseIsAboveInv { protected get; set; }
 
     public bool CheckMouseAbove()
     {
 
         return MouseIsAboveInv;
     }
-
 
     public void TravelButtonPressed(int btn)
     {
@@ -182,6 +184,7 @@ public class MenuManager : MonoBehaviour
 		    myState = newState;
         }
 	}
+
     private void OpenMenu()
     {
 		//Do fancy transition animation
@@ -198,6 +201,7 @@ public class MenuManager : MonoBehaviour
         ChangeState( state.SaveLoad );
         animateMenu = true;
     }
+
     void DisableMenu()
     {
         //reset menu hierarchy
@@ -221,12 +225,14 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log( "Brightness Changed: " + multiplier );
     }
+
     public void SaveGame()
     {
         SFXManager.instance.PlaySave();
         SaveLoad.Load();
         SaveLoad.Save();
     }
+
     public void ExitGame()
     {
         Destroy(this.gameObject);
@@ -254,10 +260,14 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
+
     void FixedUpdate()
     {
-        //if( forceCloseMenu )
-        //wait for menu animation then execute
+        if( forceCloseMenu && !UIAnimation.Instance.animateBackward && !UIAnimation.Instance.animateForward )
+        {
+            forceCloseMenu = false;
+            ToggleMenu();
+        }
         if( calledByOpenMenuCommand && !animateMenu )
         {
             ChangeState( openMenuState );

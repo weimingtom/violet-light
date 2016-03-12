@@ -10,7 +10,8 @@ public class UIAnimation : MonoBehaviour
 
     public GameObject uiDestination;
 
-    private Vector3[] uiButtonOriginalPos;
+    public Transform[] uiButtonOriginalPos;
+
     public Transform[] uiButtonDestination;
     private Vector3 originalPosition;
     MenuManager.state myState = MenuManager.state.SaveLoad;
@@ -25,11 +26,7 @@ public class UIAnimation : MonoBehaviour
     public float openCloseMenuOffset = 500.0f;
     void Awake()
     {
-        uiButtonOriginalPos = new Vector3[uiElementButtons.Length];
-        for( int i = 0; i < uiElementButtons.Length; i++ )
-        {
-            uiButtonOriginalPos[i] = uiElementButtons[i].transform.position;
-       }
+
     }
 
     void Start()
@@ -123,7 +120,7 @@ public class UIAnimation : MonoBehaviour
     {
         for( int i = 0; i < uiElementButtons.Length; i++ )
         {
-            uiElementButtons[i].transform.position = uiButtonOriginalPos[i];
+            uiElementButtons[i].transform.position = uiButtonOriginalPos[i].position;
         }
     }
 
@@ -150,7 +147,7 @@ public class UIAnimation : MonoBehaviour
         int index = 0;
         foreach( GameObject go in uiElementButtons )
         {
-            go.transform.position = uiButtonOriginalPos[index];
+            go.transform.position = uiButtonOriginalPos[index].position;
             index++;
         }
     }
@@ -160,7 +157,7 @@ public class UIAnimation : MonoBehaviour
         float step = speed * Time.deltaTime * Screen.width / 100;
         if( animateBtn == true )
         {
-            uiElementButtons[(int)myState].transform.position = uiButtonOriginalPos[(int)myState];
+            uiElementButtons[(int)myState].transform.position = uiButtonOriginalPos[(int)myState].position;
             animateBtn = false;
         }
         if( Mathf.Abs(uiElements[(int)myState].transform.position.magnitude - originalPosition.magnitude) < 0.1f )
