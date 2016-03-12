@@ -127,7 +127,6 @@ public class SceneMenuManager : MonoBehaviour
         examineCurrentState = examineButton.transform.gameObject.activeInHierarchy;
         moveCurrentState = moveButton.transform.gameObject.activeInHierarchy;
         backCurrentState = backButton.transform.gameObject.activeInHierarchy;
-
         talkButton.transform.gameObject.SetActive( false );
         presentButton.transform.gameObject.SetActive( false );
         examineButton.transform.gameObject.SetActive( false );
