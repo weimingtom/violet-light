@@ -18,12 +18,16 @@ public class AudioPlayer : MonoBehaviour
 
     public void PlayBlip(bool female)
     {
-        audioSource.clip = maleBlip;
-        if(female)
+        if(!audioSource.isPlaying)
         {
-            audioSource.clip = femaleBlip;
+            audioSource.clip = maleBlip;
+            if (female)
+            {
+                audioSource.clip = femaleBlip;
+            }
+            audioSource.Play();
         }
-        audioSource.Play();
+        
     }
 
     public void OnReset()
