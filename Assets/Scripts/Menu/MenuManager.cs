@@ -81,6 +81,8 @@ public class MenuManager : MonoBehaviour
 	public void ToggleMenu()
 	{
         SFXManager.instance.PlayPage();
+        SceneManager.Instance.ResetCursor();
+
         if( !animateMenu && !UIAnimation.Instance.animateBackward && !UIAnimation.Instance.animateForward )
         {
             if( active && myState != state.SaveLoad )
