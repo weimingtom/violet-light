@@ -180,7 +180,7 @@ $VL$ "HEY! POLICEGUY[eff yell]! COME [eff crash]HERE!"
 
 show Policeman Center
 pose Policeman Explaining
-$PL$ "Y-Yes, ma'am?
+$PL$ "Y-Yes, ma'am?"
 pose Policeman Neutral
 
 pose Violet Explaining
