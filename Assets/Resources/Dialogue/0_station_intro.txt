@@ -1,8 +1,9 @@
+item harmony's_letter 
 bg null 
 $/$ "[speed s]<b><size=100><color=green>Tuesday, December 21st, 1963, - London Police Department – Holding Room B - 5:32 PM</color></size></b>"
 
-$PL$ "[speed f]<size=90>WA-WAIT-</size>[eff yell]"
-$PL$ "[speed f]<size=90>You can't go in there!</size>[eff crash]"
+$PL$ "[speed f][eff yell]<size=90>WA-WAIT-</size>"
+$PL$ "[speed f][eff crash]<size=90>You can't go in there!</size>"
 
 eff door
 bg police_station 
@@ -12,10 +13,10 @@ pose Violet Explaining
 $VL$ "[speed m]You really shouldn't try to stop me, love."
 show Policeman Right2
 pose Policeman Explaining
-$PL$ "[speed f]It's my job to![eff crash]"
+$PL$ "[speed f][eff crash]It's my job to!"
 pose Policeman Neutral
 pose Violet unimpressed
-$VL$ "[speed m]Right.[eff stab]"
+$VL$ "[speed m][eff stab]Right."
 pose Violet neutral
 
 show Policeman Offscreen
@@ -27,7 +28,7 @@ bg police_station
 show Violet Left2
 show Policeman Right2
 
-$AX$ "[speed f]Violet![eff yell]"
+$AX$ "[speed f][eff yell]Violet!"
 $AX$ "[speed f]Slow down!"
 pose Alexander Upset
 show Alexander Left1
@@ -51,14 +52,14 @@ pose Violet Cocky
 pose Alexander Unimpressed
 $AX$ "Ah, not this again Viole-[eff stab]"
 pose Alexander Shock
-$AX$ "[speed m][eff shock]Er-[time 1] [speed f]I mean[eff yell]-[time 1] [speed s]uhm..."
+$AX$ "[speed m][eff shock]Er-[time 1] [speed f]I mean-[time 1] [speed s]uhm..."
 pose Alexander Explaining
-$AX$ "We're here f-for [eff yell][time 1]Uh![speed f] [eff ding]<color=red>Harmony Rush</color>! [eff yell]"
+$AX$ "[eff yell]We're here f-for [time 1]Uh![speed f] [eff ding]<color=red>Harmony Rush</color>!"
 pose Alexander Serious
 $AX$ "Y-[time 1]You have to let us through![eff yell]"
 
 pose Policeman Explaining
-$PL$ "[speed m]Sorry, [speed f]no one sees <color=red>Ms.Harmony</color> without [eff clue]<color=blue>proper permission</color>."
+$PL$ "[speed m]Sorry, [speed f]no one sees <color=red>Ms.Harmony</color> without <color=blue>proper permission</color>."
 pose Policeman Neutral
 
 pose Alexander Nervous
@@ -69,11 +70,11 @@ $VL$ "Wait,[time 1] Alexander,[time 1] if we show the guard the [eff clue]<color
 pose Violet Neutral
 
 pose Alexander Explaining
-$AX$ "[speed f][eff ding]Good idea Violet! [speed m]I can open up my rucksack and [eff clue]<color=red>present</color> it to him."
+$AX$ "[speed f][eff ding]Good idea Violet! [speed m]I can open up my rucksack and <color=red>present</color> it to him."
 pose Alexander Thinking
 
 // Option to present
-item harmony's_letter
+
 prompt harmony's_letter
 
 pose Violet Explaining
@@ -90,7 +91,7 @@ pose Alexander Neutral
 //$AX$ "R-Right![eff flash/shake]"
 //loop
 pose Policeman Explaining
-$PL$ "Alright ma'am, I guess I can let you through. But I'll have my eye on you. "
+$PL$ "Alright ma'am, I guess I can let you through. But I'll have my eye on you."
 pose Policeman Neutral
 //icon harmony's_letter off
 pose Violet Smirk
@@ -104,14 +105,14 @@ pose Harmony Ashamed
 show Harmony Right2
 
 pose Violet shock
-$VL$ "H-Harmony,[time 1][speed f] are you okay?[eff crash][noclick]"
+$VL$ "[eff crash]H-Harmony,[time 1][speed f] are you okay?[noclick]"
 pose Violet Explaining
-$VL$ "[speed f]Did they do anything to you?[eff yell] Hurt you in any way? Omygod that must have been a terrible experience![eff crash][noclick]"
+$VL$ "[speed f][eff yell]Did they do anything to you? Hurt you in any way? Omygod that must have been a terrible experience![noclick]"
 pose Violet Upset
-$VL$ "[speed f]I'll find the guy who did this, I promise. I'm so sorry about your sister! Omygod, this is just-[noclick]"
+$VL$ "[speed f][eff crash]I'll find the guy who did this, I promise. I'm so sorry about your sister! Omygod, this is just-[noclick]"
 pose Alexander Serious
 pose Violet Nervous
-$AX$ "Violet[eff crash] calm down!"
+$AX$ "[eff crash]Violet calm down!"
 
 eff ding
 pose Violet Shock
@@ -124,7 +125,7 @@ $AX$ "It's okay Violet,[time 1] we just gotta take this slow."
 pose Alexander Scribbling
 $AX$ "[speed s]Now... [speed m]Miss Rush,"
 pose Alexander Determined
-$AX$ "Tell us [eff ding]everything!"
+$AX$ "[eff ding]Tell us everything!"
 
 pose Harmony Nervous
 $HR$ "............  ...  ......"
@@ -152,7 +153,7 @@ show Alexander Left1
 
 
 pose Harmony Sad
-$VL$ "[speed f]ALEX![eff crash]"
+$VL$ "[speed f][eff crash]ALEX!"
 pose Alexander Shock
 $AX$ "WH- [speed f][eff yell]WHAT?"
 
@@ -168,7 +169,7 @@ $HR$ "....... ..."
 pose Alexander serious
 $AX$ "So,[time 1] how is she going to communicate with us?"
 pose Violet Smirk
-$VL$ "Alex,[time 1] don't worry she can still [eff clue]write."
+$VL$ "Alex,[time 1] don't worry she can still write."
 pose Alexander Thinking
 $AX$ "A-ah,[time 1] right."
 // Both turn back to hr
@@ -176,7 +177,7 @@ $AX$ "A-ah,[time 1] right."
 pose Violet Normal
 $VL$ "But it seems like they didn't give her anything to write with..."
 pose Violet Upset
-$VL$ "HEY! POLICEGUY[eff yell]! COME [eff crash]HERE!"
+$VL$ "[eff yell]HEY! POLICEGUY! COME HERE!"
 
 show Policeman Center
 pose Policeman Explaining
@@ -197,21 +198,21 @@ pose Violet Smirk
 $VL$ "That Detective may be sharp, but he's not too bright!"
 pose Violet Shrug
 //icon notebook on
-$VL$ "Fine, I'll just give her Alex's notebook then." 
+$VL$ "Fine, I'll just give her <color=blue>Alex's notebook</color> then." 
 
 pose Policeman Explaining 
-$PL$ "[speed f]I can't let you do that, Ma'am! [eff yell]Sorry!"
+$PL$ "[speed f][eff yell]I can't let you do that, Ma'am! Sorry!"
 pose Policeman Neutral 
 //icon notebook off
 
 pose Violet serious
-$VL$ "What,[time 1] [eff drama][eff fast]really?"
+$VL$ "[eff drama]What,[time 1] [eff fast]really?"
 pose Alexander Unimpressed
 $AX$ "[eff stab2][eff fast]That seems a little silly..."
 pose Alexander Serious
 
 pose Policeman Explaining 
-$PL$ "[eff fast]I'm under direct orders from the [eff clue]<color=red>Detective</color>! You'll have to talk to him first. [eff yell]"
+$PL$ "[eff fast]I'm under direct orders from the [eff clue]<color=red>Detective</color>! You'll have to talk to him first."
 pose Policeman Neutral
 pose Alexander puzzled
 $AX$ "And where can we find him?"
