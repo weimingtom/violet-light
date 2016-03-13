@@ -27,8 +27,10 @@ public class IconManager : MonoBehaviour
         }
         DestroyIcon();
     }
-    public void ShowIcon( string itemName, string position, float scale )
+    public void ShowIcon( string iName, string position, float scale )
     {
+        
+        string itemName = iName.Replace(' ', '_');
         image.sprite = ItemManager.Instance.GetItemTexture( itemName );
         Color col = new Color();
         col = Color.white;

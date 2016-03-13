@@ -42,6 +42,7 @@ public class CommandManager : MonoBehaviour
     public bool testimonyDone { get; set; }
     public bool runPushCommand { get; set; }
     bool hideMenu = true;
+    public string defaultWrongItemSceneAddress = "Dialogue/false_item_presented_scene";		
 
     bool showFalseDialogue = false;
 
@@ -211,11 +212,10 @@ public class CommandManager : MonoBehaviour
     }
     // prompt is constructed by
     // option, and present stuff
-    public void CheckItem(string itemName)
+    public void CheckItem(string iName)
     {
-
+        string itemName = iName.Replace(' ', '_');
         string itemFileName = SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" +  SceneManager.Instance.GetChar()  ;
-        string defaultWrongItemSceneAddress = "Dialogue/false_item_presented_scene";		
         //check what type of present
         if(!myBannerBox.gameObject.activeInHierarchy )
         {
@@ -258,6 +258,7 @@ public class CommandManager : MonoBehaviour
             {
                 if( myCommand[commandTracker].commandTag == "openmenucommand" )
                 {
+                    Debug.Log("[Command Manager] Check Item COrrect item = " + correctItem + "| your item:" + itemName);
                     if( itemName.ToLower() == correctItem.ToLower() )
                     {
                         donePrompt = true;

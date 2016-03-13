@@ -126,7 +126,8 @@ public class ItemInventory : MonoBehaviour
     {
         buttons[index].image.enabled = true;
         buttons[index].image.sprite = texture;
-        buttons[index].GetComponentInChildren<Text>().text = name;
+        string newName = name.Replace('_', ' ');
+        buttons[index].GetComponentInChildren<Text>().text = newName;
     }
     
     public void DeleteFromInventory(int index)

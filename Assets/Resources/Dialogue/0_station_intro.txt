@@ -1,7 +1,11 @@
+bg null 
 $/$ "[speed s]<b><size=100><color=green>Tuesday, December 21st, 1963, - London Police Department – Holding Room B - 5:32 PM</color></size></b>"
+
 $PL$ "[speed f]<size=90>WA-WAIT-</size>[eff yell]"
 $PL$ "[speed f]<size=90>You can't go in there!</size>[eff crash]"
 
+eff door
+bg police_station 
 show Violet Left2
 pose Violet Explaining 
 
@@ -73,6 +77,7 @@ item harmony's_letter
 prompt harmony's_letter
 
 pose Violet Explaining
+//icon harmony's_letter on
 $VL$ "Look,[time 1] we have written permission.[time 1] Let us through![eff yell]"
 pose Violet Neutral
 pose Alexander Shock
@@ -87,7 +92,7 @@ pose Alexander Neutral
 pose Policeman Explaining
 $PL$ "Alright ma'am, I guess I can let you through. But I'll have my eye on you. "
 pose Policeman Neutral
-
+//icon harmony's_letter off
 pose Violet Smirk
 $VL$ "Thanks, love. Just don't let it happen again."
 pose Policeman Explaining 
@@ -191,12 +196,13 @@ $VL$ "A pen and paper? What's she going to do with that?"
 pose Violet Smirk
 $VL$ "That Detective may be sharp, but he's not too bright!"
 pose Violet Shrug
-$VL$ "Fine, I'll just give her [showicon notebook]Alex's notebook then." 
+//icon notebook on
+$VL$ "Fine, I'll just give her Alex's notebook then." 
 
 pose Policeman Explaining 
 $PL$ "[speed f]I can't let you do that, Ma'am! [eff yell]Sorry!"
 pose Policeman Neutral 
-[hideicon]
+//icon notebook off
 
 pose Violet serious
 $VL$ "What,[time 1] [eff drama][eff fast]really?"
