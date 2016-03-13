@@ -93,7 +93,7 @@ public class SceneMenuManager : MonoBehaviour
         talkButton.transform.gameObject.SetActive( false );
         presentButton.transform.gameObject.SetActive( false );
         examineButton.transform.gameObject.SetActive( false );
-        moveButton.transform.gameObject.SetActive( true );
+        moveButton.transform.gameObject.SetActive( false );
         backButton.transform.gameObject.SetActive( false );
     }
 
@@ -110,7 +110,7 @@ public class SceneMenuManager : MonoBehaviour
             }
         }
     }
-    void ExamineScene()
+    public void ExamineScene()
     {
         SceneManager.Instance.SetInputBlocker( false );
         talkButton.transform.gameObject.SetActive( false );
@@ -118,6 +118,7 @@ public class SceneMenuManager : MonoBehaviour
         examineButton.transform.gameObject.SetActive( false );
         moveButton.transform.gameObject.SetActive( false );
         backButton.transform.gameObject.SetActive( true );
+        CommandManager.Instance.isExamine = true;
     }
 
     public void HideFromCommandManager()

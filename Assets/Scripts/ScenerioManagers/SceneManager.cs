@@ -249,7 +249,7 @@ public class SceneManager : MonoBehaviour
             enteredNewScene = true;
             //ItemInventory.Instance.TogglePresentButton(false);
 
-            SceneMenuManager.instance.EnteredNewScene();
+            //SceneMenuManager.instance.EnteredNewScene();
 
             FadeOutScreen.instance.BeginFade( -1 );
             InteractableManager.Instance.doneLoading = true;
@@ -280,7 +280,10 @@ public class SceneManager : MonoBehaviour
 
     public void SetScenePlayed(string scene, bool played = true)
     {
-        ScenesPlayed.Add(scene, true);
+        if(!ScenesPlayed.ContainsKey(scene))
+        {
+            ScenesPlayed.Add(scene, true);
+        }
     }
 
     public List<string> GetAllScenesPlayed()

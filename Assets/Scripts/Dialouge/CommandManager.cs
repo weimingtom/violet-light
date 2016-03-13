@@ -35,7 +35,8 @@ public class CommandManager : MonoBehaviour
     Dictionary<int, List<Commands>> myPushCommand;
     List<Commands> wrongTextCommand;
     int wrongTextCommandIndex;
-
+    bool checkHideUI = false;
+    public bool isExamine { get; set; }
     public bool next { get; set; }
     public bool back { get; set; }
     public bool testimonyDone { get; set; }
@@ -275,6 +276,9 @@ public class CommandManager : MonoBehaviour
 
     public void Reinitialize()
     {
+        checkHideUI = false;
+        isExamine = false;
+        //SceneMenuManager.instance.hideAll();
         donePrompt = false;
         wrongTextCommandIndex = 0;
         dialogueToLoad = "";
@@ -322,14 +326,18 @@ public class CommandManager : MonoBehaviour
         }
         showFalseDialogue = false;
     }
-
+   
     void Update()
     {
         UpdateButton();
         switch( done )
         {
         case false:
-        SceneMenuManager.instance.HideFromCommandManager();
+        //if( checkHideUI == false )
+        //{
+        //    SceneMenuManager.instance.HideFromCommandManager();
+        //    checkHideUI = true;
+        //}
         if( showFalseDialogue )
         {
             if( wrongTextCommand[wrongTextCommandIndex].ExecuteCommand() )
@@ -386,7 +394,14 @@ public class CommandManager : MonoBehaviour
             {
                 SetTestimonyButton( false );
                 SceneManager.Instance.SetInputBlocker( false );
-                SceneMenuManager.instance.EnteredNewScene();
+                //if( isExamine )
+                //{
+                //    SceneMenuManager.instance.ExamineScene();
+                //}
+                //else
+                //{
+                    //SceneMenuManager.instance.EnteredNewScene();
+                //}
                 done = true;
             }
         }

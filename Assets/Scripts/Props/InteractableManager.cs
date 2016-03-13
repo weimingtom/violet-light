@@ -37,7 +37,14 @@ public class InteractableManager : MonoBehaviour
 
     public int GetNumberOfInteractable()
     {
-        return ParentObject.transform.GetChild(0).childCount;
+        if( ParentObject.transform.childCount > 0 )
+        {
+            return ParentObject.transform.GetChild( 0 ).childCount;
+        }
+        else
+        {
+            return -1;
+        }
     }
     public bool IsOnlyCharacterInScene()
     {

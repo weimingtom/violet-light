@@ -15,9 +15,9 @@ public class Case0Op : MonoBehaviour
         doneOnce = new bool[2];
         MenuManager.instance.ToggleMenuAccess();
         FileReader.Instance.LoadScene( opScene );
-        SceneManager.Instance.SetCanSkip(false);
-        SceneManager.Instance.SetCanControl(false);
-        FadeOutScreen.instance.BeginFade(-1);
+        SceneManager.Instance.SetCanSkip( false );
+        SceneManager.Instance.SetCanControl( false );
+        FadeOutScreen.instance.BeginFade( -1 );
 
         panDelay += Time.time;
     }

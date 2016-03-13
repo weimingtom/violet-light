@@ -8,7 +8,7 @@ $AX$ “Uhm... what are you doing violet?”
 Pose Violet neutral
 $VL$ “Fisherman talk.”
 
-Show Fisherman Right1
+Show Fisher Right1
 $FM$ “Why, ’ello ‘dere!”
 Pose Alexander Nervous
 $AX$ “R-right.”
