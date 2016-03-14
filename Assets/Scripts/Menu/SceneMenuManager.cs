@@ -69,7 +69,10 @@ public class SceneMenuManager : MonoBehaviour
         ShowExamineButton();
         talkButton.transform.gameObject.SetActive( showTalkButton );
         presentButton.transform.gameObject.SetActive( showPresentButton );
-        moveButton.transform.gameObject.SetActive( true );
+        if(!SceneManager.Instance.GetCanControl())
+            moveButton.transform.gameObject.SetActive( false );
+        else
+            moveButton.transform.gameObject.SetActive( true );
     }
 
     public void ActivateBackButton()

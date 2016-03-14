@@ -244,7 +244,6 @@ public class SceneManager : MonoBehaviour
             InteractableManager.Instance.Clear(); 
             ChangeBackground( Scenes[SceneID].Background, 0.7f );
             Camera.main.transform.position = defaultCameraPos;
-           
             
             MusicManager.instance.ChangeSong( Scenes[SceneID].Name );
             Debug.Log( "[scene manager] Changed Scene to number " + SceneID );
