@@ -35,6 +35,9 @@ public class ItemInventory : MonoBehaviour
             if( this.gameObject.transform.GetChild( i ).tag == "inventory_item_sprites" )
             {
                 mainImageHolder = this.gameObject.transform.GetChild( i ).gameObject.GetComponent<Image>();
+                Color col = mainImageHolder.color;
+                col.a = 0.0f;
+                mainImageHolder.color = col;
                 //mainImageHolder.sprite = Resources.Load<Sprite>( "Textures/Item/no_item" );
             }
             else if( this.gameObject.transform.GetChild( i ).tag == "inventory_item_text" )
@@ -63,7 +66,10 @@ public class ItemInventory : MonoBehaviour
             break;
             default:
             buttons[i].GetComponentInChildren<Text>().text = "";
-				buttons[i].GetComponent<Image>().sprite = null;//Resources.Load<Sprite>("Textures/Item/no_item");
+			buttons[i].GetComponent<Image>().sprite = null;//Resources.Load<Sprite>("Textures/Item/no_item");
+            Color col = buttons[i].GetComponent<Image>().color;
+            col.a = 0.0f;
+            buttons[i].GetComponent<Image>().color = col;
             break;
             }
         }
@@ -100,6 +106,11 @@ public class ItemInventory : MonoBehaviour
         {
             TogglePresentButton(true);
             mainImageHolder.sprite = buttons[buttonIndex].image.sprite;
+
+            Color col = mainImageHolder.color;
+            col.a = 1.0f;
+            mainImageHolder.color = col;
+
             mainTextHolder[0].text = buttons[buttonIndex].GetComponentInChildren<Text>().text;
             mainTextHolder[1].text = ItemManager.Instance.GetDescriptions( buttons[buttonIndex].GetComponentInChildren<Text>().text );
         }
@@ -128,6 +139,9 @@ public class ItemInventory : MonoBehaviour
         buttons[index].image.sprite = texture;
         string newName = name.Replace('_', ' ');
         buttons[index].GetComponentInChildren<Text>().text = newName;
+        Color col = buttons[index].GetComponent<Image>().color;
+        col.a = 1.0f;
+        buttons[index].GetComponent<Image>().color = col;
     }
     
     public void DeleteFromInventory(int index)

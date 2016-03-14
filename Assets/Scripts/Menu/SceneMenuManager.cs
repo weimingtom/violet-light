@@ -56,7 +56,7 @@ public class SceneMenuManager : MonoBehaviour
         MenuManager.instance.OpenTravelTab();
     }
 	// Use this for initialization
-	public void EnteredNewScene()
+    public void EnteredNewScene()
     {
         SceneManager.Instance.SetInputBlocker( true );
         characterOnScene = SceneManager.Instance.GetChar();
@@ -100,7 +100,6 @@ public class SceneMenuManager : MonoBehaviour
     void ShowExamineButton()
     {
         int childNumber = InteractableManager.Instance.GetNumberOfInteractable();
-        //check if there is something to examine
         if( childNumber > 0 )
         {
             if( !InteractableManager.Instance.IsOnlyCharacterInScene() )

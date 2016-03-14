@@ -118,8 +118,6 @@ public class SceneManager : MonoBehaviour
     {
         SceneStart();
         DoFade();
-
-        
     }
 
     public void LoadGame(Game loadedGame)
