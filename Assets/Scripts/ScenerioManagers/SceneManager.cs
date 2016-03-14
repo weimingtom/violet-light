@@ -253,7 +253,7 @@ public class SceneManager : MonoBehaviour
 
             SceneMenuManager.instance.EnteredNewScene();
             InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab, Vector3.zero );
-            FadeOutScreen.instance.BeginFade( -1 );
+            FadeOutScreen.instance.BeginFade( -1, 0.5f );
         }
         else
         {

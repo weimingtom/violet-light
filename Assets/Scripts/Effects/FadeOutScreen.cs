@@ -19,6 +19,7 @@ public class FadeOutScreen : MonoBehaviour
 
 	void OnGUI()
     {
+
         alpha += fadeDir * fadeSpeed * Time.deltaTime;
 
         alpha = Mathf.Clamp01(alpha);

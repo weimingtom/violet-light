@@ -6537,6 +6537,10 @@ Prefab:
       propertyPath: menuButtonBlocker
       value: 
       objectReference: {fileID: 173200067}
+    - target: {fileID: 11473076, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: defFadeSpeed
+      value: .5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_IsPrefabParent: 0
