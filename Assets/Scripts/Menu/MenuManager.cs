@@ -215,7 +215,7 @@ public class MenuManager : MonoBehaviour
         //delete input eater
         // TODO(jesse): Hacky fix to input blocker disappearing while still in dialogue
         // so we need to make a better one
-        if( !CommandManager.Instance.myBannerBox.activeInHierarchy )
+        if( !CommandManager.Instance.myBannerBox.activeInHierarchy && SceneMenuManager.instance.GetExamining() )
         {
             SceneManager.Instance.SetInputBlocker( false );
         }

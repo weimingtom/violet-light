@@ -217,6 +217,7 @@ public class CommandManager : MonoBehaviour
         string itemName = iName.Replace(' ', '_');
         string itemFileName = SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" +  SceneManager.Instance.GetChar()  ;
         //check what type of present
+
         if(!myBannerBox.gameObject.activeInHierarchy )
         {
             if( FileReader.Instance.IsScene( itemFileName + "_" + itemName ) )

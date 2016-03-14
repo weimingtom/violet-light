@@ -102,7 +102,6 @@ public class SceneManager : MonoBehaviour
     void OnEnable()
     {
         SceneManager.Instance.LoadCase( 1 );
-        FadeOutScreen.instance.BeginFade( -1 );
 
         if( GameManager.instance.newGame )
         {
@@ -112,6 +111,9 @@ public class SceneManager : MonoBehaviour
         {
             SceneManager.Instance.LoadGame( SaveLoad.savedGames[GameManager.instance.gameToLoad] );
         }
+
+        // TODO: FADEOUTSCREEN CANNOT BE FOUND AT THIS POINT SO GAME BREAKS
+        //FadeOutScreen.instance.BeginFade( -1 );
     }
 
     void Update()
@@ -244,7 +246,6 @@ public class SceneManager : MonoBehaviour
             InteractableManager.Instance.Clear(); 
             ChangeBackground( Scenes[SceneID].Background, 0.7f );
             Camera.main.transform.position = defaultCameraPos;
-           
             
             MusicManager.instance.ChangeSong( Scenes[SceneID].Name );
             Debug.Log( "[scene manager] Changed Scene to number " + SceneID );
@@ -253,7 +254,7 @@ public class SceneManager : MonoBehaviour
 
             SceneMenuManager.instance.EnteredNewScene();
             InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab, Vector3.zero );
-            FadeOutScreen.instance.BeginFade( -1 );
+            FadeOutScreen.instance.BeginFade( -1, 0.5f );
         }
         else
         {

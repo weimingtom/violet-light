@@ -7,8 +7,8 @@ public class Case0Op : MonoBehaviour
     public float bodyPanDelay;
     public string opScene = "0_midnight_intro";
     private bool[] doneOnce;
+    private bool ending = false;
 
-	// Use this for initialization
 	void Start() 
     {
         MusicManager.instance.ChangeSong("alt_theme");
@@ -17,12 +17,10 @@ public class Case0Op : MonoBehaviour
         FileReader.Instance.LoadScene( opScene );
         SceneManager.Instance.SetCanSkip( false );
         SceneManager.Instance.SetCanControl( false );
-        FadeOutScreen.instance.BeginFade( -1 );
-
+        FadeOutScreen.instance.BeginFade( -1, 0.1f );
         panDelay += Time.time;
     }
 	
-	// Update is called once per frame
 	void Update () 
     {
 	    if (Time.time > panDelay && !doneOnce[0])
@@ -35,22 +33,38 @@ public class Case0Op : MonoBehaviour
             //GetComponentInChildren<Case0Body>().StartPan();
             doneOnce[1] = true;
         }
-        else if(doneOnce[1] && FadeOutScreen.instance.GetFadedIn())
+        else if( doneOnce[1] && !CommandManager.Instance.myBannerBox.activeInHierarchy && !ending )
         {
             End();
+        }
+        else if(ending)
+        {
+            if( FadeOutScreen.instance.GetFadedIn() )
+            {
+                MenuManager.instance.ToggleMenuAccess( true );
+                SceneManager.Instance.ChangeScene( 1 );
+                SceneManager.Instance.SetCanSkip( true );
+                SceneManager.Instance.SetCanControl( true );
+                SceneManager.Instance.ChangeBg( "null", 10.0f );
+
+                Destroy( this.gameObject );
+            }
         }
 	}
 
     public void End()
     {
-        MenuManager.instance.ToggleMenuAccess(true);
-        SceneManager.Instance.ChangeScene( 1 );
-        SceneManager.Instance.SetCanSkip(true);
-        SceneManager.Instance.SetCanControl(true);
-
-        Destroy( this.gameObject );
-
-
+        FadeOutScreen.instance.BeginFade( 1, 0.05f );
+        ending = true;
     }
 
+    public void Skip()
+    {
+        MenuManager.instance.ToggleMenuAccess( true );
+        SceneManager.Instance.ChangeScene( 1 );
+        SceneManager.Instance.SetCanSkip( true );
+        SceneManager.Instance.SetCanControl( true );
+        SceneManager.Instance.ChangeBg( "null", 10.0f );
+        Destroy( this.gameObject );
+    }
 }

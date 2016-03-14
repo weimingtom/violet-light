@@ -1,6 +1,6 @@
 item harmony's_letter 
 bg null 
-$/$ "[speed s]<b><size=95><color=green>          Tuesday, December 21st, 1963<br>London Police Department - Holding Room B<br>                            5:32 PM</color></size></b>"
+$/$ "[speed s]<b><size=94><color=green>          Tuesday, December 21st, 1963<br>London Police Department - Holding Room B<br>                            5:32 PM</color></size></b>"
 
 $PL$ "[speed f][eff yell]<size=90>WA-WAIT-</size>"
 $PL$ "[speed f][eff crash]<size=90>You can't go in there!</size>"

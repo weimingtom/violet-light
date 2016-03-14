@@ -26,7 +26,6 @@ public class PanDown : MonoBehaviour
             float distCovered = (Time.time - startTime) * speed;
             float fracJourney = distCovered / journeyLength;
             Camera.main.transform.position = Vector3.Lerp( startPosition, endPosition, fracJourney );
-
         }
 
     }

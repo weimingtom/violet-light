@@ -133,8 +133,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 559, y: 8}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 326, y: -140}
+  m_SizeDelta: {x: 256, y: 48}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &33858250
 MonoBehaviour:
@@ -1546,8 +1546,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 560, y: 119}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 327, y: 38}
+  m_SizeDelta: {x: 256, y: 48}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &217028007
 MonoBehaviour:
@@ -2268,8 +2268,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 560, y: 233}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -521, y: -284}
+  m_SizeDelta: {x: 256, y: 48}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &342495998
 MonoBehaviour:
@@ -5412,8 +5412,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 559, y: 61}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 326, y: -54}
+  m_SizeDelta: {x: 256, y: 48}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &894884118
 MonoBehaviour:
@@ -6393,6 +6393,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: destinationTransforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 1221729521}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: destinationTransforms.Array.data[1]
+      value: 
+      objectReference: {fileID: 985397684}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: destinationTransforms.Array.data[2]
+      value: 
+      objectReference: {fileID: 1435200604}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 999765132}
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiElements.Array.data[0]
       value: 
@@ -6509,22 +6525,6 @@ Prefab:
       propertyPath: uiButtonDestination.Array.data[6]
       value: 
       objectReference: {fileID: 664862668}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: destinationTransforms.Array.data[0]
-      value: 
-      objectReference: {fileID: 1221729521}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: destinationTransforms.Array.data[1]
-      value: 
-      objectReference: {fileID: 985397684}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: destinationTransforms.Array.data[2]
-      value: 
-      objectReference: {fileID: 1435200604}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 999765132}
     - target: {fileID: 11489336, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: menu
       value: 
@@ -6537,6 +6537,10 @@ Prefab:
       propertyPath: menuButtonBlocker
       value: 
       objectReference: {fileID: 173200067}
+    - target: {fileID: 11473076, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: defFadeSpeed
+      value: .5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
   m_IsPrefabParent: 0
@@ -10772,8 +10776,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 559, y: 179}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 326, y: 135}
+  m_SizeDelta: {x: 256, y: 48}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1936888902
 MonoBehaviour:

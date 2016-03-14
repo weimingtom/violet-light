@@ -32,7 +32,9 @@ public class TitleManager : MonoBehaviour
     public GameObject backButton;
 
     public float speed = 5.0f;
-   
+
+    private bool isNew = true;
+    private int newSceneId = -1;
     
 
     static public TitleManager instance;
@@ -189,7 +191,7 @@ public class TitleManager : MonoBehaviour
         }
         else if( timer >= 3.0f )
         {
-            GameManager.instance.StartGame( true );
+            GameManager.instance.StartGame( isNew , newSceneId);
         }
     }
     private void DoLoadGame()
@@ -298,8 +300,10 @@ public class TitleManager : MonoBehaviour
     private void LoadButtonClicked(int id)
     {
         Debug.Log( "Loading Game " + id );
-
-        GameManager.instance.StartGame( false, id);
+        FadeOutScreen.instance.BeginFade( 1 );
+        isNew = false;
+        newSceneId = id;
+        menuStage = 4;
     }
 
     //button Movement

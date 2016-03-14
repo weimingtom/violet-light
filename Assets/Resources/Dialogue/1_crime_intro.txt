@@ -1,4 +1,4 @@
-$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963, River Thames – Crime Scene 6:43 PM</color></size></b>”
+$/$ “[speed s]<b><size=94><color=green>Tuesday, December 21st, 1963, River Thames – Crime Scene 6:43 PM</color></size></b>”
 show Alexander Left1
 show Violet Right2
 pose Alexander Thinking
