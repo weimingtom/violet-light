@@ -254,8 +254,8 @@ public class CommandManager : MonoBehaviour
                         wrongTextCommand = StringParser.Instance.ParseWrongCommand( Resources.Load( defaultWrongItemSceneAddress ).ToString() );
                     }
                     showFalseDialogue = true;
-                    MenuManager.instance.ForceCloseMenu();
                 }
+                MenuManager.instance.ForceCloseMenu();
             }
             else
             {
