@@ -11,7 +11,7 @@ public class Door : MonoBehaviour
     {
         if( IsUnlocked )
         {
-            SceneManager.Instance.ChangeScene( RoomToChangeTo );
+            SceneManager.Instance.OpenSecondaryScene( RoomToChangeTo );
         }
     }
 }

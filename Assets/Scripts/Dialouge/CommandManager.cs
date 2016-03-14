@@ -279,7 +279,7 @@ public class CommandManager : MonoBehaviour
     {
         checkHideUI = false;
         isExamine = false;
-        //SceneMenuManager.instance.hideAll();
+        SceneMenuManager.instance.hideAll();
         donePrompt = false;
         wrongTextCommandIndex = 0;
         dialogueToLoad = "";
@@ -334,11 +334,11 @@ public class CommandManager : MonoBehaviour
         switch( done )
         {
         case false:
-        //if( checkHideUI == false )
-        //{
-        //    SceneMenuManager.instance.HideFromCommandManager();
-        //    checkHideUI = true;
-        //}
+        if( checkHideUI == false )
+        {
+            SceneMenuManager.instance.HideFromCommandManager();
+            checkHideUI = true;
+        }
         if( showFalseDialogue )
         {
             if( wrongTextCommand[wrongTextCommandIndex].ExecuteCommand() )
@@ -395,14 +395,14 @@ public class CommandManager : MonoBehaviour
             {
                 SetTestimonyButton( false );
                 SceneManager.Instance.SetInputBlocker( false );
-                //if( isExamine )
-                //{
-                //    SceneMenuManager.instance.ExamineScene();
-                //}
-                //else
-                //{
-                    //SceneMenuManager.instance.EnteredNewScene();
-                //}
+                if( isExamine )
+                {
+                    SceneMenuManager.instance.ExamineScene();
+                }
+                else
+                {
+                    SceneMenuManager.instance.EnteredNewScene();
+                }
                 done = true;
             }
         }
