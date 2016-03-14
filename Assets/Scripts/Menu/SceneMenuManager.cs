@@ -85,7 +85,7 @@ public class SceneMenuManager : MonoBehaviour
         examineButton.transform.gameObject.SetActive( showExamineButton );
         moveButton.transform.gameObject.SetActive( true );
         backButton.transform.gameObject.SetActive( false );
-
+        CommandManager.Instance.isExamine = false;
     }
 
     public void hideAll()
@@ -148,6 +148,17 @@ public class SceneMenuManager : MonoBehaviour
     {
         Prop Character = GameObject.Find(SceneManager.Instance.GetChar()).GetComponent<Prop>();
         Character.Talk();
+    }
+    public void BackButtonOnEnter()
+    {
+        Debug.Log("button on enter");
+        SceneManager.Instance.SetInputBlocker( true );
+        //Debug.Break();
+    }
+    public void BackButtonOnExit()
+    {
+        Debug.Log("button on exit");
+        SceneManager.Instance.SetInputBlocker( false );
     }
     void Update()
     {

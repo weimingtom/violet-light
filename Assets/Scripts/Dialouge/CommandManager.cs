@@ -278,7 +278,6 @@ public class CommandManager : MonoBehaviour
     public void Reinitialize()
     {
         checkHideUI = false;
-        isExamine = false;
         SceneMenuManager.instance.hideAll();
         donePrompt = false;
         wrongTextCommandIndex = 0;
