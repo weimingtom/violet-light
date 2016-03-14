@@ -103,7 +103,7 @@ public class VLConsole : MonoBehaviour
         case ("skip"):
         {
             CommandManager.Instance.Terminate();
-            FindObjectOfType<Case0Op>().End();
+            FindObjectOfType<Case0Op>().Skip();
         }
         break;
         case ("surprise"):
