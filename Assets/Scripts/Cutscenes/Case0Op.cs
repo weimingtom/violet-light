@@ -64,9 +64,7 @@ public class Case0Op : MonoBehaviour
         SceneManager.Instance.ChangeScene( 1 );
         SceneManager.Instance.SetCanSkip( true );
         SceneManager.Instance.SetCanControl( true );
-
         SceneManager.Instance.ChangeBg( "null", 10.0f );
-
         Destroy( this.gameObject );
     }
 }

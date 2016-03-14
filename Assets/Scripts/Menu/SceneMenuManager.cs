@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class SceneMenuManager : MonoBehaviour
 {
     static public SceneMenuManager instance;
-    
     public Button talkButton;
     public Button presentButton;
     public Button moveButton;
@@ -29,6 +28,7 @@ public class SceneMenuManager : MonoBehaviour
     {
         instance = this;
     }
+
     void Start()
     {
         showTalkButton = false;
@@ -51,10 +51,12 @@ public class SceneMenuManager : MonoBehaviour
     {
         MenuManager.instance.OpenEvidenceTab();
     }
+
     void Move()
     {
         MenuManager.instance.OpenTravelTab();
     }
+
 	// Use this for initialization
     public void EnteredNewScene()
     {
@@ -83,6 +85,7 @@ public class SceneMenuManager : MonoBehaviour
     public void ResetButton()
     {
         SceneManager.Instance.SetInputBlocker( true );
+        SceneManager.Instance.ResetCursor();
         talkButton.transform.gameObject.SetActive( showTalkButton );
         presentButton.transform.gameObject.SetActive( showPresentButton );
         examineButton.transform.gameObject.SetActive( showExamineButton );
@@ -112,9 +115,16 @@ public class SceneMenuManager : MonoBehaviour
             }
         }
     }
+
+    public bool GetExamining()
+    {
+        return CommandManager.Instance.isExamine;
+    }
+
     public void ExamineScene()
     {
         SceneManager.Instance.SetInputBlocker( false );
+        SceneManager.Instance.SetCursor(true);
         talkButton.transform.gameObject.SetActive( false );
         presentButton.transform.gameObject.SetActive( false );
         examineButton.transform.gameObject.SetActive( false );
@@ -136,7 +146,6 @@ public class SceneMenuManager : MonoBehaviour
         moveButton.transform.gameObject.SetActive( false );
         backButton.transform.gameObject.SetActive( false );
     }
-
     public void ActivateFromCommandManager()
     {
         talkButton.transform.gameObject.SetActive( talkCurrentState );
