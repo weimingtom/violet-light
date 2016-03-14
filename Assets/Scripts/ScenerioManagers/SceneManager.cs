@@ -102,7 +102,6 @@ public class SceneManager : MonoBehaviour
     void OnEnable()
     {
         SceneManager.Instance.LoadCase( 1 );
-        FadeOutScreen.instance.BeginFade( -1 );
 
         if( GameManager.instance.newGame )
         {
@@ -112,6 +111,9 @@ public class SceneManager : MonoBehaviour
         {
             SceneManager.Instance.LoadGame( SaveLoad.savedGames[GameManager.instance.gameToLoad] );
         }
+
+        // TODO: FADEOUTSCREEN CANNOT BE FOUND AT THIS POINT SO GAME BREAKS
+        //FadeOutScreen.instance.BeginFade( -1 );
     }
 
     void Update()
