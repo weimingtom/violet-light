@@ -1,0 +1,15 @@
+show Alexander Right1
+show Violet Right2
+Pose Alexander Neutral
+Pose Violet Neutral
+show Policeman Left1 
+show Sharp Left2 l
+
+pose Sharp Neutral
+$SP$ “Yeah, yeah I know, cupcake.”
+
+pose Violet upset
+$VL$ “I don't think showing him evidence is going to get his attention."
+
+pose Alexander unimpressed
+$AX$ “Dang!”

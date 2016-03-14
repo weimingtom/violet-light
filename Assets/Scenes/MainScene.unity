@@ -6393,6 +6393,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: destinationTransforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 1221729521}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: destinationTransforms.Array.data[1]
+      value: 
+      objectReference: {fileID: 985397684}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: destinationTransforms.Array.data[2]
+      value: 
+      objectReference: {fileID: 1435200604}
+    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 999765132}
     - target: {fileID: 11485844, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: uiElements.Array.data[0]
       value: 
@@ -6509,22 +6525,6 @@ Prefab:
       propertyPath: uiButtonDestination.Array.data[6]
       value: 
       objectReference: {fileID: 664862668}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: destinationTransforms.Array.data[0]
-      value: 
-      objectReference: {fileID: 1221729521}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: destinationTransforms.Array.data[1]
-      value: 
-      objectReference: {fileID: 985397684}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: destinationTransforms.Array.data[2]
-      value: 
-      objectReference: {fileID: 1435200604}
-    - target: {fileID: 11442082, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 999765132}
     - target: {fileID: 11489336, guid: e54cf3a0bf0414d46a0767ddc1e29cb3, type: 2}
       propertyPath: menu
       value: 
