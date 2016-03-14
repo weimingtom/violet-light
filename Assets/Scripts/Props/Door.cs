@@ -13,5 +13,5 @@ public class Door : MonoBehaviour
         {
             SceneManager.Instance.OpenSecondaryScene( RoomToChangeTo );
         }
-    }
+   }
 }
