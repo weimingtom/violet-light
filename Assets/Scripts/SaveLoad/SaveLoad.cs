@@ -22,7 +22,7 @@ public class Game
     public int questStage;
     public int currentScene;
     public string currentCaseFile;
-    public List<string> inventory= new List<string>();
+    public List<string> inventory = new List<string>();
     public List<string> playedScenes;
 
     public Game()
@@ -32,7 +32,7 @@ public class Game
 
         questStage = SceneManager.Instance.GetQuestStage();
         currentScene = SceneManager.Instance.GetScene();
-        //currentCaseFile = SceneManager.Instance.GetCaseFile();
+        currentCaseFile = "0";
 
         //this will change to GetHeldItems( ref inventory ) in the next update
         ItemManager.Instance.GetHeldItem( ref inventory );
@@ -88,6 +88,7 @@ public static class SaveLoad
         }
     }
 
+    //this doesn't get called.
     public static void LoadGame( int id )
     {
         Debug.Log( "Loading Game " + id );

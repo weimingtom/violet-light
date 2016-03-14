@@ -12,7 +12,7 @@ public class Prop : MonoBehaviour {
     private int range;
 
 
-    void Awake()
+    void OnEnable()
     {
         if(IsCharacter)
         {
@@ -26,7 +26,8 @@ public class Prop : MonoBehaviour {
             {
                 if( IsPickUp && SceneManager.Instance.GetScenePlayed( ( i) + "_" + SceneManager.Instance.GetSceneName() + "_" + name ) )
                 {
-                    SceneManager.Instance.SetChar("");
+                    if( IsCharacter )
+                        SceneManager.Instance.SetChar("");
 
                     this.gameObject.SetActive(false);
                 }
@@ -34,7 +35,8 @@ public class Prop : MonoBehaviour {
         }
         else if( IsPickUp && SceneManager.Instance.GetScenePlayed( SceneManager.Instance.GetQuestStage() + "_" + SceneManager.Instance.GetSceneName() + "_" + name ) )
         {
-            SceneManager.Instance.SetChar("");
+            if( IsCharacter )
+                SceneManager.Instance.SetChar("");
 
             this.gameObject.SetActive(false);
         }
@@ -58,7 +60,8 @@ public class Prop : MonoBehaviour {
         {
 
             Debug.Log("[Prop] Picked the item up!");
-            SceneManager.Instance.SetChar("");
+            if( IsCharacter )
+                SceneManager.Instance.SetChar("");
             
             this.gameObject.SetActive(false);
         }

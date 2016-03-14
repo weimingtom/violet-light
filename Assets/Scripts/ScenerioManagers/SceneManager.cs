@@ -99,7 +99,7 @@ public class SceneManager : MonoBehaviour
         defaultCameraPos = Camera.main.transform.position;
     }
 
-    void Start()
+    void OnEnable()
     {
         SceneManager.Instance.LoadCase( 1 );
         FadeOutScreen.instance.BeginFade( -1 );
@@ -127,12 +127,16 @@ public class SceneManager : MonoBehaviour
     {
         ItemManager.Instance.ResetInventory();
         ScenesPlayed.Clear();
-        ChangeScene(loadedGame.currentScene);
+
         QuestStage = loadedGame.questStage;
-        foreach (string item in loadedGame.inventory)
-            ItemManager.Instance.AddItem(item);
+        foreach( string item in loadedGame.inventory )
+        { 
+            ItemManager.Instance.AddItem( item.ToLower() );
+        }
         foreach( string strScene in loadedGame.playedScenes )
-            ScenesPlayed.Add( strScene, true );
+            ScenesPlayed.Add( strScene, true ); 
+        
+        ChangeScene( loadedGame.currentScene );
     }
 
     public void SetCursor(bool sparkle)
@@ -240,17 +244,18 @@ public class SceneManager : MonoBehaviour
         if( CurrentCaseFile != null )
         {
             currentScene = SceneID;
+            InteractableManager.Instance.Clear(); 
             ChangeBackground( Scenes[SceneID].Background, 0.7f );
             Camera.main.transform.position = defaultCameraPos;
-            InteractableManager.Instance.Clear();
-            InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab, Vector3.zero );
+           
+            
             MusicManager.instance.ChangeSong( Scenes[SceneID].Name );
             Debug.Log( "[scene manager] Changed Scene to number " + SceneID );
             enteredNewScene = true;
             //ItemInventory.Instance.TogglePresentButton(false);
 
             //SceneMenuManager.instance.EnteredNewScene();
-
+            InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab, Vector3.zero );
             FadeOutScreen.instance.BeginFade( -1 );
             InteractableManager.Instance.doneLoading = true;
         }

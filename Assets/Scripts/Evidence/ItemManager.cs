@@ -15,10 +15,7 @@ public class ItemManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-    }
-
-    void Start()
-    {
+    
         ParseItem( "Dialogue/items_scene_1" );
     }
 
@@ -33,7 +30,7 @@ public class ItemManager : MonoBehaviour
     {
         foreach( Item itm in playerItems )
         {
-            itemHolder.Add( itm.GetItemName() );
+            itemHolder.Add( itm.GetItemName().Replace(" ","_") );
         }
     }
 
@@ -164,7 +161,8 @@ public class ItemManager : MonoBehaviour
                 }
                 if( addItem )
                 {
-                    playerItems.Add( allItems [i]);
+                    Debug.Log( "[Item Manager] Item Added, " + item_name );
+                    playerItems.Add( allItems[i] );
                     return;
                 }
             }
