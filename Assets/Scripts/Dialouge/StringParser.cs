@@ -221,7 +221,7 @@ public class StringParser : MonoBehaviour
 
         case "show":
         ShowCharacterCommand character = new ShowCharacterCommand();
-        if( parsedCommand.Length == 3 )
+        if( parsedCommand.Length >= 3 )
         {
             character.SetCharacterName( parsedCommand[1].ToLower() );
             character.SetSpawnLocation( parsedCommand[2].ToLower() );
@@ -232,6 +232,10 @@ public class StringParser : MonoBehaviour
             else
             {
                 CommandManager.Instance.AddCommand( character );
+            }
+            if (parsedCommand.Length >= 4)
+            {
+                character.SetFacing( parsedCommand[3].ToLower() );
             }
         }
         break;

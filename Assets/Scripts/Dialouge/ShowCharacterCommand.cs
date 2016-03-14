@@ -7,6 +7,8 @@ public class ShowCharacterCommand : Commands
     string CharacterName;
     string SpawnLocation;
     //bool loop = false;
+    CharacterManager.Facings newFacing = CharacterManager.Facings.auto;
+
     public ShowCharacterCommand()
     {
         commandTag = "showcharactercommand";
@@ -49,7 +51,8 @@ public class ShowCharacterCommand : Commands
                 myPos = CharacterManager.Positions.Offscreen;
                 break;
         }
-        CharacterManager.Instance.ChangePosition(CharacterName, myPos);
+        CharacterManager.Instance.ChangePosition( CharacterName, myPos, newFacing );
+
         return true;
     }
     public override void Reset()
@@ -77,6 +80,20 @@ public class ShowCharacterCommand : Commands
     {
         SpawnLocation = location.ToLower();
     }
+
+    public void SetFacing( string facing )
+    {
+        if( facing == "r" )
+        {
+            newFacing = CharacterManager.Facings.right;
+        }
+        else
+        {
+            newFacing = CharacterManager.Facings.left;
+
+        }
+    }
+
 	public override bool Destroy()
 	{
         CharacterManager.Instance.ChangePosition( CharacterName, CharacterManager.Positions.Offscreen );

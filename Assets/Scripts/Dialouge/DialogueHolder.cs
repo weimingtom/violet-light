@@ -88,7 +88,7 @@ public class DialogueHolder : MonoBehaviour
     }
     public string GetDialogue( string index )
     {
-        return dialogue[index];
+        return dialogue[index].Replace( "<br>", "\n" );;
     }
     
 	// Update is called once per frame

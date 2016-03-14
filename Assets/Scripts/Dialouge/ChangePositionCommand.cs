@@ -5,12 +5,24 @@ public class ChangePositionCommand : Commands
 {
 	string characterName;
 	string newPosition;
-
+    CharacterManager.Facings newFacing = CharacterManager.Facings.auto;
 	public void SetNewPosition(string character, string pos)
 	{
 		characterName = character;
 		newPosition = pos.ToLower();
 	}
+    public void SetFacing(string facing)
+    {
+        if (facing == "r")
+        {
+            newFacing = CharacterManager.Facings.right;
+        }
+        else
+        {
+            newFacing  = CharacterManager.Facings.left;
+
+        }
+    }
     public override void Reset()
     {
     }
@@ -55,7 +67,7 @@ public class ChangePositionCommand : Commands
         myPos = CharacterManager.Positions.Offscreen;
         break;
         }
-        CharacterManager.Instance.ChangePosition( characterName, myPos );
+        CharacterManager.Instance.ChangePosition( characterName, myPos,newFacing );
 		return true;
 	}
 	public override bool Destroy()

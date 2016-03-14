@@ -1,6 +1,6 @@
 item harmony's_letter 
 bg null 
-$/$ "[speed s]<b><size=100><color=green>Tuesday, December 21st, 1963, - London Police Department – Holding Room B - 5:32 PM</color></size></b>"
+$/$ "[speed s]<b><size=95><color=green>          Tuesday, December 21st, 1963<br>London Police Department - Holding Room B<br>                            5:32 PM</color></size></b>"
 
 $PL$ "[speed f][eff yell]<size=90>WA-WAIT-</size>"
 $PL$ "[speed f][eff crash]<size=90>You can't go in there!</size>"
@@ -158,14 +158,19 @@ pose Alexander Shock
 $AX$ "WH- [speed f][eff yell]WHAT?"
 
 // flip them so they face eachother
+show Violet Left2 l
+show Alexander Left1 r
+
 pose Violet Shrug
 $VL$ "She [eff clue]<color=red>has no voice</color>."
 pose Alexander Nervous 
 $AX$ "[speed s]Ohhh..."
 
 pose Harmony determined
+
 $HR$ "....... ..."
 //Alex Looks at harmony and turns back
+
 pose Alexander serious
 $AX$ "So,[time 1] how is she going to communicate with us?"
 pose Violet Smirk
@@ -173,6 +178,10 @@ $VL$ "Alex,[time 1] don't worry she can still write."
 pose Alexander Thinking
 $AX$ "A-ah,[time 1] right."
 // Both turn back to hr
+
+show Violet Left2
+show Alexander Left1
+
 
 pose Violet Normal
 $VL$ "But it seems like they didn't give her anything to write with..."
