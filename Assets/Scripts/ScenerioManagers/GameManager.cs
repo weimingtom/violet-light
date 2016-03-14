@@ -6,14 +6,13 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-
     public bool newGame {get; set;}
     public int gameToLoad {get; set;}
 
     void Awake()
     {
 
-        if( instance == null )
+        if( GameManager.instance == null )
         {
             newGame = true;
             gameToLoad = -1; 
@@ -24,7 +23,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy( this );
         }
-
 
     }
 

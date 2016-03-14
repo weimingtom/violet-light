@@ -106,7 +106,6 @@ public class SceneManager : MonoBehaviour
 
         if( GameManager.instance.newGame )
         {
-            //SceneManager.Instance.ChangeScene(0);
             Instantiate( cutscene );
         }
         else
@@ -254,15 +253,25 @@ public class SceneManager : MonoBehaviour
             enteredNewScene = true;
             //ItemInventory.Instance.TogglePresentButton(false);
 
-            //SceneMenuManager.instance.EnteredNewScene();
+            SceneMenuManager.instance.EnteredNewScene();
             InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab, Vector3.zero );
             FadeOutScreen.instance.BeginFade( -1 );
-            InteractableManager.Instance.doneLoading = true;
         }
         else
         {
             Debug.Log( "[scene manager] No case loaded!" );
         }
+    }
+
+
+    public void OpenSecondaryScene( int SceneID )
+    {
+            currentScene = SceneID;
+            InteractableManager.Instance.Clear();
+            ChangeBackground( Scenes[SceneID].Background, 0.7f );
+            Camera.main.transform.position = defaultCameraPos;
+            InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab, Vector3.zero );
+            FadeOutScreen.instance.BeginFade( -1 );
     }
 
     public void ChangeScene(string SceneID)
