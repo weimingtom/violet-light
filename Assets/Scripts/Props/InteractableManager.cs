@@ -9,7 +9,6 @@ public class InteractableManager : MonoBehaviour
     public GameObject[] InteractableList;
 
     private GameObject ParentObject;
-    public bool doneLoading { get; set; }
     public int numberOfObject = 0;
     void Awake ()
     {
@@ -58,7 +57,6 @@ public class InteractableManager : MonoBehaviour
     }
     public void Clear()
     {
-        doneLoading = false;
         Debug.Log( "[Interactable Manager] Clearing Scene");
         foreach( Transform child in ParentObject.transform )
         {
