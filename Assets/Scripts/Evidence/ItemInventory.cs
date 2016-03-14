@@ -38,7 +38,6 @@ public class ItemInventory : MonoBehaviour
                 Color col = mainImageHolder.color;
                 col.a = 0.0f;
                 mainImageHolder.color = col;
-                //mainImageHolder.sprite = Resources.Load<Sprite>( "Textures/Item/no_item" );
             }
             else if( this.gameObject.transform.GetChild( i ).tag == "inventory_item_text" )
             {
@@ -122,7 +121,7 @@ public class ItemInventory : MonoBehaviour
 		{
             if( button.tag != "PresentButton" )
             {
-                button.image.sprite = null;//Resources.Load<Sprite>( "Textures/Item/no_item" );
+                button.image.sprite = null;
 			    button.GetComponentInChildren<Text>().text = "";
             }
 		}
@@ -157,9 +156,6 @@ public class ItemInventory : MonoBehaviour
     }
 
     public void ResetInventory()
-    {
-        
-
-    }
+    {    }
 
 }

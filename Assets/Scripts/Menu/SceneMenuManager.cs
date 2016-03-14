@@ -51,11 +51,12 @@ public class SceneMenuManager : MonoBehaviour
     {
         MenuManager.instance.OpenEvidenceTab();
     }
+
     void Move()
     {
         MenuManager.instance.OpenTravelTab();
     }
-	// Use this for initialization
+
     public void EnteredNewScene()
     {
         SceneManager.Instance.SetInputBlocker( true );
@@ -109,6 +110,7 @@ public class SceneMenuManager : MonoBehaviour
             }
         }
     }
+
     public void ExamineScene()
     {
         SceneManager.Instance.SetInputBlocker( false );
@@ -148,17 +150,20 @@ public class SceneMenuManager : MonoBehaviour
         Prop Character = GameObject.Find(SceneManager.Instance.GetChar()).GetComponent<Prop>();
         Character.Talk();
     }
+
     public void BackButtonOnEnter()
     {
         Debug.Log("button on enter");
         SceneManager.Instance.SetInputBlocker( true );
         //Debug.Break();
     }
+
     public void BackButtonOnExit()
     {
         Debug.Log("button on exit");
         SceneManager.Instance.SetInputBlocker( false );
     }
+
     void Update()
     {
         if( SceneManager.Instance.GetChar() == "" )

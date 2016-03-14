@@ -225,8 +225,10 @@ public class CommandManager : MonoBehaviour
             }
             else
             {
-                FileReader.Instance.LoadScene( itemFileName + "_item");            
+                FileReader.Instance.LoadScene( itemFileName + "_item");
+
             }
+            MenuManager.instance.ForceCloseMenu();
         }
         else
         {
@@ -243,12 +245,11 @@ public class CommandManager : MonoBehaviour
                     //check if there is default unique dialoue for that specifict item
                     if( Resources.Load( itemFileName + "_item" ) != null )
                     {
-                        
+
                         wrongTextCommand = StringParser.Instance.ParseWrongCommand( itemFileName + "_item" );
                     }
                     else
                     {
-                        //no unique command then load default
                         wrongTextCommand = StringParser.Instance.ParseWrongCommand( Resources.Load( defaultWrongItemSceneAddress ).ToString() );
                     }
                     showFalseDialogue = true;
@@ -266,7 +267,6 @@ public class CommandManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Break();
                         wrongTextCommand = StringParser.Instance.ParseWrongCommand( Resources.Load( defaultWrongItemSceneAddress ).ToString() );
                         showFalseDialogue = true;
                         MenuManager.instance.ForceCloseMenu();
@@ -279,6 +279,7 @@ public class CommandManager : MonoBehaviour
 
     public void Reinitialize()
     {
+        //MenuManager.instance.ForceCloseMenu();
         checkHideUI = false;
         SceneMenuManager.instance.hideAll();
         donePrompt = false;

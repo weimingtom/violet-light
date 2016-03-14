@@ -119,10 +119,8 @@ public class MenuManager : MonoBehaviour
 
     public void ForceCloseMenu()
     {
-        //UIAnimation.Instance.ResetButtonPosition();
         ToggleMenu();
         forceCloseMenu = true;
-        //CloseMenu();
     }
 
     //Get When a Tab button is pressed
@@ -132,7 +130,6 @@ public class MenuManager : MonoBehaviour
         if( !CommandManager.Instance.myBannerBox.activeInHierarchy )
         {
             SFXManager.instance.PlayPage();
-            //animateMenu = true;
             switch( btn.ToLower() )
             {
             case "btn_save_load":

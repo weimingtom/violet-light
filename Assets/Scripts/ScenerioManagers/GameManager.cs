@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-
         if( GameManager.instance == null )
         {
             newGame = true;

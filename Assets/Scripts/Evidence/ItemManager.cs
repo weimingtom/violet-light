@@ -168,6 +168,7 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
+
     public Sprite GetItemTexture(string name)
     {
         foreach( Item item in allItems )
@@ -179,6 +180,7 @@ public class ItemManager : MonoBehaviour
         }
         return Resources.Load<Sprite>( "Textures/missing" );
     }
+
     public void RemoveItem(string item_name)
     {
 		foreach(Item item in playerItems)
