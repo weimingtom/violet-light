@@ -112,7 +112,12 @@ public class FileReader : MonoBehaviour
     public bool IsScene(string _scene)
     {
         Debug.Log("[File Reader] Checking if scene exists: " + Application.dataPath + "/Resources/" + scriptFolder + _scene + ".txt");
-        return File.Exists(Application.dataPath+"/Resources/"+scriptFolder + _scene + ".txt");
+        if(Resources.Load(scriptFolder + _scene) != null)
+        {
+            return true;
+        }
+        return false;   
+        //return File.Exists(Application.dataPath+ "/Resources/" +scriptFolder + _scene + ".txt");
     }
     public string ReadCommandText(string commandAddress)
     {

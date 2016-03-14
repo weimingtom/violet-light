@@ -99,7 +99,7 @@ public class SceneManager : MonoBehaviour
         defaultCameraPos = Camera.main.transform.position;
     }
 
-    void OnEnable()
+    void Start()
     {
         SceneManager.Instance.LoadCase( 1 );
 

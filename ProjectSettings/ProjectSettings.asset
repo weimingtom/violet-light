@@ -11,7 +11,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: a game team?
   productName: Violet Light and the Forever Machine
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 92bbd7415c24e4b4d9ea0cfa9d3c88b5, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 0
   defaultScreenWidth: 1920
@@ -85,7 +85,37 @@ PlayerSettings:
     Others: 0
   bundleIdentifier: com.AGameTeam.VioletLight
   bundleVersion: 1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 2800000, guid: 3f2e8537bf3ecb34287c5459b631334f, type: 3}
+  - {fileID: 2800000, guid: 611cdaa6480d4ea4f8b5c21b81b45533, type: 3}
+  - {fileID: 2800000, guid: 2e2500cc2fec7ae4088ab7ee579b4b67, type: 3}
+  - {fileID: 2800000, guid: 0fab256d65cb8be4fbdcb98cfa044ff8, type: 3}
+  - {fileID: 2800000, guid: d0d1e6fd112031c4ab69e7808bbf567d, type: 3}
+  - {fileID: 2800000, guid: f53038e2574938c4eba52d19078e2bfe, type: 3}
+  - {fileID: 2800000, guid: b9b11c81946c6604cbee939c2f75f7ee, type: 3}
+  - {fileID: 2800000, guid: f9366a5873cc4844e95cf08377b50748, type: 3}
+  - {fileID: 2800000, guid: deb15b37a96608b41b726c75bd6394bf, type: 3}
+  - {fileID: 2800000, guid: f10c93cfa4de6144ab9943e4e7a87b68, type: 3}
+  - {fileID: 2800000, guid: c59674366e0f5644eacf03e36965b99e, type: 3}
+  - {fileID: 2800000, guid: 5a95b86b60b1cbc45956a741f0a8e575, type: 3}
+  - {fileID: 2800000, guid: 99dbe8ea0e92fa5429f54f0359b133d8, type: 3}
+  - {fileID: 2800000, guid: 70a893774a9d19a4a8cf4a79235d77e0, type: 3}
+  - {fileID: 2800000, guid: c92d95a7ada22ab4ba3f524b6c29e1c9, type: 3}
+  - {fileID: 2800000, guid: 080a9fdf58ebd974b90b96f44cea05c6, type: 3}
+  - {fileID: 2800000, guid: 6c3f72cbc22393a43b8d53259d0bddbd, type: 3}
+  - {fileID: 2800000, guid: 1da6eabda01baeb4387a0c300dab3ebc, type: 3}
+  - {fileID: 2800000, guid: 847a4ae656df9c849b581a4da25daddc, type: 3}
+  - {fileID: 2800000, guid: 8916c9afc3c794d438a84632659b821e, type: 3}
+  - {fileID: 2800000, guid: e62e9579800791c44bb847e0d6e6b0a7, type: 3}
+  - {fileID: 2800000, guid: a8b2cb417baca304f859f32e3f994f4e, type: 3}
+  - {fileID: 2800000, guid: 0fdd5be7fdff31743abaee1e3f202b54, type: 3}
+  - {fileID: 2800000, guid: f378efa658d7f704f8c27ed64b81f58b, type: 3}
+  - {fileID: 2800000, guid: 6801f5b9b697c0249a1592155d5f025a, type: 3}
+  - {fileID: 2800000, guid: 40264084e0fb0ec4db991bbcbf90aff9, type: 3}
+  - {fileID: 2800000, guid: b8a0b4d1e9ae6e24b8f2f126dd3af7c8, type: 3}
+  - {fileID: 8300000, guid: f05ed32174e054548aaeb23a73f89b3c, type: 3}
+  - {fileID: 4900000, guid: 228824ffefcecd74bb34657ab82d7a11, type: 3}
+  - {fileID: 8300000, guid: 85af757418d89fd49a8c7a96c4324808, type: 3}
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
@@ -152,8 +182,8 @@ PlayerSettings:
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 0}
-      m_Size: 0
+    - m_Icon: {fileID: 2800000, guid: 145502c0a2b9b4e45b5599b5d46ea828, type: 3}
+      m_Size: 128
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   webPlayerTemplate: APPLICATION:Default
