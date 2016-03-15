@@ -1,8 +1,7 @@
-// Sharp facing Policeman
-show Sharp Center
+show Sharp Center l
 show Policeman Left1
 pose Sharp Cocky
-$SP$ “Oh yeah? Well, of course I was right!”
+$SP$ "Oh yeah? Well, of course I was right!"
 pose Sharp Thinking
 
 show Alexander Right1
@@ -10,158 +9,204 @@ show Violet Right2
 Pose Alexander Neutral
 Pose Violet Neutral
 
-$SP$ “H-huh?[pause] Behind me?[eff discovery]”
+$SP$ "H-huh?[time 1] Behind me?[eff clue]"
 
-pose Sharp Confident
-// Slowly zoom in on sharp
-// wait for a bit
+pose Sharp Cocky
+eff sharpzoom
+$SP$ "[speed s]...[time 5][noclick]"
 // Violet bursts his bubble
 
-eff Pop
+eff smack
 // snap back to normal camera
 pose Sharp Surprised
 
 // pause
 // flip sharp
-show Sharp Left2
+show Sharp Left2 r
 
 pose Sharp Neutral
-$SP$ “Woah, woah, woah! HOLD IT![eff yell]”
-$SP$ “This, is a Crime Scene.”
-$SP$ “Common folk like yourselves can’t be here.
-$SP$ “Especially not you, sweetheart. Wouldn’t want you to get your shoes dirty.”
+$SP$ "[speed m]Woah, woah, woah!-[noclick]"
+pose Sharp Upset
+$SP$ "[eff yell]HOLD IT!"
+pose Sharp Explaining
+eff sharpzoom
+$SP$ "[speed s]This,[time 1] is a Crime Scene.[time 4][noclick]"
+pose Sharp Cocky
+$SP$ "[speed m]Common folk like [speed s]yourselves[speed m] can't be here."
+pose Sharp neutral
+$SP$ "Especially not you, sweetheart."
+pose Sharp cocky
+$SP$ "Wouldn't want you to get your shoes dirty."
 
 pose Violet upset
-$VL$ “YOU-!”
+$VL$ "[speed f][eff stab]YOU-!"
 
 pose Alexander unimpressed
-$AX$ “Keep it together Violet!”
+$AX$ "[speed f]Keep it together Violet!"
 
-$VL$ “Eh, ehm...”
-pose Violet Neutral
-$VL$ “Actually, you’re wrong, love.”
+pose Violet unimpressed
+$VL$ "[eff crash]Eh, [speed s]ehm..."
+pose Alexander Neutral
+pose Violet Explaining
+$VL$ "Actually, you're wrong, love."
 
 pose Sharp Surprised
+eff ding
+$SP$ "[speed f]Hmm?"
 pose Violet Cocky
-$VL$ “We’re Miss Rush’s lawyers. On official business.”
+$VL$ "We're definitely real defence attourneys."
+$VL$ "Actually we're [eff clue]<color=red>Miss Rush's lawyers</color> to be percise.[wait 1] On official business."
 
 pose Alexander Surprised
-$AX$ “Wait, We are-?[noclick]”
-
-$VL$ “So please step aside.”
-
-pose Sharp Nervous
-$SP$ “Uh, right!”
-pose Sharp Cocky
-$SP$ “Of course, Miss...?”
-
-$VL$ “Light, Violet Light. And this is my assistant Alexander Strong.”
-
-pose Alexander Unimpressed
-// flip alex to violet
-$AX$ “[small text] Wow that worked!”
-$AX$ “Although, I think posing as lawyers is illegal-[no click]”
-// flip him back
-
-$SP$ “I’m Detective Sharp, but there really isn’t much to investigate here. It’s a pretty open and shut case, if I do say so myself.”
-$VL$ “I’ll be the judge of that!”
-
-$SP$ “Uh, well no.”
-$SP$ “No you won’t. The judge will.”
-pose Violet Nervous
-$VL$ “Right!”
+eff ding
+$AX$ "Wait, We are-?[time 1][noclick]"
+pose Alexander puzzled
+pose Violet Explaining
+$VL$ "So please step aside."
 pose Violet Neutral
-pose Alexander Neutral
-$AX$ “Uh, anyways, We were looking for the lead detective.”
-pose Alexander Thinking
-$AX$ “He was supposed to be sharply dressed or something?“
-pose Sharp Serious
-$SP$ “Well that’s me!”
-pose Sharp Cocky 
-$SP$ “Just because I’m young and handsome doesn’t mean I can’t be in charge here.”
-
-$VL$ “Uhuh...[wait 1] we need to get access to the crime scene.”
-pose Violet Cocky
-$VL$ “How about you tell your goons to let us through?”
+pose Sharp Nervous
+$SP$ "Uh, [eff ding]right!"
 pose Sharp Cocky
-$SP$ “I guess,[wait 1] but it’s not like you’re going to find anything I haven’t already discovered.”
+$SP$ "Of course, Miss...?"
+
+pose Violet Explaining
+$VL$ "Light, Violet Light. And this is my assistant Alexander Strong."
+
+pose Alexander shocked
+show Alexander Right1 r
+$AX$ "<color=404040><size=75>Wow that worked!</size></color>"
+pose Alexander Unimpressed
+$AX$ "<color=404040><size=75>Although, I think posing as lawyers is illegal-</size></color>[no click]"
+show Alexander Right1 l
+pose Alexander Neutral
+
+pose Sharp Explaining
+$SP$ "I'm Detective Sharp, but there really isn't much to investigate here. It's a pretty open and shut case, if I do say so myself."
+pose Violet Cocky
+$VL$ "I'll be the judge of that!"
+
+pose Sharp Unimpressed
+$SP$ "Uh,[time 1] well no,"
+pose Violet confused
+pose Sharp Explaining
+$SP$ "No you won't. The <color=red>judge</color> will."
+pose Violet Nervous
+eff ding
+$VL$ "Right!"
+pose Violet Neutral
+pose Alexander Explaining
+$AX$ "Uh,[time 1] anyways,[time 1] we were looking for the lead detective."
+pose Alexander Thinking
+$AX$ "He was supposed to be sharply dressed or something?"
 pose Sharp Serious
-$SP$ “I mean really, you two, uh… ‘Lawyers’, should just give up now.”
-$SP$ “I have this case totally under control.”
+eff yell
+$SP$ "[speed f]Well that's me!"
+pose Sharp Cocky 
+$SP$ "Just because I'm <color=green>young and handsome</color> doesn't mean I can't be in charge here."
+
+pose Violet neutral
+$VL$ "[speed s]Uhuh...[time 1][speed f] we need to get access to the crime scene."
+pose Violet Cocky
+$VL$ "How about you tell your goons to let us through?"
+pose Sharp Cocky
+$SP$ "I guess,[time 1] but it's not like you're going to find anything I haven't already discovered."
+pose Sharp Serious
+$SP$ "I mean really,[time 1] you two, [time 1]uh... [time 1]<color=red>'Lawyers'</color>, should just give up now."
+$SP$ "I have this case totally under control."
 
 Violet Cocky
-$VL$ “It won’t be that simple for ya, love. I’ve never lost a case.” 
+$VL$ "It won't be that simple for ya, love. [eff clue]<color=blue>I've never lost a case.</color>" 
 
-pose Alexander unimpressed
-pose Sharp Shock
-$SP$ “Wh-what?”
+pose Alexander Shocked
+pose Sharp Unimpressed
+$SP$ "[speed f]Wh-[time 1]what?"
 pose Sharp Nervous
-$SP$ “Psh, neither have I!”
+$SP$ "Psh,[time 1][eff yell] neither have I!"
 pose Sharp Cocky
-$SP$ “Actually, sweetheart, none of my investigations ever last longer than a day.”
-$SP$ “I usually find the culprit within the hour, so, y’know, have fun losing.” 
+$SP$ "Actually,[time 1] sweetheart, none of my investigations ever last longer than a day."
+pose Violet Unimpressed
+pose Sharp Explaining
+$SP$ "So,[time 1] y'know, have fun [eff ding]losing." 
 
 // Under his breath, quiet, small text, gets cut off
-// flip alex 
-$AX$ “B-but you’ve never actually taken a crime case before, nor are you a lawyer-[noclick]“ 
-$VL$ “Does it matter? I’ve got this in the bag!”
-// flip alex back
+show Alexander Right1 r
+pose Alexander Unimpressed
+$AX$ "<color=404040><size=75>B-but you've never actually taken a crime case before, nor are you a lawyer-[noclick]</size></color>"
+pose Violet Cocky 
+$VL$ "<color=404040><size=75>Does it matter? I've got this in the bag!</size></color>"
+show Alexander right1 l
+pose Violet Neutral
+pose Alexander Nervous
 
 pose Sharp Neutral
-$SP$ “Well I’ll tell the blues to back off for a bit, give ya some room to ‘play detective’.”
+$SP$ "Well I'll tell the blues to back off for a bit,[time 1] give ya some room to [eff ding]<color=blue>'play detective'</color>."
 pose Sharp Serious
-$SP$ “Also, you guys’ll need this if you don’t have a copy already.”
-$SP$ “It’s a report of what we know about the body at this time.” 
-icon police_report m 1.0
+$SP$ "Also,[time 1] you guys'll need [eff clue]<color=green>this</color> if you don't have a copy already."
+$SP$ "It's a <color=blue>report of what we know about the body at this time</color>." 
+//[showicon police_report]
 
 pose Alexander Scribbling
-$AX$ “I’ll take that, thank you.”
-icon destroy
+$AX$ "I'll take that, thank you."
 eff item
 item police_report
-$/$ “Police report added to Journal!”
+$/$ "<b><size=93><color=green>Police report added to Journal!</color></size></b>[time 1]"
 
-$SP$ “Oh, and I’ll take that while you’ve got it open, kiddo.”
+pose Sharp Cocky
+$SP$ "Oh, and I'll take that while you've got it open, kiddo."
 pose Alexander Shock
-$AX$ “H-hey give that back!”
+eff ding
+$AX$ "H-hey give my notebook back!"
 
-$SP$ “Oh boy, your face right now!”
-$SP$ “What, do you have love letters for your girlfriend over there, in here?”
+pose Sharp Talking
+$SP$ "[speed f][eff yell]Oh boy, your face right now!"
+pose Sharp cocky
+$SP$ "What,[time 1][speed f] do you have love letters for your girlfriend over there, in here?"
 
 pose Alexander Embarassed
-$VL$ “Oh, please.”
+pose Violet Unimpressed
+$VL$ "Oh, please."
 
-$SP$ “Haha, anyways I’m just marking some important places on your map.”
-$SP$ “Here you go, kiddo.”
+pose Sharp Talking
+$SP$ "Haha,[time 1] anyways I'm just marking some important places on your map."
+pose Sharp Neutral
+$SP$ "Here you go, kiddo."
 pose Alexander Scribbling
-$SP$ “A-ah thank you!”
+$SP$ "A-ah thank you!"
 
 eff item
-$/$ “Market, Music Shop, and Fisherman’s Wharf added to the map!”
+$/$ "<b><size=93><color=green>Market, Music Shop, and Fisherman's Wharf added to the map!</color></size></b>[time 1]"
 
-$SP$ “Soooo...”
-$SP$ “I’ve got some important detective business to attend to...”
-$SP$ “Catch you two ladies later!”
+pose Sharp Explaining
+$SP$ "[speed s]Soooo..."
+$SP$ "I've got some important detective business to attend to..."
+show Sharp Left2 l
+$SP$ "Catch you two [eff ding]<color=red>ladies</color> later!"
 
 show Sharp Offscreen
+show Policeman Offscreen
 
 show Alexander Embarassed
-$AX$ “W-wait, [small text]I’m not a lady!”
-$VL$ “Well not with THAT attitude!
-$AX$ “That’s not what I--”
-$VL$ “Yeah, at least try!”
-$AX$ “...”
-Violet Neutral
+eff crash
+$AX$ "W-wait,[time 1][speed f] <size=75>I'm not a lady!</size>"
+pose Violet Explaining
+$VL$ "Well not with THAT attitude!
+pose Alexander Unimpressed
+eff stab
+$AX$ "That's not what I--[noclick]"
+pose Alexander embarassed
+$AX$ "..."
+Violet happy
 
-$VL$ “Time to look around!~”
+$VL$ "Time to look around!~"
 
-// flip alex so he’s facing the direction sharp went
-show Alexander Left2
+// flip alex so he's facing the direction sharp went
+show Alexander Left1 l
 pose Alexander Upset
-$AX$ “I’LL HAVE YOU KNOW I’VE BEEN A MAN MY WHOLE LIFE!!”
+eff crash
+$AX$ "[speed f]I'LL HAVE YOU KNOW I'VE BEEN A MAN MY WHOLE LIFE!!"
 
-$VL$ “...”
-// flip alex back
+pose Violet neutral
+$VL$ "..."
+show Alexander Left2 r
 
-$AX$ “Er… R-right.”
-advquest
+$AX$ "Er...[time 1] R-right."
