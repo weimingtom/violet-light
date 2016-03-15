@@ -1,13 +1,22 @@
-$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963, London Streets - Market 6:15 PM</color></size></b>”
+$/$ "[speed s]<b><size=93><color=green>Tuesday, December 21st, 1963, <br>London Streets - Market<br>6:15 PM</color></size></b>"
 Show Alexander Left1
 Show Violet Right2
+Pose Alexander pondering
 $AX$ "Do you really think we'll find anything here, Violet? Shouldn't we be checking out the Music Shop first?"
-$VL$ "Well of course!”
-$VL$ “we'll go there next, but you know I just had a strange feeling that there'd be something here we won't be able to find later."
-$AX$ "Wait, so your approach to solving this case is based on feelings and hunches?"
+Pose Violet Cocky
+eff ding
+$VL$ "Well of course!"
+Pose Violet Explaining
+$VL$ "we'll go there next, but you know I just had a strange feeling that there'd be something here we won't be able to find later."
+pose Violet Neutral
+pose Alexander Thinking
+eff stab
+$AX$ "[speed f]Wait, so your approach to solving this case is based on feelings and hunches?"
 pose Violet Happy
-$VL$ "Well of cour—[wait 2][noclick]”
+$VL$ "Well of cour—[wait 2][noclick]"
+eff ding
 pose Violet Serious
-$VL$ “Wait, if you put it that way it makes me seem like an idiot, doesn't it? You could say that sometimes I decide to follow my instincts, call it a woman's intuition. That's all."
+$VL$ "Wait, if you put it that way it makes me seem like an idiot, doesn't it?
+$VL$ "You could say that sometimes I decide to follow my instincts, call it a woman's intuition. That's all."
 pose Alexander Unimpressed
 $AX$ "..."

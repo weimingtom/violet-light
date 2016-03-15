@@ -1,14 +1,17 @@
-$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963, River Thames – Fisherman’s Wharf 6:15 PM</color></size></b>”
+$/$ "[speed s]<b><size=93><color=green>Tuesday, December 21st, 1963,<br>River Thames – Fisherman's Wharf<br>6:15 PM</color></size></b>"
 Show Alexander Right1
 Show Violet Left2
-Pose Alexander Scribbling
+Pose Alexander Explaining
 Pose Violet Neutral
-$AX$ “Sooo... according to the notes Detective Sharp gave us...”
-icon police_report m 1.0
-$AX$ “We’re supposed to be able to find the man who discovered the body here... [pause][speed f][eff crash]but it looks like everyone is either packing up or already went home!”
-icon destroy
+$AX$ "[speed s]Sooo... [speed m]according to the notes Detective Sharp gave us..."
+$AX$ "We're supposed to be able to find the man who discovered the body here.
+Pose Alexander Shocked
+$AX$ "[speed f][eff crash]But it looks like everyone is either packing up or already went home!"
 Pose Alexander Serious
 Pose Violet Thinking
-$VL$ “Hmm...”
+$VL$ "Hmm..."
 Pose Violet Happy
-$VL$ “There might be a few chaps left around! Let’s see what we can find, love!” 
+eff ding
+$VL$ "There might be a few chaps left around!"
+pose Violet Cocky
+$VL$ "Let's see what we can find, love!" 

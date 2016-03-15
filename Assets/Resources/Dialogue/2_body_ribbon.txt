@@ -1,11 +1,11 @@
-$VL$ “Look at this.”
-$AX$ “I don’t see anything.”
-$VL$ “Exactly.”
-$AX$ “Oh! Part of her dress is missing on this side.”
-$AX$ “...Some sort of ribbon?”
-$VL$ “Write it down, Alex!”
-$AX$ “On it!”
+$VL$ "Look at this."
+$AX$ "I don't see anything."
+$VL$ "Exactly."
+$AX$ "Oh! Part of her dress is missing on this side."
+$AX$ "...Some sort of ribbon?"
+$VL$ "Write it down, Alex!"
+$AX$ "On it!"
 item missing_ribbon
 eff item
-$\$ “<color=blue>Missing ribbon added to journal!</color>”
+$\$ "<size=93><color=blue>Missing ribbon added to journal!</color></size>"
 // add to journal

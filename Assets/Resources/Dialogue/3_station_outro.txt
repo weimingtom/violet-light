@@ -1,112 +1,112 @@
-$SP$ “...”
+$SP$ "..."
 pose Violet cocky
-$VL$ “Not so talkative now, eh love?”
+$VL$ "Not so talkative now, eh love?"
 pose Alexander happy
-$AX$ “I think we did it!”
-$AX$ “Harmony’s name is cleared right?”
+$AX$ "I think we did it!"
+$AX$ "Harmony's name is cleared right?"
 
 pose Sharp cocky
 pose Alexander srs
-$AX$ “Uh-oh I don’t like that smile”
+$AX$ "Uh-oh I don't like that smile"
 pose Violet surprised
-$VL$ “What is it now?”
+$VL$ "What is it now?"
 pose Violet cocky
-$VL$ “[eff crash][speed f]Ace dork-tective!”
+$VL$ "[eff crash][speed f]Ace dork-tective!"
 
-$SP$ “Hahaha”
-$SP$ “Even if eeeverrrythiiing you said was somehow RIIIIGHT,”
-$SP$ “Well I mean of course it’s not, but I’ll play your game, cupcake.”
-$SP$ “Then how do you explain Harmony’s motive?”
+$SP$ "Hahaha"
+$SP$ "Even if eeeverrrythiiing you said was somehow RIIIIGHT,"
+$SP$ "Well I mean of course it's not, but I'll play your game, cupcake."
+$SP$ "Then how do you explain Harmony's motive?"
 pose Sharp cocky
 
 pose Violet surprised
-$VL$ “Motive?”
+$VL$ "Motive?"
 pose Alexander thinking
-$AX$ “H-huh?”
-$SP$ “Harmony was always jealous of her sister.”
-$SP$ “Sitting back in the shadows, while her sister was in the spotlight.”
+$AX$ "H-huh?"
+$SP$ "Harmony was always jealous of her sister."
+$SP$ "Sitting back in the shadows, while her sister was in the spotlight."
 pose Alexander shocked
-$AX$ “I don’t think th-[noclick]“
+$AX$ "I don't think th-[noclick]"
 
-$SP$ “So your client, the supposed innocent one, was always living in the shadow,”
-$SP$ “while her sister got all the fame and glory. Even though, she worked so hard.”
-$SP$ “I mean have you SEEN her room? It’s freakin crazy in there! It’s like some sort of music creation dungeon.”
-$SP$ “Annnd you’re telling me, that she’s still innocent?”
-$SP$ “That she didn’t give in and decide to get rid of the problem? So she could finally be free?”
-$SP$ “C’mon, we both know that that’s what really matters. The motive to be free.”
+$SP$ "So your client, the supposed innocent one, was always living in the shadow,"
+$SP$ "while her sister got all the fame and glory. Even though, she worked so hard."
+$SP$ "I mean have you SEEN her room? It's freakin crazy in there! It's like some sort of music creation dungeon."
+$SP$ "Annnd you're telling me, that she's still innocent?"
+$SP$ "That she didn't give in and decide to get rid of the problem? So she could finally be free?"
+$SP$ "C'mon, we both know that that's what really matters. The motive to be free."
 
 // OPTION: SAY YES IT MATTERS OR NO IT DOESNT
 // YES:
-	$VL$ “You’re right...”
-	$AX$ “We lose?”
-	$AX$ “Are you sure violet?”
-	$VL$ “Wait... Let’s think this over.”
+//	$VL$ "You're right..."
+//	$AX$ "We lose?"
+//	$AX$ "Are you sure violet?"
+//	$VL$ "Wait... Let's think this over."
 	// GAME OVER DAWG
 // NO:
 pose Violet thinking
-$VL$ “Does it really matter though?
+$VL$ "Does it really matter though?
 
 pose Sharp cocky
-$SP$ “H-huh?”
+$SP$ "H-huh?"
 
 // continue
 
 pose Violet cocky
-$VL$ “Your logic is a bit flawed.”
+$VL$ "Your logic is a bit flawed."
 pose Alexander thinking
-$AX$ “Hhmm?”
+$AX$ "Hhmm?"
 
 pose Sharp shocked
-$SP$ “Ngh- W-what what do you mean?”
+$SP$ "Ngh- W-what what do you mean?"
 
 pose Violet thinking
-$AX$ “Ah, I get it. It doesn’t really matter if Harmony was jealous or not.”
-$AX$ “That’s just probably because, not enough to keep her here much longer, let alone put her away.”
+$AX$ "Ah, I get it. It doesn't really matter if Harmony was jealous or not."
+$AX$ "That's just probably because, not enough to keep her here much longer, let alone put her away."
 
 pose Sharp nervous
-$SP$ “Hmph-“
+$SP$ "Hmph-"
 
-$VL$ “Exactly.” 
+$VL$ "Exactly." 
 pose Violet cocky
-$VL$ “Quite the shocking revelation isn’t it, Ace dork-tective?”
-$AX$ “Not the sharpest tack are you?”
+$VL$ "Quite the shocking revelation isn't it, Ace dork-tective?"
+$AX$ "Not the sharpest tack are you?"
 
 pose Sharp shocked
-$SP$ “...”
-$VL$ “I don’t think he get’s the POINT.”
+$SP$ "..."
+$VL$ "I don't think he get's the POINT."
 
 pose Sharp gloom
-$SP$ “...”
-$SP$ “.......”
+$SP$ "..."
+$SP$ "......."
 pose Sharp srs
-$SP$ “Fine."
+$SP$ "Fine."
 pose Sharp neutral
-$SP$ “Okay, so maybe you are right.”
+$SP$ "Okay, so maybe you are right."
 
 
 
 pose Violet happy 
 pose Alexander happy
-$VL$ “Haha we did it Alex!”
-$AX$ “Awesome!”
+$VL$ "Haha we did it Alex!"
+$AX$ "Awesome!"
 
 // start fading out
-$SP$ “[eff yell]Not so fast“
+$SP$ "[eff yell]Not so fast"
 // flash back in
 
 pose Alexander shock
 pose Violet shock
-$AX$ “Huh?”
-$VL$ “Agh-[eff crash]”
+$AX$ "Huh?"
+$VL$ "Agh-[eff crash]"
 
 pose Sharp smirk
-$SP$ “We can still hold Miss Rush for another 24 hours without cause. Unless you find someone who admits to the crime then... well, let’s just say...”
-$SP$ “Things are looking a little dull for you.”
+$SP$ "We can still hold Miss Rush for another 24 hours without cause. Unless you find someone who admits to the crime then... well, let's just say..."
+$SP$ "Things are looking a little dull for you."
 
 pose Alexander upset
 pose Violet srs
-$AX$ “Looks like he’s got us cornered.”
-$VL$ “Things were looking up but now they’ve gone from bad to worse.”
+$AX$ "Looks like he's got us cornered."
+$VL$ "Things were looking up but now they've gone from bad to worse."
 
 //fade out drama music
 //fade out
@@ -116,38 +116,39 @@ pose Alexander neutral
 pose Violet neutral
 pose Sharp neutral
 
-$AX$ “Do you know of anyone else associated with the case?”
+$AX$ "Do you know of anyone else associated with the case?"
 
-$SP$ “Hmmm... there is another person...”
-$SP$ “My officers said that he stopped by the Music Shop the other day.”
-$SP$ “Apparently he has some money in on the Sisters’ shop.”
+$SP$ "Hmmm... there is another person..."
+$SP$ "My officers said that he stopped by the Music Shop the other day."
+$SP$ "Apparently he has some money in on the Sisters' shop."
 
 pose Violet surprised
-$VL$ “Oh! That guy.”
+$VL$ "Oh! That guy."
 pose Violet thinking
-$VL$ “I had a bad feeling about that guy.”
+$VL$ "I had a bad feeling about that guy."
 
-$AX$ “Hmm?”
+$AX$ "Hmm?"
 
-$HR$ “.......”
+$HR$ "......."
 
-$AX$ “Harmony looks really tired.”
+$AX$ "Harmony looks really tired."
 
-$VL$ “Maaaybe we should let her get some rest.”
-$VL$ “We can ask her questions in the morning.”
+$VL$ "Maaaybe we should let her get some rest."
+$VL$ "We can ask her questions in the morning."
 
-$SP$ “Well if you don’t need me, I’m going to catch some Zs.”
+$SP$ "Well if you don't need me, I'm going to catch some Zs."
 
 pose Violet cocky
-$VL$ “I thought an ace-detective never sleeps?”
+$VL$ "I thought an ace-detective never sleeps?"
 
 pose Sharp shock
-$SP$ “H-huh? Where’d you hear that?
+$SP$ "H-huh? Where'd you hear that?
 
 pose Alexander happy
-$AX$ “Yeah, cause’ crime never sleeps!”
+$AX$ "Yeah, cause' crime never sleeps!"
 
 pose Sharp neutral
-$SP$ “...”
+$SP$ "..."
 
-loadscene 3_midnight
+
+load 3_midnight

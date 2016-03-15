@@ -1,2 +1,2 @@
-$AX$ “Well the sand is dry.”
-$AX$ “So I guess we can deduce that she’s been here for awhile.”
+$AX$ "Well the sand is dry."
+$AX$ "So I guess we can deduce that she's been here for awhile."

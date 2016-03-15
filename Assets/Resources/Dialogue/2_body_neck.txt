@@ -1,17 +1,17 @@
-$VL$ “H-huh!? What’s this?”
-$AX$ “What did you find Violet?”
-$VL$ “Doesn’t the back of her neck look a liiiittle strange to you?”
-$AX$ “What do you mean?”
+$VL$ "H-huh!? What's this?"
+$AX$ "What did you find Violet?"
+$VL$ "Doesn't the back of her neck look a liiiittle strange to you?"
+$AX$ "What do you mean?"
 
-$VL$ “She appears to have some sort of mark, as if something injured her neck.”
-$AX$ “Hmmm, you’re right.”
-$AX$ “It’s not post mortem, you can tell by the color.”
+$VL$ "She appears to have some sort of mark, as if something injured her neck."
+$AX$ "Hmmm, you're right."
+$AX$ "It's not post mortem, you can tell by the color."
 
-$VL$ “Could it have been some kind of rope or... jewelry?”
-$AX$ “I’ll write it down. Maybe someone else might know more.”
+$VL$ "Could it have been some kind of rope or... jewelry?"
+$AX$ "I'll write it down. Maybe someone else might know more."
 
 item neck_wound
 eff item
 
-$/$ “<color=blue>Neck wound added to journal!</color>”
+$/$ "<size=93><color=blue>Neck wound added to journal!</color></size"
 // Add to journal

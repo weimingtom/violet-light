@@ -1,6 +1,2 @@
-$VL$ “River Thames! Good fish, not so great for swimming or body dumping, though.” 
-$AX$ “I wonder where the body was dumped for it to wind up here.”
-$VL$ “The river Thames is the second longest river in the world, so we have a long ways to look.”
-$AX$ “If we were going to do that we had better hurry up. The tide is going to come in soon.”
-$VL$ “We can leave the grunt work to the ‘ace detective.’”
+$VL$ "River Thames! Good fish, not so great for swimming or body dumping."
 

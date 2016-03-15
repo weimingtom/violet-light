@@ -1,108 +1,103 @@
-$/$ “[speed s]<b><size=30><color=green>Tuesday, December 21st, 1963, London Police Department – Holding Room B 8:47 PM</color></size></b>”
-show Sharp Left2
+$/$ "[speed s]<b><size=93><color=green>Tuesday, December 21st, 1963,<br>London Police Department – Holding Room B<br>8:47 PM</color></size></b>"
+show Sharp Left1
 show Harmony Right1
 
-$SP$ “Sooo... still not talkin eh?”
+$SP$ "Sooo... still not talkin eh?"
 // flip sharp
 pose Sharp cocky
-$SP$ “Heheheh...”
+$SP$ "Heheheh..."
 // flip him back
-$SP$ “You can’t keep the act up forever, cupcake.”
+$SP$ "You can't keep the act up forever, cupcake."
 pose Harmony worried
-$HR$ “.....”
+$HR$ "....."
 
-$SP$ “Ya know, if you tell me the truth...”
-$SP$ “Then I just might be able to cut you a deal.”
-$SP$ “Well y’know, probably.”
-$SP$ “Buuuuut!”
-$SP$ “If you keep stayin quiet...”
-$SP$ “Wellll then I can’t really do that.”
+$SP$ "Ya know, if you tell me the truth..."
+$SP$ "Then I just might be able to cut you a deal."
+$SP$ "Well y'know, probably."
+$SP$ "Buuuuut!"
+$SP$ "If you keep stayin quiet..."
+$SP$ "Wellll then I can't really do that."
 
 pose Harmony sad
-$HR$ “....”
+$HR$ "...."
 
 pose Sharp neutral
-$SP$ “You guilty ones, you’re always like this.”
+$SP$ "You guilty ones, you're always like this."
 pose Sharp Happy
-$SP$ “Hahaha, just lookin’ all sad for yourselves.”
-$SP$ “Sayin stuff like ‘Oh no! Please it wasn’t me! It was really my brother! He’s the one with blood on his clothes’[noclick]”
-$SP$ “Well y’know what?”
+$SP$ "Hahaha, just lookin' all sad for yourselves."
+$SP$ "Sayin stuff like 'Oh no! Please it wasn't me! It was really my brother! He's the one with blood on his clothes'[noclick]"
+$SP$ "Well y'know what?"
 pose Harmony worried
-$HR$ “.....”
+$HR$ "....."
 pose Sharp Mad
-$SP$ “I always catch the killer, and there ain’t nothing you can do about it!”
+$SP$ "I always catch the killer, and there ain't nothing you can do about it!"
 // flip sharp
 pose Sharp Cocky
-$SP$ “Hahaha. Man I can’t wait for my promotion!”
+$SP$ "Hahaha. Man I can't wait for my promotion!"
 
 pose Harmony mad
-$HR$ “........[noclick]”
+$HR$ "........[noclick]"
 
 pose Violet serious
-$VL$ “[speed f]Woah, woah, woah! [speed m]HOLD IT![eff yell]”
+$VL$ "[speed f]Woah, woah, woah! [speed m]HOLD IT![eff yell]"
 pose Harmony Surprised
 pose Sharp surprised
-$SP$ “H-huh?”
+$SP$ "H-huh?"
 show Harmony center
 show Alexander right2
 show Violet right1
 
 pose Violet cocky
-$VL$ “Just what do you think you’re doing talking to my client?”
+$VL$ "Just what do you think you're doing talking to my client?"
 pose Harmony happy
 pose Sharp Nervous
-$SP$ “Uh-uhm...”
+$SP$ "Uh-uhm..."
 
-$VL$ “Of course she’s not going to tell you anything.”
+$VL$ "Of course she's not going to tell you anything."
 pose Violet angry
-$VL$ “First of all because she can’t [eff yell]SPEAK.”
+$VL$ "First of all because she can't [eff yell]SPEAK."
 pose Sharp Cocky
-$SP$ “Woah, cool it princess.”
-$VL$ “...”
+$SP$ "Woah, cool it princess."
+$VL$ "..."
 pose Violet cocky
-$VL$ “AND also she wouldn’t even be able to say anything without her lawyer present.”
+$VL$ "AND also she wouldn't even be able to say anything without her lawyer present."
 
 pose Sharp serious
-$SP$ “Of course.”
+$SP$ "Of course."
 pose Violet Serious
-$VL$ “So stop badgering my client.”
+$VL$ "So stop badgering my client."
 
 pose Sharp Cocky
-$SP$ “Well, until you produce some decisive evidence, she’s all mine.”
+$SP$ "Well, until you produce some decisive evidence, she's all mine."
 pose Alexander nervous
 pose Sharp pose
-$SP$ “Nothing can stop the Ace Detective!”
+$SP$ "Nothing can stop the Ace Detective!"
 pose Sharp cocky
 pose Alexander unimpressed
-$AX$ “Oh boy...”
+$AX$ "Oh boy..."
 pose Alexander serious
-$AX$ “Well, it looks like now is as good of a time as ever to try and prover Harmony’s Innocence!”
-$VL$ “Then why doesn’t the ‘Ace Detective’ give us a testimony on why he thinks she did it.”
+$AX$ "Well, it looks like now is as good of a time as ever to try and prover Harmony's Innocence!"
+$VL$ "Then why doesn't the 'Ace Detective' give us a testimony on why he thinks she did it."
 pose Violet cocky 
-$VL$ “Then we’ll see who's the Ace here.”
+$VL$ "Then we'll see who's the Ace here."
 
 pose Sharp cocky
-$SP$ “Fine, bring it on.”
+$SP$ "Fine, bring it on."
 //flip alex to violet
-$AX$ “I guess it’s time to cross examine Detective Sharp.”
-$VL$ “We’ll just have to present some evidence to contradict his statements!”
+$AX$ "I guess it's time to cross examine Detective Sharp."
+$VL$ "We'll just have to present some evidence to contradict his statements!"
 // flip alex
-$AX$ “Here goes nothing!”
+$AX$ "Here goes nothing!"
+
+// FADE OUT N IN AND DO SOME COOL TESTIMONY STUFF
 
 show Violet Offscreen
 show Alexander Offscreen
 show Harmony Offscreen
 show Sharp Center
 
-$SP$ “<color=green>Look, your friend here is a very guilty person. And as the Ace Detective it is MY job to put her away.</color>”
-$SP$ “<color=green>The body was found washed up in the River Thames and discovered by a passing fisherman.</color>”
-$SP$ “<color=green>Once we identified the body we went to investigate the sister’s shop, and when we arrived we found our suspect’s shoes outside.</color>”
-$SP$ “<color=green>Here’s the fun part, the soles of her boots, still wet and covered in salt residue. Proving she was near the river recently.</color>”
-$SP$ “<color=green>There was no other reason for her to be that far from her shop that night.</color>”
-
-$AX$ "Time to push for more information!"
 
 eff testimony
-$/$ “[speed s]<b><color=green>BEGIN TESTIMONY</color></b>”
+$/$ "[speed s]<b><color=green>BEGIN TESTIMONY</color></b>"
 
 load sharp_testimony_1

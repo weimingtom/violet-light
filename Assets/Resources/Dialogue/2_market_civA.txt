@@ -1,31 +1,76 @@
 show Violet Left2
 pose Violet Happy
-$VL$ “Oh, this looks shiny!”
+eff ding
+$VL$ "Oh, this looks shiny!"
 pose Alexander Shock
 show Alexander Left1
-$AX$ “Violet, put that down. We can't afford something like that.”
-show CivA Right1
+eff stab
+$AX$ "[speed f]Violet, put that down. We can't afford something like that."
+show CivA Right2
 pose Alexander Unimpressed
 pose Violet Shock
-$JW$ “That pocket watch is 18 karat gold and built by one of the finest craftsman of our time. Its sure to go splendid with your attire.”
+pose CivA talk
+$JW$ "That pocket watch is 18 karat gold and built by one of the finest craftsman of our time."
+eff ding
+$JW$ "It's sure to go splendid with your attire."
+pose CivA neutral
 pose Alexander Explaining
 pose Violet neutral
-$AX$ “Sorry but we're not in the market for jewelry right now. Right Violet?”
+$AX$ "Sorry but we're not in the market for jewelry right now.[speed m] Right Violet?"
 pose Alexander Neutral
-$JW$ “That’s quite alright, what can I do for such a handsome face?”
-$VL$ “Do you know anything about the Rush sisters?”
-$JW$ “Those two lovely sisters were here just a couple months ago, but I don't see how that is any of your business.”
-$AX$ “Oh, uh how do I put this... Melody's body was found washed up in the river earlier. We are investigating for harmony, anything you could tell us would really help.”
-$JW$ “Oh I didn't realize. I'm sorry for being rude. [wait 1]That poor girl...”
-$AX$ “It's understandable, you were protecting your clients.”
-$VL$ “Now tell us everything!”
-$JW$ “They were having me appraise some jewelry. Melody brought in a stunningly beautiful locket that was worth a lot. Harmony had an equally beautiful ring, but it wasn't worth very much.”
-$AX$ “Do you think melody was murdered for her locket?”
-$VL$ “Hmm, unlikely. Petty theft doesn't often end with bodies in rivers.”
-$AX$ “Ehh, right.”
+eff yell
+$VL$ "[speed f]Hey I just thought it was free that's al-[noclick]"
+
+pose CivA talk
+$JW$ "That's quite alright, [speed m]what can I do for such a handsome face?"
+pose CivA neutral
+
+pose Alexander Explaining
+$AX$ "Do you know anything about the Rush sisters?"
+
+pose CivA talk
+$JW$ "Those two lovely sisters were here just a couple months ago, but I don't see how that is any of your business."
+pose CivA neutral
+
+pose Alexander thinking
+$AX$ "Oh, uh how do I put this..."
+pose Alexander Serious
+eff ding
+$AX$ "Melody's body was found washed up in the river earlier. We are investigating for harmony, anything you could tell us would really help."
+
+pose CivA talk
+$JW$ "[speed m]Oh I didn't realize. [speed f]I'm sorry for being rude. [time 1]That poor girl..."
+pose CivA neutral
+
+pose Alexander explaining
+$AX$ "It's understandable, you were protecting your clients."
+pose Alexander neutral
+pose Violet Cocky
+$VL$ "Now tell us everything!"
+
+pose CivA talk
+$JW$ "They were having me appraise some jewelry. Melody brought in a stunningly beautiful locket that was worth a lot. Harmony had an equally beautiful ring, but it wasn't worth very much."
+pose CivA neutral
+
+pose Alexander thinking
+$AX$ "Do you think melody was murdered for her locket?"
+
+pose Violet Explaining
+$VL$ "Hmm, unlikely. Petty theft doesn't often end with bodies in rivers."
+
+pose Alexander pondering
+$AX$ "Ehh, right."
 pose Alexander Scribbling
-$VL$ “Better make a note of it anyway.”
+$VL$ "Better make a note of it anyway."
 
 eff item
 item melodys_locket
-$/$ “Locket added to journal!”
+$/$ "<size=93><color=blue>Locket added to journal!</color></size>"
+
+
+pose Violet Explaining
+$VL$ "Thank you for your time!"
+
+pose CivA talk
+$JW$ "Of course, come back if you need me!"
+pose CivA neutral

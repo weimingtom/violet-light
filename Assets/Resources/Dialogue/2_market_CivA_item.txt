@@ -4,7 +4,7 @@ Pose Alexander Neutral
 Pose Violet Neutral
 show CivA Left2
 
-$JW$ “Hmm? I don't know anything about that.”
+$JW$ "Hmm? I don't know anything about that."
 
 pose Alexander unimpressed
-$AX$ “Dang!”
+$AX$ "Dang!"

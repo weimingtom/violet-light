@@ -1,9 +1,9 @@
-$AX$ “What’s wrong Violet?”
-$VL$ “Look outside the [eff clue]Windows, Alex.”
-$AX$ “H-huh? What about it? I don’t really see the significance.”
-$VL$ “The roads are salted for the winter, love.”
-$AX$ “Okay... I’ll jot that down.”
+$AX$ "What's wrong Violet?"
+$VL$ "Look outside the [eff clue]Windows, Alex."
+$AX$ "H-huh? What about it? I don't really see the significance."
+$VL$ "The roads are salted for the winter, love."
+$AX$ "Okay... I'll jot that down."
 
-eff item
 item icy_streets
-$/$ “Icy Streets added to your journal.”
+eff item
+$/$ "<size=93><color=blue>Icy Streets added to your journal.</color></size>"

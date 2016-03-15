@@ -6,10 +6,10 @@ show Policeman Left1
 show Sharp Left2 l
 
 pose Sharp Neutral
-$SP$ “Yeah, yeah I know, cupcake.”
+$SP$ "Yeah, yeah I know, cupcake."
 
 pose Violet upset
-$VL$ “I don't think showing him evidence is going to get his attention."
+$VL$ "I don't think showing him evidence is going to get his attention."
 
 pose Alexander unimpressed
-$AX$ “Dang!”
+$AX$ "Dang!"

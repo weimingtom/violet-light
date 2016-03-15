@@ -1,6 +1,6 @@
-$AX$ “This is the head wound on the police report and from what I can see...”
-$AX$ “It’s not post mortem, and most likely this caused her to black out, at the very least.”
-$VL$ “Is it possible she could of survived the injury?”
-$AX$ “Yes, but we would need a real autopsy to tell how bad the damage really is.”
-$VL$ “[speed f]I just hope she didn- [noclick]“
-$AX$ “L-Let’s move on.”
+$AX$ "This is the head wound on the police report and from what I can see..."
+$AX$ "It's not post mortem, and most likely this caused her to black out, at the very least."
+$VL$ "Is it possible she could of survived the injury?"
+$AX$ "Yes, but we would need a real autopsy to tell how bad the damage really is."
+$VL$ "[speed f]I just hope she didn- [noclick]"
+$AX$ "L-Let's move on."

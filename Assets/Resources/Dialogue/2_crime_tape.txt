@@ -1,6 +1,6 @@
-$VL$ “Ah, the old black and yellow, it has been too long.”
-$AX$ “Wait. What do you mean? You’ve never actually had anything to do with solving crimes before.”
-$VL$ “Who wouldn't fall in love with the bumble bee of justice and despair?”
-$AX$ “A-”
-$AX$ “...”
-$AX$ “Whatever you say Violet.”
+$VL$ "Ah, the old black and yellow, it has been too long."
+$AX$ "Wait. What do you mean? You've never actually had anything to do with solving crimes before."
+$VL$ "Who wouldn't fall in love with the bumble bee of justice and despair?"
+$AX$ "A-"
+$AX$ "..."
+$AX$ "Whatever you say Violet."

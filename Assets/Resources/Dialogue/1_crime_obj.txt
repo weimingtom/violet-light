@@ -1,5 +1,5 @@
-$VL$ “I wonder what this is?”
-$PL$ “HEY! [eff yell]YOU CAN’T TOUCH THAT!”
-$VL$ “Ugh! No fun...”
-$VL$ “Alex, try and find the guy in charge.”
-$AX$ “Why don’t YOU?"
+$VL$ "I wonder what this is?"
+$PL$ "HEY! [eff yell]YOU CAN'T TOUCH THAT!"
+$VL$ "Ugh! No fun..."
+$VL$ "Alex, try and find the guy in charge."
+$AX$ "Why don't YOU?"
