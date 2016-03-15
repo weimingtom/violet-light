@@ -242,6 +242,7 @@ public class SceneManager : MonoBehaviour
     {
         if( CurrentCaseFile != null )
         {
+            SceneMenuManager.instance.RemoveCharacter();
             currentScene = SceneID;
             InteractableManager.Instance.Clear(); 
             ChangeBackground( Scenes[SceneID].Background, 0.7f );

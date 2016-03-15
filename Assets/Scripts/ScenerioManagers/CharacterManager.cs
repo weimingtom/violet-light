@@ -81,7 +81,7 @@ public class CharacterManager : MonoBehaviour {
             fadeSpeed *= -1;
 
         Debug.Log( "[Char Man] Char trying to change pose:" + character );
-        Debug.Assert( IsCharacter( character ) );
+        Debug.Assert( IsCharacter( character ), "CHRACTER IS NOT A CHARACTER" );
 
         characterList[character.ToLower()].SetForMovement(newPosition, facing, fadeSpeed, easeSpeed);
     }

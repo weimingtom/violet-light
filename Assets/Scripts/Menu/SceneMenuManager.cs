@@ -81,6 +81,10 @@ public class SceneMenuManager : MonoBehaviour
         {
             ShowExamineButton();
         }
+        else
+        {
+            examineButton.transform.gameObject.SetActive( false );
+        }
         talkButton.transform.gameObject.SetActive( showTalkButton );
         presentButton.transform.gameObject.SetActive( showPresentButton );
         if(!SceneManager.Instance.GetCanControl())
@@ -117,10 +121,10 @@ public class SceneMenuManager : MonoBehaviour
 
     void ShowExamineButton()
     {
-        int childNumber = InteractableManager.Instance.GetNumberOfInteractable();
-        if( childNumber > 0 )
+        //int childNumber = InteractableManager.Instance.GetNumberOfInteractable();
+       // if( childNumber > 0 )
         {
-            if( !InteractableManager.Instance.IsOnlyCharacterInScene() )
+           // if( !InteractableManager.Instance.IsOnlyCharacterInScene() )
             {
                 showExamineButton = true;
                 examineButton.transform.gameObject.SetActive( showExamineButton );
@@ -136,7 +140,7 @@ public class SceneMenuManager : MonoBehaviour
     public void ExamineScene()
     {
         SceneManager.Instance.SetInputBlocker( false );
-        SceneManager.Instance.SetCursor(true);
+        SceneManager.Instance.SetCursor(false);
         talkButton.transform.gameObject.SetActive( false );
         presentButton.transform.gameObject.SetActive( false );
         examineButton.transform.gameObject.SetActive( false );
@@ -199,5 +203,17 @@ public class SceneMenuManager : MonoBehaviour
             CharacterManager.Instance.ChangePosition( characterOnScene, CharacterManager.Positions.Centre );
 
         }
+        else if( characterOnScene != "" && CommandManager.Instance.myBannerBox.activeInHierarchy && CharacterManager.Instance.GetPosition( SceneManager.Instance.GetChar() ) != CharacterManager.Positions.Offscreen )
+        {
+            RemoveCharacter();
+
+        }
+    }
+
+    public void RemoveCharacter()
+    {
+        if( characterOnScene != "" )
+        CharacterManager.Instance.ChangePosition( characterOnScene, CharacterManager.Positions.Offscreen );
+
     }
 }
