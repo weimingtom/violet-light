@@ -165,6 +165,10 @@ public class MenuManager : MonoBehaviour
             {
                 ChangeState(state.Evidence);
             }
+            else if( btn == "btn_save_load" )
+            {
+                ChangeState( state.SaveLoad );
+            }
         }
     }
 

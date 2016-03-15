@@ -24,9 +24,32 @@ public class UIAnimation : MonoBehaviour
     //opening animation
     Vector3[] menuOpenPosition;
     public float openCloseMenuOffset = 500.0f;
-    void Awake()
+
+
+
+
+
+    Resolution res;
+
+
+    // Update is called once per frame
+    void Update()
     {
 
+        if( res.width != Screen.currentResolution.width )
+        {
+
+            SetPositions();
+            res = Screen.currentResolution;
+
+        }
+
+    }
+
+
+    void Awake()
+    {
+        Instance = this;
     }
 
     void Start()
@@ -38,8 +61,14 @@ public class UIAnimation : MonoBehaviour
         originalPosition = uiElements[0].transform.position;
         
         menuOpenPosition = new Vector3[uiElements.Length];
-        
-        for(int i = 0; i < menuOpenPosition.Length; i++)
+        res = Screen.currentResolution;
+
+        SetPositions();
+    }
+
+    public void SetPositions()
+    {
+        for( int i = 0; i < menuOpenPosition.Length; i++ )
         {
             menuOpenPosition[i] = new Vector3( originalPosition.x, originalPosition.y + openCloseMenuOffset + (openCloseMenuOffset * i), originalPosition.z );
             uiElements[i].transform.position = menuOpenPosition[i];
