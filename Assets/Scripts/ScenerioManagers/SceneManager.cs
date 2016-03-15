@@ -266,12 +266,14 @@ public class SceneManager : MonoBehaviour
 
     public void OpenSecondaryScene( int SceneID )
     {
-            currentScene = SceneID;
-            InteractableManager.Instance.Clear();
-            ChangeBackground( Scenes[SceneID].Background, 0.7f );
-            Camera.main.transform.position = defaultCameraPos;
-            InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab, Vector3.zero );
-            FadeOutScreen.instance.BeginFade( -1 );
+        SceneMenuManager.instance.RemoveCharacter();
+            
+        currentScene = SceneID;
+        InteractableManager.Instance.Clear();
+        ChangeBackground( Scenes[SceneID].Background, 0.7f );
+        Camera.main.transform.position = defaultCameraPos;
+        InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab, Vector3.zero );
+        FadeOutScreen.instance.BeginFade( -1 );
     }
 
     public void ChangeScene(string SceneID)

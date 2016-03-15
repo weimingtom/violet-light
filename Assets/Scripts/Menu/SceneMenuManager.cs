@@ -19,6 +19,8 @@ public class SceneMenuManager : MonoBehaviour
     bool moveCurrentState = false;
     bool backCurrentState = false;
 
+    bool KilledCharacter = false;
+
     bool showTalkButton;
     bool showPresentButton;
     bool showExamineButton;
@@ -91,6 +93,9 @@ public class SceneMenuManager : MonoBehaviour
             moveButton.transform.gameObject.SetActive( false );
         else
             moveButton.transform.gameObject.SetActive( true );
+
+        KilledCharacter = false;
+
     }
 
     public void ActivateBackButton()
@@ -108,6 +113,8 @@ public class SceneMenuManager : MonoBehaviour
         moveButton.transform.gameObject.SetActive( true );
         backButton.transform.gameObject.SetActive( false );
         CommandManager.Instance.isExamine = false;
+        KilledCharacter = false;
+
     }
 
     public void hideAll()
@@ -147,6 +154,7 @@ public class SceneMenuManager : MonoBehaviour
         moveButton.transform.gameObject.SetActive( false );
         backButton.transform.gameObject.SetActive( true );
         CommandManager.Instance.isExamine = true;
+        RemoveCharacter();
     }
 
     public void HideFromCommandManager()
@@ -169,6 +177,9 @@ public class SceneMenuManager : MonoBehaviour
         examineButton.transform.gameObject.SetActive( examineCurrentState );
         moveButton.transform.gameObject.SetActive( moveCurrentState );
         backButton.transform.gameObject.SetActive( backCurrentState );
+
+        KilledCharacter = false;
+
     }
 
     void TalkToCharacterInScene()
@@ -198,7 +209,7 @@ public class SceneMenuManager : MonoBehaviour
             presentButton.transform.gameObject.SetActive(false);
             talkButton.transform.gameObject.SetActive(false);
         }
-        else if( characterOnScene != "" && !CommandManager.Instance.myBannerBox.activeInHierarchy && CharacterManager.Instance.GetPosition( SceneManager.Instance.GetChar() ) != CharacterManager.Positions.Centre )
+        else if( characterOnScene != "" && !CommandManager.Instance.myBannerBox.activeInHierarchy && CharacterManager.Instance.GetPosition( SceneManager.Instance.GetChar() ) != CharacterManager.Positions.Centre && !KilledCharacter)
         {
             CharacterManager.Instance.ChangePosition( characterOnScene, CharacterManager.Positions.Centre );
 
@@ -212,8 +223,11 @@ public class SceneMenuManager : MonoBehaviour
 
     public void RemoveCharacter()
     {
+        Debug.Log("<color=blue>[SCENEMENUMANAGER]</color> Attempting to remove Character: " + characterOnScene);
         if( characterOnScene != "" )
-        CharacterManager.Instance.ChangePosition( characterOnScene, CharacterManager.Positions.Offscreen );
+            CharacterManager.Instance.ChangePosition( characterOnScene, CharacterManager.Positions.Offscreen );
+        //CharacterManager.Instance.KillCharacter( characterOnScene );
+        KilledCharacter = true;
 
     }
 }

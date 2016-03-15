@@ -86,6 +86,11 @@ public class CharacterManager : MonoBehaviour {
         characterList[character.ToLower()].SetForMovement(newPosition, facing, fadeSpeed, easeSpeed);
     }
 
+    public void KillCharacter(string character)
+    {
+        characterList[character.ToLower()].mGObject.transform.position = new Vector3(-30.0f, 0.0f, zValue);
+    }
+
     public void ChangeCharacterPose(string name, string pose)
     {
         try
@@ -293,7 +298,7 @@ public class CharacterManager : MonoBehaviour {
                 break;
          
                 case Positions.Offscreen:
-                startPlace = new Vector3( mPortrait.transform.position.x, mPortrait.transform.position.y, mPortrait.transform.position.z );
+                startPlace = new Vector3(-30.0f, mPortrait.transform.position.y, mPortrait.transform.position.z );
                 break;
              }
 
@@ -325,7 +330,7 @@ public class CharacterManager : MonoBehaviour {
             break;
 
             case Positions.Offscreen:
-            endPlace = new Vector3( mPortrait.transform.position.x, mPortrait.transform.position.y, mPortrait.transform.position.z );
+            endPlace = new Vector3( -30.0f, mPortrait.transform.position.y, mPortrait.transform.position.z );
             break;
             }
 

@@ -84,7 +84,12 @@ pose Violet Neutral
 pose Alexander Shock
 $PL$ "H-huh. [eff ding]Oh I see!"
 pose Alexander Neutral
-
+//Other
+//$PL$ "What are you showing me that for? That's not getting you anywhere"
+//Alex Nervous
+//$VL$ "C'mon, Alex think! Don't we have [red]something[/red] that'll help us get through?"
+//$AX$ "R-Right![eff flash/shake]"
+//loop
 pose Policeman Explaining
 $PL$ "Alright ma'am, I guess I can let you through. But I'll have my eye on you."
 pose Policeman Neutral
@@ -153,6 +158,7 @@ pose Alexander Shock
 $AX$ "WH- [speed f][eff yell]WHAT?"
 
 // flip them so they face eachother
+
 show Violet Left2 l
 show Alexander Left1 r
 
@@ -177,7 +183,6 @@ $AX$ "A-ah,[time 1] right."
 show Violet Left2
 show Alexander Left1
 
-
 pose Violet Normal
 $VL$ "But it seems like they didn't give her anything to write with..."
 pose Violet Upset
@@ -201,13 +206,13 @@ $VL$ "A pen and paper? What's she going to do with that?"
 pose Violet Smirk
 $VL$ "That Detective may be sharp, but he's not too bright!"
 pose Violet explaining
-
-$VL$ "Fine, I'll just give her Alex's notebook then."
+//icon notebook on
+$VL$ "Fine, I'll just give her <color=blue>Alex's notebook</color> then."
 
 pose Policeman Explaining 
 $PL$ "[speed f][eff yell]I can't let you do that, Ma'am! Sorry!"
 pose Policeman Neutral 
-
+//icon notebook off
 
 pose Violet serious
 $VL$ "[eff drama]What,[time 1] [eff fast]really?"
@@ -226,21 +231,22 @@ $PL$ "He's currently at the [eff clue]<color=green>crime scene</color>. I can ma
 show Violet Offscreen
 pose Alexander Scribble
 $AX$ "Ah- thank you."
-
+show Alexander Left1 l
 //Alex turns to violet
 
-pose Policeman Offscreen
+show Policeman Offscreen
 
 pose Alexander Shocked
 $AX$ "[speed f]Hey! W-Wait for me!"
 //Alex turns to harmony
+show Alexander Left1 r
 pose Alexander Smirk
 $AX$ "[speed m]Don't worry, Violet and I are on the case! We'll be back soon!"
+show Alexander Offscreen 
 $HR$ "[speed s]. . . . "
-pose Alexander Offscreen
+
 pose Harmony Offscreen
 
-$/$ "<color=blue>I can open up my rucksack in the bottom right corner to follow Violet to the crimescene. I just have to find my map by selecting the map tab on the left once I'm inside.</color>"
 
 //End scene, have a pointer point on the inventory icon, and then the travel menu.
 advquest
