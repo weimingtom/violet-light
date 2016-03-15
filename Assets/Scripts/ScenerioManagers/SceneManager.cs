@@ -252,11 +252,14 @@ public class SceneManager : MonoBehaviour
             Debug.Log( "[scene manager] Changed Scene to number " + SceneID );
             enteredNewScene = true;
             //ItemInventory.Instance.TogglePresentButton(false);
-
+            CurrentChar = ""; 
             SceneMenuManager.instance.EnteredNewScene();
+            
+            
             InteractableManager.Instance.Spawn( Scenes[SceneID].Prefab, Vector3.zero );
 
-            CharacterManager.Instance.FadeAllOut();
+            
+            //CharacterManager.Instance.FadeAllOut();
 
             FadeOutScreen.instance.BeginFade( -1, 0.5f );
         }
@@ -332,7 +335,7 @@ public class SceneManager : MonoBehaviour
         if(enteredNewScene)
         {
             ResetCursor();
-            if (!SceneManager.Instance.GetInputBlocker())
+            //if (!SceneManager.Instance.GetInputBlocker())
             {
                 // TODO REMOVE THIS
                 if( ItemManager.Instance.CheckItem( "icy_streets" ) && ItemManager.Instance.CheckItem( "neck_wound" ) )

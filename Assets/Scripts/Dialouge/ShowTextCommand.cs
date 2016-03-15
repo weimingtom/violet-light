@@ -266,7 +266,7 @@ public class ShowTextCommand : Commands
     void UpdateTime()
     {
         totalTime += Time.deltaTime;
-        Debug.Log("waiting for time");
+        //Debug.Log("waiting for time");
         if(totalTime >= time)
         {
             waitForTime = false;

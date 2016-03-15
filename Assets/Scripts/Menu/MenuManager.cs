@@ -85,11 +85,7 @@ public class MenuManager : MonoBehaviour
 
         if( !animateMenu && !UIAnimation.Instance.animateBackward && !UIAnimation.Instance.animateForward )
         {
-            if( active && myState != state.SaveLoad )
-            {
-                ChangeState( state.SaveLoad );
-            }
-            else if (!active)
+            if (!active)
             {
 			    OpenMenu();
                 ItemManager.Instance.SetLoadInventory( true );

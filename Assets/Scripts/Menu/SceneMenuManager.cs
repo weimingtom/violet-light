@@ -87,6 +87,7 @@ public class SceneMenuManager : MonoBehaviour
         {
             examineButton.transform.gameObject.SetActive( false );
         }
+
         talkButton.transform.gameObject.SetActive( showTalkButton );
         presentButton.transform.gameObject.SetActive( showPresentButton );
         if(!SceneManager.Instance.GetCanControl())
@@ -95,7 +96,6 @@ public class SceneMenuManager : MonoBehaviour
             moveButton.transform.gameObject.SetActive( true );
 
         KilledCharacter = false;
-
     }
 
     public void ActivateBackButton()
@@ -113,7 +113,7 @@ public class SceneMenuManager : MonoBehaviour
         moveButton.transform.gameObject.SetActive( true );
         backButton.transform.gameObject.SetActive( false );
         CommandManager.Instance.isExamine = false;
-        KilledCharacter = false;
+        ResetCharacterToCenter();
 
     }
 
@@ -133,7 +133,9 @@ public class SceneMenuManager : MonoBehaviour
         {
            // if( !InteractableManager.Instance.IsOnlyCharacterInScene() )
             {
-                showExamineButton = true;
+                // NOTE(jesse): THIS IS A HACK
+                if(SceneManager.Instance.GetQuestStage() > 1)
+                 showExamineButton = true;
                 examineButton.transform.gameObject.SetActive( showExamineButton );
             }
         }
@@ -178,12 +180,13 @@ public class SceneMenuManager : MonoBehaviour
         moveButton.transform.gameObject.SetActive( moveCurrentState );
         backButton.transform.gameObject.SetActive( backCurrentState );
 
-        KilledCharacter = false;
+        //KilledCharacter = false;
 
     }
 
     void TalkToCharacterInScene()
     {
+        RemoveCharacter();
         Prop Character = GameObject.Find(SceneManager.Instance.GetChar()).GetComponent<Prop>();
         Character.Talk();
     }
@@ -201,24 +204,39 @@ public class SceneMenuManager : MonoBehaviour
         //SceneManager.Instance.SetInputBlocker( false );
     }
 
+    bool BannerBoxOpenLastFrame = false;
+
     void Update()
     {
+        
         characterOnScene = SceneManager.Instance.GetChar();
+
+        
+        if(moveButton.transform.gameObject.activeInHierarchy)
+        {
+            SceneManager.Instance.SetInputBlocker( true );
+        }
+
         if( characterOnScene == "" )
         {
             presentButton.transform.gameObject.SetActive(false);
             talkButton.transform.gameObject.SetActive(false);
         }
-        else if( characterOnScene != "" && !CommandManager.Instance.myBannerBox.activeInHierarchy && CharacterManager.Instance.GetPosition( SceneManager.Instance.GetChar() ) != CharacterManager.Positions.Centre && !KilledCharacter)
+        else if( characterOnScene != "" )
         {
-            CharacterManager.Instance.ChangePosition( characterOnScene, CharacterManager.Positions.Centre );
-
+            if( BannerBoxOpenLastFrame && !CommandManager.Instance.myBannerBox.activeInHierarchy )
+            {
+                ResetCharacterToCenter();
+            }
+            else
+            {
+                if( !BannerBoxOpenLastFrame && CommandManager.Instance.myBannerBox.activeInHierarchy )
+                {
+                    RemoveCharacter();
+                }
+            }
         }
-        else if( characterOnScene != "" && CommandManager.Instance.myBannerBox.activeInHierarchy && CharacterManager.Instance.GetPosition( SceneManager.Instance.GetChar() ) != CharacterManager.Positions.Offscreen )
-        {
-            RemoveCharacter();
-
-        }
+        BannerBoxOpenLastFrame = CommandManager.Instance.myBannerBox.activeInHierarchy;
     }
 
     public void RemoveCharacter()
@@ -227,7 +245,16 @@ public class SceneMenuManager : MonoBehaviour
         if( characterOnScene != "" )
             CharacterManager.Instance.ChangePosition( characterOnScene, CharacterManager.Positions.Offscreen );
         //CharacterManager.Instance.KillCharacter( characterOnScene );
-        KilledCharacter = true;
+        //KilledCharacter = true;
 
+    }
+
+    public void ResetCharacterToCenter()
+    {
+        Debug.Log( "<color=blue>[SCENEMENUMANAGER]</color> SETTING THIS TO CENTER - Character: " + characterOnScene );
+
+        //CharacterManager.Instance.ChangePosition( characterOnScene, CharacterManager.Positions.Centre );
+        CharacterManager.Instance.KillCharacter( characterOnScene);
+        
     }
 }
