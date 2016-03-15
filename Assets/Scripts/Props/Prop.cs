@@ -17,7 +17,7 @@ public class Prop : MonoBehaviour {
         if(IsCharacter)
         {
             SceneManager.Instance.SetChar( name );
-            ItemInventory.Instance.TogglePresentButton( true );
+            //ItemInventory.Instance.TogglePresentButton( true );
         }
 
         if(minStageRange != 0 || maxStageRange != 0)

@@ -1,6 +1,6 @@
 item harmony's_letter 
 bg null 
-$/$ "[speed s]<b><size=94><color=green>          Tuesday, December 21st, 1963<br>London Police Department - Holding Room B<br>                            5:32 PM</color></size></b>"
+$/$ "[speed s]<b><size=93><color=green>          Tuesday, December 21st, 1963<br>London Police Department - Holding Room B<br>                            5:32 PM</color></size></b>"
 
 $PL$ "[speed f][eff yell]<size=90>WA-WAIT-</size>"
 $PL$ "[speed f][eff crash]<size=90>You can't go in there!</size>"
@@ -84,12 +84,7 @@ pose Violet Neutral
 pose Alexander Shock
 $PL$ "H-huh. [eff ding]Oh I see!"
 pose Alexander Neutral
-//Other
-//$PL$ "What are you showing me that for? That's not getting you anywhere"
-//Alex Nervous
-//$VL$ "C'mon, Alex think! Don't we have [red]something[/red] that'll help us get through?"
-//$AX$ "R-Right![eff flash/shake]"
-//loop
+
 pose Policeman Explaining
 $PL$ "Alright ma'am, I guess I can let you through. But I'll have my eye on you."
 pose Policeman Neutral
@@ -205,14 +200,14 @@ pose Violet Unimpressed
 $VL$ "A pen and paper? What's she going to do with that?"
 pose Violet Smirk
 $VL$ "That Detective may be sharp, but he's not too bright!"
-pose Violet Shrug
-//icon notebook on
-$VL$ "Fine, I'll just give her <color=blue>Alex's notebook</color> then." 
+pose Violet explaining
+
+$VL$ "Fine, I'll just give her Alex's notebook then."
 
 pose Policeman Explaining 
 $PL$ "[speed f][eff yell]I can't let you do that, Ma'am! Sorry!"
 pose Policeman Neutral 
-//icon notebook off
+
 
 pose Violet serious
 $VL$ "[eff drama]What,[time 1] [eff fast]really?"

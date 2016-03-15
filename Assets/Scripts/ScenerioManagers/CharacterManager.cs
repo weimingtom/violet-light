@@ -79,7 +79,10 @@ public class CharacterManager : MonoBehaviour {
 
         if(newPosition == Positions.Offscreen)
             fadeSpeed *= -1;
-        
+
+        Debug.Log( "[Char Man] Char trying to change pose:" + character );
+        Debug.Assert( IsCharacter( character ) );
+
         characterList[character.ToLower()].SetForMovement(newPosition, facing, fadeSpeed, easeSpeed);
     }
 

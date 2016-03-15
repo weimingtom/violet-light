@@ -64,11 +64,23 @@ public class SceneMenuManager : MonoBehaviour
         characterOnScene = SceneManager.Instance.GetChar();
         if( characterOnScene != "" )
         {
-            ShowExamineButton();
+            CharacterManager.Instance.ChangePosition( characterOnScene, CharacterManager.Positions.Centre );
+            
             showTalkButton = true;
             showPresentButton = true;
         }
-        ShowExamineButton();
+        bool showExamine = false;
+
+        if (GameObject.Find( "ParentObject" ).transform.childCount > 0)
+        {
+            if( GameObject.Find( "ParentObject" ).transform.GetChild( 0 ).transform.childCount > 1 )
+                showExamine = true;
+        }
+
+        if( showExamine )
+        {
+            ShowExamineButton();
+        }
         talkButton.transform.gameObject.SetActive( showTalkButton );
         presentButton.transform.gameObject.SetActive( showPresentButton );
         if(!SceneManager.Instance.GetCanControl())
@@ -164,22 +176,28 @@ public class SceneMenuManager : MonoBehaviour
     public void BackButtonOnEnter()
     {
         Debug.Log("button on enter");
-        SceneManager.Instance.SetInputBlocker( true );
+        //SceneManager.Instance.SetInputBlocker( true );
         //Debug.Break();
     }
 
     public void BackButtonOnExit()
     {
         Debug.Log("button on exit");
-        SceneManager.Instance.SetInputBlocker( false );
+        //SceneManager.Instance.SetInputBlocker( false );
     }
 
     void Update()
     {
-        if( SceneManager.Instance.GetChar() == "" )
+        characterOnScene = SceneManager.Instance.GetChar();
+        if( characterOnScene == "" )
         {
             presentButton.transform.gameObject.SetActive(false);
             talkButton.transform.gameObject.SetActive(false);
+        }
+        else if( characterOnScene != "" && !CommandManager.Instance.myBannerBox.activeInHierarchy && CharacterManager.Instance.GetPosition( SceneManager.Instance.GetChar() ) != CharacterManager.Positions.Centre )
+        {
+            CharacterManager.Instance.ChangePosition( characterOnScene, CharacterManager.Positions.Centre );
+
         }
     }
 }
