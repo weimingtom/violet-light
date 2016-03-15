@@ -2,7 +2,7 @@ show Alexander Right1
 show Violet Right2
 Pose Alexander Neutral
 Pose Violet Neutral
-show CivA Left2
+show fisher Left2
 
 $FM$ "Hmm? I don't know anything about that."
 
