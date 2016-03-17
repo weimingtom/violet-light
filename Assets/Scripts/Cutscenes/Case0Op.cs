@@ -11,7 +11,7 @@ public class Case0Op : MonoBehaviour
 
 	void Start() 
     {
-        MusicManager.instance.ChangeSong("alt_theme");
+        MusicManager.instance.ChangeSong("drama_theme");
         doneOnce = new bool[2];
         MenuManager.instance.ToggleMenuAccess();
         FileReader.Instance.LoadScene( opScene );

@@ -10,6 +10,3 @@ $SP$ "Yeah, yeah I know, cupcake."
 
 pose Violet upset
 $VL$ "I don't think showing him evidence is going to get his attention."
-
-pose Alexander unimpressed
-$AX$ "Dang!"

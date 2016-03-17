@@ -29,8 +29,8 @@ $SP$ "[speed m]Woah, woah, woah!-[noclick]"
 pose Sharp Upset
 $SP$ "[eff yell]HOLD IT!"
 pose Sharp Explaining
-eff sharpzoom
-$SP$ "[speed s]This,[time 1] is a Crime Scene.[time 4][noclick]"
+
+$SP$ "[speed s]This,[time 1]this is a Crime Scene."
 pose Sharp Cocky
 $SP$ "[speed m]Common folk like [speed s]yourselves[speed m] can't be here."
 pose Sharp neutral
@@ -82,29 +82,15 @@ pose Alexander Neutral
 
 pose Sharp Explaining
 $SP$ "I'm Detective Sharp, but there really isn't much to investigate here. It's a pretty open and shut case, if I do say so myself."
-pose Violet Cocky
-$VL$ "I'll be the judge of that!"
 
-pose Sharp Unimpressed
-$SP$ "Uh,[time 1] well no,"
-pose Violet confused
-pose Sharp Explaining
-$SP$ "No you won't. The <color=red>judge</color> will."
-pose Violet Nervous
-eff ding
-$VL$ "Right!"
 pose Violet Neutral
-pose Alexander Explaining
-$AX$ "Uh,[time 1] anyways,[time 1] we were looking for the lead detective."
-pose Alexander Thinking
-$AX$ "He was supposed to be sharply dressed or something?"
+pose Alexander Pondering
+$AX$ "So you're the lead detective on this case?"
 pose Sharp Serious
 eff yell
-$SP$ "[speed f]Well that's me!"
-pose Sharp Cocky 
-$SP$ "Just because I'm <color=green>young and handsome</color> doesn't mean I can't be in charge here."
+$SP$ "[speed f]Yep that's me!"
 
-pose Violet neutral
+pose Violet explaining
 $VL$ "[speed s]Uhuh...[time 1][speed f] we need to get access to the crime scene."
 pose Violet Cocky
 $VL$ "How about you tell your goons to let us through?"
@@ -114,35 +100,11 @@ pose Sharp Serious
 $SP$ "I mean really,[time 1] you two, [time 1]uh... [time 1]<color=red>'Lawyers'</color>, should just give up now."
 $SP$ "I have this case totally under control."
 
-Violet Cocky
-$VL$ "It won't be that simple for ya, love. [eff clue]<color=blue>I've never lost a case.</color>" 
-
-pose Alexander Shocked
-pose Sharp Unimpressed
-$SP$ "[speed f]Wh-[time 1]what?"
-pose Sharp Nervous
-$SP$ "Psh,[time 1][eff yell] neither have I!"
-pose Sharp Cocky
-$SP$ "Actually,[time 1] sweetheart, none of my investigations ever last longer than a day."
-pose Violet Unimpressed
-pose Sharp Explaining
-$SP$ "So,[time 1] y'know, have fun [eff ding]losing." 
-
-// Under his breath, quiet, small text, gets cut off
-show Alexander Right1 r
-pose Alexander Unimpressed
-$AX$ "<color=404040><size=75>B-but you've never actually taken a crime case before, nor are you a lawyer-[noclick]</size></color>"
-pose Violet Cocky 
-$VL$ "<color=404040><size=75>Does it matter? I've got this in the bag!</size></color>"
-show Alexander right1 l
-pose Violet Neutral
-pose Alexander Nervous
-
 pose Sharp Neutral
 $SP$ "Well I'll tell the blues to back off for a bit,[time 1] give ya some room to [eff ding]<color=blue>'play detective'</color>."
 pose Sharp Serious
 $SP$ "Also,[time 1] you guys'll need [eff clue]<color=green>this</color> if you don't have a copy already."
-$SP$ "It's a <color=blue>report of what we know about the body at this time</color>." 
+$SP$ "It's a <color=blue>report of what we know about the body at this time</color> and it also has <color=blue>a list of relevent locations to the case</color>." 
 //[showicon police_report]
 
 pose Alexander Scribbling
@@ -150,29 +112,6 @@ $AX$ "I'll take that, thank you."
 eff item
 item police_report
 $/$ "<b><size=93><color=green>Police report added to Journal!</color></size></b>[time 1]"
-
-pose Sharp Cocky
-$SP$ "Oh, and I'll take that while you've got it open, kiddo."
-pose Alexander Shock
-eff ding
-$AX$ "H-hey give my notebook back!"
-
-pose Sharp Talking
-$SP$ "[speed f][eff yell]Oh boy, your face right now!"
-pose Sharp cocky
-$SP$ "What,[time 1][speed f] do you have love letters for your girlfriend over there, in here?"
-
-pose Alexander Embarassed
-pose Violet Unimpressed
-$VL$ "Oh, please."
-
-pose Sharp Talking
-$SP$ "Haha,[time 1] anyways I'm just marking some important places on your map."
-pose Sharp Neutral
-$SP$ "Here you go, kiddo."
-pose Alexander Scribbling
-$SP$ "A-ah thank you!"
-
 eff item
 $/$ "<b><size=93><color=green>Market, Music Shop, and Fisherman's Wharf added to the map!</color></size></b>[time 1]"
 
@@ -210,5 +149,18 @@ $VL$ "..."
 show Alexander Left2 r
 
 $AX$ "Er...[time 1] R-right."
+
+pose Violet Happy
+$VL$ "We should be able to find some clues using my handy-dandy [eff ding]<color=red>Magnifying Glass</color>!"
+pose Alexander Unimpressed
+$AX$ "W-why do you have that?"
+pose Violet Explaining
+$VL$ "If we hover it over something we haven't investigated yet, then it should sparkle!"
+pose Violet Happy 
+$VL$ "That'll let us know whether or not to check it again."
+pose Alexander Thinking
+$AX$ "That's actually kinda nifty."
+
+
 advquest
 

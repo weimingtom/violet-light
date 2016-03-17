@@ -6,14 +6,3 @@ pose Violet Neutral
 $AX$ "So where's this [eff clue]<color=red>sharp</color> guy?"
 pose Violet Explaining
 $VL$ "We'll have to take a look around, love."
-pose Violet Happy
-$VL$ "We should be able to find some clues using my handy-dandy [eff ding]<color=red>Magnifying Glass</color>!"
-pose Alexander Unimpressed
-$AX$ "W-why do you have that?"
-pose Violet Explaining
-$VL$ "If we hover it over something we haven't investigated yet, then it should sparkle!"
-pose Violet Happy 
-$VL$ "That'll let us know whether or not to check it again."
-pose Alexander Thinking
-$AX$ "That's actually kinda nifty."
-
