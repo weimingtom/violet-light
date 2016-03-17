@@ -1,7 +1,6 @@
-caught Audio/Music/cornered_sugimori_masakazu
 drama_theme Audio/Music/Alt_Theme_Drama
 theme Audio/Music/Main_Theme_alt
-violetstheme Audio/Music/Violet's_Theme_V2
+violetstheme Audio/Music/Violets_Theme_V2
 Crime Audio/Music/Crime_Scene_v2
 Sad Audio/Music/Ending_Credits_V2
 Fisherman Audio/Music/Idea
@@ -9,5 +8,4 @@ Market Audio/Music/Town_exploration
 Mountain Audio/Music/Violet_Theme
 Shop Audio/Music/Town_exploration
 Sax Audio/Music/Sexy_Sax_Man_V2
-Waltz Audio/Music/Waltz
 Harmony Audio/Music/Harmony_theme

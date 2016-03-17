@@ -75,7 +75,7 @@ public class VLConsole : MonoBehaviour
             SceneManager.Instance.AdvQuest();   
         }
         break;
-        case ("setqueststage"):
+        case ("sqs"):
         {
             SceneManager.Instance.SetQuestStage( int.Parse(commandSeg[1]));
         }
@@ -115,7 +115,7 @@ public class VLConsole : MonoBehaviour
         case ("fx"):
         FXManager.Instance.Spawn( commandSeg[1] );
         break;
-        case ("enableskip"):
+        case ("es"):
             {
                 SceneManager.Instance.SetCanSkip( true );
             }
