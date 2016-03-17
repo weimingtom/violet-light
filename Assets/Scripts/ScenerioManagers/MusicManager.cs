@@ -28,15 +28,37 @@ public class MusicManager : MonoBehaviour
         foreach(string CurrentString in MusicLibraryFile)
         {
             string[] Boththings = CurrentString.Split(' ');
-            MusicLibrary.Add( Boththings[0], Resources.Load(Boththings[1]) as AudioClip );
-            Debug.Log( "[Music Manager] Added Song " + Boththings[0] + " - " + Boththings[1] );
+            MusicLibrary.Add(Boththings[0].ToLower(), Resources.Load(Boththings[1]) as AudioClip);
+            Debug.Log("[Music Manager] Added Song " + Boththings[0].ToLower() + " - " + Boththings[1]);
         }
     }
     
 	public void ChangeSong(string newSong)
     {
-        audioSource.clip = MusicLibrary[newSong];
-        audioSource.Play();
+        
+        if (MusicLibrary.ContainsKey(newSong.ToLower()))
+        {
+            if (MusicLibrary[newSong.ToLower()] == audioSource.clip)
+            {
+                Debug.Log("[Music Manager] SONG ALREADY PLAYING");
+
+            }
+            else
+            {
+                Debug.Log("[Music Manager] CHANGING SONG TO:" + newSong);
+
+                audioSource.clip = MusicLibrary[newSong.ToLower()];
+                audioSource.Play();
+            }
+
+        }
+        else
+        {
+            audioSource.clip = null;
+            audioSource.Stop();
+
+            Debug.Log("[Music Manager does  not contain song:" + newSong);
+        }
     }
 
     public void OnReset()

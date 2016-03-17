@@ -194,6 +194,17 @@ public class StringParser : MonoBehaviour
         string[] parsedCommand = command.Split( delimiter, System.StringSplitOptions.RemoveEmptyEntries );
         switch( parsedCommand[0].ToLower() )
         {
+            case "bgm":
+                {
+
+                    if (parsedCommand.Length > 1)
+                    {
+                        Debug.Log("<color=green>[StringParser]</color> CREATED NEW BGM COMMAND + " + parsedCommand[1].ToLower());
+                        MusicCommand BGM = new MusicCommand();
+                        BGM.Set(parsedCommand[1].ToLower());
+                    }
+                }
+                break;
         //NOTE(Hendry)::Add command here
         case "bg":
         BgCommand bgc = new BgCommand();
@@ -216,8 +227,7 @@ public class StringParser : MonoBehaviour
 
         break;
 
-        case "bgm":
-        break;
+        
 
         case "show":
         ShowCharacterCommand character = new ShowCharacterCommand();

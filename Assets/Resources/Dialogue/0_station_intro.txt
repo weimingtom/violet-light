@@ -1,18 +1,20 @@
 item harmony's_letter 
 bg null 
-$/$ "[speed s]<b><size=93><color=green>          Tuesday, December 21st, 1963<br>London Police Department - Holding Room B<br>                            5:32 PM</color></size></b>"
+
+$/$ "[speed s]<b><size=93><color=green>Tuesday, December 21st, 1963<br>LPD - Holding Room B<br>5:32 PM</color></size></b>"
 
 $PL$ "[speed f][eff yell]<size=90>WA-WAIT-</size>"
 $PL$ "[speed f][eff crash]<size=90>You can't go in there!</size>"
-
 eff door
-bg police_station 
+bg police_station
 show Violet Left2
-pose Violet Explaining 
+pose Violet Explaining
+
+bgm violetstheme
 
 $VL$ "[speed m]You really shouldn't try to stop me, love."
 show Policeman Right2
-pose Policeman Explaining
+pose Policeman talk
 $PL$ "[speed f][eff crash]It's my job to!"
 pose Policeman Neutral
 pose Violet unimpressed
@@ -84,19 +86,14 @@ pose Violet Neutral
 pose Alexander Shock
 $PL$ "H-huh. [eff ding]Oh I see!"
 pose Alexander Neutral
-//Other
-//$PL$ "What are you showing me that for? That's not getting you anywhere"
-//Alex Nervous
-//$VL$ "C'mon, Alex think! Don't we have [red]something[/red] that'll help us get through?"
-//$AX$ "R-Right![eff flash/shake]"
-//loop
+
 pose Policeman Explaining
 $PL$ "Alright ma'am, I guess I can let you through. But I'll have my eye on you."
 pose Policeman Neutral
 //icon harmony's_letter off
 pose Violet Smirk
 $VL$ "Thanks, love. Just don't let it happen again."
-pose Policeman Explaining 
+pose Policeman Explaining
 $PL$ "Hph!"
 show Policeman Offscreen 
 pose Alexander Determined
@@ -209,9 +206,9 @@ pose Violet explaining
 //icon notebook on
 $VL$ "Fine, I'll just give her <color=blue>Alex's notebook</color> then."
 
-pose Policeman Explaining 
+pose Policeman Explaining
 $PL$ "[speed f][eff yell]I can't let you do that, Ma'am! Sorry!"
-pose Policeman Neutral 
+pose Policeman Neutral
 //icon notebook off
 
 pose Violet serious
@@ -242,7 +239,7 @@ $AX$ "[speed f]Hey! W-Wait for me!"
 show Alexander Left1 r
 pose Alexander Smirk
 $AX$ "[speed m]Don't worry, Violet and I are on the case! We'll be back soon!"
-show Alexander Offscreen 
+show Alexander Offscreen
 $HR$ "[speed s]. . . . "
 
 pose Harmony Offscreen

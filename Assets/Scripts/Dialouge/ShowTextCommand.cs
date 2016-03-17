@@ -192,7 +192,6 @@ public class ShowTextCommand : Commands
             indexPassed++;
         }
         char test = DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed];
-        Debug.Log( "test : [" + test +"]");
         //Debug.Break();
         if( DialogueHolder.Instance.GetDialogue( conversationTag )[indexPassed] == ']' )
         {
