@@ -125,7 +125,7 @@ $SP$ "Catch you two [eff ding]<color=red>ladies</color> later!"
 show Sharp Offscreen
 show Policeman Offscreen
 
-show Alexander Embarassed
+pose Alexander Embarassed
 eff crash
 $AX$ "W-wait,[time 1][speed f] <size=75>I'm not a lady!</size>"
 pose Violet Explaining

@@ -1,0 +1,5 @@
+$/$ "[speed s]<b><size=93><color=green>Tuesday, December 21st, 1963,<br>River Thames<br>8:47 PM</color></size></b>"
+
+$VL$ "I feel like we have enough evidence."
+// flip alex
+$AX$ "Maybe we should head back and see harmony?"

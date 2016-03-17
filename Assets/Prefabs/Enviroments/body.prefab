@@ -289,6 +289,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 1
   IsCharacter: 0
+  minStageRange: 2
+  maxStageRange: 3
 --- !u!114 &11422990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -302,6 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 1
   IsCharacter: 0
+  minStageRange: 2
+  maxStageRange: 3
 --- !u!114 &11450138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,6 +332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 2
+  maxStageRange: 3
 --- !u!114 &11489750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -341,6 +347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 0
+  minStageRange: 2
+  maxStageRange: 3
 --- !u!212 &21223650
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -511,6 +519,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
       value: -4.84000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minStageRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxStageRange
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

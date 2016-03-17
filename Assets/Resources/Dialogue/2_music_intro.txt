@@ -1,4 +1,4 @@
-$/$ "[speed s]<b><size=93><color=green>Tuesday, December 21st, 1963<br>, December 21st, 1963,<br>Rush Sisters' Music Shoppe<br>6:15 PM</color></size></b>"
+$/$ "[speed s]<b><size=93><color=green>Tuesday, December 21st, 1963<br>Rush Sisters' Music Shoppe<br>6:15 PM</color></size></b>"
 show Alexander Left1
 show Violet Right2
 pose Alexander explaining
@@ -82,7 +82,7 @@ show Violet Right2
 
 eff ding
 $AX$ "Wow, he managed to trespass AND get the officer to apologize for it!"
-show Violet confused
+pose Violet confused
 $VL$ "Huh, wonder why I can never get away with that."
 pose Alexander smirk
 $AX$ "Well, you're a bit different."

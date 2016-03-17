@@ -84,8 +84,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPickUp: 0
   IsCharacter: 1
-  minStageRange: 0
-  maxStageRange: 0
+  minStageRange: 1
+  maxStageRange: 3
 --- !u!212 &21230070
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -122,6 +122,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minStageRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxStageRange
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

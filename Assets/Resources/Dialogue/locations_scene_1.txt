@@ -12,9 +12,6 @@ wharf
 id 3
 station
 crime
-market
-music
-wharf
 id 4
 station
 crime
