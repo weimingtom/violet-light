@@ -16,11 +16,12 @@ Show Violet Offscreen
 
 // facing right
 show Policeman Right2
+bgm sax
 
-music Sax
 pose Michael sax 
 show Michael Left1
 //slow
+
 
 
 // finish animation
@@ -45,7 +46,7 @@ pose Policeman neutral
 
 eff ding
 pose Michael think
-$SX$ "Crimescene?" 
+$SX$ "Crimescene?"
 pose Michael cocky
 $SX$ "This looks much like a humble music shop to me."
 
@@ -71,6 +72,7 @@ $SX$ "Well reguardless, I'll be off!"
 Show Policeman Offscreen
 Show Michael Offscreen
 
+bgm violetstheme
 
 // pan back to Alex and violet
 Pose Alexander unimpressed
@@ -114,3 +116,4 @@ $AX$ "They're police officers, not dogs."
 Pose Violet Cocky
 $VL$ "It's all the same in the wild, Alex."
 $AX$ "Sure, Violet."
+bgm shop

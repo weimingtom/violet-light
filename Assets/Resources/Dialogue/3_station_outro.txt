@@ -12,7 +12,7 @@ pose Violet surprised
 $VL$ "What is it now?"
 pose Violet cocky
 $VL$ "[eff crash][speed f]Ace dork-tective!"
-
+bgm null
 $SP$ "Hahaha"
 $SP$ "Even if eeeverrrythiiing you said was somehow RIIIIGHT,"
 $SP$ "Well I mean of course it's not, but I'll play your game, cupcake."
@@ -66,7 +66,7 @@ $AX$ "That's just probably because, not enough to keep her here much longer, let
 pose Sharp nervous
 $SP$ "Hmph-"
 
-$VL$ "Exactly." 
+$VL$ "Exactly."
 pose Violet cocky
 $VL$ "Quite the shocking revelation isn't it, Ace dork-tective?"
 $AX$ "Not the sharpest tack are you?"
@@ -107,7 +107,7 @@ pose Alexander upset
 pose Violet srs
 $AX$ "Looks like he's got us cornered."
 $VL$ "Things were looking up but now they've gone from bad to worse."
-
+bgm harmony
 //fade out drama music
 //fade out
 //fade in
@@ -149,6 +149,11 @@ $AX$ "Yeah, cause' crime never sleeps!"
 
 pose Sharp neutral
 $SP$ "..."
-
+bgm sad
+show Sharp Offscreen
+show Alexander Offscreen
+show Harmony Offscreen
+show Violet Offscreen
+bg null
 
 load 3_midnight

@@ -202,6 +202,7 @@ public class StringParser : MonoBehaviour
                         Debug.Log("<color=green>[StringParser]</color> CREATED NEW BGM COMMAND + " + parsedCommand[1].ToLower());
                         MusicCommand BGM = new MusicCommand();
                         BGM.Set(parsedCommand[1].ToLower());
+                        CommandManager.Instance.AddCommand(BGM);
                     }
                 }
                 break;

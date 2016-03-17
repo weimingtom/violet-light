@@ -31,7 +31,7 @@ $??$ "...."
 
 
 $/$ "What happens next? Find out in the full version of Violet Light and the Forever Machine Case Zero!"
-$/$ "Coming soon."
+$/$ "Coming soon.[time 1000]"
 
-fade out
+//fade out
 advquest

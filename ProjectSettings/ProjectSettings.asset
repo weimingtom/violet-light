@@ -15,8 +15,8 @@ PlayerSettings:
   defaultCursor: {fileID: 2800000, guid: 92bbd7415c24e4b4d9ea0cfa9d3c88b5, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 0
-  defaultScreenWidth: 1920
-  defaultScreenHeight: 1080
+  defaultScreenWidth: 1280
+  defaultScreenHeight: 720
   defaultScreenWidthWeb: 960
   defaultScreenHeightWeb: 600
   m_RenderingPath: 1
@@ -37,7 +37,7 @@ PlayerSettings:
   useOSAutorotation: 1
   use32BitDisplayBuffer: 1
   disableDepthAndStencilBuffers: 0
-  defaultIsFullScreen: 1
+  defaultIsFullScreen: 0
   defaultIsNativeResolution: 0
   runInBackground: 1
   captureSingleScreen: 0
@@ -190,12 +190,13 @@ PlayerSettings:
     height: 180
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
-  resolutionDialogBanner: {fileID: 0}
+  resolutionDialogBanner: {fileID: 2800000, guid: 48ca44e3d08ea3648a0370a5792299c5,
+    type: 3}
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 145502c0a2b9b4e45b5599b5d46ea828, type: 3}
+      m_Icon: {fileID: 2800000, guid: 48ca44e3d08ea3648a0370a5792299c5, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching: []

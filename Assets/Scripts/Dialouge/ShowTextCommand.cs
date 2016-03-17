@@ -7,8 +7,8 @@ public class ShowTextCommand : Commands
 	int indexPassed = 0;
 	float timeTracker = 0;
     // TODO(jesse): Make set speed command
-    public float defaultSpeed = 0.035f;
-    public float speed = 0.035f;
+    public float defaultSpeed = 0.025f;
+    public float speed = 0.025f;
     //0.035f
     string conversationTag = "";
     //string conversation = "";
@@ -161,7 +161,7 @@ public class ShowTextCommand : Commands
                 {
                     return true;
                 }
-                else
+                else if (!finishWithoutClick )
                 {
                     if( Input.GetMouseButtonDown( 0 ) && skipCheck == false && !MenuManager.instance.CheckMouseAbove() && SceneManager.Instance.GetCanControl())
                     {
@@ -238,17 +238,22 @@ public class ShowTextCommand : Commands
             {
             case("s"):
             {
-                speed =  defaultSpeed * 2.5f;
+                speed =  defaultSpeed * 2.0f;
             }
             break;
             case ("m"):
             {
-                speed = defaultSpeed * 1.5f;    
+                speed = defaultSpeed;    
             }
             break;
             case ("f"):
             {
-                speed = defaultSpeed / 2;
+                speed = defaultSpeed / 1.7f;
+            }
+            break;
+            case ("o"):
+            {
+                speed = 0.035f;
             }
             break;
             default:

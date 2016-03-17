@@ -14,4 +14,4 @@ Pose Violet Happy
 eff ding
 $VL$ "There might be a few chaps left around!"
 pose Violet Cocky
-$VL$ "Let's see what we can find, love!" 
+$VL$ "Let's see what we can find, love!"

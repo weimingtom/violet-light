@@ -337,15 +337,7 @@ public class SceneManager : MonoBehaviour
             ResetCursor();
             //if (!SceneManager.Instance.GetInputBlocker())
             {
-                // TODO REMOVE THIS
-                if( ItemManager.Instance.CheckItem( "icy_streets" ) && ItemManager.Instance.CheckItem( "neck_wound" ) )
-                {
-                    if( debugQuestBool == false )
-                    {
-                        AdvQuest();
-                        debugQuestBool = true;
-                    }
-                }
+                
                 string introScene = QuestStage.ToString() + "_" + Scenes[currentScene].Prefab + "_" + "intro";
                 if (FileReader.Instance.IsScene(introScene) && !GetScenePlayed(introScene))
                 {

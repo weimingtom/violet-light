@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d39f3df24917448bd8a4b6c1cdcf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endlag: .100000001
+  endlag: 1.5
   zoomTime: 5
 --- !u!1001 &100100000
 Prefab:
@@ -50,7 +50,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: endlag
-      value: .100000001
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: zoomTime

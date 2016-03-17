@@ -7,3 +7,4 @@ $AX$ "Okay... I'll jot that down."
 item icy_streets
 eff item
 $/$ "<size=93><color=blue>Icy Streets added to your journal.</color></size>"
+advquest

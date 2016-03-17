@@ -5,6 +5,8 @@ $/$ "[speed s]<b><size=93><color=green>Tuesday, December 21st, 1963<br>LPD - Hol
 
 $PL$ "[speed f][eff yell]<size=90>WA-WAIT-</size>"
 $PL$ "[speed f][eff crash]<size=90>You can't go in there!</size>"
+
+
 eff door
 bg police_station
 show Violet Left2
@@ -101,6 +103,7 @@ pose Alexander Determined
 pose Harmony Ashamed
 show Harmony Right2
 
+bgm harmony
 pose Violet shock
 $VL$ "[eff crash]H-Harmony,[time 1][speed f] are you okay?[noclick]"
 pose Violet Explaining
@@ -146,7 +149,6 @@ bg police_station
 show Violet Left2
 show Harmony Right1
 show Alexander Left1
-
 
 
 pose Harmony Sad

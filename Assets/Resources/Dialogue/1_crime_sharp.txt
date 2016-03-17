@@ -8,15 +8,16 @@ show Alexander Right1
 show Violet Right2
 Pose Alexander Neutral
 Pose Violet Neutral
-
-$SP$ "H-huh?[time 1] Behind me?[eff clue]"
+bgm none
+$SP$ "[eff clue]H-huh? Behind me?"
 
 pose Sharp Cocky
 eff sharpzoom
 $SP$ "[speed s]...[time 5][noclick]"
 // Violet bursts his bubble
 
-eff smack
+eff stab2
+bgm theme
 // snap back to normal camera
 pose Sharp Surprised
 
@@ -30,7 +31,7 @@ pose Sharp Upset
 $SP$ "[eff yell]HOLD IT!"
 pose Sharp Explaining
 
-$SP$ "[speed s]This,[time 1]this is a Crime Scene."
+$SP$ "[speed s]This,[time 1] this is a Crime Scene."
 pose Sharp Cocky
 $SP$ "[speed m]Common folk like [speed s]yourselves[speed m] can't be here."
 pose Sharp neutral
@@ -104,7 +105,7 @@ pose Sharp Neutral
 $SP$ "Well I'll tell the blues to back off for a bit,[time 1] give ya some room to [eff ding]<color=blue>'play detective'</color>."
 pose Sharp Serious
 $SP$ "Also,[time 1] you guys'll need [eff clue]<color=green>this</color> if you don't have a copy already."
-$SP$ "It's a <color=blue>report of what we know about the body at this time</color> and it also has <color=blue>a list of relevent locations to the case</color>." 
+$SP$ "It's a <color=blue>report of what we know about the body at this time</color> and it also has <color=blue>a list of relevent locations to the case</color>."
 //[showicon police_report]
 
 pose Alexander Scribbling
@@ -150,6 +151,8 @@ show Alexander Left2 r
 
 $AX$ "Er...[time 1] R-right."
 
+bgm violetstheme
+
 pose Violet Happy
 $VL$ "We should be able to find some clues using my handy-dandy [eff ding]<color=red>Magnifying Glass</color>!"
 pose Alexander Unimpressed
@@ -161,6 +164,7 @@ $VL$ "That'll let us know whether or not to check it again."
 pose Alexander Thinking
 $AX$ "That's actually kinda nifty."
 
+bgm crime
 
 advquest
 

@@ -1,7 +1,7 @@
 $/$ "[speed s]<b><size=93><color=green>Tuesday, December 21st, 1963,<br>London Police Department – Holding Room B<br>8:47 PM</color></size></b>"
 show Sharp Left1
 show Harmony Right1
-
+bgm harmony
 $SP$ "Sooo... still not talkin eh?"
 // flip sharp
 pose Sharp cocky
@@ -96,6 +96,7 @@ show Alexander Offscreen
 show Harmony Offscreen
 show Sharp Center
 
+bgm violetstheme
 
 eff testimony
 $/$ "[speed s]<b><color=green>BEGIN TESTIMONY</color></b>"

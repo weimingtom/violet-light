@@ -1,3 +1,4 @@
+bgm theme
 		show Alexander right2
 show Violet right1
 		show Sharp left1
