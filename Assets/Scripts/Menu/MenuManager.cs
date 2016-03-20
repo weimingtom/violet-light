@@ -52,15 +52,7 @@ public class MenuManager : MonoBehaviour
         myState = state.SaveLoad;
     }
 
-	void Update () 
-    {
-	    //check if open/close menu button was pressed
-        if( Input.GetKeyDown( KeyCode.Escape ) && menuButton.activeInHierarchy && !CommandManager.Instance.myBannerBox.activeInHierarchy )
-        {
-			ToggleMenu();
-		}
-	}
-
+	
 	public bool GetMenuActive()
 	{
 		return active;
@@ -87,7 +79,8 @@ public class MenuManager : MonoBehaviour
         {
             if (!active)
             {
-			    OpenMenu();
+                OpenMenu(); 
+			    
                 ItemManager.Instance.SetLoadInventory( true );
 
             }
@@ -101,21 +94,21 @@ public class MenuManager : MonoBehaviour
 
     public void OpenEvidenceTab()
     {
-        ToggleMenu();
+        OpenMenu(); 
         calledByOpenMenuCommand = true;
         openMenuState = state.Evidence;
     }
 
     public void OpenTravelTab()
     {
-        ToggleMenu();
+        OpenMenu();
         calledByOpenMenuCommand = true;
         openMenuState = state.Location;
     }
 
     public void ForceCloseMenu()
     {
-        ToggleMenu();
+        CloseMenu();
         forceCloseMenu = true;
     }
 
@@ -267,12 +260,12 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if( forceCloseMenu && !UIAnimation.Instance.animateBackward && !UIAnimation.Instance.animateForward )
         {
             forceCloseMenu = false;
-            ToggleMenu();
+            CloseMenu();
         }
         if( calledByOpenMenuCommand && !animateMenu )
         {
