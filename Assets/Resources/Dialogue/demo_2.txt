@@ -1,0 +1,86 @@
+bg docks
+bgm harmony
+Show Violet Left1
+Show Alexander Left2
+Pose Violet Happy
+$VL$ "Hey Ho! All aboaarrrd![noclick]"
+
+Pose Alexander embarrassed
+$AX$ "Uhm... what are you doing violet?[noclick]"
+Pose Violet neutral
+$VL$ "Fisherman talk.[noclick]"
+
+Show Fisher Right2
+pose Fisher Explaining
+$FM$ "Why, 'ello 'dere![noclick]"
+pose Fisher Neutral
+Pose Alexander Nervous
+$AX$ "R-right.[noclick]"
+Pose Alexander neutral
+$AX$ "Hello, my name is Alexander, and this is my partner Violet.[noclick]"
+pose Fisher Explaining
+$FM$ "Nice to meet you, I'm Dale![noclick]"
+pose Fisher Neutral
+$VL$ "The pleasure is ours.[noclick]"
+$AX$ "Do you mind if we ask you some questions?[noclick]"
+pose Fisher Explaining
+$FM$ "Awh shucks, well I s'pose I could spare a couple o' seconds for some folks like yer-selves.[noclick]"
+pose Fisher Neutral
+Pose Violet happy
+$VL$ "Awww, thanks love![noclick]"
+Pose Violet neutral
+
+$AX$ "Perfect.[noclick]"
+$AX$ "Do you happen to know of anyone around here who discovered a body last morning?[noclick]"
+pose Fisher Explaining
+$FM$ "Aye! That I do![noclick]"
+$FM$ "You be lookin at 'im![noclick]"
+pose Fisher Neutral
+
+Pose Alexander neutral
+$AX$ "Huh?[noclick]"
+$VL$ "He means himself, you dummy.[noclick]"
+$AX$ "In the flesh![noclick]"
+$AX$ "Ri-right![noclick]"
+pose Fisher Explaining
+$FM$ "So what is it you want to know?[noclick]"
+pose Fisher Neutral
+$AX$ "What can you tell us about the account?[noclick]"
+Pose Alexander cocky
+pose Fisher Explaining
+$FM$ "Well i mean, I was just out 'ere sailing about, getin' me mornin' dues in.[noclick]"
+$FM$ "When all of a sudden I spots me a floatin' girl out by younder river.[noclick]"
+$FM$ "Thought she were a mermaid at first glance, that I did.[noclick]"
+
+Pose Alexander neutral
+pose Fisher Explaining
+$FM$ "An' that's when I sailed o'er 'dere and found 'er floatin' ashore by ye old river[noclick]"
+$FM$ "Uhm...[noclick]"
+$FM$ "An' then I be quip'n about, callin' round, try'n to get 'er attention![noclick]"
+$FM$ "Then I noticed the young lass be dead![noclick]"
+
+pose Alexander nervous
+pose Fisher Explaining
+$FM$ "An I be callin' the police as I pull ashore, laying me hat on the box.[noclick]"
+Pose Alexander unimpressed
+$FM$ "An' then they show up, ask me the right same question an' be off![noclick]"
+pose Fisher Neutral
+$AX$ "Uhm... thank you... for that...[noclick]"
+
+Pose Violet cocky
+$VL$ "Hmm... so you're saying she washed ashore as you saw her this morning?[noclick]"
+Pose Alexander surprised
+pose Fisher Explaining
+$FM$ "Exactly![noclick]"
+pose Fisher Neutral
+Pose Alexander scribbling
+$AX$ "Wow Violet.[noclick]"
+$VL$ "That's why I'm the expert[noclick]"
+$VL$ "Anyways thank you for your time, we won't keep you any longer.[noclick]"
+pose Fisher Explaining
+$FM$ "New probem![noclick]"
+pose Fisher Neutral
+eff item
+item updated_report
+$/$ "<size=93><color=blue>Report updated in journal!</color></size>[noclick]"
+// add that she had just floated ashore that morning

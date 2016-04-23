@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public bool newGame {get; set;}
     public int gameToLoad {get; set;}
 
+    private bool demoMode = false;
+
     void Awake()
     {
         if( GameManager.instance == null )
@@ -30,6 +32,16 @@ public class GameManager : MonoBehaviour
         newGame = _newGame;
         gameToLoad = _gameToLoad;
         Application.LoadLevel( "MainScene" );
+    }
+
+    public void SetDemoMode(bool _enabled)
+    {
+        demoMode = _enabled;
+    }
+
+    public bool IsDemoMode()
+    {
+        return demoMode;
     }
 
 }

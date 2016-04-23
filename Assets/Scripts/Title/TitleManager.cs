@@ -26,7 +26,12 @@ public class TitleManager : MonoBehaviour
     private bool done = false;
     private int btn = -1;
     private int stageWhenDone = 3;
+
+    public float attractTimeout = 10.0f;
+    private float attractTimer = 0.0f;
     Vector3 newpos;
+
+    private bool menuMode = true;
 
     private List<GameObject> loadButtons = new List<GameObject>();
     public GameObject backButton;
@@ -58,57 +63,91 @@ public class TitleManager : MonoBehaviour
         
     }
 
+    // TODO(jesse): Should be an enum 
     private int menuStage = 0;
 	
 	void Update () 
     {
+        if(menuMode)
+        {
+            if(Input.GetMouseButton(0))
+            {
+                attractTimer = attractTimeout + Time.time;
+            }
+            ProcessMenu();
+            if(menuStage>2 && Time.time > attractTimer)
+            {
+                EnterAttractMode();
+            }
+        }
+        else
+        {
+            // GOTO ATTRACT MODE
+            if(Time.time > fadeOutTimer)
+            {
+                Application.LoadLevel("DemoScene");
+            }
+        }
+	}
 
-        switch( menuStage )
-        { 
-        case 0:
-            DoStageZero();
-            break;
+    private float fadeOutTimer;
 
-        case 1:
-            DoStageOne();
-            break;
-        
-        case 2:
-            DoStageTwo();
-            break;
+    private void EnterAttractMode()
+    {
+        menuMode = false;
+        fadeOutTimer = Time.time + this.gameObject.GetComponent<FadeOutScreen>().BeginFade(1);
+    }
 
-        case 3:
-            //bring up the menu
-            DoStageThree();
-            //changing state is done in the buttons. 
-            break;
+    private void ProcessMenu()
+    {
 
-        case 4:
-            //NEW GAME
-            DoNewGame();
-            break;
+        switch (menuStage)
+        {
+            case 0:
+                DoStageZero();
+                break;
 
-        case 5:
-            //LOAD GAME
-            DoLoadGame();
-            break;
+            case 1:
+                DoStageOne();
+                break;
 
-        case 6:
-            //SETTINGS
-            DoSettings();
-            break;
+            case 2:
+                DoStageTwo();
+                break;
 
-        case 7:
-            //QUIT
-            Application.Quit();
-            break;
+            case 3:
+                //bring up the menu
+                DoStageThree();
+                //changing state is done in the buttons. 
+                break;
 
-        default:
-            Debug.LogError( "Error: Menu Stage out of bounds. [TitleManager.cs]" );
-            break;
+            case 4:
+                //NEW GAME
+                DoNewGame();
+                break;
+
+            case 5:
+                //LOAD GAME
+                DoLoadGame();
+                break;
+
+            case 6:
+                //SETTINGS
+                DoSettings();
+                break;
+
+            case 7:
+                //QUIT
+                Application.Quit();
+                break;
+
+            default:
+                Debug.LogError("Error: Menu Stage out of bounds. [TitleManager.cs]");
+                break;
         }
 
-	}
+    }
+
 
     //Switch Menu Stages Split up into functions for readability.
     private void DoStageZero()
@@ -161,6 +200,7 @@ public class TitleManager : MonoBehaviour
             MoveButtons( newpos, -1 );
             once = true;
             stageWhenDone = 3;
+            attractTimer = attractTimeout + Time.time;
         }
 
         if( !done )

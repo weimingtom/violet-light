@@ -282,7 +282,8 @@ public class CommandManager : MonoBehaviour
     {
         //MenuManager.instance.ForceCloseMenu();
         checkHideUI = false;
-        SceneMenuManager.instance.hideAll();
+        if(!GameManager.instance.IsDemoMode())
+            SceneMenuManager.instance.hideAll();
         donePrompt = false;
         wrongTextCommandIndex = 0;
         dialogueToLoad = "";
@@ -339,8 +340,11 @@ public class CommandManager : MonoBehaviour
         case false:
         if( checkHideUI == false )
         {
-            SceneMenuManager.instance.HideFromCommandManager();
-            checkHideUI = true;
+            if (!GameManager.instance.IsDemoMode())
+            {
+                SceneMenuManager.instance.HideFromCommandManager();
+                checkHideUI = true;
+            }
         }
         if( showFalseDialogue )
         {
@@ -397,6 +401,8 @@ public class CommandManager : MonoBehaviour
             else if( destroyCount == myCommand.Count )
             {
                 SetTestimonyButton( false );
+                if (!GameManager.instance.IsDemoMode())
+                { 
                 SceneManager.Instance.SetInputBlocker( false );
                 if( isExamine )
                 {
@@ -405,6 +411,7 @@ public class CommandManager : MonoBehaviour
                 else
                 {
                     SceneMenuManager.instance.EnteredNewScene();
+                }
                 }
                 done = true;
             }

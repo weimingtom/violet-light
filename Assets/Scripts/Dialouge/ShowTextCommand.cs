@@ -7,8 +7,8 @@ public class ShowTextCommand : Commands
 	int indexPassed = 0;
 	float timeTracker = 0;
     // TODO(jesse): Make set speed command
-    public float defaultSpeed = 0.015f;
-    public float speed = 0.015f;
+    private float defaultSpeed = 0.015f;
+    private float speed = 0.015f;
     //0.035f
     string conversationTag = "";
     //string conversation = "";
@@ -51,6 +51,12 @@ public class ShowTextCommand : Commands
 
     public override bool ExecuteCommand()
     {
+        if (GameManager.instance.IsDemoMode())
+        {
+            defaultSpeed = 0.05f;
+            speed = 0.05f;
+        }
+
         if( InitialSetup == true )
         {
             CommandManager.Instance.allTextInScreen = false;
@@ -71,10 +77,22 @@ public class ShowTextCommand : Commands
             return false;
         }
         // NOTE(jesse): This is so you can't go to next dialogue when menu is open
-        if( !MenuManager.instance.GetMenuActive() )
+        bool canGo = false;
+        if(GameManager.instance.IsDemoMode())
+        {
+            canGo = true;
+        }
+        else
+        {
+            canGo = !MenuManager.instance.GetMenuActive();
+        }
+        if (canGo)
         {
             if ((indexPassed < DialogueHolder.Instance.GetDialogue(conversationTag).Length || waitForTime == true || pause == true)) 
 		    {
+                bool canSkip = false;
+                if(!GameManager.instance.IsDemoMode())
+                SceneManager.Instance.GetCanSkip();
                 if( waitForTime == true )
                 {
                     UpdateTime();
@@ -86,7 +104,7 @@ public class ShowTextCommand : Commands
                             pause = false;
                     }
                 }
-                else if(SceneManager.Instance.GetCanSkip())
+                else if (canSkip)
                 {
                     if( Input.GetMouseButtonDown( 0 ) )
                     { 
@@ -214,6 +232,7 @@ public class ShowTextCommand : Commands
 
     void RegisterTextCommand(string _tag, string _value)
     {
+
         switch( _tag.ToLower() )
         {
         case "time":

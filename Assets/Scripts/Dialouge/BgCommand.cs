@@ -29,7 +29,11 @@ public class BgCommand : Commands
 	}
 	public override bool ExecuteCommand()
 	{
-        SceneManager.Instance.ChangeBg(bg, spd);
+        if (!GameManager.instance.IsDemoMode())
+            SceneManager.Instance.ChangeBg(bg, spd);
+        else
+            DemoManager.Instance.ChangeBg(bg, spd);
+
         return true;
 		//return !loop;
 	}

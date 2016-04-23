@@ -90,23 +90,33 @@ public class FileReader : MonoBehaviour
     //update upload wrong scene here
     public void LoadScene( string _scene)
 	{
-        if (SceneManager.Instance.GetScenePlayed(_scene))
+        if(GameManager.instance.IsDemoMode())
         {
-            SceneManager.Instance.SetCanSkip(true);
+            CommandManager.Instance.Reinitialize();
+            Debug.Log("[File Reader] Loading in scene " + _scene);
+            TextAsset command = Resources.Load(scriptFolder + _scene) as TextAsset;
+            StringParser.Instance.RunParse(command.ToString());
+
         }
         else
-        {
-            SceneManager.Instance.SetCanSkip(false);
+        { 
+            if (SceneManager.Instance.GetScenePlayed(_scene))
+            {
+                SceneManager.Instance.SetCanSkip(true);
+            }
+            else
+            {
+                SceneManager.Instance.SetCanSkip(false);
 
+            }
+            Debug.Log("[File Reader] Loading in scene " + _scene);
+            CommandManager.Instance.Reinitialize();
+		    TextAsset command = Resources.Load(scriptFolder + _scene) as TextAsset;
+            SceneManager.Instance.SetInputBlocker( true );
+            StringParser.Instance.RunParse(command.ToString());
+            SceneManager.Instance.SetScenePlayed(_scene);
+            SceneManager.Instance.ResetCursor();
         }
-        Debug.Log("[File Reader] Loading in scene " + _scene);
-        CommandManager.Instance.Reinitialize();
-		TextAsset command = Resources.Load(scriptFolder + _scene) as TextAsset;
-        SceneManager.Instance.SetInputBlocker( true );
-        StringParser.Instance.RunParse(command.ToString());
-        SceneManager.Instance.SetScenePlayed(_scene);
-        SceneManager.Instance.ResetCursor();
-
 	}
     // NOTE(jesse): Check if the scene exists
     public bool IsScene(string _scene)

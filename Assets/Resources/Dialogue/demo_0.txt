@@ -1,0 +1,171 @@
+bg crime_scene
+bgm crime
+show Sharp Center l
+show Policeman Left1
+pose Sharp Cocky
+$SP$ "Oh yeah? Well, of course I was right![noclick]"
+pose Sharp Thinking
+
+show Alexander Right1
+show Violet Right2
+Pose Alexander Neutral
+Pose Violet Neutral
+bgm none
+$SP$ "[eff clue]H-huh? Behind me?[noclick]"
+
+pose Sharp Cocky
+$SP$ "[speed s]...[time 5][noclick]"
+// Violet bursts his bubble
+
+eff stab2
+bgm theme
+// snap back to normal camera
+pose Sharp Surprised
+
+// pause
+// flip sharp
+show Sharp Left2 r
+
+pose Sharp Neutral
+$SP$ "[speed m]Woah, woah, woah!-[noclick]"
+pose Sharp Upset
+$SP$ "[eff yell]HOLD IT![noclick]"
+pose Sharp Explaining
+
+$SP$ "[speed s]This,[time 1] this is a Crime Scene.[noclick]"
+pose Sharp Cocky
+$SP$ "[speed m]Common folk like [speed s]yourselves[speed m] can't be here.[noclick]"
+pose Sharp neutral
+$SP$ "Especially not you, sweetheart.[noclick]"
+pose Sharp cocky
+$SP$ "Wouldn't want you to get your shoes dirty.[noclick]"
+
+pose Violet upset
+$VL$ "[speed f][eff stab]YOU-![noclick]"
+
+pose Alexander unimpressed
+$AX$ "[speed f]Keep it together Violet![noclick]"
+
+pose Violet unimpressed
+$VL$ "[eff crash]Eh, [speed s]ehm...[noclick]"
+pose Alexander Neutral
+pose Violet Explaining
+$VL$ "Actually, you're wrong, love.[noclick]"
+
+pose Sharp Surprised
+eff ding
+$SP$ "[speed f]Hmm?[noclick]"
+pose Violet Cocky
+$VL$ "We're definitely real defence attourneys.[noclick]"
+$VL$ "Actually we're [eff clue]<color=red>Miss Rush's lawyers</color> to be percise.[wait 1] On official business.[noclick]"
+
+pose Alexander Surprised
+eff ding
+$AX$ "Wait, We are-?[time 1][noclick]"
+pose Alexander puzzled
+pose Violet Explaining
+$VL$ "So please step aside.[noclick]"
+pose Violet Neutral
+pose Sharp Nervous
+$SP$ "Uh, [eff ding]right![noclick]"
+pose Sharp Cocky
+$SP$ "Of course, Miss...?[noclick]"
+
+pose Violet Explaining
+$VL$ "Light, Violet Light. And this is my assistant Alexander Strong.[noclick]"
+
+pose Alexander shocked
+show Alexander Right1 r
+$AX$ "<color=404040><size=75>Wow that worked!</size></color>[noclick]"
+pose Alexander Unimpressed
+$AX$ "<color=404040><size=75>Although, I think posing as lawyers is illegal-</size></color>[no click][noclick]"
+show Alexander Right1 l
+pose Alexander Neutral
+
+pose Sharp Explaining
+$SP$ "I'm Detective Sharp, but there really isn't much to investigate here. It's a pretty open and shut case, if I do say so myself.[noclick]"
+
+pose Violet Neutral
+pose Alexander Pondering
+$AX$ "So you're the lead detective on this case?[noclick]"
+pose Sharp Serious
+eff yell
+$SP$ "[speed f]Yep that's me![noclick]"
+
+pose Violet explaining
+$VL$ "[speed s]Uhuh...[time 1][speed f] we need to get access to the crime scene.[noclick]"
+pose Violet Cocky
+$VL$ "How about you tell your goons to let us through?[noclick]"
+pose Sharp Cocky
+$SP$ "I guess,[time 1] but it's not like you're going to find anything I haven't already discovered.[noclick]"
+pose Sharp Serious
+$SP$ "I mean really,[time 1] you two, [time 1]uh... [time 1]<color=red>'Lawyers'</color>, should just give up now.[noclick]"
+$SP$ "I have this case totally under control.[noclick]"
+
+pose Sharp Neutral
+$SP$ "Well I'll tell the blues to back off for a bit,[time 1] give ya some room to [eff ding]<color=blue>'play detective'</color>.[noclick]"
+pose Sharp Serious
+$SP$ "Also,[time 1] you guys'll need [eff clue]<color=green>this</color> if you don't have a copy already.[noclick]"
+$SP$ "It's a <color=blue>report of what we know about the body at this time</color> and it also has <color=blue>a list of relevent locations to the case</color>.[noclick]"
+//[showicon police_report]
+
+pose Alexander Scribbling
+$AX$ "I'll take that, thank you.[noclick]"
+eff item
+item police_report
+$/$ "<b><size=93><color=green>Police report added to Journal!</color></size></b>[time 1][noclick]"
+eff item
+$/$ "<b><size=93><color=green>Market, Music Shop, and Fisherman's Wharf added to the map!</color></size></b>[time 1][noclick]"
+
+pose Sharp Explaining
+$SP$ "[speed s]Soooo...[noclick]"
+$SP$ "I've got some important detective business to attend to...[noclick]"
+show Sharp Left2 l
+$SP$ "Catch you two [eff ding]<color=red>ladies</color> later![noclick]"
+
+show Sharp Offscreen
+show Policeman Offscreen
+
+pose Alexander Embarassed
+eff crash
+$AX$ "W-wait,[time 1][speed f] <size=75>I'm not a lady!</size>[noclick]"
+pose Violet Explaining
+$VL$ "Well not with THAT attitude!
+pose Alexander Unimpressed
+eff stab
+$AX$ "That's not what I--[noclick]"
+pose Alexander embarassed
+$AX$ "...[noclick]"
+Violet happy
+
+$VL$ "Time to look around!~[noclick]"
+
+// flip alex so he's facing the direction sharp went
+show Alexander Left1 l
+pose Alexander Upset
+eff crash
+$AX$ "[speed f]I'LL HAVE YOU KNOW I'VE BEEN A MAN MY WHOLE LIFE!![noclick]"
+
+pose Violet neutral
+$VL$ "...[noclick]"
+show Alexander Left2 r
+
+$AX$ "Er...[time 1] R-right.[noclick]"
+
+bgm violetstheme
+
+pose Violet Happy
+$VL$ "We should be able to find some clues using my handy-dandy [eff ding]<color=red>Magnifying Glass</color>![noclick]"
+pose Alexander Unimpressed
+$AX$ "W-why do you have that?[noclick]"
+pose Violet Explaining
+$VL$ "If we hover it over something we haven't investigated yet, then it should sparkle![noclick]"
+pose Violet Happy 
+$VL$ "That'll let us know whether or not to check it again.[noclick]"
+pose Alexander Thinking
+$AX$ "That's actually kinda nifty.[noclick]"
+
+bgm crime
+
+advquest
+

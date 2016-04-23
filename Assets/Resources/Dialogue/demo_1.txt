@@ -1,0 +1,122 @@
+
+bg music_shop
+bgm music
+$/$ "[speed s]<b><size=93><color=green>Tuesday, December 21st, 1963<br>Rush Sisters' Music Shoppe<br>6:15 PM</color></size></b>[noclick]"
+show Alexander Left1
+show Violet Right2
+pose Alexander explaining
+pose Violet thinking
+$AX$ "So this is the Rush Sisters' Music Shop?[noclick]"
+pose Violet Cocky
+$VL$ "Sure is, but I fancied it much more without all the police tape.[noclick]"
+
+pose Alexander Shock
+pose Violet Shock
+$PL$ "Please [eff crash]Sir! I can't let you through![noclick]"
+
+Show Alexander Offscreen
+Show Violet Offscreen
+
+// facing right
+show Policeman Right2
+bgm sax
+
+pose Michael sax 
+show Michael Left1
+//slow
+
+
+
+// finish animation
+// this scene needs to be refined and thought out
+$SX$ "Quite the scene you've got set up here![noclick]"
+pose Michael wink
+eff ding
+pose Policeman Talk
+eff yell
+$PL$ "Sir! I-I Can't let you go any further![noclick]"
+pose Policeman neutral
+
+pose Michael think
+$SX$ "Ah and you must be the detective in charge of the situation here, or at least you should be.[noclick]"
+pose Michael neutral
+
+pose Policeman Talk
+eff yell
+$PL$ "W-well! N-no![noclick]"
+$PL$ "B-No Sir, but thank you! And sorry but I can't let you on to the crime scene.[noclick]"
+pose Policeman neutral
+
+eff ding
+pose Michael think
+$SX$ "Crimescene?[noclick]"
+pose Michael cocky
+$SX$ "This looks much like a humble music shop to me.[noclick]"
+
+pose Policeman Talk
+eff yell
+$PL$ "W-well yes it does look like that, anywhere can be a crime scene sir, but there are extenuating circumstances.![noclick]"
+pose Policeman neutral
+
+pose Michael talk
+$SX$ "It's okay, no need to force me out, I'll be on my way.[noclick]"
+$SX% "Thank you for your time officer...[time 1] or should I say soon-to-be-detective?[noclick]"
+
+pose Policeman Talk
+eff yell
+$PL$ "A-ah Thank You! A-and sorry![noclick]"
+eff crash
+$PL$ "Ah yes, sir. Thank you, sir. And sorry, sir.[noclick]"
+pose Policeman neutral
+
+pose Michael wink
+$SX$ "Well reguardless, I'll be off![noclick]"
+
+Show Policeman Offscreen
+Show Michael Offscreen
+
+bgm violetstheme
+
+// pan back to Alex and violet
+Pose Alexander unimpressed
+Pose violet puzzled
+show Alexander Left1
+show Violet Right2
+
+eff ding
+$AX$ "Wow, he managed to trespass AND get the officer to apologize for it![noclick]"
+pose Violet confused
+$VL$ "Huh, wonder why I can never get away with that.[noclick]"
+pose Alexander smirk
+$AX$ "Well, you're a bit different.[noclick]"
+Pose Violet upset
+
+show Policeman center
+eff yell
+$PL$ "Excuse me! You two can't be here![noclick]"
+
+Pose Alexander scribbling
+Pose Violet neutral
+
+$AX$ "Detective Sharp gave us permission.[noclick]"
+$PL$ "Do you have it in writing?[noclick]"
+
+Pose Alexander unimpressed
+$AX$ "U-uh, well...[noclick]"
+$PL$ "Then you can look, but don't cross the tape![noclick]"
+
+show Policeman Offscreen
+pose Alexander Serious
+pose Violet thinking
+$VL$ "Hmm, you really messed that one up Alex![noclick]"
+
+Pose Alexander shocked
+$AX$ "I messed it up?![noclick]"
+Pose Violet Explaining
+$VL$ "You hesitated! Never show weakness! They can smell it on you.[noclick]"
+pose Alexander Unimpressed
+$AX$ "They're police officers, not dogs.[noclick]"
+Pose Violet Cocky
+$VL$ "It's all the same in the wild, Alex.[noclick]"
+$AX$ "Sure, Violet.[noclick]"
+bgm shop

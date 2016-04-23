@@ -304,6 +304,7 @@ public class StringParser : MonoBehaviour
         break;
 
         case "item":
+        if(!GameManager.instance.IsDemoMode())
         ItemManager.Instance.AddItem( parsedCommand[1].ToLower() );
         break;
 
@@ -333,6 +334,7 @@ public class StringParser : MonoBehaviour
         break;
 
         case "advquest":
+        if (!GameManager.instance.IsDemoMode())        
         SceneManager.Instance.AdvQuest();
         break;
 
@@ -560,7 +562,11 @@ public class StringParser : MonoBehaviour
                 filepath += mainString[i].ToString();
                 i++;
             }
-            SceneManager.Instance.backgroundLookup.Add( name.ToLower(), filepath );
+            if (!GameManager.instance.IsDemoMode())
+                 SceneManager.Instance.backgroundLookup.Add( name.ToLower(), filepath );
+            else
+                DemoManager.Instance.backgroundLookup.Add(name.ToLower(), filepath);
+
             i += 3;
         }
     }
